@@ -1,0 +1,41 @@
+// Pagination
+
+.pagination-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius; @span-spacing) {
+  > span{
+    font-size: @font-size;
+    margin-left: @span-spacing;
+    &:first-child{
+      margin-left:0;
+      margin-right: @span-spacing;
+    }
+  }
+  > .page-sum{
+    padding: @padding-vertical @padding-horizontal;
+  }
+  > .page-number{
+    font-size: 0;
+    > a,
+    > b,
+    > i{
+      font-size: @font-size;
+      padding: @padding-vertical @padding-horizontal;
+      line-height: @line-height-base;
+      border-radius: @border-radius;
+    }
+  }
+  > .page-limits{
+    select{
+      padding: (@padding-vertical)-1 @padding-horizontal;
+    }
+  }
+  > .page-skip{
+    input{
+      padding: (@padding-vertical)- 1 .5em;
+      border-radius: @border-radius;
+    }
+    .btn{
+      padding: @padding-vertical @padding-horizontal;
+      font-size: @font-size;
+    }
+  }
+}

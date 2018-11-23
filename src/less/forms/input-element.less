@@ -1,0 +1,174 @@
+//== Tables Variable
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+@input-height: 35px;
+@input-padding: 15px;
+@input-radius: 3px;
+@input-font-size: 14px;
+@input-padding-lg: 20px;
+@input-padding-sm: 10px;
+@input-padding-xs: 15px;
+@input-padding-no: 0;
+@input-margin-bottom: 10px;
+@brothers-line-color: #E8ECEF;
+//** Padding for cells in `.table-condensed`.
+// default
+@input-bg: #fff;
+@input-color: #666;
+@input-border-color: #E8ECEF;
+// focus
+@input-focus-bg: #fff;
+@input-focus-color: #666;
+@input-focus-border-color: #0099ff;
+// error
+@input-error-bg: #fff;
+@input-error-color: #666;
+@input-error-border-color: rgb(240, 26, 11);
+// success
+@input-success-bg: #fff;
+@input-success-color: #666;
+@input-success-border-color: green;
+// disabled
+@input-disabled-bg: #ddd;
+@input-disabled-color: #ddd;
+@input-disabled-border-color: #cccccc;
+
+
+
+/* input element */
+.input-element {
+  display: inline-block;
+  position: relative;
+  font-size: @input-font-size;
+  margin-bottom:@input-margin-bottom;
+  > input {
+    height: @input-height;
+    background-color: @input-bg;
+    padding: 0 @input-padding;
+    border: 1px solid @input-border-color;
+    color: @input-color;
+    border-radius: @input-radius;
+    outline: 0;
+    &:focus {
+      outline: 0;
+      border-color: @input-focus-border-color;
+    }
+  }
+  > .evicon {
+    font-size: 1.2em;
+    position: absolute;
+    top: 50%;
+    margin-top: -.5em;
+    color: #ccc;
+  }
+  &.suffix {
+    > input {
+      padding: 0 30px 0 @input-padding;
+    }
+    > .evicon {
+      padding-right: .3em;
+      right: 0;
+    }
+  }
+  &.prefix {
+    > input {
+      padding: 0 @input-padding 0 30px;
+    }
+    > .evicon {
+      padding-left: .3em;
+      left: 0;
+    }
+  }
+  &.block{
+    display: block;
+    > input{
+      width: 100%;
+    }
+  }
+  &.disabled {
+    > input {
+      color: @input-disabled-color;
+      background-color: @input-disabled-bg;
+      border-color: @input-disabled-border-color;
+      cursor: @cursor-disabled;
+    }
+  }
+  &.error {
+    > input {
+      color: @input-error-color;
+      background-color: @input-error-bg;
+      border-color: @input-error-border-color;
+    }
+  }
+  &.success {
+    > input {
+      color: @input-success-color;
+      background-color: @input-success-bg;
+      border-color: @input-success-border-color;
+    }
+  }
+}
+
+//Input Group
+.input-element-group {
+  font-size: 0;
+  > .input-element,
+  > .input-element-brothers,
+  > .input-element-joint{
+    margin-left: 15px;
+  }
+  > .input-element:first-child,
+  > .input-element-brothers:first-child,
+  > .input-element-joint:first-child,
+  > .input-element.block{
+    margin-left: 0;
+  }
+}
+// Brothers Input
+.input-element-brothers{
+  font-size: 0;
+  display: inline-block;
+  > .input-element {
+    margin-left: 0;
+  }
+  > .brothers-line{
+    display: inline-block;
+    font-size: @input-font-size;
+    height: @input-height;
+    line-height: @input-height;
+    margin: 0 1em;
+    color: darken(@input-border-color, 20%);
+    font-style: normal;
+  }
+}
+
+//Joint Input
+.input-element-joint{
+  font-size:0;
+  display: inline-block;
+  > .input-element:first-child{
+    > input{
+      .border-right-radius(0);
+    }
+  }
+  > .input-element:last-child{
+    > input{
+      .border-left-radius(0);
+    }
+  }
+  > .joint-line{
+    display: inline-block;
+    vertical-align: top;
+    font-size: @input-font-size;
+    height: @input-height;
+    line-height: @input-height;
+    padding: 0 1em;
+    color: darken(@input-border-color, 20%);
+    font-style: normal;
+    border-width: 1px 0;
+    border-style:solid;
+    border-color: @input-border-color;
+  }
+}

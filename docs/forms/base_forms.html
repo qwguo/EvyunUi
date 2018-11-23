@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dist/css/project.min.css">
+  <script src="/docs/js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="/docs/js/DlHighlight/h1.css">
+  <script src="/docs/js/DlHighlight/highlight-all.js"></script>
+  <title>base_forms</title>
+</head>
+<body>
+<div class="main-wrap">
+  <div class="container-fluid">
+    <h3 class="page-header">基本表单元素</h3>
+    <p>单独的表单控件会被自动赋予一些全局样式。所有设置了 <code>.form-control</code> 类的 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 和 <code>&lt;select&gt;</code> 元素都将被默认设置宽度属性为 <code>width: 100%;</code>。 将 <code>label</code> 元素和前面提到的控件包裹在 <code>.form-group</code> 中可以获得最好的排列。</p>
+    <div class="show-forms">
+      <h4 class="page-header">带项目标题的表单：</h4>
+      <form>
+        <div class="form-group">
+          <label for="username_1">用户名：</label>
+          <input type="email" class="form-control" id="username_1" placeholder="账号/邮箱/手机号">
+          <span class="help-block">这是用户名提示信息</span>
+        </div>
+        <div class="form-group">
+          <label for="userpressword_1">密码：</label>
+          <input type="password" class="form-control" id="userpressword_1" placeholder="Password">
+          <span class="help-block">这是密码提示信息</span>
+        </div>
+        <div class="form-group">
+          <label for="userupfile_1">文件上传：</label>
+          <input type="file" id="userupfile_1">
+          <p class="help-block">上传文件提示信息</p>
+        </div>
+        <div class="form-group">
+          <label>性别选择：</label>
+          <div class="radio">
+            <label>
+              <input name="sex_1" type="radio">男
+            </label>
+            <label>
+              <input name="sex_1" type="radio">女
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>兴趣爱好：</label>
+          <div class="checkbox">
+            <label>
+              <input name="interest_1" type="checkbox">体育
+            </label>
+            <label>
+              <input name="interest_1" type="checkbox">音乐
+            </label>
+            <label>
+              <input name="interest_1" type="checkbox">吃
+            </label>
+            <label>
+              <input name="interest_1" type="checkbox">外出旅游
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+      </form>
+      <pre class="html" name="pre">
+<form>
+  <div class="form-group">
+    <label for="username_1">用户名：</label>
+    <input type="email" class="form-control" id="username_1" placeholder="账号/邮箱/手机号">
+    <span class="help-block">这是用户名提示信息</span>
+  </div>
+  <div class="form-group">
+    <label for="userpressword_1">密码：</label>
+    <input type="password" class="form-control" id="userpressword_1" placeholder="Password">
+    <span class="help-block">这是密码提示信息</span>
+  </div>
+  <div class="form-group">
+    <label for="userupfile_1">文件上传：</label>
+    <input type="file" id="userupfile_1">
+    <p class="help-block">上传文件提示信息</p>
+  </div>
+  <div class="form-group">
+    <label>性别选择：</label>
+    <div class="radio">
+      <label>
+        <input name="sex_1" type="radio">男
+      </label>
+      <label>
+        <input name="sex_1" type="radio">女
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>兴趣爱好：</label>
+    <div class="checkbox">
+      <label>
+        <input name="interest_1" type="checkbox">体育
+      </label>
+      <label>
+        <input name="interest_1" type="checkbox">音乐
+      </label>
+      <label>
+        <input name="interest_1" type="checkbox">吃
+      </label>
+      <label>
+        <input name="interest_1" type="checkbox">外出旅游
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">提交</button>
+</form>
+      </pre>
+      <h4 class="page-header">不带项目标题的表单：</h4>
+      <form>
+        <div class="form-group">
+          <label class="sr-only" for="username_2">用户名：</label>
+          <input type="email" class="form-control" id="username_2" placeholder="账号/邮箱/手机号">
+          <span class="help-block">这是用户名提示信息</span>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="userpressword_2">密码：</label>
+          <input type="password" class="form-control" id="userpressword_2" placeholder="Password">
+          <span class="help-block">这是密码提示信息</span>
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="userupfile_2">文件上传：</label>
+          <input type="file" id="userupfile_2">
+          <p class="help-block">上传文件提示信息</p>
+        </div>
+        <div class="form-group">
+          <label class="sr-only">性别选择：</label>
+          <div class="radio">
+            <label>
+              <input name="sex_2" type="radio">男
+            </label>
+            <label>
+              <input name="sex_2" type="radio">女
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="sr-only">兴趣爱好：</label>
+          <div class="checkbox">
+            <label>
+              <input name="interest_2" type="checkbox">体育
+            </label>
+            <label>
+              <input name="interest_2" type="checkbox">音乐
+            </label>
+            <label>
+              <input name="interest_2" type="checkbox">吃
+            </label>
+            <label>
+              <input name="interest_2" type="checkbox">外出旅游
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+      </form>
+      <pre class="html" name="pre">
+<form>
+  <div class="form-group">
+    <label class="sr-only" for="username_2">用户名：</label>
+    <input type="email" class="form-control" id="username_2" placeholder="账号/邮箱/手机号">
+    <span class="help-block">这是用户名提示信息</span>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="userpressword_2">密码：</label>
+    <input type="password" class="form-control" id="userpressword_2" placeholder="Password">
+    <span class="help-block">这是密码提示信息</span>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="userupfile_2">文件上传：</label>
+    <input type="file" id="userupfile_2">
+    <p class="help-block">上传文件提示信息</p>
+  </div>
+  <div class="form-group">
+    <label class="sr-only">性别选择：</label>
+    <div class="radio">
+      <label>
+        <input name="sex_2" type="radio">男
+      </label>
+      <label>
+        <input name="sex_2" type="radio">女
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="sr-only">兴趣爱好：</label>
+    <div class="checkbox">
+      <label>
+        <input name="interest_2" type="checkbox">体育
+      </label>
+      <label>
+        <input name="interest_2" type="checkbox">音乐
+      </label>
+      <label>
+        <input name="interest_2" type="checkbox">吃
+      </label>
+      <label>
+        <input name="interest_2" type="checkbox">外出旅游
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">提交</button>
+</form>
+      </pre>
+      <h4 class="page-header">带项目名内联表单实例：</h4>
+      <p>为 <code>&lt;form&gt;</code> 元素添加 <code>.form-inline</code> 类可使其内容左对齐并且表现为 <code>inline-block</code> 级别的控件。<strong>只适用于视口（viewport）至少在 768px 宽度时（视口宽度再小的话就会使表单折叠）。</strong></p>
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="username_3">用户名：</label>
+          <input type="email" class="form-control" id="username_3" placeholder="账号/邮箱/手机号">
+        </div>
+        <div class="form-group">
+          <label for="userpressword_3">密码：</label>
+          <input type="password" class="form-control" id="userpressword_3" placeholder="Password">
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox">记住密码
+          </label>
+        </div>
+          <button type="submit" class="btn btn-primary">提交</button>
+      </form>
+      <pre name="pre" class="html">
+<form class="form-inline">
+  <div class="form-group">
+    <label for="username_3">用户名：</label>
+    <input type="email" class="form-control" id="username_3" placeholder="账号/邮箱/手机号">
+  </div>
+  <div class="form-group">
+    <label for="userpressword_3">密码：</label>
+    <input type="password" class="form-control" id="userpressword_3" placeholder="Password">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">记住密码
+    </label>
+  </div>
+    <button type="submit" class="btn btn-primary">提交</button>
+</form>
+      </pre>
+      <h4 class="page-header">不带项目名内联表单实例：</h4>
+      <form class="form-inline">
+        <div class="form-group">
+          <label class="sr-only" for="username_4">用户名：</label>
+          <input type="email" class="form-control" id="username_3" placeholder="账号/邮箱/手机号">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="userpressword_4">密码：</label>
+          <input type="password" class="form-control" id="userpressword_3" placeholder="Password">
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox">记住密码
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+      </form>
+      <pre name="pre" class="html">
+<form class="form-inline">
+  <div class="form-group">
+    <label class="sr-only" for="username_4">用户名：</label>
+    <input type="email" class="form-control" id="username_4" placeholder="账号/邮箱/手机号">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="userpressword_4">密码：</label>
+    <input type="password" class="form-control" id="userpressword_4" placeholder="Password">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">记住密码
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">提交</button>
+</form>
+      </pre>
+      <h4 class="page-header">项目名同行表单实例：</h4>
+      <p>通过为表单添加 <code>.form-horizontal</code> 类，并联合使用 Bootstrap 预置的栅格类，可以将 <code>label</code> 标签和控件组水平并排布局。这样做将改变 <code>.form-group</code> 的行为，使其表现为栅格系统中的行（row），因此就无需再额外添加 <code>.row</code> 了。</p>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-1 control-label">Email</label>
+          <div class="col-sm-11">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-1 control-label">Password</label>
+          <div class="col-sm-11">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-1 col-sm-11">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox">记住密码
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-1 col-sm-11">
+            <button type="submit" class="btn btn-primary">登录</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="/docs/js/public.js"></script>
+</body>
+</html>

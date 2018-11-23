@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dist/css/project.min.css">
+    <script src="/docs/js/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="/docs/js/DlHighlight/h1.css">
+    <script src="/docs/js/DlHighlight/highlight-all.js"></script>
+    <script src="/dist/js/bootstrap.js"></script>
+    <title>页码</title>
+</head>
+
+<body>
+    <div class="main-wrap">
+        <div class="container-fluid">
+            <h3 class="page-header">页码样式</h3>
+            <div class="show-page">
+              <h4 class="page-header">默认页码</h4>
+              <div class="pagination" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+                <span class="page-number">
+                  <a class="disabled" href="###" data-page="1">上一页</a>
+                  <a href="###" data-page="1">1</a>
+                  <b>2</b>
+                  <a href="###" data-page="3">3</a>
+                  <i>&hellip;</i>
+                  <a href="###" data-page="10">10</a>
+                  <a href="###" data-page="11">11</a>
+                  <a href="###" data-page="3">下一页</a>
+                </span>
+              </div>
+              <pre class="html" name="pre">
+<div class="pagination" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+  <span class="page-number">
+    <a class="disabled" href="###" data-page="1">上一页</a>
+    <a href="###" data-page="1">1</a>
+    <b>2</b>
+    <a href="###" data-page="3">3</a>
+    <i>&hellip;</i>
+    <a href="###" data-page="10">10</a>
+    <a href="###" data-page="11">11</a>
+    <a href="###" data-page="3">下一页</a>
+  </span>
+</div>
+              </pre>
+
+              <h4 class="page-header">页码位置</h4>
+
+              <h5>行内对齐方式</h5>
+              <p>给：<code>&lt;pagination&gt;</code>类的标签添加：<code>class="text-left"</code>居左（默认或者不添加），<code>class="text-center"</code>居中，<code>class="text-right"</code>居右</p>
+              <div class="pagination text-center" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+                <span class="page-number">
+                  <a class="disabled" href="###" data-page="1">上一页</a>
+                  <a href="###" data-page="1">1</a>
+                  <b>2</b>
+                  <a href="###" data-page="3">3</a>
+                  <i>&hellip;</i>
+                  <a href="###" data-page="10">10</a>
+                  <a href="###" data-page="11">11</a>
+                  <a href="###" data-page="3">下一页</a>
+                </span>
+              </div>
+              <div class="pagination text-right" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+                <span class="page-number">
+                  <a class="disabled" href="###" data-page="1">上一页</a>
+                  <a href="###" data-page="1">1</a>
+                  <b>2</b>
+                  <a href="###" data-page="3">3</a>
+                  <i>&hellip;</i>
+                  <a href="###" data-page="10">10</a>
+                  <a href="###" data-page="11">11</a>
+                  <a href="###" data-page="3">下一页</a>
+                </span>
+              </div>
+              <pre class="html" name="pre">
+<!--居中对齐页码-->
+<div class="pagination text-center" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+  <span class="page-number">
+    <a class="disabled" href="###" data-page="1">上一页</a>
+    <a href="###" data-page="1">1</a>
+    <b>2</b>
+    <a href="###" data-page="3">3</a>
+    <i>&hellip;</i>
+    <a href="###" data-page="10">10</a>
+    <a href="###" data-page="11">11</a>
+    <a href="###" data-page="3">下一页</a>
+  </span>
+</div>
+<!--居右对齐页码-->
+<div class="pagination text-right" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+  <span class="page-number">
+    <a class="disabled" href="###" data-page="1">上一页</a>
+    <a href="###" data-page="1">1</a>
+    <b>2</b>
+    <a href="###" data-page="3">3</a>
+    <i>&hellip;</i>
+    <a href="###" data-page="10">10</a>
+    <a href="###" data-page="11">11</a>
+    <a href="###" data-page="3">下一页</a>
+  </span>
+</div>
+              </pre>
+
+              <h5>页码浮动对齐方式</h5>
+              <p>给页码<code>pagination</code>元素添加：<code>class="pull-left"</code>左浮动，<code>class="pull-right"</code>有浮动</p>
+              <div class="clearfix">
+                <div class="pagination pull-left" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+                <span class="page-number">
+                  <a class="disabled" href="###" data-page="1">上一页</a>
+                  <a href="###" data-page="1">1</a>
+                  <b>2</b>
+                  <a href="###" data-page="3">3</a>
+                  <i>&hellip;</i>
+                  <a href="###" data-page="10">10</a>
+                  <a href="###" data-page="11">11</a>
+                  <a href="###" data-page="3">下一页</a>
+                </span>
+                </div>
+              </div>
+              <div class="clearfix">
+                <div class="pagination pull-right" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+                <span class="page-number">
+                  <a class="disabled" href="###" data-page="1">上一页</a>
+                  <a href="###" data-page="1">1</a>
+                  <b>2</b>
+                  <a href="###" data-page="3">3</a>
+                  <i>&hellip;</i>
+                  <a href="###" data-page="10">10</a>
+                  <a href="###" data-page="11">11</a>
+                  <a href="###" data-page="3">下一页</a>
+                </span>
+                </div>
+              </div>
+              <pre class="html" name="pre">
+<!--居左对齐页码-->
+<div class="clearfix">
+  <div class="pagination pull-left" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+  <span class="page-number">
+    <a class="disabled" href="###" data-page="1">上一页</a>
+    <a href="###" data-page="1">1</a>
+    <b>2</b>
+    <a href="###" data-page="3">3</a>
+    <i>&hellip;</i>
+    <a href="###" data-page="10">10</a>
+    <a href="###" data-page="11">11</a>
+    <a href="###" data-page="3">下一页</a>
+  </span>
+  </div>
+</div>
+<!--居右对齐页码-->
+<div class="clearfix">
+  <div class="pagination pull-right" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+  <span class="page-number">
+    <a class="disabled" href="###" data-page="1">上一页</a>
+    <a href="###" data-page="1">1</a>
+    <b>2</b>
+    <a href="###" data-page="3">3</a>
+    <i>&hellip;</i>
+    <a href="###" data-page="10">10</a>
+    <a href="###" data-page="11">11</a>
+    <a href="###" data-page="3">下一页</a>
+  </span>
+  </div>
+</div>
+              </pre>
+
+              <h3>页码项目独立</h3>
+              <p>给页码元素：<code>pagination</code>添加<code>alone</code></p>
+              <div class="pagination alone" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+                <span class="page-number">
+                  <a class="disabled" href="###" data-page="1">上一页</a>
+                  <a href="###" data-page="1">1</a>
+                  <b>2</b>
+                  <a href="###" data-page="3">3</a>
+                  <i>&hellip;</i>
+                  <a href="###" data-page="10">10</a>
+                  <a href="###" data-page="11">11</a>
+                  <a href="###" data-page="3">下一页</a>
+                </span>
+              </div>
+              <pre class="html" name="pre">
+<div class="pagination alone" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+  <span class="page-number">
+    <a class="disabled" href="###" data-page="1">上一页</a>
+    <a href="###" data-page="1">1</a>
+    <b>2</b>
+    <a href="###" data-page="3">3</a>
+    <i>&hellip;</i>
+    <a href="###" data-page="10">10</a>
+    <a href="###" data-page="11">11</a>
+    <a href="###" data-page="3">下一页</a>
+  </span>
+</div>
+              </pre>
+
+              <h3 class="page-header">翻页样式</h3>
+              <h4 class="page-header">居中翻页效果</h4>
+              <nav>
+                <ul class="pager">
+                  <li><a href="#">上一个</a></li>
+                  <li><a href="#">下一个</a></li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<nav>
+  <ul class="pager">
+    <li><a href="#">上一个</a></li>
+    <li><a href="#">下一个</a></li>
+  </ul>
+</nav>
+              </pre>
+              <h4 class="page-header">两端对齐的翻页效果</h4>
+              <nav>
+                <ul class="pager">
+                  <li class="previous"><a href="#"><span aria-hidden="true">&#8592;</span>前一个</a></li>
+                  <li class="next"><a href="#">后一个<span aria-hidden="true">&#8594;</span></a></li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<nav>
+  <ul class="pager">
+    <li class="previous"><a href="#"><span aria-hidden="true">&#8592;</span>前一个</a></li>
+    <li class="next"><a href="#">后一个<span aria-hidden="true">&#8594;</span></a></li>
+  </ul>
+</nav>
+              </pre>
+              <h4 class="page-header">禁用的翻页效果</h4>
+              <nav>
+                <ul class="pager">
+                  <li class="previous disabled"><a href="#"><span aria-hidden="true">&#8592;</span>前一个</a></li>
+                  <li class="next"><a href="#">后一个<span aria-hidden="true">&#8594;</span></a></li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<nav>
+  <ul class="pager">
+    <li class="previous"><a href="#"><span aria-hidden="true">&#8592;</span>前一个</a></li>
+    <li class="next"><a href="#">后一个<span aria-hidden="true">&#8594;</span></a></li>
+  </ul>
+</nav>
+              </pre>
+            </div>
+        </div>
+    </div>
+    <script src="/docs/js/public.js"></script>
+</body>
+
+</html>

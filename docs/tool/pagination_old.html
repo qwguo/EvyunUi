@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dist/css/project.min.css">
+    <script src="/docs/js/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="/docs/js/DlHighlight/h1.css">
+    <script src="/docs/js/DlHighlight/highlight-all.js"></script>
+    <script src="/dist/js/bootstrap.js"></script>
+    <title>页码</title>
+</head>
+
+<body>
+    <div class="main-wrap">
+        <div class="container-fluid">
+            <h3 class="page-header">页码样式</h3>
+            <div class="show-page">
+              <h4 class="page-header">默认页码</h4>
+              <nav aria-label="Page navigation">
+                <ul class="pagination">
+                  <li>
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<ul class="pagination">
+  <li>
+    <a href="#" aria-label="Previous">
+      <span aria-hidden="true">&laquo;</span>
+    </a>
+  </li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><span >&hellip;</span></li>
+  <li><a href="#">10</a></li>
+  <li><a href="#">11</a></li>
+  <li><a href="#">12</a></li>
+  <li>
+    <a href="#" aria-label="Next">
+      <span aria-hidden="true">&raquo;</span>
+    </a>
+  </li>
+</ul>
+              </pre>
+              <h4 class="page-header">页码位置</h4>
+              <h5>行内对齐方式</h5>
+              <p>给外层的：<code>&lt;nav&gt;</code>标签添加：<code>class="text-left"</code>居左（默认或者不添加），<code>class="text-center"</code>居中，<code>class="text-right"</code>居右</p>
+              <nav aria-label="Page navigation" class="text-center">
+                <ul class="pagination">
+                  <li>
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <nav aria-label="Page navigation" class="text-right">
+                <ul class="pagination">
+                  <li>
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<!--居中对齐页码-->
+<nav aria-label="Page navigation" class="text-center">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><span >&hellip;</span></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<!--居右对齐页码-->
+<nav aria-label="Page navigation" class="text-right">
+  <ul class="pagination">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><span >&hellip;</span></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+              </pre>
+              <h5>页码浮动对齐方式</h5>
+              <p>给页码<code>pagination</code>元素添加：<code>class="pull-left"</code>左浮动，<code>class="pull-right"</code>有浮动</p>
+              <nav aria-label="Page navigation" class="clearfix">
+                <ul class="pagination pull-left">
+                  <li>
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <nav aria-label="Page navigation" class="clearfix">
+                <ul class="pagination pull-right">
+                  <li>
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<!--居中对齐页码-->
+<nav aria-label="Page navigation" class="clearfix">
+  <ul class="pagination pull-left">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><span >&hellip;</span></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+<!--居右对齐页码-->
+<nav aria-label="Page navigation" class="clearfix">
+  <ul class="pagination pull-right">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li class="active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><span >&hellip;</span></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+              </pre>
+              <h3>页码项目独立</h3>
+              <p>给页码元素：<code>pagination</code>添加<code>alone</code></p>
+              <nav>
+                <ul class="pagination alone">
+                  <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<nav>
+  <ul class="pagination">
+    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><span >&hellip;</span></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+  </ul>
+</nav>
+              </pre>
+              <h3>禁用和激活状态</h3>
+              <p>链接在不同情况下可以定制。你可以给不能点击的链接添加 <code>.disabled</code> 类、给当前页添加 <code>.active</code> 类。</p>
+              <nav>
+                <ul class="pagination">
+                  <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<nav>
+  <ul class="pagination">
+    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><span >&hellip;</span></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+  </ul>
+</nav>
+              </pre>
+              <h4 class="page-header">页码大小</h4>
+              <h5>大型页码给<code>pagination</code>添加<code>lg</code>类</h5>
+              <nav>
+                <ul class="pagination lg">
+                  <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+              </nav>
+              <nav>
+                <ul class="pagination alone lg">
+                  <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+              </nav>
+              <h5>默认页码</h5>
+              <nav>
+                <ul class="pagination">
+                  <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><span >&hellip;</span></li>
+                  <li><a href="#">10</a></li>
+                  <li><a href="#">11</a></li>
+                  <li><a href="#">12</a></li>
+                  <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+              </nav>
+              <h5>小型页码给<code>pagination</code>添加<code>sm</code>类</h5>
+              <nav>
+                  <ul class="pagination sm">
+                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><span >&hellip;</span></li>
+                    <li><a href="#">10</a></li>
+                    <li><a href="#">11</a></li>
+                    <li><a href="#">12</a></li>
+                    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                  </ul>
+                </nav>
+              <nav>
+                  <ul class="pagination alone sm">
+                    <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><span >&hellip;</span></li>
+                    <li><a href="#">10</a></li>
+                    <li><a href="#">11</a></li>
+                    <li><a href="#">12</a></li>
+                    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                  </ul>
+                </nav>
+              <pre class="html" name="pre">
+<!--大型页码给<code>pagination</code>添加<code>lg</code>类</h5>-->
+<nav>
+  <ul class="pagination lg">
+    <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><span >&hellip;</span></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+  </ul>
+</nav>
+<!--默认页码</h5>-->
+<nav>
+  <ul class="pagination">
+    <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><span >&hellip;</span></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+  </ul>
+</nav>
+<!--小型页码给<code>pagination</code>添加<code>sm</code>类</h5>-->
+<nav>
+  <ul class="pagination sm">
+    <li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><span >&hellip;</span></li>
+    <li><a href="#">10</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+  </ul>
+</nav>
+              </pre>
+              <h3 class="page-header">翻页样式</h3>
+              <h4 class="page-header">居中翻页效果</h4>
+              <nav>
+                <ul class="pager">
+                  <li><a href="#">上一个</a></li>
+                  <li><a href="#">下一个</a></li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<nav>
+  <ul class="pager">
+    <li><a href="#">上一个</a></li>
+    <li><a href="#">下一个</a></li>
+  </ul>
+</nav>
+              </pre>
+              <h4 class="page-header">两端对齐的翻页效果</h4>
+              <nav>
+                <ul class="pager">
+                  <li class="previous"><a href="#"><span aria-hidden="true">&#8592;</span>前一个</a></li>
+                  <li class="next"><a href="#">后一个<span aria-hidden="true">&#8594;</span></a></li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<nav>
+  <ul class="pager">
+    <li class="previous"><a href="#"><span aria-hidden="true">&#8592;</span>前一个</a></li>
+    <li class="next"><a href="#">后一个<span aria-hidden="true">&#8594;</span></a></li>
+  </ul>
+</nav>
+              </pre>
+              <h4 class="page-header">禁用的翻页效果</h4>
+              <nav>
+                <ul class="pager">
+                  <li class="previous disabled"><a href="#"><span aria-hidden="true">&#8592;</span>前一个</a></li>
+                  <li class="next"><a href="#">后一个<span aria-hidden="true">&#8594;</span></a></li>
+                </ul>
+              </nav>
+              <pre class="html" name="pre">
+<nav>
+  <ul class="pager">
+    <li class="previous"><a href="#"><span aria-hidden="true">&#8592;</span>前一个</a></li>
+    <li class="next"><a href="#">后一个<span aria-hidden="true">&#8594;</span></a></li>
+  </ul>
+</nav>
+              </pre>
+            </div>
+        </div>
+    </div>
+    <script src="/docs/js/public.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+//== Buttons variable
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+@btn-font-weight:                normal;
+
+@btn-color:                      #555555;
+@btn-bg:                         #ffffff;
+@btn-border:                     #e9ecef;
+
+@btn-primary-color:              #fff;
+@btn-primary-bg:                 @color-primary;
+@btn-primary-border:             darken(@btn-primary-bg, 3%);
+
+
+@btn-success-color:              #fff;
+@btn-success-bg:                 @color-success;
+@btn-success-border:             darken(@btn-success-bg, 3%);
+
+
+@btn-info-color:                 #fff;
+@btn-info-bg:                    @color-info;
+@btn-info-border:                darken(@btn-info-bg, 3%);
+
+@btn-warning-color:              #fff;
+@btn-warning-bg:                 @color-warning;
+@btn-warning-border:             darken(@btn-warning-bg, 3%);
+
+@btn-danger-color:               #fff;
+@btn-danger-bg:                  @color-danger;
+@btn-danger-border:              darken(@btn-danger-bg, 3%);
+
+
+// Allows for customizing button radius independently from global border radius
+@btn-border-radius-base:         2px;
+@btn-border-radius-large:        4px;
+@btn-border-radius-small:        2px;
+@btn-border-rounded:             60px;
+@btn-border-circle:              1000px;
+@cursor-disabled:                not-allowed;
+
+
+
+// stylelint-disable selector-no-qualifying-type
+
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+.btn {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  font-weight: @btn-font-weight;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; @btn-border-radius-base);
+  .user-select(none);
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      .tab-focus();
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: @btn-color;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+    .opacity(.3);
+    .box-shadow(none);
+  }
+
+  a& {
+    &.disabled,
+    fieldset[disabled] & {
+      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+    }
+  }
+  .evicon{
+    font-size: 1.2em;
+    &:not(:last-child){
+      margin-right: .12em;
+    }
+  }
+}
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn {
+  .button-variant(@btn-color; @btn-bg; @btn-border);
+}
+ .btn-primary {
+  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+// Success appears as green
+.btn-success {
+  .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
+}
+// Info appears as blue-green
+.btn-info {
+  .button-variant(@btn-info-color; @btn-info-bg; @btn-info-border);
+}
+// Warning appears as orange
+.btn-warning {
+  .button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-border);
+}
+// Danger and error appear as red
+.btn-danger {
+  .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+}
+
+
+// Outline buttons
+// --------------------------------------------------
+
+.btn-outline-primary {
+  .outline-button-variant(@btn-primary-bg; @btn-danger-color; @btn-primary-border);
+}
+// Success appears as green
+.btn-outline-success {
+  .outline-button-variant(@btn-success-bg; @btn-danger-color; @btn-success-border);
+}
+// Info appears as blue-green
+.btn-outline-info {
+  .outline-button-variant(@btn-info-bg; @btn-danger-color; @btn-info-border);
+}
+// Warning appears as orange
+.btn-outline-warning {
+  .outline-button-variant(@btn-warning-bg; @btn-danger-color; @btn-warning-border);
+}
+// Danger and error appear as red
+.btn-outline-danger {
+  .outline-button-variant(@btn-danger-bg; @btn-danger-color; @btn-danger-border);
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @btn-border-radius-large);
+}
+.btn-sm {
+  // line-height: ensure proper height of button next to small input
+  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+}
+.btn-xs {
+  .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @btn-border-radius-small);
+}
+
+
+// Block button
+// --------------------------------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// Rounded button
+// --------------------------------------------------
+.btn-rounded{
+  border-radius: @btn-border-rounded;
+}
+
+// Circle button
+// --------------------------------------------------
+.btn-circle{
+  border-radius: @btn-border-circle;
+  padding: .9em .95em;
+  .evicon{
+    line-height: .9em;
+    font-size: 1.5em;
+    margin-right: 0;
+  }
+}

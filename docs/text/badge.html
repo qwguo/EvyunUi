@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/dist/css/project.min.css">
+    <script src="/docs/js/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="/docs/js/DlHighlight/h1.css">
+    <script src="/docs/js/DlHighlight/highlight-all.js"></script>
+    <script src="/dist/js/bootstrap.js"></script>
+    <title>徽标</title>
+    <style>
+      .show-badge > div{
+        padding: 5px 0;
+      }
+    </style>
+</head>
+
+<body>
+    <div class="main-wrap">
+        <div class="container-fluid">
+            <h3 class="page-header">徽标使用</h3>
+            <div class="show-badge">
+              <h4 class="page-header">不带内容的大小徽标样式，使用<code>span</code>标签，并且添加<code>badge-dot</code>类；给徽标标签添加<code>lg</code>类（14像素宽高），<code>sm</code>类（10像素宽高）来控制大小</h4>
+              <div>
+                <span class="badge-dot lg"></span>
+                <span class="badge-dot lg badge-primary"></span>
+                <span class="badge-dot lg badge-success"></span>
+                <span class="badge-dot lg badge-info"></span>
+                <span class="badge-dot lg badge-warning"></span>
+                <span class="badge-dot lg badge-danger"></span>
+              </div>
+              <div>
+                <span class="badge-dot"></span>
+                <span class="badge-dot badge-primary"></span>
+                <span class="badge-dot badge-success"></span>
+                <span class="badge-dot badge-info"></span>
+                <span class="badge-dot badge-warning"></span>
+                <span class="badge-dot badge-danger"></span>
+              </div>
+              <div>
+                <span class="badge-dot sm"></span>
+                <span class="badge-dot sm badge-primary"></span>
+                <span class="badge-dot sm badge-success"></span>
+                <span class="badge-dot sm badge-info"></span>
+                <span class="badge-dot sm badge-warning"></span>
+                <span class="badge-dot sm badge-danger"></span>
+              </div>
+              <pre name="pre" class="html">
+<!--大徽标12像素-->
+<span class="badge-dot lg"></span>
+<span class="badge-dot lg badge-primary"></span>
+<span class="badge-dot lg badge-success"></span>
+<span class="badge-dot lg badge-info"></span>
+<span class="badge-dot lg badge-warning"></span>
+<span class="badge-dot lg badge-danger"></span>
+<!--默认徽标12像素-->
+<span class="badge-dot"></span>
+<span class="badge-dot badge-primary"></span>
+<span class="badge-dot badge-success"></span>
+<span class="badge-dot badge-info"></span>
+<span class="badge-dot badge-warning"></span>
+<span class="badge-dot badge-danger"></span>
+<!--小徽标10像素-->
+<span class="badge-dot sm"></span>
+<span class="badge-dot sm badge-primary"></span>
+<span class="badge-dot sm badge-success"></span>
+<span class="badge-dot sm badge-info"></span>
+<span class="badge-dot sm badge-warning"></span>
+<span class="badge-dot sm badge-danger"></span>
+              </pre>
+              <h4 class="page-header">带内容的大小圆徽标样式，使用<code>span</code>标签，并且添加<code>badge-circle</code>类，然后添加相对应的颜色类就可以了给徽标标签添加<code>lg</code>类（28像素宽高，字号14号字），<code>sm</code>类（20像素宽高，字号12号字）来控制大小</h4>
+              <div>
+                <span class="badge-circle lg">99</span>
+                <span class="badge-circle lg badge-primary">10</span>
+                <span class="badge-circle lg badge-success">1</span>
+                <span class="badge-circle lg badge-info">20</span>
+                <span class="badge-circle lg badge-warning">99</span>
+                <span class="badge-circle lg badge-danger">15</span>
+              </div>
+              <div>
+                <span class="badge-circle">99</span>
+                <span class="badge-circle badge-primary">10</span>
+                <span class="badge-circle badge-success">1</span>
+                <span class="badge-circle badge-info">20</span>
+                <span class="badge-circle badge-warning">99</span>
+                <span class="badge-circle badge-danger">15</span>
+              </div>
+              <div>
+                <span class="badge-circle sm">99</span>
+                <span class="badge-circle sm badge-primary">10</span>
+                <span class="badge-circle sm badge-success">1</span>
+                <span class="badge-circle sm badge-info">20</span>
+                <span class="badge-circle sm badge-warning">99</span>
+                <span class="badge-circle sm badge-danger">15</span>
+              </div>
+              <pre class="html" name="pre">
+<!--大徽标28像素-->
+<span class="badge-circle lg">99</span>
+<span class="badge-circle lg badge-primary">10</span>
+<span class="badge-circle lg badge-success">1</span>
+<span class="badge-circle lg badge-info">20</span>
+<span class="badge-circle lg badge-warning">99</span>
+<span class="badge-circle lg badge-danger">15</span>
+<!--默认徽标22像素-->
+<span class="badge-circle">99</span>
+<span class="badge-circle badge-primary">10</span>
+<span class="badge-circle badge-success">1</span>
+<span class="badge-circle badge-info">20</span>
+<span class="badge-circle badge-warning">99</span>
+<span class="badge-circle badge-danger">15</span>
+<!--小徽标20像素-->
+<span class="badge-circle sm">99</span>
+<span class="badge-circle sm badge-primary">10</span>
+<span class="badge-circle sm badge-success">1</span>
+<span class="badge-circle sm badge-info">20</span>
+<span class="badge-circle sm badge-warning">99</span>
+<span class="badge-circle sm badge-danger">15</span>
+              </pre>
+              <h4 class="page-header">文字大小徽标<code>span</code>标签，并且添加<code>badge</code>类，然后添加相对应的颜色类就可以了</h4>
+              <div>
+                <span class="badge lg">default</span>
+                <span class="badge lg badge-primary">primary</span>
+                <span class="badge lg badge-success">success</span>
+                <span class="badge lg badge-info">info</span>
+                <span class="badge lg badge-warning">warning</span>
+                <span class="badge lg badge-danger">danger</span>
+              </div>
+              <div>
+                <span class="badge">default</span>
+                <span class="badge badge-primary">primary</span>
+                <span class="badge badge-success">success</span>
+                <span class="badge badge-info">info</span>
+                <span class="badge badge-warning">warning</span>
+                <span class="badge badge-danger">danger</span>
+              </div>
+              <div>
+                <span class="badge sm">default</span>
+                <span class="badge sm badge-primary">primary</span>
+                <span class="badge sm badge-success">success</span>
+                <span class="badge sm badge-info">info</span>
+                <span class="badge sm badge-warning">warning</span>
+                <span class="badge sm badge-danger">danger</span>
+              </div>
+                <pre name="pre" class="html">
+<!--大徽标-->
+<span class="badge lg">default</span>
+<span class="badge lg badge-primary">primary</span>
+<span class="badge lg badge-success">success</span>
+<span class="badge lg badge-info">info</span>
+<span class="badge lg badge-warning">warning</span>
+<span class="badge lg badge-danger">danger</span>
+<!--默认徽标-->
+<span class="badge">default</span>
+<span class="badge badge-primary">primary</span>
+<span class="badge badge-success">success</span>
+<span class="badge badge-info">info</span>
+<span class="badge badge-warning">warning</span>
+<span class="badge badge-danger">danger</span>
+<!--小徽标-->
+<span class="badge sm">default</span>
+<span class="badge sm badge-primary">primary</span>
+<span class="badge sm badge-success">success</span>
+<span class="badge sm badge-info">info</span>
+<span class="badge sm badge-warning">warning</span>
+<span class="badge sm badge-danger">danger</span>
+                </pre>
+                <h4 class="page-header">徽标使用链接<code>a</code>标签</h4>
+                <a href="###" class="badge">default</a>
+                <a href="###" class="badge badge-primary">primary</a>
+                <a href="###" class="badge badge-success">success</a>
+                <a href="###" class="badge badge-info">info</a>
+                <a href="###" class="badge badge-warning">warning</a>
+                <a href="###" class="badge badge-danger">danger</a>
+                <pre name="pre" class="html">
+<a href="###" class="badge">Default</a>
+<a href="###" class="badge badge-primary">Primary</a>
+<a href="###" class="badge badge-success">Success</a>
+<a href="###" class="badge badge-info">Info</a>
+<a href="###" class="badge badge-warning">Warning</a>
+<a href="###" class="badge badge-danger">Danger</a>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <script src="/docs/js/public.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,136 @@
+//== Badges
+//
+
+@badge-font-weight:           500;
+@badge-font-size:             12px;
+@badge-line-height:           1;
+@badge-border-radius:         15px;
+
+//== Badges-dot
+@badge-dot-width:             12px;
+@badge-dot-height:            12px;
+
+//== Badges-circle
+@badge-circle-width:          22px;
+@badge-circle-height:         22px;
+
+
+//** Primary label background color
+@badge-primary-bg:            @color-primary;
+@badge-primary-color:         #fff;
+//** Success label background color
+@badge-success-bg:            @color-success;
+@badge-success-color:         #fff;
+//** Info label background color
+@badge-info-bg:               @color-info;
+@badge-info-color:            #fff;
+//** Warning label background color
+@badge-warning-bg:            @color-warning;
+@badge-warning-color:         #fff;
+//** Danger label background color
+@badge-danger-bg:             @color-danger;
+@badge-danger-color:          #fff;
+
+
+
+
+//
+// Badges
+// --------------------------------------------------
+
+
+// Base class
+.badge {
+  display: inline-block;
+  min-width: 10px;
+  padding: 5px 10px;
+  .badge-variant(@badge-primary-bg;@badge-primary-color);
+  font-size: @badge-font-size;
+  font-weight: @badge-font-weight;
+  line-height: @badge-line-height;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: @badge-border-radius;
+  &.lg{
+    padding: 8px 13px;
+    font-size: @badge-font-size + 2;
+  }
+  &.sm{
+    padding: 3px 7px;
+    font-size: @badge-font-size;
+  }
+  // Hover state, but only for links
+  a& {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
+
+// Badge dot
+.badge-dot{
+  display: inline-block;
+  width: @badge-dot-width;
+  height: @badge-dot-height;
+  .badge-variant(@badge-primary-bg;@badge-primary-color);
+  border-radius: 100%;
+  &.lg{
+    width: @badge-dot-width + 2;
+    height: @badge-dot-height + 2;
+  }
+  &.sm{
+    width: @badge-dot-width - 2;
+    height: @badge-dot-height - 2;
+    line-height: .8;
+  }
+}
+
+// Badge circle
+.badge-circle{
+  display: inline-block;
+  width: @badge-circle-width;
+  height: @badge-circle-height;
+  .badge-variant(@badge-primary-bg;@badge-primary-color);
+  font-size:@badge-font-size;
+  border-radius: 100%;
+  text-align: center;
+  line-height: @badge-circle-height;
+  &:hover{
+    text-decoration: none;
+  }
+  &.lg{
+    width: @badge-circle-width + 6;
+    height: @badge-circle-height + 6;
+    line-height: @badge-circle-height + 6;
+    font-size: @badge-font-size + 2;
+  }
+  &.sm{
+    width: @badge-circle-width - 2;
+    height: @badge-circle-height - 2;
+    line-height: @badge-circle-height - 2;
+    font-size: @badge-font-size;
+  }
+}
+
+.badge-primary {
+  .badge-variant(@badge-primary-bg;@badge-primary-color);
+}
+
+.badge-success {
+  .badge-variant(@badge-success-bg;@badge-success-color);
+}
+
+.badge-info {
+  .badge-variant(@badge-info-bg;@badge-info-color);
+}
+
+.badge-warning {
+  .badge-variant(@badge-warning-bg;@badge-warning-color);
+}
+
+.badge-danger {
+  .badge-variant(@badge-danger-bg;@badge-danger-color);
+}

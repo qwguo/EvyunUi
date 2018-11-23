@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dist/css/project.min.css">
+  <script src="/docs/js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="/docs/js/DlHighlight/h1.css">
+  <script src="/docs/js/DlHighlight/highlight-all.js"></script>
+  <title>列表组</title>
+</head>
+<body>
+<div class="main-wrap">
+  <div class="container-fluid">
+    <h3 class="page-header">列表组：<small>我们可以通过给<code>&lt;ul&gt;</code>，<code>&lt;ol&gt;</code>，<code>&lt;div&gt;</code>添加<code>list-group</code>类，并且给他的子类添加：<code>list-group-item</code>类，来实现列表组展示</small></h3>
+    <div class="show-list">
+      <h4 class="page-header">默认列表组</h4>
+      <div class="list-group">
+        <div class="list-group-item">前端技术的发展</div>
+        <div class="list-group-item">前端职位的崛起</div>
+        <div class="list-group-item">什么是前端开发，您真的了解前端吗？</div>
+        <div class="list-group-item">谈一下您对前端开发的理解</div>
+        <div class="list-group-item">前端技术都需要掌握哪些知识？</div>
+        <div class="list-group-item">前端未来的发展方向</div>
+        <div class="list-group-item">前端的最新技术是什么？</div>
+        <div class="list-group-item">为什么前端开发越来越复杂？</div>
+      </div>
+      <pre name="pre" class="html">
+<div class="list-group">
+  <div class="list-group-item">前端技术的发展</div>
+  <div class="list-group-item">前端职位的崛起</div>
+  <div class="list-group-item">什么是前端开发，您真的了解前端吗？</div>
+  <div class="list-group-item">谈一下您对前端开发的理解</div>
+  <div class="list-group-item">前端技术都需要掌握哪些知识？</div>
+  <div class="list-group-item">前端未来的发展方向</div>
+  <div class="list-group-item">前端的最新技术是什么？</div>
+  <div class="list-group-item">为什么前端开发越来越复杂？</div>
+</div>
+      </pre>
+      <h4 class="page-header">给列表组加入徽章组件，它会自动被放在右边。</h4>
+      <ol class="list-group">
+        <li class="list-group-item"><span class="badge">14</span>前端技术的发展</li>
+        <li class="list-group-item"><span class="badge">4</span>前端职位的崛起</li>
+        <li class="list-group-item"><span class="badge">19</span>什么是前端开发，您真的了解前端吗？</li>
+        <li class="list-group-item"><span class="badge">2</span>谈一下您对前端开发的理解</li>
+        <li class="list-group-item"><span class="badge">16</span>前端技术都需要掌握哪些知识？</li>
+        <li class="list-group-item"><span class="badge">40</span>前端未来的发展方向</li>
+        <li class="list-group-item"><span class="badge">33</span>前端的最新技术是什么？</li>
+        <li class="list-group-item"><span class="badge">140</span>为什么前端开发越来越复杂？</li>
+      </ol>
+      <pre name="pre" class="html">
+<ol class="list-group">
+  <li class="list-group-item"><span class="badge">14</span>前端技术的发展</li>
+  <li class="list-group-item"><span class="badge">4</span>前端职位的崛起</li>
+  <li class="list-group-item"><span class="badge">19</span>什么是前端开发，您真的了解前端吗？</li>
+  <li class="list-group-item"><span class="badge">2</span>谈一下您对前端开发的理解</li>
+  <li class="list-group-item"><span class="badge">16</span>前端技术都需要掌握哪些知识？</li>
+  <li class="list-group-item"><span class="badge">40</span>前端未来的发展方向</li>
+  <li class="list-group-item"><span class="badge">33</span>前端的最新技术是什么？</li>
+  <li class="list-group-item"><span class="badge">140</span>为什么前端开发越来越复杂？</li>
+</ol>
+      </pre>
+      <h4 class="page-header">带连接的列表组。</h4>
+      <p>用 <code>&lt;a&gt;</code> 标签代替 <code>&lt;li&gt;</code> 标签可以组成一个全部是链接的列表组（还要注意的是，我们需要将 <code>&lt;ul&gt;</code> 标签替换为 <code>&lt;div&gt;</code> 标签）。没必要给列表组中的每个元素都加一个父元素。</p>
+      <div class="list-group">
+        <a href="###" class="list-group-item active"><span class="badge">14</span>前端技术的发展</a>
+        <a href="###" class="list-group-item disabled"><span class="badge">4</span>前端职位的崛起</a>
+        <a href="###" class="list-group-item"><span class="badge">19</span>什么是前端开发，您真的了解前端吗？</a>
+        <a href="###" class="list-group-item"><span class="badge">2</span>谈一下您对前端开发的理解</a>
+        <a href="###" class="list-group-item"><span class="badge">16</span>前端技术都需要掌握哪些知识？</a>
+        <a href="###" class="list-group-item"><span class="badge">40</span>前端未来的发展方向</a>
+        <a href="###" class="list-group-item"><span class="badge">33</span>前端的最新技术是什么？</a>
+        <a href="###" class="list-group-item"><span class="badge">140</span>为什么前端开发越来越复杂？</a>
+      </div>
+      <pre name="pre" class="html">
+<div class="list-group">
+  <a href="###" class="list-group-item active"><span class="badge">14</span>前端技术的发展</a>
+  <a href="###" class="list-group-item disabled"><span class="badge">4</span>前端职位的崛起</a>
+  <a href="###" class="list-group-item"><span class="badge">19</span>什么是前端开发，您真的了解前端吗？</a>
+  <a href="###" class="list-group-item"><span class="badge">2</span>谈一下您对前端开发的理解</a>
+  <a href="###" class="list-group-item"><span class="badge">16</span>前端技术都需要掌握哪些知识？</a>
+  <a href="###" class="list-group-item"><span class="badge">40</span>前端未来的发展方向</a>
+  <a href="###" class="list-group-item"><span class="badge">33</span>前端的最新技术是什么？</a>
+  <a href="###" class="list-group-item"><span class="badge">140</span>为什么前端开发越来越复杂？</a>
+</div>
+      </pre>
+      <h4 class="page-header">按钮列表组。</h4>
+      <p>列表组中的元素也可以直接就是按钮（也同时意味着父元素必须是 <code>&lt;div&gt;</code> 而不能用 <code>&lt;ul&gt;</code> 了），并且无需为每个按钮单独包裹一个父元素。<strong class="text-danger">注意不要使用标准的 <code>.btn</code> 类！</strong></p>
+      <div class="list-group">
+        <button class="list-group-item active"><span class="badge">14</span>前端技术的发展</button>
+        <button class="list-group-item disabled"><span class="badge">4</span>前端职位的崛起</button>
+        <button class="list-group-item"><span class="badge">19</span>什么是前端开发，您真的了解前端吗？</button>
+        <button class="list-group-item"><span class="badge">2</span>谈一下您对前端开发的理解</button>
+        <button class="list-group-item"><span class="badge">16</span>前端技术都需要掌握哪些知识？</button>
+        <button class="list-group-item"><span class="badge">40</span>前端未来的发展方向</button>
+        <button class="list-group-item"><span class="badge">33</span>前端的最新技术是什么？</button>
+        <button class="list-group-item"><span class="badge">140</span>为什么前端开发越来越复杂？</button>
+      </div>
+      <pre name="pre" class="html">
+<div class="list-group">
+  <button class="list-group-item active"><span class="badge">14</span>前端技术的发展</button>
+  <button class="list-group-item disabled"><span class="badge">4</span>前端职位的崛起</button>
+  <button class="list-group-item"><span class="badge">19</span>什么是前端开发，您真的了解前端吗？</button>
+  <button class="list-group-item"><span class="badge">2</span>谈一下您对前端开发的理解</button>
+  <button class="list-group-item"><span class="badge">16</span>前端技术都需要掌握哪些知识？</button>
+  <button class="list-group-item"><span class="badge">40</span>前端未来的发展方向</button>
+  <button class="list-group-item"><span class="badge">33</span>前端的最新技术是什么？</button>
+  <button class="list-group-item"><span class="badge">140</span>为什么前端开发越来越复杂？</button>
+</div>
+      </pre>
+      <h4 class="page-header">列表组不同样式。</h4>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="list-group">
+            <a href="###" class="list-group-item  list-group-item-success"><span class="badge">14</span>前端技术的发展</a>
+            <a href="###" class="list-group-item  list-group-item-info disabled"><span class="badge">4</span>前端职位的崛起</a>
+            <a href="###" class="list-group-item  list-group-item-warning"><span class="badge">19</span>什么是前端开发，您真的了解前端吗？</a>
+            <a href="###" class="list-group-item  list-group-item-danger"><span class="badge">2</span>谈一下您对前端开发的理解</a>
+            <a href="###" class="list-group-item  list-group-item-primary"><span class="badge">16</span>前端技术都需要掌握哪些知识？</a>
+            <a href="###" class="list-group-item  list-group-item-secondary"><span class="badge">40</span>前端未来的发展方向</a>
+            <a href="###" class="list-group-item  list-group-item-dark"><span class="badge">33</span>前端的最新技术是什么？</a>
+            <a href="###" class="list-group-item  list-group-item-link"><span class="badge">140</span>为什么前端开发越来越复杂？</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/docs/js/public.js"></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dist/css/project.min.css">
+  <script src="/docs/js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="/docs/js/DlHighlight/h1.css">
+  <script src="/docs/js/DlHighlight/highlight-all.js"></script>
+  <title>base_button</title>
+</head>
+<body>
+<div class="main-wrap">
+  <div class="container-fluid">
+    <h3 class="page-header">按钮</h3>
+    <div class="show-button">
+      <h4 class="page-header">默认按钮
+        <small>一般给<code>a</code>，<code>button</code>，<code>input[type="button|submit"]</code>标签添加<code>btn</code>类，然后再添加相应状态的类
+        </small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn">btn</button>
+        <button type="button" class="btn btn-primary"><span>btn-primary</span></button>
+        <button type="button" class="btn btn-success"><span>btn-success</span></button>
+        <button type="button" class="btn btn-info"><span>btn-info</span></button>
+        <button type="button" class="btn btn-warning"><span>btn-warning</span></button>
+        <button type="button" class="btn btn-danger"><span>btn-danger</span></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn">btn</button>
+<button type="button" class="btn btn-primary"><span>btn-primary</span></button>
+<button type="button" class="btn btn-success"><span>btn-success</span></button>
+<button type="button" class="btn btn-info"><span>btn-info</span></button>
+<button type="button" class="btn btn-warning"><span>btn-warning</span></button>
+<button type="button" class="btn btn-danger"><span>btn-danger</span></button>
+      </pre>
+      <h4 class="page-header">不同标签按钮
+        <small>不同标签添加<code>btn</code>类</small>
+      </h4>
+      <div class="button-div">
+        <a class="btn btn-primary" href="#" role="button"><span>a链接</span></a>
+        <button class="btn btn-primary" type="submit"><span>button按钮标签</span></button>
+        <input class="btn btn-primary" type="button" value="input表单button">
+        <input class="btn btn-primary" type="submit" value="input表单submit">
+        <input class="btn btn-primary" type="reset" value="input表单reset">
+      </div>
+      <pre name="pre" class="html">
+<a class="btn btn-primary" href="#" role="button"><span>a链接</span></a>
+<button class="btn btn-primary" type="submit"><span>button按钮标签</span></button>
+<input class="btn btn-primary" type="button" value="input表单button">
+<input class="btn btn-primary" type="submit" value="input表单submit">
+<input class="btn btn-primary" type="reset" value="input表单reset">
+      </pre>
+      <h4 class="page-header">按钮按下
+        <small>一般给按钮添加<code>active</code>类</small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn active">btn</button>
+        <button type="button" class="btn active btn-primary"><span>btn-primary</span></button>
+        <button type="button" class="btn active btn-success"><span>btn-success</span></button>
+        <button type="button" class="btn active btn-info"><span>btn-info</span></button>
+        <button type="button" class="btn active btn-warning"><span>btn-warning</span></button>
+        <button type="button" class="btn active btn-danger"><span>btn-danger</span></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn active">btn</button>
+<button type="button" class="btn active btn-primary"><span>btn-primary</span></button>
+<button type="button" class="btn active btn-success"><span>btn-success</span></button>
+<button type="button" class="btn active btn-info"><span>btn-info</span></button>
+<button type="button" class="btn active btn-warning"><span>btn-warning</span></button>
+<button type="button" class="btn active btn-danger"><span>btn-danger</span></button>
+      </pre>
+      <h4 class="page-header">禁用按钮
+        <small>
+          一般给按钮添加<code>a</code>标签<code>disabled</code>类，或者给<code>button</code>，<code>input[type="button|submit"]</code>标签添加<code>disabled="disabled"</code>属性来实现
+        </small>
+      </h4>
+      <h5>button标签实现：</h5>
+      <div class="button-div">
+        <button type="button" disabled="disabled" class="btn active">btn</button>
+        <button type="button" disabled="disabled" class="btn active btn-primary"><span>btn-primary</span></button>
+        <button type="button" disabled="disabled" class="btn active btn-success"><span>btn-success</span></button>
+        <button type="button" disabled="disabled" class="btn active btn-info"><span>btn-info</span></button>
+        <button type="button" disabled="disabled" class="btn active btn-warning"><span>btn-warning</span></button>
+        <button type="button" disabled="disabled" class="btn active btn-danger"><span>btn-danger</span></button>
+      </div>
+      <h5>a标签实现：</h5>
+      <div class="button-div">
+        <a href="###" class="btn disabled">btn</a>
+        <a href="###" class="btn disabled btn-primary"><span>btn-primary</span></a>
+        <a href="###" class="btn disabled btn-success"><span>btn-success</span></a>
+        <a href="###" class="btn disabled btn-info"><span>btn-info</span></a>
+        <a href="###" class="btn disabled btn-warning"><span>btn-warning</span></a>
+        <a href="###" class="btn disabled btn-danger"><span>btn-danger</span></a>
+      </div>
+      <pre name="pre" class="html">
+<!--button标签实现-->
+<button type="button" disabled="disabled" class="btn active">btn</button>
+<button type="button" disabled="disabled" class="btn active btn-primary"><span>btn-primary</span></button>
+<button type="button" disabled="disabled" class="btn active btn-success"><span>btn-success</span></button>
+<button type="button" disabled="disabled" class="btn active btn-info"><span>btn-info</span></button>
+<button type="button" disabled="disabled" class="btn active btn-warning"><span>btn-warning</span></button>
+<button type="button" disabled="disabled" class="btn active btn-danger"><span>btn-danger</span></button>
+        <!--a标签实现-->
+<a href="###" class="btn disabled">btn</a>
+<a href="###" class="btn disabled btn-primary"><span>btn-primary</span></a>
+<a href="###" class="btn disabled btn-success"><span>btn-success</span></a>
+<a href="###" class="btn disabled btn-info"><span>btn-info</span></a>
+<a href="###" class="btn disabled btn-warning"><span>btn-warning</span></a>
+<a href="###" class="btn disabled btn-danger"><span>btn-danger</span></a>
+      </pre>
+      <h4 class="page-header">按钮大小
+        <small>一般给按钮添加<code>btn-lg</code>，<code>btn-sm</code>，<code>btn-xs</code>等类来实现按钮的大小</small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-primary btn-lg"><span>最大按钮</span></button>
+        <button type="button" class="btn btn-primary">默认大小按钮</button>
+        <button type="button" class="btn btn-primary btn-sm"><span>小按钮</span></button>
+        <button type="button" class="btn btn-primary btn-xs">最小按钮</button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-primary btn-lg"><span>最大按钮</span></button>
+<button type="button" class="btn btn-primary">默认大小按钮</button>
+<button type="button" class="btn btn-primary btn-sm"><span>小按钮</span></button>
+<button type="button" class="btn btn-primary btn-xs">最小按钮</button>
+      </pre>
+      <h4 class="page-header">通栏按钮
+        <small>一般给按钮添加<code>btn-block</code>类来实现按钮占据整行</small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-primary btn-lg btn-block"><span>最大按钮</span></button>
+        <button type="button" class="btn btn-primary btn-block">默认大小按钮</button>
+        <button type="button" class="btn btn-primary btn-sm btn-block"><span>小按钮</span></button>
+        <button type="button" class="btn btn-primary btn-xs btn-block">最小按钮</button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-primary btn-lg"><span>最大按钮</span></button>
+<button type="button" class="btn btn-primary">默认大小按钮</button>
+<button type="button" class="btn btn-primary btn-sm"><span>小按钮</span></button>
+<button type="button" class="btn btn-primary btn-xs">最小按钮</button>
+      </pre>
+      <h4 class="page-header">圆角按钮
+        <small>一般给按钮添加：<code>btn-rounded</code>类实现</small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-rounded"><span>btn</span></button>
+        <button type="button" class="btn btn-rounded btn-primary"><span>btn-primary</span></button>
+        <button type="button" class="btn btn-rounded btn-success"><span>btn-success</span></button>
+        <button type="button" class="btn btn-rounded btn-info"><span>btn-info</span></button>
+        <button type="button" class="btn btn-rounded btn-warning"><span>btn-warning</span></button>
+        <button type="button" class="btn btn-rounded btn-danger"><span>btn-danger</span></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-rounded"><span>btn</span></button>
+<button type="button" class="btn btn-rounded btn-primary"><span>btn-primary</span></button>
+<button type="button" class="btn btn-rounded btn-success"><span>btn-success</span></button>
+<button type="button" class="btn btn-rounded btn-info"><span>btn-info</span></button>
+<button type="button" class="btn btn-rounded btn-warning"><span>btn-warning</span></button>
+<button type="button" class="btn btn-rounded btn-danger"><span>btn-danger</span></button>
+      </pre>
+      <h4 class="page-header">圆角按钮大小
+        <small>一般给按钮添加<code>btn-lg</code>，<code>btn-sm</code>，<code>btn-xs</code>等类来实现按钮的大小</small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-rounded btn-primary btn-lg"><span>最大按钮</span></button>
+        <button type="button" class="btn btn-rounded btn-primary"><span>默认大小按钮</span></button>
+        <button type="button" class="btn btn-rounded btn-primary btn-sm"><span>小按钮</span></button>
+        <button type="button" class="btn btn-rounded btn-primary btn-xs"><span>最小按钮</span></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-rounded btn-primary btn-lg"><span>最大按钮</span></button>
+<button type="button" class="btn btn-rounded btn-primary">默认大小按钮</button>
+<button type="button" class="btn btn-rounded btn-primary btn-sm"><span>小按钮</span></button>
+<button type="button" class="btn btn-rounded btn-primary btn-xs">最小按钮</button>
+      </pre>
+      <h4 class="page-header">外边线按钮
+        <small>一般给<code>a</code>，<code>button</code>，<code>input[type="button|submit"]</code>标签添加<code>btn</code>类，然后再添加相应状态的类
+        </small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-outline-primary"><span>btn-outline-primary</span></button>
+        <button type="button" class="btn btn-outline-success"><span>btn-outline-success</span></button>
+        <button type="button" class="btn btn-outline-info"><span>btn-outline-info</span></button>
+        <button type="button" class="btn btn-outline-warning"><span>btn-outline-warning</span></button>
+        <button type="button" class="btn btn-outline-danger"><span>btn-outline-danger</span></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-outline-primary"><span>btn-outline-primary</span></button>
+<button type="button" class="btn btn-outline-success"><span>btn-outline-success</span></button>
+<button type="button" class="btn btn-outline-info"><span>btn-outline-info</span></button>
+<button type="button" class="btn btn-outline-warning"><span>btn-outline-warning</span></button>
+<button type="button" class="btn btn-outline-danger"><span>btn-outline-danger</span></button>
+      </pre>
+      <h4 class="page-header">外边线禁用按钮
+        <small>
+          一般给按钮添加<code>a</code>标签<code>disabled</code>类，或者给<code>button</code>，<code>input[type="button|submit"]</code>标签添加<code>disabled="disabled"</code>属性来实现
+        </small>
+      </h4>
+      <div class="button-div">
+        <button type="button" disabled="disabled" class="btn btn-outline-primary"><span>btn-outline-primary</span>
+        </button>
+        <button type="button" disabled="disabled" class="btn btn-outline-success"><span>btn-outline-success</span>
+        </button>
+        <button type="button" disabled="disabled" class="btn btn-outline-info"><span>btn-outline-info</span></button>
+        <button type="button" disabled="disabled" class="btn btn-outline-warning"><span>btn-outline-warning</span>
+        </button>
+        <button type="button" disabled="disabled" class="btn btn-outline-danger"><span>btn-outline-danger</span>
+        </button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" disabled="disabled" class="btn btn-outline-primary"><span>btn-outline-primary</span></button>
+<button type="button" disabled="disabled" class="btn btn-outline-success"><span>btn-outline-success</span></button>
+<button type="button" disabled="disabled" class="btn btn-outline-info"><span>btn-outline-info</span></button>
+<button type="button" disabled="disabled" class="btn btn-outline-warning"><span>btn-outline-warning</span></button>
+<button type="button" disabled="disabled" class="btn btn-outline-danger"><span>btn-outline-danger</span></button>
+      </pre>
+      <h4 class="page-header">外边线圆角按钮
+        <small>一般给按钮添加：<code>btn-rounded</code>类实现</small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-rounded btn-outline-primary"><span>btn-outline-primary</span></button>
+        <button type="button" class="btn btn-rounded btn-outline-success"><span>btn-outline-success</span></button>
+        <button type="button" class="btn btn-rounded btn-outline-info"><span>btn-outline-info</span></button>
+        <button type="button" class="btn btn-rounded btn-outline-warning"><span>btn-outline-warning</span></button>
+        <button type="button" class="btn btn-rounded btn-outline-danger"><span>btn-outline-danger</span></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-rounded btn-outline-primary"><span>btn-outline-primary</span></button>
+<button type="button" class="btn btn-rounded btn-outline-success"><span>btn-outline-success</span></button>
+<button type="button" class="btn btn-rounded btn-outline-info"><span>btn-outline-info</span></button>
+<button type="button" class="btn btn-rounded btn-outline-warning"><span>btn-outline-warning</span></button>
+<button type="button" class="btn btn-rounded btn-outline-danger"><span>btn-outline-danger</span></button>
+      </pre>
+      <h4 class="page-header">带图标按钮
+        <small>一般实在按钮内部添加文字图标来实现，详细的图标可以查看文字<a href="/docs/fonticon/font_icon.html">图标栏目</a></small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-primary"><i class="evicon evicon-home-1"></i><span>设置</span></button>
+        <button type="button" class="btn btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+        <button type="button" class="btn btn-info"><i class="evicon evicon-help-1"></i><span>帮助</span></button>
+        <button type="button" class="btn btn-warning"><i class="evicon evicon-comment-1"></i><span>通过</span></button>
+        <button type="button" class="btn btn-danger"><i class="evicon evicon-home-1"></i><span>首页</span></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-primary"><i class="evicon evicon-set-up-1"></i><span>设置</span></button>
+<button type="button" class="btn btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+<button type="button" class="btn btn-info"><i class="evicon evicon-help-1"></i><span>帮助</span></button>
+<button type="button" class="btn btn-warning"><i class="evicon evicon-comment-1"></i><span>通过</span></button>
+<button type="button" class="btn btn-danger"><i class="evicon evicon-home-1"></i><span>首页</span></button>
+      </pre>
+      <h4 class="page-header">带图标按钮大小：
+        <small>一般给按钮添加<code>btn-lg</code>，<code>btn-sm</code>，<code>btn-xs</code>等类来实现按钮的大小</small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-lg btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span>
+        </button>
+        <button type="button" class="btn btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+        <button type="button" class="btn btn-sm btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span>
+        </button>
+        <button type="button" class="btn btn-xs btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span>
+        </button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-lg btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+<button type="button" class="btn btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+<button type="button" class="btn btn-sm btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+<button type="button" class="btn btn-xs btn-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+      </pre>
+      <h4 class="page-header">带图标外边线按钮</h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-outline-primary"><i class="evicon evicon-set-up-1"></i><span>设置</span></button>
+        <button type="button" class="btn btn-outline-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+        <button type="button" class="btn btn-outline-info"><i class="evicon evicon-help-1"></i><span>帮助</span></button>
+        <button type="button" class="btn btn-outline-warning"><i class="evicon evicon-comment-1"></i><span>通过</span></button>
+        <button type="button" class="btn btn-outline-danger"><i class="evicon evicon-home-1"></i><span>首页</span></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-outline-primary"><i class="evicon evicon-set-up-1"></i><span>设置</span></button>
+<button type="button" class="btn btn-outline-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+<button type="button" class="btn btn-outline-info"><i class="evicon evicon-help-1"></i><span>帮助</span></button>
+<button type="button" class="btn btn-outline-warning"><i class="evicon evicon-comment-1"></i><span>通过</span></button>
+<button type="button" class="btn btn-outline-danger"><i class="evicon evicon-home-1"></i><span>首页</span></button>
+      </pre>
+      <h4 class="page-header">带图标外边线按钮大小：
+        <small>一般给按钮添加<code>btn-lg</code>，<code>btn-sm</code>，<code>btn-xs</code>等类来实现按钮的大小</small>
+      </h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-lg btn-outline-success"><i
+          class="evicon evicon-heart-1"></i><span>收藏</span></button>
+        <button type="button" class="btn btn-outline-success"><i class="evicon evicon-heart-1"></i><span>收藏</span>
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-success"><i
+          class="evicon evicon-heart-1"></i><span>收藏</span></button>
+        <button type="button" class="btn btn-xs btn-outline-success"><i
+          class="evicon evicon-heart-1"></i><span>收藏</span></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-lg btn-outline-success"><i
+  class="evicon evicon-heart-1"></i><span>收藏</span></button>
+<button type="button" class="btn btn-outline-success"><i class="evicon evicon-heart-1"></i><span>收藏</span></button>
+<button type="button" class="btn btn-sm btn-outline-success"><i
+  class="evicon evicon-heart-1"></i><span>收藏</span></button>
+<button type="button" class="btn btn-xs btn-outline-success"><i
+  class="evicon evicon-heart-1"></i><span>收藏</span></button>
+      </pre>
+
+      <h4 class="page-header">单图标按钮</h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-primary"><i class="evicon evicon-set-up-1"></i></button>
+        <button type="button" class="btn btn-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-info"><i class="evicon evicon-help-1"></i></button>
+        <button type="button" class="btn btn-warning"><i class="evicon evicon-comment-1"></i></button>
+        <button type="button" class="btn btn-danger"><i class="evicon evicon-home-1"></i></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-primary"><i class="evicon evicon-set-up-1"></i></button>
+<button type="button" class="btn btn-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-info"><i class="evicon evicon-help-1"></i></button>
+<button type="button" class="btn btn-warning"><i class="evicon evicon-comment-1"></i></button>
+<button type="button" class="btn btn-danger"><i class="evicon evicon-home-1"></i></button>
+      </pre>
+
+      <h4 class="page-header">单图标圆角按钮</h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-rounded btn-primary"><i class="evicon evicon-set-up-1"></i></button>
+        <button type="button" class="btn btn-rounded btn-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-rounded btn-info"><i class="evicon evicon-help-1"></i></button>
+        <button type="button" class="btn btn-rounded btn-warning"><i class="evicon evicon-comment-1"></i></button>
+        <button type="button" class="btn btn-rounded btn-danger"><i class="evicon evicon-home-1"></i></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-rounded btn-primary"><i class="evicon evicon-set-up-1"></i></button>
+<button type="button" class="btn btn-rounded btn-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-rounded btn-info"><i class="evicon evicon-help-1"></i></button>
+<button type="button" class="btn btn-rounded btn-warning"><i class="evicon evicon-comment-1"></i></button>
+<button type="button" class="btn btn-rounded btn-danger"><i class="evicon evicon-home-1"></i></button>
+      </pre>
+
+      <h4 class="page-header">单图外边线按钮</h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-outline-primary"><i class="evicon evicon-set-up-1"></i></button>
+        <button type="button" class="btn btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-outline-info"><i class="evicon evicon-help-1"></i></button>
+        <button type="button" class="btn btn-outline-warning"><i class="evicon evicon-comment-1"></i></button>
+        <button type="button" class="btn btn-outline-danger"><i class="evicon evicon-home-1"></i></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-outline-primary"><i class="evicon evicon-set-up-1"></i></button>
+<button type="button" class="btn btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-outline-info"><i class="evicon evicon-help-1"></i></button>
+<button type="button" class="btn btn-outline-warning"><i class="evicon evicon-comment-1"></i></button>
+<button type="button" class="btn btn-outline-danger"><i class="evicon evicon-home-1"></i></button>
+      </pre>
+
+      <h4 class="page-header">单图外边线圆角按钮</h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-rounded btn-outline-primary"><i class="evicon evicon-set-up-1"></i>
+        </button>
+        <button type="button" class="btn btn-rounded btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-rounded btn-outline-info"><i class="evicon evicon-help-1"></i></button>
+        <button type="button" class="btn btn-rounded btn-outline-warning"><i class="evicon evicon-comment-1"></i>
+        </button>
+        <button type="button" class="btn btn-rounded btn-outline-danger"><i class="evicon evicon-home-1"></i></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-rounded btn-outline-primary"><i class="evicon evicon-set-up-1"></i></button>
+<button type="button" class="btn btn-rounded btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-rounded btn-outline-info"><i class="evicon evicon-help-1"></i></button>
+<button type="button" class="btn btn-rounded btn-outline-warning"><i class="evicon evicon-comment-1"></i></button>
+<button type="button" class="btn btn-rounded btn-outline-danger"><i class="evicon evicon-home-1"></i></button>
+      </pre>
+
+      <h4 class="page-header">单图圆形按钮</h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-circle btn-primary"><i class="evicon evicon-set-up-1"></i></button>
+        <button type="button" class="btn btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-circle btn-info"><i class="evicon evicon-help-1"></i></button>
+        <button type="button" class="btn btn-circle btn-warning"><i class="evicon evicon-comment-1"></i></button>
+        <button type="button" class="btn btn-circle btn-danger"><i class="evicon evicon-home-1"></i></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-circle btn-primary"><i class="evicon evicon-set-up-1"></i></button>
+<button type="button" class="btn btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-circle btn-info"><i class="evicon evicon-help-1"></i></button>
+<button type="button" class="btn btn-circle btn-warning"><i class="evicon evicon-comment-1"></i></button>
+<button type="button" class="btn btn-circle btn-danger"><i class="evicon evicon-home-1"></i></button>
+      </pre>
+
+      <h4 class="page-header">单图圆形按钮大小</h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-lg btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-sm btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-xs btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-lg btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-sm btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-xs btn-circle btn-success"><i class="evicon evicon-heart-1"></i></button>
+      </pre>
+      <h4 class="page-header">单图圆形外边框按钮</h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-circle btn-outline-primary"><i class="evicon evicon-set-up-1"></i></button>
+        <button type="button" class="btn btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-circle btn-outline-info"><i class="evicon evicon-help-1"></i></button>
+        <button type="button" class="btn btn-circle btn-outline-warning"><i class="evicon evicon-comment-1"></i>
+        </button>
+        <button type="button" class="btn btn-circle btn-outline-danger"><i class="evicon evicon-home-1"></i></button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-circle btn-outline-primary"><i class="evicon evicon-set-up-1"></i></button>
+<button type="button" class="btn btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-circle btn-outline-info"><i class="evicon evicon-help-1"></i></button>
+<button type="button" class="btn btn-circle btn-outline-warning"><i class="evicon evicon-comment-1"></i></button>
+<button type="button" class="btn btn-circle btn-outline-danger"><i class="evicon evicon-home-1"></i></button>
+      </pre>
+
+      <h4 class="page-header">单图圆形外边框按钮大小</h4>
+      <div class="button-div">
+        <button type="button" class="btn btn-lg btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i>
+        </button>
+        <button type="button" class="btn btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+        <button type="button" class="btn btn-sm btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i>
+        </button>
+        <button type="button" class="btn btn-xs btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i>
+        </button>
+      </div>
+      <pre name="pre" class="html">
+<button type="button" class="btn btn-lg btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-sm btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+<button type="button" class="btn btn-xs btn-circle btn-outline-success"><i class="evicon evicon-heart-1"></i></button>
+      </pre>
+
+    </div>
+  </div>
+</div>
+<script src="/docs/js/public.js"></script>
+</body>
+</html>

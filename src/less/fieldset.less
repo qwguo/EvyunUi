@@ -1,0 +1,84 @@
+// Fieldset
+@fieldset-bg:                 #FFF;
+@fieldset-border-color:       #EDEDED;
+@fieldset-heading-padding:    5px 15px;
+@fieldset-body-padding:       5px;
+@fieldset-footer-padding:     @fieldset-heading-padding;
+@fieldset-border-radius:      5px;
+
+// stylelint-disable selector-max-type, selector-max-compound-selectors, selector-max-combinators, no-duplicate-selectors
+
+//
+// fieldset
+// --------------------------------------------------
+
+// Base class
+.fieldset {
+  margin-bottom: @line-height-computed;
+  background-color: @fieldset-bg;
+  border: 1px solid @fieldset-border-color;
+  border-radius: @fieldset-border-radius;
+  .box-shadow(0 1px 1px rgba(0, 0, 0, .05));
+}
+
+// Panel contents
+.fieldset-body {
+  margin: @fieldset-body-padding;
+  &:extend(.clearfix all);
+}
+
+// Optional heading
+.fieldset-heading {
+  padding: @fieldset-heading-padding;
+  > .dropdown .dropdown-toggle {
+    color: inherit;
+  }
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.fieldset-heading {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: ceil((@font-size-base * 1.125));
+  color: inherit;
+
+  > a,
+  > small,
+  > .small,
+  > small > a,
+  > .small > a {
+    color: inherit;
+  }
+}
+.fieldset-top-border{
+  border-width: 1px 0 0;
+  > .fieldset-heading{
+    margin-left: 2em;
+  }
+  > .fieldset-body{
+    margin: 0;
+  }
+}
+
+.fieldset-variant(@border-color){
+  border-color: @border-color;
+  > .fieldset-heading{
+    color: @border-color;
+  }
+}
+// Contextual variations
+.fieldset-primary {
+  .fieldset-variant(@color-primary);
+}
+.fieldset-success {
+  .fieldset-variant(@color-success);
+}
+.fieldset-info {
+  .fieldset-variant(@color-info);
+}
+.fieldset-warning {
+  .fieldset-variant(@color-warning);
+}
+.fieldset-danger {
+  .fieldset-variant(@color-danger);
+}

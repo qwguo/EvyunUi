@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/dist/css/project.min.css">
+  <script src="/docs/js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="/docs/js/DlHighlight/h1.css">
+  <script src="/docs/js/DlHighlight/highlight-all.js"></script>
+  <title>复选按钮</title>
+</head>
+<body>
+<div class="main-wrap">
+  <div class="container-fluid">
+    <h3 class="page-header">复选按钮</h3>
+    <div class="show-forms-sub">
+      <h4 class="page-header">单个复选按钮</h4>
+      <div class="checkbox-show">
+        <h5 class="page-header">普通复选按钮</h5>
+          <label class="checkbox-element">
+            <input type="checkbox" name="hobby_0">
+            <i class="dot evicon evicon-right-2"></i>
+            <span class="checkbox-label">足球</span>
+          </label>
+      </div>
+      <pre class="html" name="pre">
+<label class="checkbox-element">
+  <input type="checkbox" name="hobby_1_1">
+  <i class="dot evicon evicon-right-2"></i>
+  <span class="checkbox-label">足球</span>
+</label>
+      </pre>
+      <h4 class="page-header">多个复选按钮</h4>
+      <div class="checkbox-show">
+        <h5 class="page-header">普通复选按钮</h5>
+        <div class="checkbox-element-group">
+          <label class="checkbox-element">
+            <input type="checkbox" name="hobby_1">
+            <i class="dot evicon evicon-right-2"></i>
+            <span class="checkbox-label">足球</span>
+          </label>
+          <label class="checkbox-element checked">
+            <input type="checkbox" name="hobby_1">
+            <i class="dot evicon evicon-right-2"></i>
+            <span class="checkbox-label">篮球</span>
+          </label>
+          <label class="checkbox-element checked">
+            <input type="checkbox" checked="checked" name="hobby_1">
+            <i class="dot evicon evicon-right-2"></i>
+            <span class="checkbox-label">排球</span>
+          </label>
+        </div>
+      </div>
+      <pre class="html" name="pre">
+<div class="checkbox-element-group">
+  <label class="checkbox-element">
+    <input type="checkbox" name="hobby_1_1">
+    <i class="dot evicon evicon-right-2"></i>
+    <span class="checkbox-label">足球</span>
+  </label>
+  <label class="checkbox-element checked">
+    <input type="checkbox" checked="checked" name="hobby_1_1">
+    <i class="dot evicon evicon-right-2"></i>
+    <span class="checkbox-label">篮球</span>
+  </label>
+  <label class="checkbox-element checked">
+    <input type="checkbox" checked="checked" name="hobby_1">
+    <i class="dot evicon evicon-right-2"></i>
+    <span class="checkbox-label">排球</span>
+  </label>
+</div>
+      </pre>
+      <div class="checkbox-show">
+        <h5 class="page-header">禁止复选按钮</h5>
+        <div class="checkbox-element-group">
+          <label class="checkbox-element disabled">
+            <input type="checkbox" disabled="disabled" name="hobby_2">
+            <i class="dot evicon evicon-right-2"></i>
+            <span class="checkbox-label">足球</span>
+          </label>
+          <label class="checkbox-element disabled">
+            <input type="checkbox" disabled="disabled" checked="checked" name="hobby_2">
+            <i class="dot evicon evicon-right-2"></i>
+            <span class="checkbox-label">篮球</span>
+          </label>
+        </div>
+      </div>
+      <pre class="html" name="pre">
+<div class="checkbox-element-group">
+  <label class="checkbox-element disabled">
+    <input type="checkbox" disabled="disabled" name="hobby_2_2">
+    <i class="dot evicon evicon-right-2"></i>
+    <span class="checkbox-label">足球</span>
+  </label>
+  <label class="checkbox-element disabled">
+    <input type="checkbox" disabled="disabled" checked="checked" name="hobby_2_2">
+    <i class="dot evicon evicon-right-2"></i>
+    <span class="checkbox-label">篮球</span>
+  </label>
+</div>
+      </pre>
+      <div class="checkbox-show">
+        <h5 class="page-header">错误提示复选按钮</h5>
+        <div class="checkbox-element-group">
+          <label class="checkbox-element error">
+            <input type="checkbox" name="hobby_3">
+            <i class="dot evicon evicon-right-2"></i>
+            <span class="checkbox-label">足球</span>
+          </label>
+          <label class="checkbox-element error">
+            <input type="checkbox" checked="checked" name="hobby_3">
+            <i class="dot evicon evicon-right-2"></i>
+            <span class="checkbox-label">篮球</span>
+          </label>
+        </div>
+      </div>
+      <pre class="html" name="pre">
+<div class="checkbox-element-group">
+  <label class="checkbox-element error">
+    <input type="checkbox" disabled="disabled" name="hobby_3_3">
+    <i class="dot evicon evicon-right-2"></i>
+    <span class="checkbox-label">足球</span>
+  </label>
+  <label class="checkbox-element error">
+    <input type="checkbox" disabled="disabled" checked="checked" name="hobby_3_3">
+    <i class="dot evicon evicon-right-2"></i>
+    <span class="checkbox-label">篮球</span>
+  </label>
+</div>
+      </pre>
+    </div>
+  </div>
+</div>
+<script src="/docs/js/public.js"></script>
+</body>
+</html>

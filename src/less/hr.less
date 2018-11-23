@@ -1,0 +1,38 @@
+
+
+// Hr
+@hr-color:                    #CCC;
+@hr-height:                   1px;
+@hr-margin:                   20px;
+
+// stylelint-disable selector-max-type, selector-max-compound-selectors, selector-max-combinators, no-duplicate-selectors
+
+//
+// fieldset
+// --------------------------------------------------
+
+// Base class
+.hr{
+  margin: @hr-margin 0;
+  height: @hr-height;
+  border: 0;
+  background-color: @hr-color;
+}
+.hr-variant(@color){
+  background-color: @color;
+}
+.hr-primary {
+  .hr-variant(@color-primary);
+}
+.hr-success {
+  .hr-variant(@color-success);
+}
+.hr-info {
+  .hr-variant(@color-info);
+}
+.hr-warning {
+  .hr-variant(@color-warning);
+}
+.hr-danger {
+  .hr-variant(@color-danger);
+}

@@ -1,0 +1,73 @@
+
+//== Panels variable
+//
+//##
+
+@panel-bg:                    #fff;
+@panel-heading-height:        60px;
+@panel-heading-border-color:  #ededed;
+@panel-title-color:        #333333;
+@panel-title-font-size:        14px;
+@panel-title-active-color: #0090ff;
+@panel-body-padding:          10px;
+@panel-border-radius:         0;
+@panel-border-color:          #f2f2f2;
+@panel-bottom-margin:          10px;
+
+
+
+// stylelint-disable selector-max-type, selector-max-compound-selectors, selector-max-combinators, no-duplicate-selectors
+
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.tab-panel {
+  margin-bottom: @panel-bottom-margin;
+  background-color: @panel-bg;
+  border: 1px solid @panel-border-color;
+  border-radius: @panel-border-radius;
+  .box-shadow(0 1px 1px rgba(0, 0, 0, .05));
+  // Optional heading
+  .tab-panel-heading {
+    border-bottom: 1px solid @panel-heading-border-color;
+    height: @panel-heading-height;
+    line-height: @panel-heading-height;
+    .border-top-radius(@panel-border-radius);
+    // Within heading, strip any `h*` tag of its default margins for spacing.
+    .tab-panel-title {
+      display: inline-block;
+      height: 100%;
+      border-bottom: 3px solid transparent;
+      font-size: @panel-title-font-size;
+      color: @panel-title-color;
+      padding: 0 .1em;
+      color: @panel-title-color;
+      cursor: pointer;
+      margin-right: 1em;
+      &:first-child{
+        margin-left: 30px;
+      }
+      &.panel-title-active{
+        color: @panel-title-active-color;
+        border-color: @panel-title-active-color;
+      }
+    }
+  }
+  // Panel contents
+  .tab-panel-body {
+    .clearfix();
+    .tab-panel-item{
+      padding: @panel-body-padding;
+      display: none;
+      &.no-spacing{
+        padding:0;
+      }
+      &.tab-panel-item-active{
+        display: block;
+      }
+    }
+  }
+}

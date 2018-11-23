@@ -1,0 +1,65 @@
+//== Breadcrumbs
+//
+//##
+
+@breadcrumb-padding-vertical:   8px;
+@breadcrumb-padding-horizontal: 15px;
+//** Breadcrumb background color
+@breadcrumb-bg:                 #f5f5f5;
+//** Breadcrumb text color
+@breadcrumb-color:              #ccc;
+//** Text color of current page in the breadcrumb
+@breadcrumb-a-color:            #555555;
+@breadcrumb-active-color:       #999999;
+@breadcrumb-hover-color:        @color-primary;
+//** Textual separator for between breadcrumb elements
+@breadcrumb-separator:          "/";
+@breadcrumb-font-size:          14px;
+
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+
+.breadcrumb {
+  padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
+  margin-bottom: @line-height-computed;
+  list-style: none;
+  font-size: @breadcrumb-font-size;
+  color: @breadcrumb-color;
+
+  > li {
+    display: inline-block;
+    &:not(.icon){
+      + li:before {
+        padding: 0 5px;
+        color: @breadcrumb-color;
+        content: attr(data-separator); // Unicode space added since inline-block means non-collapsing white-space
+      }
+    }
+    &.icon{
+      .evicon{
+        font-size: 1.2em;
+        color: inherit;
+        vertical-align: baseline;
+      }
+    }
+    > a {
+      color: @breadcrumb-a-color;
+      text-decoration: none;
+      &:hover{
+        color: @breadcrumb-hover-color;
+      }
+    }
+  }
+
+  > .active {
+    color: @breadcrumb-active-color;
+  }
+  &.lg{
+    font-size: @breadcrumb-font-size + @breadcrumb-font-size/3.5;
+  }
+  &.sm{
+    font-size: @breadcrumb-font-size - @breadcrumb-font-size/7;
+  }
+}

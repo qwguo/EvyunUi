@@ -1,0 +1,106 @@
+//== Tables Variable
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+@textarea-height: 100px;
+@textarea-width:  200px;
+@textarea-padding: 10px;
+@textarea-radius: 3px;
+@textarea-font-size: 14px;
+@textarea-padding-lg: 20px;
+@textarea-padding-sm: 10px;
+@textarea-padding-xs: 15px;
+@textarea-padding-no: 0;
+@textarea-margin-bottom: 10px;
+@brothers-line-color: #E8ECEF;
+//** Padding for cells in `.table-condensed`.
+// default
+@textarea-bg: #fff;
+@textarea-color: #666;
+@textarea-border-color: #E8ECEF;
+// focus
+@textarea-focus-bg: #fff;
+@textarea-focus-color: #666;
+@textarea-focus-border-color: #0099ff;
+// error
+@textarea-error-bg: #fff;
+@textarea-error-color: #666;
+@textarea-error-border-color: rgb(240, 26, 11);
+// success
+@textarea-success-bg: #fff;
+@textarea-success-color: #666;
+@textarea-success-border-color: green;
+// disabled
+@textarea-disabled-bg: #ddd;
+@textarea-disabled-color: #ddd;
+@textarea-disabled-border-color: #cccccc;
+
+
+/* input element */
+.textarea-element {
+  display: inline-block;
+  position: relative;
+  font-size: @textarea-font-size;
+  > textarea {
+    background-color: @textarea-bg;
+    padding: @textarea-padding;
+    border: 1px solid @textarea-border-color;
+    color: @textarea-color;
+    border-radius: @textarea-radius;
+    width: 100%;
+    min-width: @textarea-width;
+    min-height: @textarea-height;
+    margin-bottom: @textarea-margin-bottom;
+    outline: 0;
+    &:focus {
+      outline: 0;
+      border-color: @textarea-focus-border-color;
+    }
+  }
+  &.disabled {
+    > textarea {
+      color: @textarea-disabled-color;
+      background-color: @textarea-disabled-bg;
+      border-color: @textarea-disabled-border-color;
+      cursor: @cursor-disabled;
+    }
+  }
+  &.error {
+    > textarea {
+      color: @textarea-error-color;
+      background-color: @textarea-error-bg;
+      border-color: @textarea-error-border-color;
+    }
+  }
+  &.success {
+    > textarea {
+      color: @textarea-success-color;
+      background-color: @textarea-success-bg;
+      border-color: @textarea-success-border-color;
+    }
+  }
+  &.no-resize{
+    textarea{
+      resize: none;
+    }
+  }
+  &.block{
+    display: block;
+    textarea{
+      width: 100%;
+    }
+  }
+}
+
+//Input Group
+.textarea-element-group {
+  font-size: 0;
+  > .textarea-element{
+    margin-left: 15px;
+  }
+  > .textarea-element:first-child,
+  > .textarea-element.block{
+    margin-left: 0;
+  }
+}
