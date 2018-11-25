@@ -1,0 +1,26 @@
+// Upload Variable
+@upload-tip-color: #a9a9a9;
+@upload-tip-font-size: 12px;
+@upload-list-img-width: 80px;
+@upload-list-img-height: 80px;
+
+.upload-element{
+  > .upload-images-list{
+    padding-top: 10px;
+    list-style: none;
+    padding-left: 0;
+    > li{
+      width: @upload-list-img-width;
+      height: @upload-list-img-height;
+      display: inline-block;
+      position: relative;
+      > div{
+        position: inline-block;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+    }
+  }
+}

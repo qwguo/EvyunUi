@@ -775,14 +775,20 @@ button.close {
 .evicon-comment-1:before {
   content: "\e6b9";
 }
+.evicon-right-2:before {
+  content: "\e62f";
+}
 .evicon-weizhi-1:before {
   content: "\e629";
 }
 .evicon-shop-car-1:before {
   content: "\e665";
 }
-.evicon-arrow-top-1:before {
+.evicon-arrow-up-1:before {
   content: "\e608";
+}
+.evicon-arrow-up-2:before {
+  content: "\e657";
 }
 .evicon-organization-1:before {
   content: "\e605";
@@ -847,6 +853,9 @@ button.close {
 .evicon-point-1:before {
   content: "\e6ee";
 }
+.evicon-arrow-up-3:before {
+  content: "\e628";
+}
 .evicon-cancel-1:before {
   content: "\e61f";
 }
@@ -874,8 +883,11 @@ button.close {
 .evicon-delete-1:before {
   content: "\e611";
 }
-.evicon-right-2:before {
-  content: "\e62f";
+.evicon-arrow-down-2:before {
+  content: "\ea39";
+}
+.evicon-arrow-down-3:before {
+  content: "\ea3a";
 }
 .container {
   padding-right: 5px;
@@ -4380,6 +4392,9 @@ a.thumbnail.active {
   border-radius: 3px;
   outline: 0;
 }
+.input-element > input:hover {
+  border-color: #d0d8de;
+}
 .input-element > input:focus {
   outline: 0;
   border-color: #0099ff;
@@ -4387,22 +4402,21 @@ a.thumbnail.active {
 .input-element > .evicon {
   font-size: 1.2em;
   position: absolute;
-  top: 50%;
-  margin-top: -0.5em;
+  height: 100%;
+  line-height: 35px;
   color: #ccc;
+  padding: 0 0.3em;
 }
 .input-element.suffix > input {
   padding: 0 30px 0 15px;
 }
 .input-element.suffix > .evicon {
-  padding-right: 0.3em;
   right: 0;
 }
 .input-element.prefix > input {
   padding: 0 15px 0 30px;
 }
 .input-element.prefix > .evicon {
-  padding-left: 0.3em;
   left: 0;
 }
 .input-element.block {
@@ -4499,6 +4513,9 @@ a.thumbnail.active {
   min-height: 100px;
   margin-bottom: 10px;
   outline: 0;
+}
+.textarea-element > textarea:hover {
+  border-color: #d0d8de;
 }
 .textarea-element > textarea:focus {
   outline: 0;
@@ -4883,6 +4900,100 @@ a.thumbnail.active {
 }
 .switch-element.switch-element-error > .switch-btn > i {
   color: #fff;
+}
+.select-element {
+  position: relative;
+  display: inline-block;
+}
+.select-element > .input-element {
+  margin-bottom: 2px;
+}
+.select-element > .input-element > input {
+  cursor: pointer;
+}
+.select-element > .input-element > input:focus + .evicon {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.select-element > .input-element > .evicon {
+  font-size: 1em;
+  padding: 0 0.6em;
+  -webkit-transform-origin: 45% 47%;
+  -ms-transform-origin: 45% 47%;
+  transform-origin: 45% 47%;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.select-element > .option-list {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border: 1px solid #E8ECEF;
+  background-color: #fff;
+  max-height: 300px;
+  overflow-y: auto;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.select-element > .option-list > dl {
+  margin: 0;
+  padding: 10px 0;
+  line-height: 30px;
+}
+.select-element > .option-list > dl > dt,
+.select-element > .option-list > dl > dd {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.select-element > .option-list > dl > dt {
+  font-weight: 700;
+}
+.select-element > .option-list > dl > dt > span {
+  margin: 0 0.5em;
+}
+.select-element > .option-list > dl > dd {
+  line-height: 28px;
+  cursor: pointer;
+  color: #666;
+  font-size: 12px;
+}
+.select-element > .option-list > dl > dd > span {
+  margin: 0 1em;
+}
+.select-element > .option-list > dl > dd:hover {
+  background-color: #f5f5f5;
+}
+.select-element > .option-list > dl > dd.disabled {
+  background-color: #e9ecef;
+  color: #a5a5a6;
+  cursor: not-allowed;
+}
+.upload-element > .upload-images-list {
+  padding-top: 10px;
+  list-style: none;
+  padding-left: 0;
+}
+.upload-element > .upload-images-list > li {
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  position: relative;
+}
+.upload-element > .upload-images-list > li > div {
+  position: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
 }
 .tooltip {
   position: absolute;
