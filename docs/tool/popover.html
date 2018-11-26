@@ -2,148 +2,166 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../dist/css/project.min.css">
-    <script src="../js/jquery-1.9.1.min.js"></script>
-    <link rel="stylesheet" href="../js/DlHighlight/h1.css">
-    <script src="../js/DlHighlight/highlight-all.js"></script>
-    <script src="../../dist/js/bootstrap.js"></script>
-    <title>静态提示框</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../dist/css/project.min.css">
+  <script src="../js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="../js/DlHighlight/h1.css">
+  <script src="../js/DlHighlight/highlight-all.js"></script>
+  <script src="../../dist/js/bootstrap.js"></script>
+  <title>隐藏显示</title>
 </head>
-
 <body>
-    <div class="main-wrap">
-        <div class="container-fluid">
-            <h3 class="page-header">静态提示框</h3>
-            <dl>
-              <dt>
-                <h4>我们可以给任何的标签元素添加<code>data-toggle="tooltip"</code>属性来实现静态提示框</h4>
-              </dt>
-              <dd>
-                <p>同时我们可以添加更过属性来实现不同效果，具体属性有以下：</p>
-                <ol>
-                  <li>
-                    <p>
-                      <code>data-container="body"</code>：弹出框添加到哪个元素标签内，如果不设置，默认添加在body中；可以设置元素的id格式为<code>#id</code>形式
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <code>data-placement="left"</code>：方向，表示提示信息出现的位置，可以是：<code>top</code>，<code>bottom</code>，<code>left</code>，<code>right</code>，<code>auto</code>
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <code>data-delay="100"</code>：延迟出现时间，毫秒数
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <code>data-trigger="click"</code>：表示触发什么事件显示提示：<code>click</code>单击（默认），<code>focus</code>得到焦点（只能应用在可以得到焦点的元素上，比如：<code>&lt;a&gt;</code>，<code>&lt;button&gt;</code>，<code>&lt;input&gt;</code>，<code>&lt;textarea&gt;</code>等），<code>hover</code>鼠标经过
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <code>data-title="标题"</code>：这是提示框的标题，如果没有标题把此属性去掉。
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <code>data-content="内容"</code>：这是提示框要展示的内容，如果没有内容把此属性去掉。
-                    </p>
-                  </li>
-                </ol>
-              </dd>
-            </dl>
-            <div class="show-popover">
-              <h4 class="page-header">默认：单机显示，再单机隐藏</h4>
-              <button type="button" class="btn btn-primary" data-toggle="popover" data-placement="top" data-title="CSS" data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
-                在顶部
-              </button>
-              <button type="button" class="btn btn-outline-danger" data-toggle="popover" data-placement="bottom" data-title="HTML" data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
-                在底部
-              </button>
-              <button type="button" class="btn btn-outline-primary" data-toggle="popover" data-placement="left" data-title="JavaScript" data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
-                在左侧
-              </button>
-              <button type="button" class="btn btn-outline-warning" data-toggle="popover" data-placement="right" data-title="Bootstrap" data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
-                在右侧
-              </button>
-              <pre class="html" name="pre">
+<div class="main-wrap">
+  <div class="container-fluid">
+
+
+
+
+<div class="show-popover">
+  <h3 class="page-header">静态提示框</h3>
+  <dl>
+    <dt>
+      <h4>我们可以给任何的标签元素添加<code>data-toggle="tooltip"</code>属性来实现静态提示框</h4>
+    </dt>
+    <dd>
+      <p>同时我们可以添加更过属性来实现不同效果，具体属性有以下：</p>
+      <ol>
+        <li>
+          <p>
+            <code>data-container="body"</code>：弹出框添加到哪个元素标签内，如果不设置，默认添加在body中；可以设置元素的id格式为<code>#id</code>形式
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>data-placement="left"</code>：方向，表示提示信息出现的位置，可以是：<code>top</code>，<code>bottom</code>，<code>left</code>，<code>right</code>，<code>auto</code>
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>data-delay="100"</code>：延迟出现时间，毫秒数
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>data-trigger="click"</code>：表示触发什么事件显示提示：<code>click</code>单击（默认），<code>focus</code>得到焦点（只能应用在可以得到焦点的元素上，比如：<code>&lt;a&gt;</code>，<code>&lt;button&gt;</code>，<code>&lt;input&gt;</code>，<code>&lt;textarea&gt;</code>等），<code>hover</code>鼠标经过
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>data-title="标题"</code>：这是提示框的标题，如果没有标题把此属性去掉。
+          </p>
+        </li>
+        <li>
+          <p>
+            <code>data-content="内容"</code>：这是提示框要展示的内容，如果没有内容把此属性去掉。
+          </p>
+        </li>
+      </ol>
+    </dd>
+  </dl>
+  <h4 class="page-header">默认：单机显示，再单机隐藏</h4>
+  <button type="button" class="btn btn-primary" data-toggle="popover" data-placement="top" data-title="CSS"
+    data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
+    在顶部
+  </button>
+  <button type="button" class="btn btn-outline-danger" data-toggle="popover" data-placement="bottom" data-title="HTML"
+    data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
+    在底部
+  </button>
+  <button type="button" class="btn btn-outline-primary" data-toggle="popover" data-placement="left" data-title="JavaScript"
+    data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
+    在左侧
+  </button>
+  <button type="button" class="btn btn-outline-warning" data-toggle="popover" data-placement="right" data-title="Bootstrap"
+    data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
+    在右侧
+  </button>
+  <pre class="html" name="pre">
 <button type="button" class="btn btn-primary" data-toggle="popover" data-placement="top" data-title="CSS" data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
-  在顶部
+在顶部
 </button>
 <button type="button" class="btn btn-outline-danger" data-toggle="popover" data-placement="bottom" data-title="HTML" data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
-  在底部
+在底部
 </button>
 <button type="button" class="btn btn-outline-primary" data-toggle="popover" data-placement="left" data-title="JavaScript" data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
-  在左侧
+在左侧
 </button>
 <button type="button" class="btn btn-outline-warning" data-toggle="popover" data-placement="right" data-title="Bootstrap" data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
-  在右侧
+在右侧
 </button>
-              </pre>
-              <h4 class="page-header">单击得到焦点显示，失去焦点隐藏</h4>
-              <button type="button" class="btn btn-primary" data-toggle="popover" data-trigger="focus" data-placement="top" data-title="CSS" data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
-                在顶部
-              </button>
-              <button type="button" class="btn btn-outline-danger" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-title="HTML" data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
-                在底部
-              </button>
-              <button type="button" class="btn btn-outline-primary" data-toggle="popover" data-trigger="focus" data-placement="left" data-title="JavaScript" data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
-                在左侧
-              </button>
-              <button type="button" class="btn btn-outline-dark" data-toggle="popover" data-trigger="focus" data-placement="right" data-title="Bootstrap" data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
-                在右侧
-              </button>
-              <pre class="html" name="pre">
+      </pre>
+  <h4 class="page-header">单击得到焦点显示，失去焦点隐藏</h4>
+  <button type="button" class="btn btn-primary" data-toggle="popover" data-trigger="focus" data-placement="top"
+    data-title="CSS" data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
+    在顶部
+  </button>
+  <button type="button" class="btn btn-outline-danger" data-toggle="popover" data-trigger="focus" data-placement="bottom"
+    data-title="HTML" data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
+    在底部
+  </button>
+  <button type="button" class="btn btn-outline-primary" data-toggle="popover" data-trigger="focus" data-placement="left"
+    data-title="JavaScript" data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
+    在左侧
+  </button>
+  <button type="button" class="btn btn-outline-dark" data-toggle="popover" data-trigger="focus" data-placement="right"
+    data-title="Bootstrap" data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
+    在右侧
+  </button>
+  <pre class="html" name="pre">
 <button type="button" class="btn btn-primary" data-toggle="popover" data-placement="top" data-trigger="focus" data-title="CSS" data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
-  在顶部
+在顶部
 </button>
 <button type="button" class="btn btn-outline-danger" data-toggle="popover" data-placement="bottom" data-trigger="focus" data-title="HTML" data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
-  在底部
+在底部
 </button>
 <button type="button" class="btn btn-outline-primary" data-toggle="popover" data-placement="left" data-trigger="focus" data-title="JavaScript" data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
-  在左侧
+在左侧
 </button>
 <button type="button" class="btn btn-outline-warning" data-toggle="popover" data-placement="right" data-trigger="focus" data-title="Bootstrap" data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
-  在右侧
+在右侧
 </button>
-              </pre>
-              <h4 class="page-header">鼠标经过显示，离开隐藏</h4>
-              <b type="button" class="btn btn-primary" data-toggle="popover" data-trigger="hover" data-placement="top" data-title="CSS" data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
-                在顶部
-              </b>
-              <b type="button" class="btn btn-outline-danger" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-title="HTML" data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
-                在底部
-              </b>
-              <b type="button" class="btn btn-outline-primary" data-toggle="popover" data-trigger="hover" data-placement="left" data-title="JavaScript" data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
-                在左侧
-              </b>
-              <b type="button" class="btn btn-outline-dark" data-toggle="popover" data-trigger="hover" data-placement="right" data-title="Bootstrap" data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
-                在右侧
-              </b>
-              <pre class="html" name="pre">
+      </pre>
+  <h4 class="page-header">鼠标经过显示，离开隐藏</h4>
+  <b type="button" class="btn btn-primary" data-toggle="popover" data-trigger="hover" data-placement="top" data-title="CSS"
+    data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
+    在顶部
+  </b>
+  <b type="button" class="btn btn-outline-danger" data-toggle="popover" data-trigger="hover" data-placement="bottom"
+    data-title="HTML" data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
+    在底部
+  </b>
+  <b type="button" class="btn btn-outline-primary" data-toggle="popover" data-trigger="hover" data-placement="left"
+    data-title="JavaScript" data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
+    在左侧
+  </b>
+  <b type="button" class="btn btn-outline-dark" data-toggle="popover" data-trigger="hover" data-placement="right"
+    data-title="Bootstrap" data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
+    在右侧
+  </b>
+  <pre class="html" name="pre">
 <b type="button" class="btn btn-primary" data-toggle="popover" data-placement="top" data-trigger="hover" data-title="CSS" data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
-  在顶部
+在顶部
 </b>
 <b type="button" class="btn btn-outline-danger" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-title="HTML" data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
-  在底部
+在底部
 </b>
 <b type="button" class="btn btn-outline-primary" data-toggle="popover" data-placement="left" data-trigger="hover" data-title="JavaScript" data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
-  在左侧
+在左侧
 </b>
 <b type="button" class="btn btn-outline-warning" data-toggle="popover" data-placement="right" data-trigger="hover" data-title="Bootstrap" data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
-  在右侧
+在右侧
 </b>
-              </pre>
-            </div>
-        </div>
-    </div>
-    <script src="../js/public.js"></script>
-</body>
+      </pre>
 
+</div>
+
+
+  </div>
+  </div>
+  <script src="../js/public.js"></script>
+</body>
 </html>
+

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -9,45 +10,50 @@
   <script src="../js/jquery-1.9.1.min.js"></script>
   <link rel="stylesheet" href="../js/DlHighlight/h1.css">
   <script src="../js/DlHighlight/highlight-all.js"></script>
-  <title>单选按钮</title>
+  <script src="../../dist/js/bootstrap.js"></script>
+  <title>隐藏显示</title>
 </head>
 <body>
 <div class="main-wrap">
   <div class="container-fluid">
-    <h3 class="page-header">单选按钮</h3>
-    <div class="show-forms-sub">
-      <div class="radio-show">
-        <h5 class="page-header">单个单选按钮</h5>
-        <label class="radio-element">
-          <input type="radio" name="sex_0">
-          <i class="dot"></i>
-          <span class="radio-label">单选</span>
-        </label>
-      </div>
-      <pre class="html" name="pre">
+
+
+
+
+<div class="show-forms-radio">
+  <h3 class="page-header">单选按钮</h3>
+  <div class="radio-show">
+    <h5 class="page-header">单个单选按钮</h5>
+    <label class="radio-element">
+      <input type="radio" name="sex_0">
+      <i class="dot"></i>
+      <span class="radio-label">单选</span>
+    </label>
+  </div>
+  <pre class="html" name="pre">
 <label class="radio-element">
   <input type="radio" name="sex_0_0">
   <i class="dot"></i>
   <span class="radio-label">单选</span>
 </label>
       </pre>
-      <h4 class="page-header">多个单选按钮</h4>
-      <div class="radio-show">
-        <h5 class="page-header">普通单选按钮</h5>
-        <div class="radio-element-group">
-          <label class="radio-element">
-            <input type="radio" name="sex_1">
-            <i class="dot"></i>
-            <span class="radio-label">男</span>
-          </label>
-          <label class="radio-element checked">
-            <input type="radio" checked="checked" name="sex_1">
-            <i class="dot"></i>
-            <span class="radio-label">女</span>
-          </label>
-        </div>
-      </div>
-      <pre class="html" name="pre">
+  <h4 class="page-header">多个单选按钮</h4>
+  <div class="radio-show">
+    <h5 class="page-header">普通单选按钮</h5>
+    <div class="radio-element-group">
+      <label class="radio-element">
+        <input type="radio" name="sex_1">
+        <i class="dot"></i>
+        <span class="radio-label">男</span>
+      </label>
+      <label class="radio-element checked">
+        <input type="radio" checked="checked" name="sex_1">
+        <i class="dot"></i>
+        <span class="radio-label">女</span>
+      </label>
+    </div>
+  </div>
+  <pre class="html" name="pre">
 <div class="radio-element-group">
   <label class="radio-element">
     <input type="radio" name="sex_1_1">
@@ -61,22 +67,22 @@
   </label>
 </div>
       </pre>
-      <div class="radio-show">
-        <h5 class="page-header">禁止单选按钮</h5>
-        <div class="radio-element-group">
-          <label class="radio-element disabled">
-            <input type="radio" disabled="disabled" name="sex_2">
-            <i class="dot"></i>
-            <span class="radio-label">男</span>
-          </label>
-          <label class="radio-element disabled">
-            <input type="radio" disabled="disabled" checked="checked" name="sex_2">
-            <i class="dot"></i>
-            <span class="radio-label">女</span>
-          </label>
-        </div>
-      </div>
-      <pre class="html" name="pre">
+  <div class="radio-show">
+    <h5 class="page-header">禁止单选按钮</h5>
+    <div class="radio-element-group">
+      <label class="radio-element disabled">
+        <input type="radio" disabled="disabled" name="sex_2">
+        <i class="dot"></i>
+        <span class="radio-label">男</span>
+      </label>
+      <label class="radio-element disabled">
+        <input type="radio" disabled="disabled" checked="checked" name="sex_2">
+        <i class="dot"></i>
+        <span class="radio-label">女</span>
+      </label>
+    </div>
+  </div>
+  <pre class="html" name="pre">
 <div class="radio-element-group">
   <label class="radio-element disabled">
     <input type="radio" disabled="disabled" name="sex_2_2">
@@ -90,22 +96,22 @@
   </label>
 </div>
     </pre>
-      <div class="radio-show">
-        <h5 class="page-header">错误提示单选按钮</h5>
-        <div class="radio-element-group">
-          <label class="radio-element error">
-            <input type="radio" name="sex_3">
-            <i class="dot"></i>
-            <span class="radio-label">男</span>
-          </label>
-          <label class="radio-element error">
-            <input type="radio" checked="checked" name="sex_3">
-            <i class="dot"></i>
-            <span class="radio-label">女</span>
-          </label>
-        </div>
-      </div>
-      <pre class="html" name="pre">
+  <div class="radio-show">
+    <h5 class="page-header">错误提示单选按钮</h5>
+    <div class="radio-element-group">
+      <label class="radio-element error">
+        <input type="radio" name="sex_3">
+        <i class="dot"></i>
+        <span class="radio-label">男</span>
+      </label>
+      <label class="radio-element error">
+        <input type="radio" checked="checked" name="sex_3">
+        <i class="dot"></i>
+        <span class="radio-label">女</span>
+      </label>
+    </div>
+  </div>
+  <pre class="html" name="pre">
 <div class="radio-element-group">
   <label class="radio-element error">
     <input type="radio" disabled="disabled" name="sex_3_3">
@@ -119,9 +125,12 @@
   </label>
 </div>
       </pre>
-    </div>
-  </div>
 </div>
-<script src="../js/public.js"></script>
+
+
+  </div>
+  </div>
+  <script src="../js/public.js"></script>
 </body>
 </html>
+

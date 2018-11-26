@@ -1,0 +1,10 @@
+$(function(){
+  $('[data-toggle="tooltip"]').tooltip({
+    'container':'body',
+    'delay':100
+  });
+  $('[data-toggle="popover"]').popover({
+    'container':'body',
+    'delay':100
+  });
+});

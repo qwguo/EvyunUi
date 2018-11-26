@@ -24,6 +24,7 @@
 //** Border color for table and cell borders.
 @table-border-color:            #dee2e6;
 
+@table-font-size:               12px;
 @table-text-color:              #555555;
 @table-link-color:              #2AB3FF;
 
@@ -88,9 +89,10 @@ table {
         vertical-align: top;
         border: 1px solid @table-border-color;
         color: @table-text-color;
+        font-size: @table-font-size;
         a{
           color: @table-link-color;
-          a:hover{
+          &:hover{
             text-decoration: underline;
           }
         }
@@ -119,6 +121,7 @@ table {
     >tr{
       > th{
         border-bottom-width: 2px;
+        font-weight: 400;
       }
     }
   }

@@ -1,34 +1,39 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../dist/css/project.min.css">
   <script src="../js/jquery-1.9.1.min.js"></script>
   <link rel="stylesheet" href="../js/DlHighlight/h1.css">
   <script src="../js/DlHighlight/highlight-all.js"></script>
-  <title>文字列表</title>
+  <script src="../../dist/js/bootstrap.js"></script>
+  <title>隐藏显示</title>
 </head>
 <body>
 <div class="main-wrap">
   <div class="container-fluid">
-    <h3 class="page-header">列表：<small>我们可以通过给<code>&lt;ul&gt;</code><code>&lt;ol&gt;</code>添加<code>list</code>类来实现列表展示</small></h3>
-    <div class="show-list">
-      <h4 class="page-header">无序列表：<small>默认使用<code>&lt;ul&gt;</code>实现</small></h4>
-      <ul class="list">
-        <li>前端技术的发展</li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
-        <li>谈一下您对前端开发的理解</li>
-        <li>前端技术都需要掌握哪些知识？</li>
-        <li>前端未来的发展方向</li>
-        <li>前端的最新技术是什么？</li>
-        <li>为什么前端开发越来越复杂？</li>
-      </ul>
-      <pre name="pre" class="html">
+
+
+
+
+<div class="show-list">
+  <h3 class="page-header">列表：<small>我们可以通过给<code>&lt;ul&gt;</code><code>&lt;ol&gt;</code>添加<code>list</code>类来实现列表展示</small></h3>
+  <h4 class="page-header">无序列表：<small>默认使用<code>&lt;ul&gt;</code>实现</small></h4>
+  <ul class="list">
+    <li>前端技术的发展</li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？</li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ul>
+  <pre name="pre" class="html">
 <ul class="list">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -39,19 +44,19 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ul>
-      </pre>
-      <h4 class="page-header">有序列表<small>默认使用<code>&lt;ol&gt;</code>实现</small> </h4>
-      <ol class="list">
-        <li>前端技术的发展</li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
-        <li>谈一下您对前端开发的理解</li>
-        <li>前端技术都需要掌握哪些知识？</li>
-        <li>前端未来的发展方向</li>
-        <li>前端的最新技术是什么？</li>
-        <li>为什么前端开发越来越复杂？</li>
-      </ol>
-      <pre name="pre" class="html">
+    </pre>
+  <h4 class="page-header">有序列表<small>默认使用<code>&lt;ol&gt;</code>实现</small> </h4>
+  <ol class="list">
+    <li>前端技术的发展</li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？</li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ol>
+  <pre name="pre" class="html">
 <ol class="list">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -62,43 +67,43 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ol>
-      </pre>
-      <h4 class="page-header">列表嵌套</h4>
-      <ol class="list">
-        <li>前端技术的发展</li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
-        <li>谈一下您对前端开发的理解</li>
-        <li>前端技术都需要掌握哪些知识？
-          <ul class="list list-type-upper-latin">
-            <li>CSS
-              <ul class="list">
-                <li>CSS2.0</li>
-                <li>CSS3.0</li>
-              </ul>
-            </li>
-            <li>JavaScript
-              <ol class="list">
-                <li>ECMAScript3.0</li>
-                <li>ECMAScript5.0</li>
-                <li>ECMAScript6.0</li>
-                <li>ECMAScript7.0</li>
-              </ol>
-            </li>
-            <li>HTML
-              <ul class="list">
-                <li>HTML4.1</li>
-                <li>XHTML</li>
-                <li>HTML5</li>
-              </ul>
-            </li>
+    </pre>
+  <h4 class="page-header">列表嵌套</h4>
+  <ol class="list">
+    <li>前端技术的发展</li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？
+      <ul class="list list-type-upper-latin">
+        <li>CSS
+          <ul class="list">
+            <li>CSS2.0</li>
+            <li>CSS3.0</li>
           </ul>
         </li>
-        <li>前端未来的发展方向</li>
-        <li>前端的最新技术是什么？</li>
-        <li>为什么前端开发越来越复杂？</li>
-      </ol>
-      <pre name="pre" class="html">
+        <li>JavaScript
+          <ol class="list">
+            <li>ECMAScript3.0</li>
+            <li>ECMAScript5.0</li>
+            <li>ECMAScript6.0</li>
+            <li>ECMAScript7.0</li>
+          </ol>
+        </li>
+        <li>HTML
+          <ul class="list">
+            <li>HTML4.1</li>
+            <li>XHTML</li>
+            <li>HTML5</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ol>
+  <pre name="pre" class="html">
 <ol class="list">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -133,41 +138,41 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ol>
-      </pre>
-      <h4 class="page-header">列表的样式：</h4>
-      <p>我们可以通过给<code>&lt;ul&gt;</code><code>&lt;ol&gt;</code>添加不同的类来实现不同的列表序列样式，共计19种：
-        <code>.list-type-disc</code>实心圆，
-        <code>.list-type-circle</code>空心圆，
-        <code>.list-type-square</code>实心方块，
-        <code>.list-type-decimal</code>阿拉伯数字，
-        <code>.list-type-lower-roman</code>小写罗马数字，
-        <code>.list-type-upper-roman</code>大写罗马数字，
-        <code>.list-type-lower-alpha</code>小写英文字母，
-        <code>.list-type-upper-alpha</code>大写英文字母，
-        <code>.list-type-armenian</code>不使用项目符号，
-        <code>.list-type-cjk-ideographic</code>传统的亚美尼亚数字，
-        <code>.list-type-georgian</code>浅白的表意数字，
-        <code>.list-type-lower-greek</code>传统的乔治数字，
-        <code>.list-type-hebrew</code>基本的希腊小写字母，
-        <code>.list-type-hiragana</code>传统的希伯莱数字，
-        <code>.list-type-hiragana-iroha</code>日文平假名字符，
-        <code>.list-type-katakana</code>日文平假名序号，
-        <code>.list-type-katakana-iroha</code>日文片假名字符，
-        <code>.list-type-lower-latin</code>日文片假名序号，
-        <code>.list-type-upper-latin</code>小写拉丁字母，
-      </p>
-      <h5 class="page-header">小写拉丁字母：</h5>
-      <ul class="list list-type-upper-latin">
-        <li>前端技术的发展</li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
-        <li>谈一下您对前端开发的理解</li>
-        <li>前端技术都需要掌握哪些知识？</li>
-        <li>前端未来的发展方向</li>
-        <li>前端的最新技术是什么？</li>
-        <li>为什么前端开发越来越复杂？</li>
-      </ul>
-      <pre name="pre" class="html">
+    </pre>
+  <h4 class="page-header">列表的样式：</h4>
+  <p>我们可以通过给<code>&lt;ul&gt;</code><code>&lt;ol&gt;</code>添加不同的类来实现不同的列表序列样式，共计19种：
+    <code>.list-type-disc</code>实心圆，
+    <code>.list-type-circle</code>空心圆，
+    <code>.list-type-square</code>实心方块，
+    <code>.list-type-decimal</code>阿拉伯数字，
+    <code>.list-type-lower-roman</code>小写罗马数字，
+    <code>.list-type-upper-roman</code>大写罗马数字，
+    <code>.list-type-lower-alpha</code>小写英文字母，
+    <code>.list-type-upper-alpha</code>大写英文字母，
+    <code>.list-type-armenian</code>不使用项目符号，
+    <code>.list-type-cjk-ideographic</code>传统的亚美尼亚数字，
+    <code>.list-type-georgian</code>浅白的表意数字，
+    <code>.list-type-lower-greek</code>传统的乔治数字，
+    <code>.list-type-hebrew</code>基本的希腊小写字母，
+    <code>.list-type-hiragana</code>传统的希伯莱数字，
+    <code>.list-type-hiragana-iroha</code>日文平假名字符，
+    <code>.list-type-katakana</code>日文平假名序号，
+    <code>.list-type-katakana-iroha</code>日文片假名字符，
+    <code>.list-type-lower-latin</code>日文片假名序号，
+    <code>.list-type-upper-latin</code>小写拉丁字母，
+  </p>
+  <h5 class="page-header">小写拉丁字母：</h5>
+  <ul class="list list-type-upper-latin">
+    <li>前端技术的发展</li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？</li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ul>
+  <pre name="pre" class="html">
 <ul class="list list-type-upper-latin">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -178,19 +183,19 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ul>
-      </pre>
-      <h5 class="page-header">浅白的表意数字：</h5>
-      <ul class="list list-type-georgian">
-        <li>前端技术的发展</li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
-        <li>谈一下您对前端开发的理解</li>
-        <li>前端技术都需要掌握哪些知识？</li>
-        <li>前端未来的发展方向</li>
-        <li>前端的最新技术是什么？</li>
-        <li>为什么前端开发越来越复杂？</li>
-      </ul>
-      <pre name="pre" class="html">
+    </pre>
+  <h5 class="page-header">浅白的表意数字：</h5>
+  <ul class="list list-type-georgian">
+    <li>前端技术的发展</li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？</li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ul>
+  <pre name="pre" class="html">
 <ul class="list list-type-georgian">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -201,19 +206,19 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ul>
-      </pre>
-      <h4 class="page-header">无列表序列样式：我们可以通过给列表添加<code>list-unstyled</code>类来取消列表的序列样式</small></h4>
-      <ul class="list list-unstyled">
-        <li>前端技术的发展</li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
-        <li>谈一下您对前端开发的理解</li>
-        <li>前端技术都需要掌握哪些知识？</li>
-        <li>前端未来的发展方向</li>
-        <li>前端的最新技术是什么？</li>
-        <li>为什么前端开发越来越复杂？</li>
-      </ul>
-      <pre name="pre" class="html">
+    </pre>
+  <h4 class="page-header">无列表序列样式：我们可以通过给列表添加<code>list-unstyled</code>类来取消列表的序列样式</small></h4>
+  <ul class="list list-unstyled">
+    <li>前端技术的发展</li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？</li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ul>
+  <pre name="pre" class="html">
 <ul class="list list-unstyled">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -224,40 +229,40 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ul>
-      </pre>
-      <h4 class="page-header">无列表序列样式列表嵌套</small></h4>
+    </pre>
+  <h4 class="page-header">无列表序列样式列表嵌套</small></h4>
+  <ul class="list list-unstyled">
+    <li>前端技术的发展
       <ul class="list list-unstyled">
-        <li>前端技术的发展
+        <li>前端职位的崛起</li>
+        <li>什么是前端开发，您真的了解前端吗？
           <ul class="list list-unstyled">
-            <li>前端职位的崛起</li>
-            <li>什么是前端开发，您真的了解前端吗？
+            <li>谈一下您对前端开发的理解</li>
+            <li>前端技术都需要掌握哪些知识？
               <ul class="list list-unstyled">
-                <li>谈一下您对前端开发的理解</li>
-                <li>前端技术都需要掌握哪些知识？
-                  <ul class="list list-unstyled">
-                      <li>前端未来的发展方向</li>
-                      <li>前端的最新技术是什么？</li>
-                      <li>为什么前端开发越来越复杂？</li>
-                  </ul>
-                </li>
+                <li>前端未来的发展方向</li>
+                <li>前端的最新技术是什么？</li>
+                <li>为什么前端开发越来越复杂？</li>
               </ul>
             </li>
-            <li>谈一下您对前端开发的理解</li>
-            <li>前端技术都需要掌握哪些知识？</li>
-            <li>前端未来的发展方向</li>
-            <li>前端的最新技术是什么？</li>
-            <li>为什么前端开发越来越复杂？</li>
           </ul>
         </li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
         <li>谈一下您对前端开发的理解</li>
         <li>前端技术都需要掌握哪些知识？</li>
         <li>前端未来的发展方向</li>
         <li>前端的最新技术是什么？</li>
         <li>为什么前端开发越来越复杂？</li>
       </ul>
-      <pre name="pre" class="html">
+    </li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？</li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ul>
+  <pre name="pre" class="html">
 <ul class="list list-unstyled">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -268,20 +273,20 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ul>
-      </pre>
-      <h4 class="page-header">横排列表：我们可以通过给列表添加<code>list-inline</code>类来实现横排列表</small></h4>
-      <h5 class="page-header">有序横排列表：</h5>
-      <ol class="list list-inline">
-        <li>前端技术的发展</li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
-        <li>谈一下您对前端开发的理解</li>
-        <li>前端技术都需要掌握哪些知识？</li>
-        <li>前端未来的发展方向</li>
-        <li>前端的最新技术是什么？</li>
-        <li>为什么前端开发越来越复杂？</li>
-      </ol>
-      <pre name="pre" class="html">
+    </pre>
+  <h4 class="page-header">横排列表：我们可以通过给列表添加<code>list-inline</code>类来实现横排列表</small></h4>
+  <h5 class="page-header">有序横排列表：</h5>
+  <ol class="list list-inline">
+    <li>前端技术的发展</li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？</li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ol>
+  <pre name="pre" class="html">
 <ol class="list list-inline">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -292,19 +297,19 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ol>
-      </pre>
-      <h5 class="page-header">无序横排列表：</h5>
-      <ul class="list list-inline">
-        <li>前端技术的发展</li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
-        <li>谈一下您对前端开发的理解</li>
-        <li>前端技术都需要掌握哪些知识？</li>
-        <li>前端未来的发展方向</li>
-        <li>前端的最新技术是什么？</li>
-        <li>为什么前端开发越来越复杂？</li>
-      </ul>
-      <pre name="pre" class="html">
+    </pre>
+  <h5 class="page-header">无序横排列表：</h5>
+  <ul class="list list-inline">
+    <li>前端技术的发展</li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？</li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ul>
+  <pre name="pre" class="html">
 <ul class="list list-inline">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -315,19 +320,19 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ul>
-      </pre>
-      <h5 class="page-header">无列表序横排列表：</h5>
-      <ul class="list list-inline list-unstyled">
-        <li>前端技术的发展</li>
-        <li>前端职位的崛起</li>
-        <li>什么是前端开发，您真的了解前端吗？</li>
-        <li>谈一下您对前端开发的理解</li>
-        <li>前端技术都需要掌握哪些知识？</li>
-        <li>前端未来的发展方向</li>
-        <li>前端的最新技术是什么？</li>
-        <li>为什么前端开发越来越复杂？</li>
-      </ul>
-      <pre name="pre" class="html">
+    </pre>
+  <h5 class="page-header">无列表序横排列表：</h5>
+  <ul class="list list-inline list-unstyled">
+    <li>前端技术的发展</li>
+    <li>前端职位的崛起</li>
+    <li>什么是前端开发，您真的了解前端吗？</li>
+    <li>谈一下您对前端开发的理解</li>
+    <li>前端技术都需要掌握哪些知识？</li>
+    <li>前端未来的发展方向</li>
+    <li>前端的最新技术是什么？</li>
+    <li>为什么前端开发越来越复杂？</li>
+  </ul>
+  <pre name="pre" class="html">
 <ol class="list list-inline list-unstyled">
   <li>前端技术的发展</li>
   <li>前端职位的崛起</li>
@@ -338,10 +343,13 @@
   <li>前端的最新技术是什么？</li>
   <li>为什么前端开发越来越复杂？</li>
 </ol>
-      </pre>
-    </div>
-  </div>
+    </pre>
 </div>
-<script src="../js/public.js"></script>
+
+
+  </div>
+  </div>
+  <script src="../js/public.js"></script>
 </body>
 </html>
+

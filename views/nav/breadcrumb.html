@@ -1,0 +1,171 @@
+@@include('../include/head.html')
+
+<div class="show-breadcrumb">
+
+  <h3 class="page-header">面包屑</h3>
+  <h4 class="page-header">默认面包屑</h4>
+  <ol class="breadcrumb">
+    <li data-separator="&gt;"><a href="#">首页</a></li>
+    <li data-separator="&gt;"><a href="#">关于我们</a></li>
+    <li data-separator="&gt;" class="active">公司介绍</li>
+  </ol>
+  <pre class="html" name="pre">
+<ol class="breadcrumb">
+  <li data-separator="&gt;"><a href="#">首页</a></li>
+  <li data-separator="&gt;"><a href="#">关于我们</a></li>
+  <li data-separator="&gt;" class="active">公司介绍</li>
+</ol>
+    </pre>
+  <h4 class="page-header">带前标的面包屑</h4>
+  <div class="show-navtabs">
+    <ol class="breadcrumb">
+      <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+      <li data-separator="&gt;"><a href="#">首页</a></li>
+      <li data-separator="&gt;"><a href="#">关于我们</a></li>
+      <li data-separator="&gt;" class="active">公司介绍</li>
+    </ol>
+  </div>
+  <pre class="html" name="pre">
+<ol class="breadcrumb">
+  <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+  <li data-separator="&gt;"><a href="#">首页</a></li>
+  <li data-separator="&gt;"><a href="#">关于我们</a></li>
+  <li data-separator="&gt;" class="active">公司介绍</li>
+</ol>
+    </pre>
+  <h4 class="page-header">我们可以给面包屑中的每一项添加一个<code>data-separator="&frasl;"</code>属性来实现不同分割的元素，元素可以自己定义</h4>
+  <ol class="breadcrumb">
+    <li class="icon"><i class="evicon evicon-home-5"></i></li>
+    <li data-separator="&frasl;"><a href="#">首页</a></li>
+    <li data-separator="&frasl;"><a href="#">关于我们</a></li>
+    <li data-separator="&frasl;" class="active">公司介绍</li>
+  </ol>
+  <ol class="breadcrumb">
+    <li class="icon"><i class="evicon evicon-home-6"></i></li>
+    <li data-separator="&#124;"><a href="#">首页</a></li>
+    <li data-separator="&#124;"><a href="#">关于我们</a></li>
+    <li data-separator="&#124;" class="active">公司介绍</li>
+  </ol>
+  <ol class="breadcrumb">
+    <li class="icon"><i class="evicon evicon-home-7"></i></li>
+    <li data-separator="&#8212;"><a href="#">首页</a></li>
+    <li data-separator="&#8212;"><a href="#">关于我们</a></li>
+    <li data-separator="&#8212;" class="active">公司介绍</li>
+  </ol>
+  <ol class="breadcrumb">
+    <li class="icon"><i class="evicon evicon-home-8"></i></li>
+    <li data-separator="&#187;"><a href="#">首页</a></li>
+    <li data-separator="&#187;"><a href="#">关于我们</a></li>
+    <li data-separator="&#187;" class="active">公司介绍</li>
+  </ol>
+  <pre class="html" name="pre">
+<ol class="breadcrumb">
+  <li data-separator="&frasl;"><a href="#">首页</a></li>
+  <li data-separator="&frasl;"><a href="#">关于我们</a></li>
+  <li data-separator="&frasl;" class="active">公司介绍</li>
+</ol>
+    </pre>
+  <h4 class="page-header">不同大小的面包屑</h4>
+  <div class="show-navtabs">
+    <h5>给<code>breadcrumb</code>添加<code>lg</code>类来放大面包屑，字体大小位18像素</h5>
+    <ol class="breadcrumb lg">
+      <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+      <li data-separator="&gt;"><a href="#">首页</a></li>
+      <li data-separator="&gt;"><a href="#">关于我们</a></li>
+      <li data-separator="&gt;" class="active">公司介绍</li>
+    </ol>
+    <h5>给<code>breadcrumb</code>添加<code>sm</code>类来放大面包屑，字体大小位12像素</h5>
+    <ol class="breadcrumb sm">
+      <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+      <li data-separator="&gt;"><a href="#">首页</a></li>
+      <li data-separator="&gt;"><a href="#">关于我们</a></li>
+      <li data-separator="&gt;" class="active">公司介绍</li>
+    </ol>
+  </div>
+  <pre class="html" name="pre">
+<ol class="breadcrumb">
+  <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+  <li data-separator="&gt;"><a href="#">首页</a></li>
+  <li data-separator="&gt;"><a href="#">关于我们</a></li>
+  <li data-separator="&gt;" class="active">公司介绍</li>
+</ol>
+    </pre>
+  <h4 class="page-header">面包屑对齐方式</h4>
+  <p>我们可以给面包屑添加 <code>class='breadcrumb'</code>添加<code>text-left</code>居左（默认，不用添加），<code>text-center</code>剧中，<code>text-right</code>居右；来实现面包屑内部的对齐方式</p>
+  <h5 class="page-header">居中</h5>
+  <ol class="breadcrumb text-center">
+    <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+    <li data-separator="&gt;"><a href="#">首页</a></li>
+    <li data-separator="&gt;"><a href="#">关于我们</a></li>
+    <li data-separator="&gt;" class="active">公司介绍</li>
+  </ol>
+  <pre class="html" name="pre">
+<ol class="breadcrumb text-center">
+  <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+  <li data-separator="&gt;"><a href="#">首页</a></li>
+  <li data-separator="&gt;"><a href="#">关于我们</a></li>
+  <li data-separator="&gt;" class="active">公司介绍</li>
+</ol>
+    </pre>
+  <h5 class="page-header">居右</h5>
+  <ol class="breadcrumb text-right">
+    <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+    <li data-separator="&gt;"><a href="#">首页</a></li>
+    <li data-separator="&gt;"><a href="#">关于我们</a></li>
+    <li data-separator="&gt;" class="active">公司介绍</li>
+  </ol>
+  <pre class="html" name="pre">
+<ol class="breadcrumb text-right">
+  <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+  <li data-separator="&gt;"><a href="#">首页</a></li>
+  <li data-separator="&gt;"><a href="#">关于我们</a></li>
+  <li data-separator="&gt;" class="active">公司介绍</li>
+</ol>
+    </pre>
+  <h4 class="page-header">面包屑浮动</h4>
+  <p>我们可以给面包屑添加 <code>class='breadcrumb'</code>添加<code>pull-left</code>左浮动，<code>pull-right</code>右浮动，来实现面包屑在其他元素内部实现浮动对齐，再添加浮动以后必须给父元素添加一个<code>clearfix</code>类来清除浮动</p>
+  <h5 class="page-header">左浮动</h5>
+  <div class="clearfix">
+    <h4 class="pull-left">这是标题</h4>
+    <ol class="breadcrumb pull-left">
+      <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+      <li data-separator="&gt;"><a href="#">首页</a></li>
+      <li data-separator="&gt;"><a href="#">关于我们</a></li>
+      <li data-separator="&gt;" class="active">公司介绍</li>
+    </ol>
+  </div>
+  <pre class="html" name="pre">
+<div class="clearfix">
+  <h4 class="pull-left">这是标题</h4>
+  <ol class="breadcrumb pull-left">
+    <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+    <li data-separator="&gt;"><a href="#">首页</a></li>
+    <li data-separator="&gt;"><a href="#">关于我们</a></li>
+    <li data-separator="&gt;" class="active">公司介绍</li>
+  </ol>
+</div>
+    </pre>
+  <h5 class="page-header">右</h5>
+  <div class="clearfix">
+    <h4 class="pull-left">这是标题</h4>
+    <ol class="breadcrumb pull-right">
+      <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+      <li data-separator="&gt;"><a href="#">首页</a></li>
+      <li data-separator="&gt;"><a href="#">关于我们</a></li>
+      <li data-separator="&gt;" class="active">公司介绍</li>
+    </ol>
+  </div>
+  <pre class="html" name="pre">
+<div class="clearfix">
+  <h4 class="pull-left">这是标题</h4>
+  <ol class="breadcrumb pull-right">
+    <li class="icon"><i class="evicon evicon-weizhi-1"></i></li>
+    <li data-separator="&gt;"><a href="#">首页</a></li>
+    <li data-separator="&gt;"><a href="#">关于我们</a></li>
+    <li data-separator="&gt;" class="active">公司介绍</li>
+  </ol>
+</div>
+    </pre>
+</div>
+
+@@include('../include/foot.html')

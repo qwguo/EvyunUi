@@ -90,7 +90,6 @@
   outline: 0;
 }
 
-
 // Sizing
 //
 // Remix the default button sizing classes into new ones for easier manipulation.
@@ -181,12 +180,12 @@
     border-radius: 0;
   }
   &:first-child:not(:last-child) {
-    .border-top-radius(@btn-border-radius-base);
+    .border-top-radius(@btn-border-radius);
     .border-bottom-radius(0);
   }
   &:last-child:not(:first-child) {
     .border-top-radius(0);
-    .border-bottom-radius(@btn-border-radius-base);
+    .border-bottom-radius(@btn-border-radius);
   }
 }
 .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
@@ -201,8 +200,6 @@
 .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
   .border-top-radius(0);
 }
-
-
 // Justified button groups
 // ----------------------
 
@@ -219,10 +216,6 @@
   }
   > .btn-group .btn {
     width: 100%;
-  }
-
-  > .btn-group .dropdown-menu {
-    left: auto;
   }
 }
 

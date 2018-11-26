@@ -1,187 +1,194 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="../../dist/css/project.min.css">
   <script src="../js/jquery-1.9.1.min.js"></script>
   <link rel="stylesheet" href="../js/DlHighlight/h1.css">
   <script src="../js/DlHighlight/highlight-all.js"></script>
-  <title>column_gird_offset</title>
+  <script src="../../dist/js/bootstrap.js"></script>
+  <title>隐藏显示</title>
 </head>
 <body>
 <div class="main-wrap">
   <div class="container-fluid">
-    <!--<h2 class="page-header">全屏布局</h2>-->
-    <h3 class="page-header">列布局</h3>
-    <div class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <thead>
-        <tr>
-          <th></th>
-          <th>
-            超小屏幕
-            <small>手机 (&lt;768px)</small>
-          </th>
-          <th>
-            小屏幕
-            <small>平板 (≥768px)</small>
-          </th>
-          <th>
-            中等屏幕
-            <small>桌面显示器 (≥992px)</small>
-          </th>
-          <th>
-            大屏幕
-            <small>大桌面显示器 (≥1200px)</small>
-          </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <th class="text-nowrap" scope="row">栅格系统行为</th>
-          <td>总是水平排列</td>
-          <td colspan="3">开始是堆叠在一起的，当大于这些阈值时将变为水平排列C</td>
-        </tr>
-        <tr>
-          <th class="text-nowrap" scope="row"><code>.container</code> 最大宽度</th>
-          <td>None （自动）</td>
-          <td>750px</td>
-          <td>970px</td>
-          <td>1170px</td>
-        </tr>
-        <tr>
-          <th class="text-nowrap" scope="row">类前缀</th>
-          <td><code>.col-xs-</code></td>
-          <td><code>.col-sm-</code></td>
-          <td><code>.col-md-</code></td>
-          <td><code>.col-lg-</code></td>
-        </tr>
-        <tr>
-          <th class="text-nowrap" scope="row">列（column）数</th>
-          <td colspan="4">24</td>
-        </tr>
-        <tr>
-          <th class="text-nowrap" scope="row">最大列（column）宽</th>
-          <td class="text-muted">自动</td>
-          <td>~62px</td>
-          <td>~81px</td>
-          <td>~97px</td>
-        </tr>
-        <tr>
-          <th class="text-nowrap" scope="row">槽（gutter）宽</th>
-          <td colspan="4">30px （每列左右均有 15px）</td>
-        </tr>
-        <tr>
-          <th class="text-nowrap" scope="row">可嵌套</th>
-          <td colspan="4">是</td>
-        </tr>
-        <tr>
-          <th class="text-nowrap" scope="row">偏移（Offsets）</th>
-          <td colspan="4">可以在列中添加<code>col-md-offset-*</code>类来实现列表的偏移</td>
-        </tr>
-        <tr>
-          <th class="text-nowrap" scope="row">列排序</th>
-          <td colspan="4">是</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="show-grid">
-      <h4 class="page-header">偏移列布局</h4>
-      <div class="row">
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-2 col-md-offset-1">.col-md-2 col-md-offset-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-      </div>
-      <pre name="pre" class="html">
+
+
+
+
+<div class="show-grid">
+  <h3 class="page-header">列布局</h3>
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th>
+          超小屏幕
+          <small>手机 (&lt;768px)</small>
+        </th>
+        <th>
+          小屏幕
+          <small>平板 (≥768px)</small>
+        </th>
+        <th>
+          中等屏幕
+          <small>桌面显示器 (≥992px)</small>
+        </th>
+        <th>
+          大屏幕
+          <small>大桌面显示器 (≥1200px)</small>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th class="text-nowrap" scope="row">栅格系统行为</th>
+        <td>总是水平排列</td>
+        <td colspan="3">开始是堆叠在一起的，当大于这些阈值时将变为水平排列C</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row"><code>.container</code> 最大宽度</th>
+        <td>None （自动）</td>
+        <td>750px</td>
+        <td>970px</td>
+        <td>1170px</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">类前缀</th>
+        <td><code>.col-xs-</code></td>
+        <td><code>.col-sm-</code></td>
+        <td><code>.col-md-</code></td>
+        <td><code>.col-lg-</code></td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">列（column）数</th>
+        <td colspan="4">24</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">最大列（column）宽</th>
+        <td class="text-muted">自动</td>
+        <td>~62px</td>
+        <td>~81px</td>
+        <td>~97px</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">槽（gutter）宽</th>
+        <td colspan="4">30px （每列左右均有 15px）</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">可嵌套</th>
+        <td colspan="4">是</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">偏移（Offsets）</th>
+        <td colspan="4">可以在列中添加<code>col-md-offset-*</code>类来实现列表的偏移</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">列排序</th>
+        <td colspan="4">是</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <h4 class="page-header">偏移列布局</h4>
+  <div class="row">
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-2 col-md-offset-1">.col-md-2 col-md-offset-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+    <div class="col-md-1">.col-md-1</div>
+  </div>
+  <pre name="pre" class="html">
 <!--22列第二列偏移了1个-->
 <div class="row">
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-2 col-md-offset-1">.col-md-2 col-md-offset-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-2 col-md-offset-1">.col-md-2 col-md-offset-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
+<div class="col-md-1">.col-md-1</div>
 </div>
 </pre>
-      <div class="row">
-        <div class="col-md-3">.col-md-3</div>
-        <div class="col-md-3 col-md-offset-3">.col-md-3 col-md-offset-3</div>
-        <div class="col-md-3">.col-md-3</div>
-        <div class="col-md-3">.col-md-3</div>
-        <div class="col-md-3">.col-md-3</div>
-        <div class="col-md-3">.col-md-3</div>
-        <div class="col-md-3">.col-md-3</div>
-      </div>
-      <pre name="pre" class="html">
+  <div class="row">
+    <div class="col-md-3">.col-md-3</div>
+    <div class="col-md-3 col-md-offset-3">.col-md-3 col-md-offset-3</div>
+    <div class="col-md-3">.col-md-3</div>
+    <div class="col-md-3">.col-md-3</div>
+    <div class="col-md-3">.col-md-3</div>
+    <div class="col-md-3">.col-md-3</div>
+    <div class="col-md-3">.col-md-3</div>
+  </div>
+  <pre name="pre" class="html">
 <!--7列第二列偏移了3个-->
 <div class="row">
-  <div class="col-md-3">.col-md-3</div>
-  <div class="col-md-3 col-md-offset-3">.col-md-3 col-md-offset-3</div>
-  <div class="col-md-3">.col-md-3</div>
-  <div class="col-md-3">.col-md-3</div>
-  <div class="col-md-3">.col-md-3</div>
-  <div class="col-md-3">.col-md-3</div>
-  <div class="col-md-3">.col-md-3</div>
+<div class="col-md-3">.col-md-3</div>
+<div class="col-md-3 col-md-offset-3">.col-md-3 col-md-offset-3</div>
+<div class="col-md-3">.col-md-3</div>
+<div class="col-md-3">.col-md-3</div>
+<div class="col-md-3">.col-md-3</div>
+<div class="col-md-3">.col-md-3</div>
+<div class="col-md-3">.col-md-3</div>
 </div>
-      </pre>
-      <div class="row">
-        <div class="col-md-2">.col-md-2</div>
-        <div class="col-md-6 col-md-offset-4">.col-md-6 col-md-offset-4</div>
-        <div class="col-md-4">.col-md-4</div>
-        <div class="col-md-8">.col-md-8</div>
-      </div>
-      <pre name="pre" class="html">
+  </pre>
+  <div class="row">
+    <div class="col-md-2">.col-md-2</div>
+    <div class="col-md-6 col-md-offset-4">.col-md-6 col-md-offset-4</div>
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-8">.col-md-8</div>
+  </div>
+  <pre name="pre" class="html">
 <!--4列第二列偏移了4个-->
 <div class="row">
-  <div class="col-md-2">.col-md-2</div>
-  <div class="col-md-6 col-md-offset-4">.col-md-6 col-md-offset-4</div>
-  <div class="col-md-4">.col-md-4</div>
-  <div class="col-md-8">.col-md-8</div>
+<div class="col-md-2">.col-md-2</div>
+<div class="col-md-6 col-md-offset-4">.col-md-6 col-md-offset-4</div>
+<div class="col-md-4">.col-md-4</div>
+<div class="col-md-8">.col-md-8</div>
 </div>
-      </pre>
-    </div>
+  </pre>
+</div>
+
+
   </div>
-</div>
-<script src="../js/public.js"></script>
+  </div>
+  <script src="../js/public.js"></script>
 </body>
 </html>
+

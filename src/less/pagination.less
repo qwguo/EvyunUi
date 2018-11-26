@@ -1,15 +1,20 @@
 //== Pagination
 //
 //##
-
 @pagination-margin:                    20px;
 @pagination-color:                     #555555;
 @pagination-bg:                        #fff;
 @pagination-border:                    #e5e5e5;
-@pagination-radius:                    5px;
-@pagination-padding-vertical:          12px;
-@pagination-padding-horizontal:        15px;
+@pagination-radius:                    3px;
+@pagination-padding:                   12px;
+@pagination-padding:                   12px;
 @pagination-font-size:                 12px;
+@pagination-radius-lg:                 5px;
+@pagination-padding-lg:                18px;
+@pagination-font-size-lg:              14px;
+@pagination-radius-sm:                 1px;
+@pagination-padding-sm:                8px;
+@pagination-font-size-sm:              12px;
 @pagination-line-height:               1;
 
 @pagination-hover-color:               @pagination-color;
@@ -25,7 +30,10 @@
 @pagination-disabled-border:           #eee;
 @pagination-alone-spacing:             5px;
 @pagination-span-spacing:              10px;
-@pagination-height:                    35px;
+@pagination-alone-spacing-lg:          10px;
+@pagination-span-spacing-lg:           15px;
+@pagination-alone-spacing-sm:          2px;
+@pagination-span-spacing-sm:           5px;
 
 //
 // Pagination (multiple pages)
@@ -120,7 +128,13 @@
         }
       }
     }
-    .pagination-size(@pagination-padding-vertical; @pagination-padding-horizontal; @pagination-font-size; @pagination-line-height; @pagination-radius; @pagination-span-spacing)
+    .pagination-size(@pagination-padding; @pagination-font-size; @pagination-radius; @pagination-span-spacing);
+    &.lg{
+      .pagination-size(@pagination-padding-lg; @pagination-font-size-lg; @pagination-radius-lg; @pagination-span-spacing-lg);
+    }
+    &.sm{
+      .pagination-size(@pagination-padding-sm; @pagination-font-size-sm; @pagination-radius-sm; @pagination-span-spacing-sm);
+    }
   }
   &:not(.alone){
     > .page-number{

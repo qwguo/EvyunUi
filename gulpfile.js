@@ -63,7 +63,7 @@ gulp.task('fileinclude', function () {
       prefix: '@@',
       basepath: '@file'
     }))
-    .pipe(gulp.dest('docse'));
+    .pipe(gulp.dest('docs'));
 });
 
 // # 定义一个监控html文件变化的任务
