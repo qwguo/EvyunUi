@@ -58,7 +58,7 @@ gulp.task('miniJs', function () {
 
 //html文件合并
 gulp.task('fileinclude', function () {
-  gulp.src(['./views/**', '!./views/include', '!./views/include/**'])
+  gulp.src(['./views/**/*.html', '!./views/include', '!./views/include/**'])
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
@@ -68,7 +68,7 @@ gulp.task('fileinclude', function () {
 
 // # 定义一个监控html文件变化的任务
 gulp.task('htmlConcat', function () {
-  gulp.watch(['./views/**/*.html','./views/*.html'], ['fileinclude']);
+  gulp.watch(['./views/**/*.html'], ['fileinclude']);
 });
 
 gulp.task('load', function () {
