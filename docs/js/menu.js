@@ -5,7 +5,7 @@ var menu = new Vue({
       {
         'title': '网格系统',
         'name': 'grid',
-        'cur': 0,
+        'cur': 1,
         'sub': [
           {'title': '基本布局', 'name': 'column_gird', 'href': 'gird/column_gird.html'},
           {'title': '布局列偏移', 'name': 'column_gird_offset', 'href': 'gird/column_gird_offset.html'}
@@ -52,8 +52,8 @@ var menu = new Vue({
           {'title': '单选按钮', 'name': 'radio_element', 'href': 'forms/radio_element.html'},
           {'title': '复选按钮', 'name': 'checkbox_element', 'href': 'forms/checkbox_element.html'},
           {'title': '开关', 'name': 'switch_element', 'href': 'forms/switch_element.html'},
-          {'title': '下拉菜单', 'name': 'select_element', 'href': 'forms/select_element.html'},
-          {'title': '上传组件', 'name': 'upload_element', 'href': 'forms/upload_element.html'}
+          {'title': '下拉菜单', 'name': 'select_element', 'href': 'forms/select_element.html'}
+          // {'title': '上传组件', 'name': 'upload_element', 'href': 'forms/upload_element.html'}
           // {'title': '基本表单元素', 'name': 'base_forms', 'href': 'forms/base_forms.html'},
           // {'title': '表单', 'name': 'forms_sub', 'href': 'forms/forms_sub.html'}
         ]
