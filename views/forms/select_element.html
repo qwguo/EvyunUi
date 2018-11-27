@@ -1,89 +1,145 @@
 @@include('../include/head.html')
 
+<style>
+  ol li{
+    padding: 5px 0;
+  }
+</style>
 <div class="show-forms-sub">
   <h3 class="page-header">下拉菜单</h3>
+  <p>我们在做表单下拉菜单的时候，给表单的<code>class="select-element"</code>元素添加<code>dropdown</code>类，并且给<code>class="input-element"</code>子类添加下列属性来实现js交互；</p>
+  <ol>
+    <li><code>data-type="select"</code>：表示这个是一个表单下拉选择菜单，固定格式</li>
+    <li><code>data-toggle="dropdown"</code>：用来表示调用js事件，固定格式</li>
+    <li><code>data-multiple="0"</code>：用来表示是否支持多选：<code>0</code>表示否，<code>1</code>表示是</li>
+  </ol>
   <div class="select-show">
     <h5 class="page-header">普通下拉菜单</h5>
-    <div class="select-element">
-      <div class="input-element suffix">
+    <div class="select-element dropdown">
+      <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
         <input type="text" readonly="readonly" placeholder="输入文字">
         <i class="evicon evicon-arrow-up-2"></i>
       </div>
-      <div class="option-list">
+      <div class="option-list dropdown-menu">
         <dl>
-          <dd title="CSS系列教程" data-value="1"><span>CSS系列教程</span></dd>
-          <dd title="HTML系列教程" data-value="2"><span>HTML系列教程</span></dd>
-          <dd title="JavaScript系列教程" data-value="3"><span>JavaScript系列教程</span></dd>
-          <dd title="jQuery系列教程" data-value="4"><span>jQuery系列教程</span></dd>
-          <dd title="Ajax系列教程" data-value="5"><span>Ajax系列教程</span></dd>
-          <dd title="这是选项" data-value="6"><span>这是选项</span></dd>
+          <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+          <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
         </dl>
       </div>
     </div>
   </div>
   <pre class="html" name="pre">
-<div class="select-element">
-  <div class="input-element suffix">
+<div class="select-element dropdown">
+  <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
     <input type="text" readonly="readonly" placeholder="输入文字">
     <i class="evicon evicon-arrow-up-2"></i>
   </div>
-  <div class="option-list">
+  <div class="option-list dropdown-menu">
     <dl>
-      <dd data-value="1"><span>CSS系列教程</span></dd>
-      <dd data-value="2"><span>HTML系列教程</span></dd>
-      <dd data-value="3"><span>JavaScript系列教程</span></dd>
-      <dd data-value="4"><span>jQuery系列教程</span></dd>
-      <dd data-value="5"><span>Ajax系列教程</span></dd>
-      <dd data-value="6"><span>这是选项</span></dd>
+      <dd title="CSS系列教程" data-value="1" class="disabled"><a href="###"><span>CSS系列教程</span></a></dd>
+      <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+      <dd title="JavaScript系列教程" data-value="3" class="active"><a href="###"><span>JavaScript系列教程</span></a></dd>
+      <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+      <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+      <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+    </dl>
+  </div>
+</div>
+  </pre>
+  <div class="select-show">
+    <h5>带禁止选项和选中状态项，禁止选项给列表中的<code>&lt;dd&gt;</code>标签添加<code>class="disabled"</code>类，当前选中给列表中的<code>&lt;dd&gt;</code>标签添加<code>class="active"</code>类</h5>
+    <div class="select-element dropdown">
+      <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+        <input type="text" readonly="readonly" placeholder="输入文字">
+        <i class="evicon evicon-arrow-up-2"></i>
+      </div>
+      <div class="option-list dropdown-menu">
+        <dl>
+          <dd title="CSS系列教程" data-value="1" class="disabled"><a href="###"><span>CSS系列教程</span></a></dd>
+          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+          <dd title="jQuery系列教程" data-value="4" class="active"><a href="###"><span>jQuery系列教程</span></a></dd>
+          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <pre class="html" name="pre">
+<div class="select-element dropdown">
+  <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+    <input type="text" readonly="readonly" placeholder="输入文字">
+    <i class="evicon evicon-arrow-up-2"></i>
+  </div>
+  <div class="option-list dropdown-menu">
+    <dl>
+      <dd title="CSS系列教程" data-value="1" class="disabled"><a href="###"><span>CSS系列教程</span></a></dd>
+      <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+      <dd title="JavaScript系列教程" data-value="3" class="active"><a href="###"><span>JavaScript系列教程</span></a></dd>
+      <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+      <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+      <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
     </dl>
   </div>
 </div>
       </pre>
   <div class="select-show">
-    <h5 class="page-header">下拉菜单带标题，和带禁止选择</h5>
-    <div class="select-element">
-      <div class="input-element suffix">
+    <h5 class="page-header">带标题分组下拉列表</h5>
+    <div class="select-element dropdown">
+      <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown" aria-haspopup="false">
         <input type="text" readonly="readonly" placeholder="输入文字">
         <i class="evicon evicon-arrow-up-2"></i>
       </div>
-      <div class="option-list">
+      <div class="option-list dropdown-menu">
         <dl>
           <dt><span>CSS系列教程</span></dt>
-          <dd title="CSS2系列教程" data-value="1"><span>CSS2系列教程</span></dd>
-          <dd title="CSS3系列教程" data-value="1"><span>CSS3系列教程</span></dd>
+          <dd title="CSS2系列教程" data-value="1"><a href="###"><span>CSS2系列教程</span></a></dd>
+          <dd title="CSS3系列教程" data-value="1"><a href="###"><span>CSS3系列教程</span></a></dd>
           <dt><span>HTML系列教程</span></dt>
-          <dd title="HTML4系列教程" data-value="2" class="disabled"><span>HTML4系列教程</span></dd>
-          <dd title="HTML4系列教程" data-value="2"><span>HTML4系列教程</span></dd>
-          <dd title="HTML5系列教程" data-value="2"><span>HTML5系列教程</span></dd>
+          <dd title="HTML4系列教程" data-value="2" class="disabled"><a href="###"><span>HTML4系列教程</span></a></dd>
+          <dd title="HTML4系列教程" data-value="2"><a href="###"><span>HTML4系列教程</span></a></dd>
+          <dd title="HTML5系列教程" data-value="2"><a href="###"><span>HTML5系列教程</span></a></dd>
           <dt><span>ECMAScript系列教程</span></dt>
-          <dd title="0系列教程" data-value="3"><span>ECMAScript3.0系列教程</span></dd>
-          <dd title="0系列教程" data-value="3"><span>ECMAScript4.0系列教程</span></dd>
-          <dd title="JavaScript系列教程" data-value="3"><span>JavaScript系列教程</span></dd>
-          <dd title="JScript系列教程" data-value="3" class="disabled"><span>JScript系列教程</span></dd>
-          <dd title="jQuery系列教程" data-value="4"><span>jQuery系列教程</span></dd>
-          <dd title="Ajax系列教程" data-value="5"><span>Ajax系列教程</span></dd>
+          <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript3.0系列教程</span></a></dd>
+          <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript4.0系列教程</span></a></dd>
+          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+          <dd title="JScript系列教程" data-value="3" class="disabled"><a href="###"><span>JScript系列教程</span></a></dd>
+          <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
         </dl>
       </div>
     </div>
   </div>
   <pre class="html" name="pre">
-<div class="select-element">
-  <div class="input-element suffix">
+<div class="select-element dropdown">
+  <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown" aria-haspopup="false">
     <input type="text" readonly="readonly" placeholder="输入文字">
     <i class="evicon evicon-arrow-up-2"></i>
   </div>
-  <div class="option-list">
+  <div class="option-list dropdown-menu">
     <dl>
-      <dd data-value="1"><span>CSS系列教程</span></dd>
-      <dd data-value="2"><span>HTML系列教程</span></dd>
-      <dd data-value="3"><span>JavaScript系列教程</span></dd>
-      <dd data-value="4"><span>jQuery系列教程</span></dd>
-      <dd data-value="5"><span>Ajax系列教程</span></dd>
-      <dd data-value="6"><span>这是选项</span></dd>
+      <dt><span>CSS系列教程</span></dt>
+      <dd title="CSS2系列教程" data-value="1"><a href="###"><span>CSS2系列教程</span></a></dd>
+      <dd title="CSS3系列教程" data-value="1"><a href="###"><span>CSS3系列教程</span></a></dd>
+      <dt><span>HTML系列教程</span></dt>
+      <dd title="HTML4系列教程" data-value="2" class="disabled"><a href="###"><span>HTML4系列教程</span></a></dd>
+      <dd title="HTML4系列教程" data-value="2"><a href="###"><span>HTML4系列教程</span></a></dd>
+      <dd title="HTML5系列教程" data-value="2"><a href="###"><span>HTML5系列教程</span></a></dd>
+      <dt><span>ECMAScript系列教程</span></dt>
+      <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript3.0系列教程</span></a></dd>
+      <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript4.0系列教程</span></a></dd>
+      <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+      <dd title="JScript系列教程" data-value="3" class="disabled"><a href="###"><span>JScript系列教程</span></a></dd>
+      <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+      <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
     </dl>
   </div>
 </div>
-      </pre>
+  </pre>
 </div>
 
 @@include('../include/foot.html')
