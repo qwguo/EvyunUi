@@ -4705,7 +4705,7 @@ a.thumbnail.active {
   color: #ddd;
   background-color: #ddd;
   border-color: #cccccc;
-  cursor: not-allowed;
+  cursor: not-allowed !important;
 }
 .input-element.error > input {
   color: #666;
@@ -5187,11 +5187,6 @@ a.thumbnail.active {
 .select-element > .input-element > input {
   cursor: pointer;
 }
-.select-element > .input-element > input:focus + .evicon {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
 .select-element > .input-element > .evicon {
   font-size: 1em;
   padding: 0 0.6em;
@@ -5207,6 +5202,7 @@ a.thumbnail.active {
 }
 .select-element > .option-list {
   position: absolute;
+  display: none;
   z-index: 2;
   top: 100%;
   left: 0;
@@ -5221,7 +5217,6 @@ a.thumbnail.active {
 .select-element > .option-list > dl {
   margin: 0;
   padding: 10px 0;
-  line-height: 30px;
 }
 .select-element > .option-list > dl > dt,
 .select-element > .option-list > dl > dd {
@@ -5231,27 +5226,53 @@ a.thumbnail.active {
   white-space: nowrap;
 }
 .select-element > .option-list > dl > dt {
+  line-height: 30px;
   font-weight: 700;
+  font-size: 12px;
 }
 .select-element > .option-list > dl > dt > span {
   margin: 0 0.5em;
+  color: inherit;
+  font: inherit;
 }
-.select-element > .option-list > dl > dd {
-  line-height: 28px;
+.select-element > .option-list > dl > dd > a {
+  display: block;
   cursor: pointer;
+  line-height: 28px;
   color: #666;
   font-size: 12px;
+  text-decoration: none;
 }
-.select-element > .option-list > dl > dd > span {
+.select-element > .option-list > dl > dd > a > span {
+  display: inline-block;
   margin: 0 1em;
 }
-.select-element > .option-list > dl > dd:hover {
+.select-element > .option-list > dl > dd > a:hover,
+.select-element > .option-list > dl > dd > a:focus {
+  outline: 0;
   background-color: #f5f5f5;
 }
-.select-element > .option-list > dl > dd.disabled {
+.select-element > .option-list > dl > dd.disabled > a,
+.select-element > .option-list > dl > dd.disabled > a:hover {
   background-color: #e9ecef;
   color: #a5a5a6;
   cursor: not-allowed;
+}
+.select-element > .option-list > dl > dd.active > a,
+.select-element > .option-list > dl > dd.active > a:hover {
+  background-color: #f0f0f0;
+  color: #666;
+}
+.select-element.open > .input-element > input {
+  border-color: #0099ff;
+}
+.select-element.open > .input-element > .evicon {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+.select-element.open > .option-list {
+  display: block;
 }
 .upload-element > .upload-images-list {
   padding-top: 10px;

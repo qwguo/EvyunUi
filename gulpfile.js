@@ -43,11 +43,21 @@ gulp.task('miniCss', function () {
 });
 
 
-gulp.task('miniScript', function() {
-  gulp.src(['./src/js/*.js'])
+
+/*gulp.task('miniScript', function() {
+  gulp.src(['./src/js/!*.js'])
     .pipe(uglify())
-    .pipe(concat('all.js'))
+    .pipe(concat('evPublicInit.js'))
     .pipe(rename({suffix: ".min"}))
+    .pipe(gulp.dest('dist/js'))
+});*/
+const scriptSrc = require('./src/js/scriptSrc'),
+  scriptArray = scriptSrc.src();
+gulp.task('miniScript', function() {
+  gulp.src(scriptArray)
+    .pipe(concat('evPublicInit.js'))
+    .pipe(minifyJs())
+    // .pipe(rename({suffix: ".min"}))
     .pipe(gulp.dest('dist/js'))
 });
 
