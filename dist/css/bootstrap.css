@@ -893,6 +893,12 @@ button.close {
 .evicon-date-2:before {
   content: "\e618";
 }
+.evicon-edit-2:before {
+  content: "\e734";
+}
+.evicon-cancel-2:before {
+  content: "\e616";
+}
 .container {
   padding-right: 5px;
   padding-left: 5px;
@@ -5213,6 +5219,15 @@ a.thumbnail.active {
   overflow-y: auto;
   -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.select-element > .option-list > .option-list-search {
+  margin: 10px 5px 0;
+}
+.select-element > .option-list > .option-list-search > .input-element {
+  margin-bottom: 0;
+}
+.select-element > .option-list > .option-list-search > .input-element > input {
+  width: 100%;
 }
 .select-element > .option-list > dl {
   margin: 0;

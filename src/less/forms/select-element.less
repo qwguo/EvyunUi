@@ -11,17 +11,15 @@
 @option-list-item-active-bg: #f0f0f0;
 @option-list-item-active-color: #666;
 
-
-
-.select-element{
+.select-element {
   position: relative;
   display: inline-block;
-  > .input-element{
+  > .input-element {
     margin-bottom: 2px;
-    > input{
+    > input {
       cursor: pointer;
     }
-    > .evicon{
+    > .evicon {
       font-size: 1em;
       padding: 0 .6em;
       .transform-origin(45% 47%);
@@ -29,7 +27,7 @@
       .transition(all .5s ease);
     }
   }
-  > .option-list{
+  > .option-list {
     position: absolute;
     display: none;
     z-index: 2;
@@ -41,53 +39,62 @@
     max-height: @option-list-max-height;
     overflow-y: auto;
     .box-shadow(1px 1px 2px rgba(0, 0, 0, .1));
-    > dl{
-      margin:0;
+    > .option-list-search {
+      margin: 10px 5px 0;
+      > .input-element {
+        margin-bottom: 0;
+        > input{
+          width: 100%;
+        }
+      }
+    }
+    > dl {
+      margin: 0;
       padding: 10px 0;
       > dt,
-      > dd{
+      > dd {
         .text-overflow();
       }
-      > dt{
+      > dt {
         line-height: @option-list-item-height + 2;
         font-weight: 700;
         font-size: @option-list-item-font-size;
         > span {
           margin: 0 .5em;
           color: inherit;
-          font:inherit;
+          font: inherit;
         }
       }
-      > dd{
-        > a{
+      > dd {
+        > a {
           display: block;
           cursor: pointer;
           line-height: @option-list-item-height;
           color: @option-list-item-font-color;
           font-size: @option-list-item-font-size;
           text-decoration: none;
-          > span{
+          > span {
             display: inline-block;
             margin: 0 1em;
           }
           &:hover,
-          &:focus{
+          &:focus {
             outline: 0;
             background-color: @option-list-item-hover-bg;
           }
         }
-        &.disabled{
+        &.disabled {
           > a {
-            &,&:hover{
+            &, &:hover {
               background-color: @option-list-item-disabled-bg;
               color: @option-list-item-disabled-color;
               cursor: @cursor-disabled;
             }
           }
         }
-        &.active{
+        &.active {
           > a {
-            &,&:hover{
+            &, &:hover {
               background-color: @option-list-item-active-bg;
               color: @option-list-item-active-color;
             }
@@ -96,16 +103,16 @@
       }
     }
   }
-  &.open{
-    > .input-element{
-      >input{
+  &.open {
+    > .input-element {
+      > input {
         border-color: @input-focus-border-color;
       }
-      > .evicon{
+      > .evicon {
         .rotate(0deg);
       }
     }
-    > .option-list{
+    > .option-list {
       display: block;
     }
   }
