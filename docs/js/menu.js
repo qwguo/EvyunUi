@@ -66,7 +66,7 @@ var menu = new Vue({
           {'title': '面板', 'name': 'panel', 'href': 'panel/panel.html'},
           {'title': '标签切换面板', 'name': 'tabpanel', 'href': 'panel/tab_panel.html'},
           // {'title': '折叠面板', 'name': 'fold_panel', 'href': 'panel/fold_panel.html'},
-          {'title': '分组区块', 'name': 'group_black', 'href': 'panel/group_black.html'},
+          {'title': '分组区块', 'name': 'fieldset', 'href': 'panel/fieldset.html'},
           {'title': '分割线', 'name': 'hr', 'href': 'panel/hr.html'}
         ]
       },
