@@ -4645,6 +4645,9 @@ a.thumbnail.active {
   margin: 0 10px 0 20px;
   cursor: pointer;
 }
+.tree-element .tree-head > .evicon + .checkbox-element {
+  margin-left: -5px;
+}
 .tree-element .tree-head > a,
 .tree-element .tree-head > span {
   color: inherit;

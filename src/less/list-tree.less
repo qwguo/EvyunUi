@@ -16,38 +16,40 @@
 @tree-head-open-bg: #323232;
 @tree-head-open-icon-color: #DBDBDB;
 
-
-.tree-element{
-  .tree-item{
-    > .tree-body{
+.tree-element {
+  .tree-item {
+    > .tree-body {
       display: none;
     }
-    &.open{
-      > .tree-body{
+    &.open {
+      > .tree-body {
         display: block;
       }
     }
   }
-  .tree-head{
+  .tree-head {
     line-height: @tree-head-line-height;
     font-size: @tree-head-font-size;
     color: @tree-head-color;
-    > .evicon{
+    > .evicon {
       font-size: 1.3em;
       color: @tree-head-icon-color;
-      margin:0 10px 0 20px;
+      margin: 0 10px 0 20px;
       cursor: pointer;
+      + .checkbox-element{
+        margin-left: -5px;
+      }
     }
-    >a,
-    >span{
-      &:hover{
+    > a,
+    > span {
+      &:hover {
         text-decoration: none;
       }
-        color: inherit;
+      color: inherit;
     }
   }
-  > .tree-item{
-    > .tree-head{
+  > .tree-item {
+    > .tree-head {
       background-color: @tree-head-bg;
     }
   }
