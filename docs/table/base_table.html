@@ -671,7 +671,7 @@
 </table>
     </pre>
 
-  <h4 class="page-header">有底部的表格：使用<code>tfoot</code>标签包裹<code>tr</code>标签，再添加<code>class="active"</code>类来实现带底部的表格</h4>
+  <h4 class="page-header">表格单元个跨行实现效果：我们可以给单元格<code>td</code>，<code>th</code>，添加<code>colspan="3"</code>：单元格跨行，<code>rowspan="4"</code>：单元格跨列；属性来实现</h4>
   <div class="table-div">
     <table class="table">
       <colgroup>
@@ -682,50 +682,168 @@
       </colgroup>
       <thead>
         <tr class="active">
-          <th>序号</th>
-          <th>名称</th>
-          <th>说明</th>
-          <th>程度</th>
+          <th class="text-center vertical-middle" rowspan="2">语言名称</th>
+          <th class="text-center" colspan="2">HTML</th>
+          <th class="text-center" colspan="2">CSS</th>
+          <th class="text-center" colspan="4">ECMAScript</th>
+        </tr>
+        <tr class="active">
+          <th class="text-center">HTML4.0/XHTML</th>
+          <th class="text-center">HTML5</th>
+          <th class="text-center">CSS2.0</th>
+          <th class="text-center">CSS3.0</th>
+          <th class="text-center">ECMAScript2</th>
+          <th class="text-center">ECMAScript3</th>
+          <th class="text-center">ECMAScript5</th>
+          <th class="text-center">ECMAScript6</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td>CSS</td>
-          <td>层叠样式表(英文全称：Cascading Style
-            Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</td>
-          <td>熟练</td>
+          <th>详细介绍</th>
+          <td><p>HTML 4 [HTML] 是标准通用标记语言下的一个应用，遵从国际标准ISO 8879，被广泛的当作 World Wide Web上的标准出版语言。</p></td>
+          <td>
+            <p>HTML5 将成为 HTML、XHTML 以及 HTML DOM 的新标准。</p>
+            <p>HTML 的上一个版本诞生于 1999 年。自从那以后，Web 世界已经经历了巨变。</p>
+            <p>HTML5 仍处于完善之中。然而，大部分现代浏览器已经具备了某些 HTML5 支持。</p>
+          </td>
+          <td><p>
+            CSS2.0是一套全新的样式表结构，是由W3C推行的，同以往的CSS1.0或CSS1.2完全不一样，CSS2.0推荐的是一套内容和表现效果分离的方式，HTML元素可以通过CSS2.0的样式控制显示效果，可完全不使用以往HTML中的table和td来定位表单的外观和样式，只需使用div和
+            Li此类HTML标签来分割元素，之后即可通过CSS2.0样式来定义表单界面的外观。</p></td>
+          <td>
+            <p>CSS是一种叫做样式表（stylesheet）的技术。也有的人称之为层叠样式表（Cascading Stylesheet）。</p>
+            <p>CSS3.0增加了更多的CSS选择器，可以实现更简单但是更强大的功能</p>
+          </td>
+          <td><p>1998年6月发布，主要是编辑加工的结果。这一版的内容更新是为了与ISO/IEC-16262保持严格一致，没有作任何新增、修改或删节处理。因此，一般不使用第2版来衡量ECMAScript实现的兼容性。</p></td>
+          <td><p>1999年12月发布，是对ECMAScript标准第一次真正的修改。新增了对正则表达式、新控制语句、try-catch异常处理的支持，修改了字符处理、错误定义和数值输出等内容。</p>
+            <p>从各方面综合来看，第3版标志着ECMAScript成为了一门真正的编程语言。</p></td>
+          <td>2009年12月发布，该版本力求澄清第3版中的歧义，并添加了新的功能。新功能包括：原生JSON对象、继承的方法、高级属性的定义以及引入严格模式。</td>
+          <td><p>2015年6月17日发布。截止发布日期，JavaScript的官方名称是ECMAScript
+            2015，Ecma国际意在更频繁地发布包含小规模增量更新的新版本，下一版本将于2016年发布，命名为ECMAScript 2016。从现在开始，新版本将按照ECMAScript+年份的形式发布。</p>
+            <p>
+              S6是继ES5之后的一次主要改进，语言规范由ES5.1时代的245页扩充至600页。ES6增添了许多必要的特性，例如：模块和类以及一些实用特性，例如Maps、Sets、Promises、生成器（Generators）等。</p>
+            <p>
+              尽管ES6做了大量的更新，但是它依旧完全向后兼容以前的版本，标准化委员会决定避免由不兼容版本语言导致的“web体验破碎”。结果是，所有老代码都可以正常运行，整个过渡也显得更为平滑，但随之而来的问题是，开发者们抱怨了多年的老问题依然存在。</p></td>
         </tr>
         <tr>
-          <td>2</td>
-          <td>HTML</td>
-          <td>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</td>
-          <td>一般</td>
+          <td>重要程度</td>
+          <td colspan="2">
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+          </td>
+          <td>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+          </td>
+          <td>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+          </td>
+          <td colspan="3">
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+          </td>
+          <td colspan="2">
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+          </td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>JavaScript</td>
-          <td>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</td>
-          <td>不熟</td>
+          <td>掌握程度</td>
+          <td colspan="2">
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+          </td>
+          <td>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+          </td>
+          <td>
+            <i class="evicon evicon-star-1"></i>
+          </td>
+          <td colspan="3">
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+          </td>
+          <td colspan="2">
+            <i class="evicon evicon-star-1"></i>
+            <i class="evicon evicon-star-1"></i>
+          </td>
         </tr>
       </tbody>
       <tfoot>
         <tr class="active">
-          <td colspan="4">这是底部</td>
+          <td colspan="9"><h4>前端工程师所需要掌握的全部技术</h4></td>
         </tr>
       </tfoot>
     </table>
   </div>
+  <p class="text-warning">代码太多，就不贴了，可以使用chrome工具查看</p>
+  
+  <h4 class="page-header">不带外边框表格<small><code>class="table table-no-outer-border"</code></small></h4>
+  <div class="table-div">
+    <table class="table table-no-outer-border">
+      <caption>表格标题</caption>
+      <colgroup>
+        <col width="50">
+        <col width="200">
+        <col width="auto">
+        <col width="250">
+      </colgroup>
+      <thead>
+      <tr>
+        <th>序号</th>
+        <th>名称</th>
+        <th>说明</th>
+        <th>程度</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td>CSS</td>
+        <td>层叠样式表(英文全称：Cascading Style
+          Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</td>
+        <td>熟练</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>HTML</td>
+        <td>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</td>
+        <td>一般</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>JavaScript</td>
+        <td>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</td>
+        <td>不熟</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
   <pre name="pre" class="html">
-<table class="table">
+<table class="table table-no-outer-border">
+<caption>表格标题</caption>
 <colgroup>
-  <col width="150">
-  <col width="250">
+  <col width="50">
+  <col width="200">
   <col width="auto">
   <col width="250">
 </colgroup>
 <thead>
-<tr class="active">
+<tr>
   <th>序号</th>
   <th>名称</th>
   <th>说明</th>
@@ -752,13 +870,9 @@
   <td>不熟</td>
 </tr>
 </tbody>
-<tfoot>
-<tr class="active">
-  <td colspan="4">这是底部</td>
-</tr>
-</tfoot>
 </table>
     </pre>
+
 
   <h4 class="page-header">表格单元格间距：给表格添加<code>table-spacing-lg</code>20px，<code>table-spacing-sm</code>8px，<code>table-spacing-xs</code>3px，<code>table-spacing-no</code>0，类来实现</h4>
   <div class="table-div">
@@ -1245,7 +1359,7 @@
 </tbody>
 </table>
     </pre>
-  <h5>设置列的跨列数，并且给class，改变隶书此列的单元格样式：</h5>
+  <h5>设置列的跨列数，并且给class，改变隶属于此列的单元格样式：</h5>
   <div class="table-div">
     <table class="table">
       <caption>表格标题</caption>

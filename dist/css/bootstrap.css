@@ -753,8 +753,8 @@ button.close {
 @font-face {
   font-family: 'evicon';
   /* project id 931572 */
-  src: url('//at.alicdn.com/t/font_931572_w21clccorn.eot');
-  src: url('//at.alicdn.com/t/font_931572_w21clccorn.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_w21clccorn.woff') format('woff'), url('//at.alicdn.com/t/font_931572_w21clccorn.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_w21clccorn.svg#evicon') format('svg');
+  src: url('//at.alicdn.com/t/font_931572_gbyv0wa1sw.eot');
+  src: url('//at.alicdn.com/t/font_931572_gbyv0wa1sw.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_gbyv0wa1sw.woff') format('woff'), url('//at.alicdn.com/t/font_931572_gbyv0wa1sw.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_gbyv0wa1sw.svg#evicon') format('svg');
 }
 .evicon {
   position: relative;
@@ -904,6 +904,9 @@ button.close {
 }
 .evicon-plus-3:before {
   content: "\e670";
+}
+.evicon-star-1:before {
+  content: "\e60b";
 }
 .container {
   padding-right: 5px;
@@ -4649,11 +4652,13 @@ a.thumbnail.active {
   margin-left: -5px;
 }
 .tree-element .tree-head > a,
-.tree-element .tree-head > span {
+.tree-element .tree-head > span,
+.tree-element .tree-head a {
   color: inherit;
 }
 .tree-element .tree-head > a:hover,
-.tree-element .tree-head > span:hover {
+.tree-element .tree-head > span:hover,
+.tree-element .tree-head a:hover {
   text-decoration: none;
 }
 .tree-element > .tree-item > .tree-head {
@@ -4926,8 +4931,6 @@ a.thumbnail.active {
   font-size: 0;
   display: inline-block;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
   border-radius: 100%;
   position: relative;
   border-width: 0;
@@ -4961,7 +4964,6 @@ a.thumbnail.active {
 .radio-element > .radio-label {
   vertical-align: middle;
   padding-left: 0.3em;
-  font-size: 12px;
 }
 .radio-element > .dot {
   background-color: #ccc;
@@ -4979,6 +4981,13 @@ a.thumbnail.active {
 }
 .radio-element > input:checked + .dot + .radio-label {
   color: #666;
+}
+.radio-element > .dot {
+  width: 20px;
+  height: 20px;
+}
+.radio-element > .radio-label {
+  font-size: 12px;
 }
 .radio-element.disabled {
   cursor: not-allowed;
@@ -5016,6 +5025,20 @@ a.thumbnail.active {
 }
 .radio-element.error > input:checked + .dot + .radio-label {
   color: #ff5152;
+}
+.radio-element.lg > .dot {
+  width: 25px;
+  height: 25px;
+}
+.radio-element.lg > .radio-label {
+  font-size: 14px;
+}
+.radio-element.sm > .dot {
+  width: 15px;
+  height: 15px;
+}
+.radio-element.sm > .radio-label {
+  font-size: 12px;
 }
 .checkbox-element-group > .checkbox-element {
   margin-left: 15px;
@@ -5159,6 +5182,7 @@ a.thumbnail.active {
   cursor: pointer;
   display: inline-block;
   position: relative;
+  text-align: left;
 }
 .switch-element > .switch-btn {
   display: inline-block;
