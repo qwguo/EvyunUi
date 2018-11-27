@@ -10,14 +10,12 @@ String.prototype.escapeHtml = function () {
   s = s.replace(/\n/g, "<br>");
   return s;
 };
-(function(){
-  var pre =  document.getElementsByTagName('pre');
-  for(var i = 0; i<pre.length; i++){
-    if(pre[i].getAttribute('class').indexOf('html') != -1){
-      pre[i].innerHTML = pre[i].innerHTML.escapeHtml();
-    }
+var pre =  document.getElementsByTagName('pre');
+for(var i = 0; i<pre.length; i++){
+  if(pre[i].getAttribute('class').indexOf('html') != -1){
+    pre[i].innerHTML = pre[i].innerHTML.escapeHtml();
   }
-}());
+}
 DlHighlight.HELPERS.highlightByName("pre", "pre", {
   showWhitespace : true,
   lineNumbers    : true

@@ -2,8 +2,22 @@
 // Radio Size
 @checkbox-height: 20px;
 @checkbox-width: 20px;
-@checkbox-radius: 3px;
+@checkbox-radius: 4px;
 @checkbox-font-size: 12px;
+@checkbox-dot-font-size: 16px;
+//lg
+@checkbox-lg-height: 25px;
+@checkbox-lg-width: 25px;
+@checkbox-lg-radius: 6px;
+@checkbox-lg-font-size: 14px;
+@checkbox-lg-dot-font-size: 18px;
+//sm
+@checkbox-sm-height: 15px;
+@checkbox-sm-width: 15px;
+@checkbox-sm-radius: 3px;
+@checkbox-sm-font-size: 12px;
+@checkbox-sm-dot-font-size: 10px;
+
 // Radio Color
 // default
 @checkbox-bg: #ccc;
@@ -53,6 +67,19 @@
   }
 }
 
+.checkSize(@width; @height; @radius; @dot-font-size; @font-size){
+  > .dot {
+    width: @width;
+    height: @height;
+    line-height: @height;
+    border-radius: @radius;
+    font-size: @dot-font-size;
+  }
+  > .checkbox-label {
+    font-size: @font-size;
+  }
+}
+
 .checkbox-element-group {
   > .checkbox-element {
     margin-left: 15px;
@@ -68,15 +95,10 @@
   position: relative;
   > .dot {
     display: inline-block;
-    vertical-align: text-top;
-    width: @checkbox-width;
-    height: @checkbox-height;
+    vertical-align: text-bottom;
     position: relative;
     border-width: 0;
     border-style: solid;
-    border-radius: @checkbox-radius;
-    font-size: 16px;
-    line-height: 1.3;
     text-align: center;
     &::before {
       position: absolute;
@@ -105,10 +127,10 @@
   > .checkbox-label {
     vertical-align: middle;
     padding-left: .3em;
-    font-size: @checkbox-font-size;
   }
   & {
     .checkboxColor(@checkbox-bg; @checkbox-checked-bg; @checkbox-border-color; @checkbox-checked-border-color; @checkbox-dot-bg; @checkbox-color; @checkbox-checked-color);
+    .checkSize(@checkbox-width;@checkbox-height;@checkbox-radius;@checkbox-dot-font-size;@checkbox-font-size);
   }
   &.disabled {
     cursor: @cursor-disabled;
@@ -117,5 +139,12 @@
   &.error {
     .checkboxColor(@checkbox-error-bg; @checkbox-error-bg; @checkbox-error-border-color; @checkbox-error-border-color; @checkbox-error-dot-bg; @checkbox-error-color; @checkbox-error-color);
   }
+  &.lg{
+    .checkSize(@checkbox-lg-width;@checkbox-lg-height;@checkbox-lg-radius;@checkbox-lg-dot-font-size;@checkbox-lg-font-size);
+  }
+  &.sm{
+    .checkSize(@checkbox-sm-width;@checkbox-sm-height;@checkbox-sm-radius;@checkbox-sm-dot-font-size;@checkbox-sm-font-size);
+  }
+
 }
 

@@ -1,0 +1,54 @@
+// List Tree
+// --------------------------------------------------
+
+//List tree  variable
+@tree-head-font-size: 12px;
+@tree-head-color: #323232;
+@tree-head-bg: #F9FDFF;
+@tree-head-icon-color: #DBDBDB;
+@tree-head-line-height: 38px;
+//hover
+@tree-head-hover-color: #323232;
+@tree-head-hover-bg: #323232;
+@tree-head-hover-icon-color: #DBDBDB;
+//open
+@tree-head-open-color: #323232;
+@tree-head-open-bg: #323232;
+@tree-head-open-icon-color: #DBDBDB;
+
+
+.tree-element{
+  .tree-item{
+    > .tree-body{
+      display: none;
+    }
+    &.open{
+      > .tree-body{
+        display: block;
+      }
+    }
+  }
+  .tree-head{
+    line-height: @tree-head-line-height;
+    font-size: @tree-head-font-size;
+    color: @tree-head-color;
+    > .evicon{
+      font-size: 1.3em;
+      color: @tree-head-icon-color;
+      margin:0 10px 0 20px;
+      cursor: pointer;
+    }
+    >a,
+    >span{
+      &:hover{
+        text-decoration: none;
+      }
+        color: inherit;
+    }
+  }
+  > .tree-item{
+    > .tree-head{
+      background-color: @tree-head-bg;
+    }
+  }
+}

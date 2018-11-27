@@ -753,8 +753,8 @@ button.close {
 @font-face {
   font-family: 'evicon';
   /* project id 931572 */
-  src: url('//at.alicdn.com/t/font_931572_8e9z6pwwcxn.eot');
-  src: url('//at.alicdn.com/t/font_931572_8e9z6pwwcxn.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_8e9z6pwwcxn.woff') format('woff'), url('//at.alicdn.com/t/font_931572_8e9z6pwwcxn.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_8e9z6pwwcxn.svg#evicon') format('svg');
+  src: url('//at.alicdn.com/t/font_931572_w21clccorn.eot');
+  src: url('//at.alicdn.com/t/font_931572_w21clccorn.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_w21clccorn.woff') format('woff'), url('//at.alicdn.com/t/font_931572_w21clccorn.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_w21clccorn.svg#evicon') format('svg');
 }
 .evicon {
   position: relative;
@@ -898,6 +898,12 @@ button.close {
 }
 .evicon-cancel-2:before {
   content: "\e616";
+}
+.evicon-reduce-3:before {
+  content: "\e66f";
+}
+.evicon-plus-3:before {
+  content: "\e670";
 }
 .container {
   padding-right: 5px;
@@ -4622,6 +4628,34 @@ a.thumbnail.active {
 .tab-panel .tab-panel-body .tab-panel-item.tab-panel-item-active {
   display: block;
 }
+.tree-element .tree-item > .tree-body {
+  display: none;
+}
+.tree-element .tree-item.open > .tree-body {
+  display: block;
+}
+.tree-element .tree-head {
+  line-height: 38px;
+  font-size: 12px;
+  color: #323232;
+}
+.tree-element .tree-head > .evicon {
+  font-size: 1.3em;
+  color: #DBDBDB;
+  margin: 0 10px 0 20px;
+  cursor: pointer;
+}
+.tree-element .tree-head > a,
+.tree-element .tree-head > span {
+  color: inherit;
+}
+.tree-element .tree-head > a:hover,
+.tree-element .tree-head > span:hover {
+  text-decoration: none;
+}
+.tree-element > .tree-item > .tree-head {
+  background-color: #F9FDFF;
+}
 .breadcrumb {
   padding: 8px 15px;
   margin-bottom: 20px;
@@ -4777,6 +4811,42 @@ a.thumbnail.active {
   border-width: 1px 0;
   border-style: solid;
   border-color: #E8ECEF;
+}
+.input-element-btn {
+  font-size: 0;
+  display: inline-block;
+}
+.input-element-btn > .input-element {
+  margin-bottom: 0;
+}
+.input-element-btn > .input-element:first-child {
+  margin-right: -1px;
+}
+.input-element-btn > .input-element:first-child > input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.input-element-btn > .input-element:last-child {
+  margin-left: -1px;
+}
+.input-element-btn > .input-element:last-child > input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-element-btn > .btn {
+  vertical-align: top;
+  height: 35px;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 35px;
+}
+.input-element-btn > .btn:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.input-element-btn > .btn:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 /* input element */
 .textarea-element {
@@ -4957,15 +5027,10 @@ a.thumbnail.active {
 }
 .checkbox-element > .dot {
   display: inline-block;
-  vertical-align: text-top;
-  width: 20px;
-  height: 20px;
+  vertical-align: text-bottom;
   position: relative;
   border-width: 0;
   border-style: solid;
-  border-radius: 3px;
-  font-size: 16px;
-  line-height: 1.3;
   text-align: center;
 }
 .checkbox-element > .dot::before {
@@ -4996,7 +5061,6 @@ a.thumbnail.active {
 .checkbox-element > .checkbox-label {
   vertical-align: middle;
   padding-left: 0.3em;
-  font-size: 12px;
 }
 .checkbox-element > .dot {
   background-color: #ccc;
@@ -5014,6 +5078,16 @@ a.thumbnail.active {
 }
 .checkbox-element > input:checked + .dot + .checkbox-label {
   color: #666;
+}
+.checkbox-element > .dot {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.checkbox-element > .checkbox-label {
+  font-size: 12px;
 }
 .checkbox-element.disabled {
   cursor: not-allowed;
@@ -5052,6 +5126,26 @@ a.thumbnail.active {
 .checkbox-element.error > input:checked + .dot + .checkbox-label {
   color: #ff5152;
 }
+.checkbox-element.lg > .dot {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+.checkbox-element.lg > .checkbox-label {
+  font-size: 14px;
+}
+.checkbox-element.sm > .dot {
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+.checkbox-element.sm > .checkbox-label {
+  font-size: 12px;
+}
 .switch-element-group > .switch-element {
   margin-left: 15px;
 }
@@ -5065,10 +5159,6 @@ a.thumbnail.active {
 }
 .switch-element > .switch-btn {
   display: inline-block;
-  width: 76px;
-  height: 30px;
-  border-radius: 30px;
-  background-color: #cbd2d8;
   position: relative;
   overflow: hidden;
 }
@@ -5078,11 +5168,8 @@ a.thumbnail.active {
 .switch-element > .switch-btn > .dot::before {
   position: absolute;
 }
-.switch-element > .switch-btn i {
+.switch-element > .switch-btn > i {
   font-style: normal;
-  font-size: 14px;
-  color: #fff;
-  line-height: 30px;
   z-index: 1;
   text-transform: uppercase;
 }
@@ -5090,19 +5177,13 @@ a.thumbnail.active {
   content: ' ';
   height: 100%;
   width: 100%;
-  border-radius: 30px;
   z-index: 1;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  background-color: #0090ff;
   opacity: 0;
 }
 .switch-element > .switch-btn > .dot {
-  width: 30px;
-  height: 30px;
-  left: 30px;
-  margin-left: -30px;
   top: 0;
   z-index: 2;
   border: 4px solid transparent;
@@ -5112,17 +5193,16 @@ a.thumbnail.active {
 }
 .switch-element > .switch-btn > .dot::before {
   content: '';
-  background-color: #fff;
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.switch-element > .switch-btn i.NO {
-  left: 1em;
+.switch-element > .switch-btn > i.NO {
+  left: 0.8em;
   opacity: 0;
 }
-.switch-element > .switch-btn i.OFF {
-  right: 1em;
+.switch-element > .switch-btn > i.OFF {
+  right: 0.8em;
   opacity: 1;
 }
 .switch-element > input {
@@ -5151,10 +5231,28 @@ a.thumbnail.active {
   background-color: #0090ff;
 }
 .switch-element > .switch-btn > .dot::before {
-  border-color: #fff;
+  background-color: #fff;
 }
 .switch-element > .switch-btn > i {
   color: #fff;
+}
+.switch-element > .switch-btn {
+  width: 76px;
+  height: 30px;
+  border-radius: 30px;
+}
+.switch-element > .switch-btn > i {
+  font-size: 14px;
+  line-height: 30px;
+}
+.switch-element > .switch-btn::before {
+  border-radius: 30px;
+}
+.switch-element > .switch-btn > .dot {
+  width: 30px;
+  height: 30px;
+  left: 30px;
+  margin-left: -30px;
 }
 .switch-element.switch-element-disabled > .switch-btn {
   cursor: not-allowed;
@@ -5165,7 +5263,7 @@ a.thumbnail.active {
   background-color: #e9e9e9;
 }
 .switch-element.switch-element-disabled > .switch-btn > .dot::before {
-  border-color: #fff;
+  background-color: #fff;
 }
 .switch-element.switch-element-disabled > .switch-btn > i {
   color: #bbb;
@@ -5178,10 +5276,64 @@ a.thumbnail.active {
   background-color: #ff5152;
 }
 .switch-element.switch-element-error > .switch-btn > .dot::before {
-  border-color: #fff;
+  background-color: #fff;
 }
 .switch-element.switch-element-error > .switch-btn > i {
   color: #fff;
+}
+.switch-element.lg > .switch-btn {
+  width: 90px;
+  height: 36px;
+  border-radius: 30px;
+}
+.switch-element.lg > .switch-btn > i {
+  font-size: 16px;
+  line-height: 36px;
+}
+.switch-element.lg > .switch-btn::before {
+  border-radius: 30px;
+}
+.switch-element.lg > .switch-btn > .dot {
+  width: 36px;
+  height: 36px;
+  left: 36px;
+  margin-left: -36px;
+}
+.switch-element.sm > .switch-btn {
+  width: 60px;
+  height: 24px;
+  border-radius: 30px;
+}
+.switch-element.sm > .switch-btn > i {
+  font-size: 12px;
+  line-height: 24px;
+}
+.switch-element.sm > .switch-btn::before {
+  border-radius: 30px;
+}
+.switch-element.sm > .switch-btn > .dot {
+  width: 24px;
+  height: 24px;
+  left: 24px;
+  margin-left: -24px;
+}
+.switch-element.xs > .switch-btn {
+  width: 50px;
+  height: 20px;
+  border-radius: 30px;
+}
+.switch-element.xs > .switch-btn > i {
+  font-size: 12px;
+  line-height: 20px;
+}
+.switch-element.xs > .switch-btn::before {
+  border-radius: 30px;
+}
+.switch-element.xs > .switch-btn > .dot {
+  width: 20px;
+  height: 20px;
+  left: 20px;
+  margin-left: -20px;
 }
 .select-element {
   position: relative;

@@ -4,6 +4,22 @@
 @switch-width: 76px;
 @switch-radius: 30px;
 @switch-font-size: 14px;
+
+@switch-lg-height: 36px;
+@switch-lg-width: 90px;
+@switch-lg-radius: 30px;
+@switch-lg-font-size: 16px;
+
+@switch-sm-height: 24px;
+@switch-sm-width: 60px;
+@switch-sm-radius: 30px;
+@switch-sm-font-size: 12px;
+
+@switch-xs-height: 20px;
+@switch-xs-width: 50px;
+@switch-xs-radius: 30px;
+@switch-xs-font-size: 12px;
+
 // Radio Color
 // default
 @switch-bg: #cbd2d8;
@@ -39,11 +55,31 @@
   }
   > .dot {
     &::before {
-      border-color: @dot-bg;
+      background-color: @dot-bg;
     }
   }
   > i {
     color: @color;
+  }
+}
+.switchSize(@width; @height; @radius; @font-size){
+  > .switch-btn {
+    width: @width;
+    height: @height;
+    border-radius: @radius;
+    > i {
+      font-size: @font-size;
+      line-height: @height;
+    }
+    &::before {
+      border-radius: @radius;
+    }
+    > .dot {
+      width: @height;
+      height: @height;
+      left: @height;
+      margin-left: -(@height);
+    }
   }
 }
 
@@ -55,17 +91,12 @@
     margin-left: 0;
   }
 }
-
 .switch-element {
   cursor: pointer;
   display: inline-block;
   position: relative;
   > .switch-btn {
     display: inline-block;
-    width: @switch-width;
-    height: @switch-height;
-    border-radius: @switch-radius;
-    background-color: @switch-bg;
     position: relative;
     overflow: hidden;
     &::before,
@@ -74,11 +105,8 @@
     > .dot::before {
       position: absolute;
     }
-    i {
+    > i {
       font-style: normal;
-      font-size: @switch-font-size;
-      color: @switch-color;
-      line-height: @switch-height;
       z-index: 1;
       text-transform: uppercase;
     }
@@ -86,35 +114,28 @@
       content: ' ';
       height: 100%;
       width: 100%;
-      border-radius: @switch-radius;
       z-index: 1;
       .transition(all .3s ease);
-      background-color: @switch-checked-bg;
       opacity: 0;
     }
     > .dot {
-      width: @switch-height;
-      height: @switch-height;
-      left: @switch-height;
-      margin-left: -@switch-height;
       top: 0;
       z-index: 2;
       border: 4px solid transparent;
       .transition(all .3s ease);
       &::before {
         content: '';
-        background-color: @switch-dot-bg;
         width: 100%;
         height: 100%;
         border-radius: 50%;
       }
     }
-    i.NO {
-      left: 1em;
+    > i.NO {
+      left: .8em;
       opacity: 0;
     }
-    i.OFF {
-      right: 1em;
+    > i.OFF {
+      right: .8em;
       opacity: 1;
     }
   }
@@ -144,6 +165,7 @@
     > .switch-btn {
       .switchColor(@switch-bg; @switch-checked-bg; @switch-border-color; @switch-dot-bg; @switch-color;);
     }
+    .switchSize(@switch-width; @switch-height; @switch-radius; @switch-font-size);
   }
   &.switch-element-disabled {
     > .switch-btn {
@@ -155,5 +177,14 @@
     > .switch-btn {
       .switchColor(@switch-error-bg; @switch-error-bg; @switch-error-border-color; @switch-error-dot-bg; @switch-error-color;);
     }
+  }
+  &.lg{
+    .switchSize(@switch-lg-width; @switch-lg-height; @switch-lg-radius; @switch-lg-font-size);
+  }
+  &.sm{
+    .switchSize(@switch-sm-width; @switch-sm-height; @switch-sm-radius; @switch-sm-font-size);
+  }
+  &.xs{
+    .switchSize(@switch-xs-width; @switch-xs-height; @switch-xs-radius; @switch-xs-font-size);
   }
 }

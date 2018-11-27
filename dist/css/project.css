@@ -91,6 +91,9 @@ pre {
 .main-wrap {
   margin: 10px;
 }
+.arr-explain-list li {
+  padding: 5px 0;
+}
 /*gird*/
 .show-grid .row {
   margin-bottom: 10px;
@@ -98,9 +101,7 @@ pre {
 .show-grid [class^="col-"] {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #eee;
   background-color: rgba(86, 61, 124, 0.15);
-  border: 1px solid #ddd;
   border: 1px solid rgba(86, 61, 124, 0.2);
 }
 .show-grid [class^="col-"] [class^="col-"] {

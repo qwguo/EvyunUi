@@ -87,7 +87,8 @@ var menu = new Vue({
           {'title': '列表', 'name': 'text_list', 'href': 'list/base_list.html'},
           // {'title': '列表组', 'name': 'list_group', 'href': 'list/list_group.html'},
           {'title': '图文列表', 'name': 'media_list', 'href': 'list/media_list.html'},
-          {'title': '橱窗展示', 'name': 'thumbnail', 'href': 'list/thumbnail.html'}
+          {'title': '橱窗展示', 'name': 'thumbnail', 'href': 'list/thumbnail.html'},
+          {'title': '树形结构列表', 'name': 'list_tree', 'href': 'list/list_tree.html'}
         ]
       },
       {

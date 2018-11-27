@@ -3,13 +3,16 @@
 @input-height: 35px;
 @input-padding: 15px;
 @input-radius: 3px;
+@brothers-line-color: #E8ECEF;
+
+// Input size
 @input-font-size: 14px;
 @input-padding-lg: 20px;
 @input-padding-sm: 10px;
 @input-padding-xs: 15px;
+@input-border-width: 1px;
 @input-padding-no: 0;
 @input-margin-bottom: 10px;
-@brothers-line-color: #E8ECEF;
 // default
 @input-bg: #fff;
 @input-color: #666;
@@ -41,7 +44,7 @@
     height: @input-height;
     background-color: @input-bg;
     padding: 0 @input-padding;
-    border: 1px solid @input-border-color;
+    border: @input-border-width solid @input-border-color;
     color: @input-color;
     border-radius: @input-radius;
     outline: 0;
@@ -163,8 +166,41 @@
     padding: 0 1em;
     color: darken(@input-border-color, 20%);
     font-style: normal;
-    border-width: 1px 0;
+    border-width: @input-border-width 0;
     border-style:solid;
     border-color: @input-border-color;
+  }
+}
+//btn input
+.input-element-btn{
+  font-size: 0;
+  display: inline-block;
+  > .input-element{
+    margin-bottom: 0;
+    &:first-child {
+      margin-right: -(@input-border-width);
+      > input {
+        .border-right-radius(0);
+      }
+    }
+    &:last-child {
+      margin-left: -(@input-border-width);
+      > input {
+        .border-left-radius(0);
+      }
+    }
+  }
+  > .btn {
+    vertical-align: top;
+    height: @input-height;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: @input-height;
+    &:first-child {
+      .border-right-radius(0);
+    }
+    &:last-child {
+      .border-left-radius(0);
+    }
   }
 }
