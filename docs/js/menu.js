@@ -98,8 +98,10 @@ var menu = new Vue({
         'sub': [
           {'title': '进度条', 'name': 'progress', 'href': 'tool/progress.html'},
           {'title': '工具提示', 'name': 'tooltips', 'href': 'tool/tooltips.html'},
-          {'title': '静态弹出框', 'name': 'popover', 'href': 'tool/popover.html'},
+          {'title': '模态框', 'name': 'popup', 'href': 'tool/popup.html'},
+          {'title': '高级提示', 'name': 'popover', 'href': 'tool/popover.html'},
           // {'title': '显示隐藏', 'name': 'collapse', 'href': 'tool/collapse.html'},
+          {'title': '滚动条', 'name': 'scroll', 'href': 'tool/scroll.html'},
           {'title': '页码', 'name': 'pagination', 'href': 'tool/pagination.html'}
         ]
       }

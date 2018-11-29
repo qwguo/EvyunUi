@@ -43,6 +43,12 @@ gulp.task('miniCss', function () {
 });
 
 
+/*gulp.task('rename', function(){
+  gulp.src(['./src/less/animate/!**!/!*.css'])
+    .pipe(rename({extname: ".less"}))
+    .pipe(gulp.dest('./test/'))
+});*/
+
 
 /*gulp.task('miniScript', function() {
   gulp.src(['./src/js/!*.js'])
