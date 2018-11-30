@@ -108,6 +108,7 @@ $.popupAlert([popupHead, popupHint, enterCallBack]);
     </dd>
   </dl>
   </div>
+
   <div class="show-popup-div">
     <h4 class="page-header">打开一个带<b>确定</b>，<b>取消</b>按钮的提示框，没有扩展属性方式，只有方法调用方式</h4>
     <p>
@@ -168,12 +169,22 @@ $('#fun_confirm_1').on('click', function(){
       </dd>
     </dl>
   </div>
+
   <div class="show-popup-div">
     <h4 class="page-header">打开一个提示消息框</h4>
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
-      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="这是提示内容" data-popup-icontype="1" data-popup-closetiem="1">
-        属性方式弹出提示框
+      <button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetiem="1">
+        正确
+      </button>
+      <button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetiem="1">
+        错误
+      </button>
+      <button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetiem="1">
+        警告
+      </button>
+      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetiem="1">
+        等待
       </button>
     </p>
     <dl class="arr-explain-list">
@@ -185,35 +196,54 @@ $('#fun_confirm_1').on('click', function(){
       <dd>代码如下：</dd>
     </dl>
     <pre class="html" name="pre">
-  <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="这是提示内容" data-popup-icontype="1" data-popup-closetiem="2">
-    属性方式弹出提示框
-  </button>
+<button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetiem="1">
+  正确
+</button>
+<button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetiem="1">
+  错误
+</button>
+<button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetiem="1">
+  警告
+</button>
+<button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetiem="1">
+  等待
+</button>
+
     </pre>
-    <h4><srrong>调用方法方式打开：</srrong></h4>
-    <p>
-      <button type="button" id="fun_point_1" class="btn btn-primary">
-        调用方法弹出提示框
+    <h4><srrong>调用方法方式打开，支持关闭回调函数：</srrong></h4>
+    <p id="fun_point_1">
+      <button type="button" class="btn btn-success">
+        正确
+      </button>
+      <button type="button" class="btn btn-danger">
+        错误
+      </button>
+      <button type="button" class="btn btn-warning">
+        警告
+      </button>
+      <button type="button" class="btn btn-primary">
+        等待
       </button>
     </p>
     <script type="text/javascript">
-        $('#fun_point_1').on('click', function(){
-          $.popupPoint(['这是提示内容', 2, 1, function(){
+        $('#fun_point_1').on('click','.btn', function(){
+          $.popupPoint([$(this).text()+'提示内容', $(this).index() + 1, 1, function(){
             $.popupPoint(['自动关闭回调函数', 3, 1]);
           }]);
         });
       </script>
-      <pre class="js" name="pre">
-  // html代码
-  &lt;button type="button" id="fun_point_1" class="btn btn-primary"&gt;
-    调用方法弹出提示框
-  &lt;/button&gt;
-  // js代码
-  $('#fun_point_1').on('click', function(){
-    $.popupPoint(['这是提示内容', 2, 1, function(){
-      $.popupPoint(['自动关闭回调函数', 3, 1]);
-    }]);
-  });
-      </pre>
+    <pre class="js" name="pre">
+// html代码
+&lt;button type="button" id="fun_point_1" class="btn btn-primary"&gt;
+  调用方法弹出提示框
+&lt;/button&gt;
+// js代码
+$('#fun_point_1').on('click', function(){
+  $.popupPoint(['这是提示内容', 2, 1, function(){
+    $.popupPoint(['自动关闭回调函数', 3, 1]);
+  }]);
+});
+    </pre>
     <dl class="arr-explain-list">
       <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupPoint(arguments)</code>方法，说明如下：</dt>
       <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
@@ -244,11 +274,12 @@ $('#fun_confirm_1').on('click', function(){
       </dd>
     </dl>
   </div>
+
   <div class="show-popup-div">
     <h4 class="page-header">打开一个iframe窗口</h4>
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
-      <button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="/docs/tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
+      <button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="../tool/big_popup_iframe.html" data-popup-width="1200" data-popup-height="700">
         添加属性方式打开
       </button>
     </p>
@@ -262,7 +293,7 @@ $('#fun_confirm_1').on('click', function(){
       <dd>代码如下：</dd>
     </dl>
     <pre class="html" name="pre">
-<button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="/docs/tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
+<button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="../tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
   窗口打开其他页面
 </button>
     </pre>
@@ -274,7 +305,7 @@ $('#fun_confirm_1').on('click', function(){
     </p>
     <script type="text/javascript">
       $('#fun_iframe_1').on('click', function(){
-        $.popupIframe(['这是提示内容', '/docs/tool/popup_iframe.html', 800, 500, function(){
+        $.popupIframe(['这是提示内容', '../tool/popup_iframe.html', 800, 500, function(){
           $.popupPoint(['关闭的回调函数', 3, 1]);
         }]);
       });
@@ -286,7 +317,7 @@ $('#fun_confirm_1').on('click', function(){
 &lt;/button&gt;
 // js代码
 $('#fun_iframe_1').on('click', function(){
-  $.popupIframe(['这是提示内容', '/docs/tool/popup_iframe.html', 800, 500, function(){
+  $.popupIframe(['这是提示内容', '../tool/popup_iframe.html', 800, 500, function(){
     $.popupPoint(['关闭的回调函数', 3, 1]);
   }]);
 });
@@ -321,6 +352,15 @@ $('#fun_iframe_1').on('click', function(){
         </ol>
       </dd>
     </dl>
+  </div>
+
+  <div class="show-popup-div">
+    <h4 class="page-header">打开一个loading层</h4>
+    <p>
+      <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetiem="1">
+        添加属性方式打开
+      </button>
+    </p>
   </div>
 
 </div>

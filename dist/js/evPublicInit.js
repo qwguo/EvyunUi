@@ -3756,7 +3756,7 @@ and dependencies (minified).
         j = that.j;
       j.animate && j.animate.length && that.popup.removeClass(j.animate[0]).addClass(j.animate[1]);
       setTimeout(function(){
-        j.closeCallBack && j.closeCallBack();
+        typeof(j.closeCallBack) === 'function' && j.closeCallBack();
         that.popup.remove();
         that.popupShade && that.popupShade.remove();
         that = null;
@@ -3826,7 +3826,7 @@ and dependencies (minified).
       size: {width: 300},
       con: {
         text: "提示信息",
-        icon: 2,
+        icon: 3,
         btn:{
           'btn1':{text:'确定', className:'btn-primary'},
           'btn2':{text:'取消', className:'btn-outline-danger'}
@@ -3915,6 +3915,29 @@ and dependencies (minified).
     }
     return new Popup($.extend(true, {}, j_, j))
   };
+  //Loading
+  $.popupLoading = function (j) {
+    var j_ = {
+      type: 4,
+      head: false,
+      shade: {close: 0},
+      position: {pos: 'm-c'},
+      opBtn: false,
+      con: {
+        icon: 1
+      }
+    };
+    if($.isArray(j)){
+      j = {
+        con: {
+          icon: j[0]
+        },
+        autoClose: j[1],
+        closeCallBack: j[2] || null
+      }
+    }
+    return new Popup($.extend(true, {}, j_, j));
+  };
 })(window, jQuery);
 (function () {
   $(document).on('click.popup', '[data-toggle="popup"]', function (ev) {
@@ -3926,6 +3949,9 @@ and dependencies (minified).
         break;
       case 'point':
         $.popupPoint([domDate.popupHint, domDate.popupIcontype, domDate.popupClosetiem]);
+        break;
+      case 'loading':
+        $.popupLoading([domDate.popupIcontype, domDate.popupClosetiem]);
         break;
       case 'iframe':
         $.popupIframe([domDate.popupHead, domDate.popupSrc, domDate.popupWidth, domDate.popupHeight]);
