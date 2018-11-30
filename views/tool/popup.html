@@ -228,7 +228,7 @@ $('#fun_confirm_1').on('click', function(){
     <h4 class="page-header">打开一个iframe窗口</h4>
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
-      <button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="/docs/tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
+      <button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="../tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
         添加属性方式打开
       </button>
     </p>
@@ -242,7 +242,7 @@ $('#fun_confirm_1').on('click', function(){
       <dd>代码如下：</dd>
     </dl>
     <pre class="html" name="pre">
-<button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="/docs/tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
+<button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="../tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
   窗口打开其他页面
 </button>
     </pre>
@@ -254,7 +254,7 @@ $('#fun_confirm_1').on('click', function(){
     </p>
     <script type="text/javascript">
       $('#fun_iframe_1').on('click', function(){
-        $.popupIframe(['这是提示内容', '/docs/tool/popup_iframe.html', 800, 500, function(){
+        $.popupIframe(['这是提示内容', '../tool/popup_iframe.html', 800, 500, function(){
           $.popupPoint(['关闭的回调函数', 3, 1]);
         }]);
       });
@@ -266,7 +266,7 @@ $('#fun_confirm_1').on('click', function(){
 &lt;/button&gt;
 // js代码
 $('#fun_iframe_1').on('click', function(){
-  $.popupIframe(['这是提示内容', '/docs/tool/popup_iframe.html', 800, 500, function(){
+  $.popupIframe(['这是提示内容', '../tool/popup_iframe.html', 800, 500, function(){
     $.popupPoint(['关闭的回调函数', 3, 1]);
   }]);
 });
