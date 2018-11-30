@@ -91,7 +91,15 @@ pre {
 .main-wrap {
   margin: 10px;
 }
-.arr-explain-list li {
+code {
+  padding: 2px 5px;
+  margin: 0 5px;
+}
+.arr-explain-list dt {
+  padding: 10px 0;
+}
+.arr-explain-list li,
+.arr-explain-list dd {
   padding: 5px 0;
 }
 /*gird*/

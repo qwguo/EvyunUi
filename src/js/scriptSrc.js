@@ -5,6 +5,7 @@ exports.src = function(){
     './src/js/tooltip.js',
     './src/js/popover.js',
     './src/js/dropdown.js',
+    './src/js/popup.js',
     './src/js/zzev_init.js'
   ];
 };

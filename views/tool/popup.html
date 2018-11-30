@@ -1,107 +1,307 @@
 @@include('../include/head.html')
-<script src="../../src/js/popup.js"></script>
-<div class="show-popover">
-  <h3 class="page-header">高级提示框</h3>
-  <!--<div class="popup-shade"></div>
-  <div class="popup popup-alert myalert" data-animated="bounce">
-    <div class="popup-loading-wait"></div>
-    <div class="popup-option">
-      <i class="evicon evicon-resize-xs-1" title="最小化"></i>
-      <i class="evicon evicon-resize-orig-1" title="还原"></i>
-      <i class="evicon evicon-resize-lg-1" title="最大化"></i>
-      <i class="evicon evicon-close-1" title="关闭"></i>
-    </div>
-    <div class="popup-head">
-      <span class="popup-title">这是我的alert</span>
-    </div>
-    <div class="popup-body">
-      <div class="popup-body-inside">
-        <div class="popup-alert-con">
-          <div class="popup-hint-info">
-            <i class="evicon evicon-right-1 text-success"></i>
-            <i class="evicon evicon-close-2 text-warning"></i>
-            <i class="evicon evicon-point-2 text-info"></i>
-            <span class="hint">提示信息</span>
-          </div>
-        </div>
-      </div>
-      <div class="popup-but-area">
-        <span class="popup-but">
-          <a href="###" class="btn btn-sm btn-primary">确定</a><a href="###" class="btn btn-sm btn-outline-danger">取消</a>
-        </span>
-      </div>
-    </div>
-  </div>-->
-  <dl>
-    <dt>
-      <h4>我们可以给任何的标签元素添加<code>data-toggle="popup"</code>属性来实现打开模态框</h4>
-    </dt>
-    <dd>
-      <p>同时我们可以添加更过属性来实现不同效果，具体属性有以下：</p>
+<div class="show-popup">
+  <h3 class="page-header">模态提示框</h3>
+  <h4>我们想要实现一个弹窗效果有两种方式：</h4>
+  <ol class="arr-explain-list">
+    <li>我们可以给任何的标签元素添加<code>data-toggle="popup"</code>属性来实现打开模态框，不同类型的模态框添加的属性不一样</li>
+    <li>可以通过调用方法的形式来实现，目前定义了几种弹窗的方法如下：
+      <ul class="list-type-lower-roman">
+        <li><code>$.popupAlert(arguments)</code>：打开一个带<b>确定</b>按钮的提示框。</li>
+        <li><code>$.popupConfirm(arguments)</code>：打开一个带<b>确定</b>，<b>取消</b>按钮的提示框。</li>
+        <li><code>$.popupPoint(arguments)</code>：打开一个提示信息。</li>
+        <li><code>$.pupupIframe(arguments)</code>：打开一个页面的弹出框。</li>
+      </ul>
+    </li>
+  </ol>
+
+  <div class="show-popup-div">
+    <h4 class="page-header">打开一个带<b>确定</b>按钮的提示框</h4>
+    <h4><srrong>给元素添加属性方式打开：</srrong></h4>
+    <p>
+      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="alert" data-popup-head="这是我的弹窗标题" data-popup-hint="这是我的提示内容">
+        属性方式弹出提示框
+      </button>
+    </p>
+    <dl class="arr-explain-list">
+      <dt>各属性介绍：</dt>
+      <dd><code>data-popup-type="alert"</code>：表示打开一个带确定按钮的提示框，<span class="text-warning">固定值</span></dd>
+      <dd><code>data-popup-head="这是我的弹窗标题"</code>：打开窗口的标题</dd>
+      <dd><code>data-popup-hint="这是我的提示内容"</code>：打开窗口的提示消息</dd>
+      <dd>代码如下：</dd>
+    </dl>
+    <pre class="html" name="pre">
+  <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="alert" data-popup-head="这是我的弹窗标题" data-popup-hint="这是我的提示内容">
+    属性方式弹出提示框
+  </button>
+    </pre>
+    <h4><srrong>方法调用方式打开：</srrong></h4>
+    <p>
+      <button type="button" id="fun_alert_1" class="btn btn-primary">
+        调用方法弹出提示框
+      </button>
+    </p>
+    <script type="text/javascript">
+      $('#fun_alert_1').on('click', function(){
+        $.popupAlert(['弹窗标题', '弹窗提示框', function(){
+          $.popupPoint(['点击了确定']);
+        }]);
+      });
+    </script>
+    <pre class="js" name="pre">
+  //html代码
+  &lt;button type="button" id="fun_alert_1" class="btn btn-primary"&gt;
+    调用方法弹出提示框
+  &lt;/button&gt;
+  //js代码
+  $('#fun_alert_1').on('click', function(){
+    $.popupAlert(['弹窗标题', '弹窗提示框', function(){
+      $.popupPoint(['点击了确定']);
+    }]);
+  });
+    </pre>
+    <dl class="arr-explain-list">
+    <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupAlert(arguments)</code>方法，说明如下：</dt>
+    <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
+    <dd><code>arguments</code>：打开弹窗时传递的参数。可以分为两种一种是<code>array</code>数组形式，一种是<code>json</code>对象像是
       <ol>
-        <li>
-          <p>
-            <code>data-container="body"</code>：弹出框添加到哪个元素标签内，如果不设置，默认添加在body中；可以设置元素的id格式为<code>#id</code>形式
-          </p>
+        <li><b>数组形式：</b>
+          <pre class="js" name="pre">
+$.popupAlert([popupHead, popupHint, enterCallBack]);
+          </pre>
+          <ul class="list-type-lower-roman">
+            <li><code>popupHead</code>：打开窗口的标题。</li>
+            <li><code>popupHint</code>：打开窗口的提示消息。</li>
+            <li><code>enterCallBack</code>：单击确定的回调函数。</li>
+          </ul>
         </li>
         <li>
-          <p>
-            <code>data-placement="left"</code>：方向，表示提示信息出现的位置，可以是：<code>top</code>，<code>bottom</code>，<code>left</code>，<code>right</code>，<code>auto</code>
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>data-delay="100"</code>：延迟出现时间，毫秒数
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>data-trigger="click"</code>：表示触发什么事件显示提示：<code>click</code>单击（默认），<code>focus</code>得到焦点（只能应用在可以得到焦点的元素上，比如：<code>&lt;a&gt;</code>，<code>&lt;button&gt;</code>，<code>&lt;input&gt;</code>，<code>&lt;textarea&gt;</code>等），<code>hover</code>鼠标经过
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>data-title="标题"</code>：这是提示框的标题，如果没有标题把此属性去掉。
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>data-content="内容"</code>：这是提示框要展示的内容，如果没有内容把此属性去掉。
-          </p>
+          <b>对象形式：</b>
+          <p class="text-warning">后期添加</p>
+          <!--<ul class="list-type-lower-roman">
+            <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
+            <li><code>popupHead</code>：打开窗口的标题。</li>
+            <li><code>popupHint</code>：打开窗口的提示消息。</li>
+            <li><code>enterCallBack</code>：单击确定的回调函数。</li>
+          </ul>-->
         </li>
       </ol>
     </dd>
   </dl>
-  <h4 class="page-header">单击下列按钮打开模态框</h4>
-  <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-animate="zoomIn" data-popup-type="alert">
-    弹窗
-  </button>
-  <button type="button" class="btn btn-outline-danger" data-toggle="popover" data-placement="bottom" data-title="HTML"
-          data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
-    在底部
-  </button>
-  <button type="button" class="btn btn-outline-primary" data-toggle="popover" data-placement="left" data-title="JavaScript"
-          data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
-    在左侧
-  </button>
-  <button type="button" class="btn btn-outline-warning" data-toggle="popover" data-placement="right" data-title="Bootstrap"
-          data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
-    在右侧
-  </button>
-  <pre class="html" name="pre">
-<button type="button" class="btn btn-primary" data-toggle="popover" data-placement="top" data-title="CSS" data-content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
-在顶部
-</button>
-<button type="button" class="btn btn-outline-danger" data-toggle="popover" data-placement="bottom" data-title="HTML" data-content="超级文本标记语言是标准通用标记语言下的一个应用，也是一种规范，一种标准，超文本标记语言，它通过标记符号来标记要显示的网页中的各个部分。网页文件本身是一种文本文件，通过在文本文件中添加标记符，可以告诉浏览器如何显示其中的内容（如：文字如何处理，画面如何安排，图片如何显示等）。浏览器按顺序阅读网页文件，然后根据标记符解释和显示其标记的内容，对书写出错的标记将不指出其错误，且不停止其解释执行过程，编制者只能通过显示效果来分析出错原因和出错部位。但需要注意的是，对于不同的浏览器，对同一标记符可能会有不完全相同的解释，因而可能会有不同的显示效果。">
-在底部
-</button>
-<button type="button" class="btn btn-outline-primary" data-toggle="popover" data-placement="left" data-title="JavaScript" data-content="JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。">
-在左侧
-</button>
-<button type="button" class="btn btn-outline-warning" data-toggle="popover" data-placement="right" data-title="Bootstrap" data-content="Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob Thornton合作基于HTML、CSS、JavaScript 开发的简洁、直观、强悍的前端开发框架，使得 Web 开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。">
-在右侧
-</button>
+  </div>
+  <div class="show-popup-div">
+    <h4 class="page-header">打开一个带<b>确定</b>，<b>取消</b>按钮的提示框，没有扩展属性方式，只有方法调用方式</h4>
+    <p>
+      <button type="button" id="fun_confirm_1" class="btn btn-primary">
+        调用方法弹出确定取消框
+      </button>
+    </p>
+    <script type="text/javascript">
+      $('#fun_confirm_1').on('click', function(){
+        $.popupConfirm(['弹窗标题', '弹窗提示框', function(){
+          $.popupPoint(['点击了确定']);
+        },function(){
+          $.popupPoint(['点击了取消']);
+        }]);
+      });
+    </script>
+    <pre class="js" name="pre">
+// html部分
+&lt;button type="button" id="fun_confirm_1" class="btn btn-primary"&gt;
+  调用方法弹出确定取消框
+&lt;/button&gt;
+$('#fun_confirm_1').on('click', function(){
+  $.popupConfirm(['弹窗标题', '弹窗提示框', function(){
+    $.popupPoint(['点击了确定']);
+  },function(){
+    $.popupPoint(['点击了取消']);
+  }]);
+});
       </pre>
+    <dl class="arr-explain-list">
+      <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupAlert(arguments)</code>方法，说明如下：</dt>
+      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
+      <dd><code>arguments</code>：打开弹窗时传递的参数。可以分为两种一种是<code>array</code>数组形式，一种是<code>json</code>对象像是
+        <ol>
+          <li><b>数组形式：</b>
+            <pre class="js" name="pre">
+  $.popupAlert(popupHead, popupHint, enterCallBack, cancelCallBack);
+            </pre>
+            <ul class="list-type-lower-roman">
+              <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
+              <li><code>popupHead</code>：打开窗口的标题。</li>
+              <li><code>popupHint</code>：打开窗口的提示消息。</li>
+              <li><code>enterCallBack</code>：单击确定的回调函数。</li>
+              <li><code>cancelCallBack</code>：单击取消的回调函数。</li>
+            </ul>
+          </li>
+          <li>
+            <b>对象形式：</b>
+            <p class="text-warning">后期添加</p>
+            <!--<ul class="list-type-lower-roman">
+              <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
+              <li><code>popupHead</code>：打开窗口的标题。</li>
+              <li><code>popupHint</code>：打开窗口的提示消息。</li>
+              <li><code>enterCallBack</code>：单击确定的回调函数。</li>
+            </ul>-->
+          </li>
+        </ol>
+      </dd>
+    </dl>
+  </div>
+  <div class="show-popup-div">
+    <h4 class="page-header">打开一个提示消息框</h4>
+    <h4><srrong>给元素添加属性方式打开：</srrong></h4>
+    <p>
+      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="这是提示内容" data-popup-icontype="1" data-popup-closetiem="1">
+        属性方式弹出提示框
+      </button>
+    </p>
+    <dl class="arr-explain-list">
+      <dt>各属性介绍：</dt>
+      <dd><code>data-popup-type="point"</code>：打开消息提示框, <span class="text-warning">固定值</span></dd>
+      <dd><code>data-popup-hint="这是提示内容"</code>：提示消息</dd>
+      <dd><code>data-popup-icontype="1"</code>：提示图标类型，<code>1</code>：表示成功对钩，<code>2</code>：表示错误叉号，<code>3</code>：表示提示感叹号，<code>4</code>：表示加载中动态图</dd>
+      <dd><code>data-popup-closetiem="2"</code>：自动关闭时间数值型(以秒计算) <code>false</code>或者非数字表示不自动关闭</dd>
+      <dd>代码如下：</dd>
+    </dl>
+    <pre class="html" name="pre">
+  <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="这是提示内容" data-popup-icontype="1" data-popup-closetiem="2">
+    属性方式弹出提示框
+  </button>
+    </pre>
+    <h4><srrong>调用方法方式打开：</srrong></h4>
+    <p>
+      <button type="button" id="fun_point_1" class="btn btn-primary">
+        调用方法弹出提示框
+      </button>
+    </p>
+    <script type="text/javascript">
+        $('#fun_point_1').on('click', function(){
+          $.popupPoint(['这是提示内容', 2, 1, function(){
+            $.popupPoint(['自动关闭回调函数', 3, 1]);
+          }]);
+        });
+      </script>
+      <pre class="js" name="pre">
+  // html代码
+  &lt;button type="button" id="fun_point_1" class="btn btn-primary"&gt;
+    调用方法弹出提示框
+  &lt;/button&gt;
+  // js代码
+  $('#fun_point_1').on('click', function(){
+    $.popupPoint(['这是提示内容', 2, 1, function(){
+      $.popupPoint(['自动关闭回调函数', 3, 1]);
+    }]);
+  });
+      </pre>
+    <dl class="arr-explain-list">
+      <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupPoint(arguments)</code>方法，说明如下：</dt>
+      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
+      <dd><code>arguments</code>：打开弹窗时传递的参数。可以分为两种一种是<code>array</code>数组形式，一种是<code>json</code>对象像是
+        <ol>
+          <li><b>数组形式：</b>
+            <pre class="js" name="pre">
+  $.popupAlert([popupHint, popupIcontype, popupClosetiem, closeCallBack]);
+            </pre>
+            <ul class="list-type-lower-roman">
+              <li><code>popupHint</code>：打开窗口的标题。</li>
+              <li><code>popupIcontype</code>：打开窗口的提示消息。</li>
+              <li><code>popupClosetiem</code>：打开窗口的提示消息。</li>
+              <li><code>closeCallBack</code>：单击确定的回调函数。</li>
+            </ul>
+          </li>
+          <li>
+            <b>对象形式：</b>
+            <p class="text-warning">后期添加</p>
+            <!--<ul class="list-type-lower-roman">
+              <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
+              <li><code>popupHead</code>：打开窗口的标题。</li>
+              <li><code>popupHint</code>：打开窗口的提示消息。</li>
+              <li><code>enterCallBack</code>：单击确定的回调函数。</li>
+            </ul>-->
+          </li>
+        </ol>
+      </dd>
+    </dl>
+  </div>
+  <div class="show-popup-div">
+    <h4 class="page-header">打开一个iframe窗口</h4>
+    <h4><srrong>给元素添加属性方式打开：</srrong></h4>
+    <p>
+      <button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="/docs/tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
+        添加属性方式打开
+      </button>
+    </p>
+    <dl class="arr-explain-list">
+      <dt>各属性介绍：</dt>
+      <dd><code>data-popup-type="iframe"</code>：打开一个iframe框, <span class="text-warning">固定值</span></dd>
+      <dd><code>data-popup-head="这是弹窗标题"</code>：弹出框的标题</dd>
+      <dd><code>data-popup-src="/docs/tool/popup_iframe.html"</code>：弹出框的页面地址；<span class="text-warning">这里涉及到页面之间域的问题。</span></dd>
+      <dd><code>data-popup-width="1200"</code>：要打开的窗口的宽度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>1200</code>可以是任意数字值。</dd>
+      <dd><code>data-popup-height="700"</code>：要打开的窗口的高度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>700</code>可以是任意数字值。</dd>
+      <dd>代码如下：</dd>
+    </dl>
+    <pre class="html" name="pre">
+<button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="/docs/tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
+  窗口打开其他页面
+</button>
+    </pre>
+    <h4><srrong>调用方法打开：</srrong></h4>
+    <p>
+      <button type="button" id="fun_iframe_1" class="btn btn-primary">
+        调用方法打开iframe窗口
+      </button>
+    </p>
+    <script type="text/javascript">
+      $('#fun_iframe_1').on('click', function(){
+        $.popupIframe(['这是提示内容', '/docs/tool/popup_iframe.html', 800, 500, function(){
+          $.popupPoint(['关闭的回调函数', 3, 1]);
+        }]);
+      });
+    </script>
+    <pre class="js" name="pre">
+// html代码
+&lt;button type="button" id="fun_iframe_1" class="btn btn-primary"&gt;
+  调用方法打开iframe窗口
+&lt;/button&gt;
+// js代码
+$('#fun_iframe_1').on('click', function(){
+  $.popupIframe(['这是提示内容', '/docs/tool/popup_iframe.html', 800, 500, function(){
+    $.popupPoint(['关闭的回调函数', 3, 1]);
+  }]);
+});
+      </pre>
+    <dl class="arr-explain-list">
+      <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupPoint(arguments)</code>方法，说明如下：</dt>
+      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
+      <dd><code>arguments</code>：打开弹窗时传递的参数。可以分为两种一种是<code>array</code>数组形式，一种是<code>json</code>对象像是
+        <ol>
+          <li><b>数组形式：</b>
+            <pre class="js" name="pre">
+  $.popupAlert([popupHead, popupSrc, popupWidth, popupHeight, closeCallBack]);
+            </pre>
+            <ul class="list-type-lower-roman">
+              <li><code>popupHead</code>：打开窗口的标题。</li>
+              <li><code>popupSrc</code>：打开窗口的iframe地址。</li>
+              <li><code>popupWidth</code>：打开窗口的宽度。</li>
+              <li><code>popupHeight</code>：打开窗口的高度。</li>
+              <li><code>closeCallBack</code>：关闭窗口的回调方法。</li>
+            </ul>
+          </li>
+          <li>
+            <b>对象形式：</b>
+            <p class="text-warning">后期添加</p>
+            <!--<ul class="list-type-lower-roman">
+              <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
+              <li><code>popupHead</code>：打开窗口的标题。</li>
+              <li><code>popupHint</code>：打开窗口的提示消息。</li>
+              <li><code>enterCallBack</code>：单击确定的回调函数。</li>
+            </ul>-->
+          </li>
+        </ol>
+      </dd>
+    </dl>
+  </div>
 
 </div>
 @@include('../include/foot.html')

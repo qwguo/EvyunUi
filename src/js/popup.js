@@ -9,8 +9,8 @@
         shade: {bgColor: '#000000', opacity: 0.5, close: false},
         size: {full: 0, width: 'auto', height: 'auto'},
         position: {fixed: 1, pos: 'm-c'},
-        animate: 'zoomIn',
-        autoClose: 0,
+        animate: ['zoomIn', 'zoomOut'],
+        autoClose: false,
         move: 0,
         head: '默认标题',
         opBtn: {close: 1, min: 1, max: 1},
@@ -20,7 +20,8 @@
           src: null,
           html: "<p>这是html代码</p>",
           btn: null
-        }
+        },
+        closeCallBack: null
       };
     that.j = $.extend(true, {}, jd, j_);
     that.createDom();
@@ -81,6 +82,11 @@
             "data-index": that.numbers,
             "style": style.join(';')
           }).appendTo(j.addTarget);
+          if(j.shade.close){
+            that.popupShade.on('click', function(){
+              that.popupClose();
+            });
+          }
         }());
       }
       //添加标题和按钮
@@ -107,7 +113,7 @@
             if (j.con.btn) {
               popupBArray.push('<div class="popup-but-area"><span class="popup-but">');
               $.each(j.con.btn, function (i, v) {
-                popupBArray.push('<a href="javascript:;" class="btn btn-sm ' + v.className + '">' + v.text + '</a>');
+                popupBArray.push('<a href="javascript:;" data-btn-index="' + i + '" data-action="btn" class="btn btn-sm ' + v.className + '">' + v.text + '</a>');
               });
               popupBArray.push('</span></div>');
             }
@@ -134,13 +140,13 @@
         !isNaN(j.size.width) && style.push(' width:' + j.size.width + 'px');
         !isNaN(j.size.height) && style.push(' height:' + j.size.height + 'px');
         that.popup = $("<div/>", {
-          "class": 'popup popup-' + that.alertType[j.type - 1] + (j.className ? (' ' + j.className) : '') + (j.animate ? (' ' + j.animate) : ''),
+          "class": 'popup popup-' + that.alertType[j.type - 1] + (j.className ? (' ' + j.className) : '') + ((j.animate && j.animate.length) ? (' ' + j.animate[0]) : ''),
           "style": style.join(';'),
           "data-index": that.numbers,
           "id": 'popup_' + that.numbers,
           html: popupOpArray.join('') + popupHArray.join('') + popupBArray.join('')
         });
-        j.animate && that.popup.attr('data-animated', j.animate);
+        j.animate && j.animate.length && that.popup.attr('data-animated', j.animate);
         that.popup.appendTo(j.addTarget);
         that.popupCountWH();
         that.popupOffset();
@@ -160,13 +166,22 @@
               case 'close':
                 that.popupClose();
                 break;
+              case 'btn':
+                j.con.btn && j.con.btn[targetDom.data('btnIndex')]['callBack'] && j.con.btn[targetDom.data('btnIndex')]['callBack']();
+                that.popupClose();
+                break;
             }
           }
-        }, '*');
+        }, '.popup-option .evicon,.popup-but .btn');
         if(j.size.full && j.opBtn && j.opBtn.max){
           that.popupMax();
         }
       }());
+      if(!isNaN(j.autoClose) && (typeof(j.autoClose) === 'string' || typeof(j.autoClose) === 'number')){
+        setTimeout(function(){
+          that.popupClose();
+        }, j.autoClose * 1000);
+      }
     },
     popupOffset: function () {
       var that = this,
@@ -201,17 +216,10 @@
               iframes.siblings('.popup-loading-wait').remove();
               iframes[0].contentWindow.iframeNumber = that.numbers;
               iframes[0].contentWindow.popup = that;
-              console.log(iframes[0].contentWindow.popup);
-              if (j.size.width === 'auto') {
-                iframes.css({
-                  "width": iframes.contents().width() + "px"
-                });
-              }
-              if (j.size.height === 'auto') {
-                iframes.css({
-                  "height": iframes.contents().height() + "px"
-                });
-              }
+              iframes.css({
+                "width": (j.size.width === 'auto' ? iframes.contents().width() : j.size.width) + "px",
+                "height": (j.size.height === 'auto' ? iframes.contents().height() : j.size.height) + "px"
+              });
               that.popupOffset();
             });
           }());
@@ -245,14 +253,21 @@
       }
     },
     popupClose: function () {
-      var that = this;
-      that.popup.remove();
-      that.popupShade && that.popupShade.remove();
+      var that = this,
+        j = that.j;
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]).addClass(j.animate[1]);
+      setTimeout(function(){
+        j.closeCallBack && j.closeCallBack();
+        that.popup.remove();
+        that.popupShade && that.popupShade.remove();
+        that = null;
+      },210);
     }
   };
   $.popup = function (j) {
     return new Popup(j);
   };
+  //alert
   $.popupAlert = function(j){
     var j_ = {
       type: 1,
@@ -261,42 +276,162 @@
       size: {width: 300},
       con: {
         text: "提示信息",
-        icon: 1,
-        btn:[{text:'确定', className:'btn-primary'}]
+        icon: 3,
+        btn:{'btn':{text:'确定', className:'btn-primary'}}
       }
     };
+    if($.isArray(j)){
+      j = {
+        head: j[0],
+        con:{
+          text: j[1],
+          btn:{'btn':{callBack: j[2]}}
+        }
+      }
+    }
+    return new Popup($.extend(true, {}, j_, j));
+  };
+  //Point
+  $.popupPoint = function(j){
+    var j_ = {
+      type: 1,
+      head: false,
+      shade:{close:1},
+      position: {pos: 'm-c'},
+      opBtn: false,
+      con: {
+        text: "提示信息",
+        icon: 1,
+        btn: false
+      },
+      autoClose: 1
+    };
+    if($.isArray(j)){
+      j = {
+        con:{
+          text: j[0],
+          icon: j[1]
+        },
+        autoClose: j[2],
+        closeCallBack: j[3]
+      }
+    }
+    return new Popup($.extend(true, {}, j_, j));
+  };
+  //confirm
+  $.popupConfirm = function(j){
+    var j_ = {
+      type: 1,
+      position: {pos: 'm-c'},
+      opBtn: {close: 1, min: 0, max: 0},
+      size: {width: 300},
+      con: {
+        text: "提示信息",
+        icon: 2,
+        btn:{
+          'btn1':{text:'确定', className:'btn-primary'},
+          'btn2':{text:'取消', className:'btn-outline-danger'}
+          }
+      }
+    };
+    if($.isArray(j)){
+      j = {
+        head: j[0],
+        con:{
+          text: j[1],
+          btn:{
+            'btn1':{callBack: j[2]},
+            'btn2':{callBack: j[3]}
+          }
+        }
+      }
+    }
     return new Popup($.extend(true, {}, j_, j))
-  }
+  };
+  // Prompt
+  $.popupPrompt = function(j){
+    var input = $('input'),
+      j_ = {
+      type: 1,
+      position: {pos: 'm-c'},
+      opBtn: {close: 1, min: 0, max: 0},
+      size: {width: 300},
+      con: {
+        icon: 1,
+        btn:{
+          'btn1':{text:'确定', className:'btn-primary'},
+          'btn2':{text:'取消', className:'btn-outline-danger'}
+        }
+      }
+    };
+    if($.isArray(j)){
+      j = {
+        head: j[0],
+        con:{
+          text: j[1],
+          btn:{
+            'btn1':{callBack: j[2]},
+            'btn2':{callBack: j[3]}
+          }
+        },
+        closeCallBack: j[3]
+      }
+    }
+    return new Popup($.extend(true, {}, j_, j))
+  };
+  //Iframe
+  $.popupIframe = function(j){
+    var j_ = {
+      type: 3,
+      position: {pos: 'm-c'},
+      opBtn: {close: 1, max: 1},
+      con: {
+        src: 'http://www.evyun.cn'
+      }
+    },
+    win = $(window);
+    if($.isArray(j)){
+      j = {
+        head: j[0],
+        con:{
+          src: j[1]
+        },
+        size:{
+          width: (function(){
+            var w = 'auto';
+            if(j[2]){
+              w = (j[2] > win.width()) ? (win.width() - 20) : j[2];
+            }
+            return w;
+          }()), height: (function(){
+            var h = 'auto';
+            if(j[3]){
+              h = (j[3] > win.width()) ? (win.width() - 20) : j[3];
+            }
+            return h;
+          }())
+        },
+        closeCallBack: j[4]
+      }
+    }
+    return new Popup($.extend(true, {}, j_, j))
+  };
 })(window, jQuery);
-
-$(function () {
+(function () {
   $(document).on('click.popup', '[data-toggle="popup"]', function (ev) {
     var $this = $(this),
-      curData = $this.data();
-    /*$.popup({
-      addTarget: window.top.$('body'),
-      shade:true,
-      size: {w: curData.popupWidth, h: curData.popupHeight},
-      head: false,
-      animate: curData.popupAnimate,
-      con: {text:'这是提示文字', icon: 4}
-    });*/
-    /*var a = $.popup({
-      addTarget: window.top.$('body'),
-      type: 3,
-      size:{full:1},
-      head: '这是标题',
-      animate: curData.popupAnimate,
-      con: {
-        // html: '<h2>这是内容</h2>'
-        src: '/docs/tool/scroll.html',
-        icon: 1
-      }
-    });*/
-    var b = $.popupAlert();
-    /*setTimeout(function(){
-      a.popupClose();
-    }, 2000);*/
-
+        domDate = $this.data();
+    switch(domDate.popupType){
+      case 'alert':
+        $.popupAlert([domDate.popupHead, domDate.popupHint]);
+        break;
+      case 'point':
+        $.popupPoint([domDate.popupHint, domDate.popupIcontype, domDate.popupClosetiem]);
+        break;
+      case 'iframe':
+        $.popupIframe([domDate.popupHead, domDate.popupSrc, domDate.popupWidth, domDate.popupHeight]);
+        break;
+    }
   });
-});
+}());
+
