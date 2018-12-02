@@ -356,11 +356,49 @@ $('#fun_iframe_1').on('click', function(){
 
   <div class="show-popup-div">
     <h4 class="page-header">打开一个loading层</h4>
+    <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
-      <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetiem="1">
+      <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetiem="false">
         添加属性方式打开
       </button>
     </p>
+    <dl class="arr-explain-list">
+      <dt>各属性介绍：</dt>
+      <dd><code>data-popup-type="loading"</code>：打开一个loading加载层, <span class="text-warning">固定值</span></dd>
+      <dd><code>data-popup-icontype="1"</code>：打开加载层的图片类型，暂时有1个</dd>
+      <dd><code>data-popup-closetiem="1"</code>：自动关闭加载层时间，<code>false</code>：表示不关闭，大于零表示多少秒关闭。</dd>
+      <dd>代码如下：</dd>
+    </dl>
+    <pre class="html" name="pre">
+<button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetiem="1">
+  添加属性方式打开
+</button>
+    </pre>
+    <h4><srrong>调用方法方式打开：</srrong></h4>
+    <p>
+      <button type="button" id="fun_loading_1" class="btn btn-outline-primary">
+        调用方法打开加载等待层
+      </button>
+    </p>
+    <script type="text/javascript">
+      $('#fun_loading_1').on('click', function(){
+        $.popupLoading([1, 2, function(){
+          $.popupPoint(['关闭的回调函数', 3, 1]);
+        }]);
+      });
+    </script>
+    <pre class="js" name="pre">
+// html代码
+&lt;button type="button" id="fun_loading_1" class="btn btn-primary"&gt;
+  调用方法打开加载等待层
+&lt;/button&gt;
+// js代码
+$('#fun_loading_1').on('click', function(){
+  $.popupLoading([1, 2, function(){
+    $.popupPoint(['关闭的回调函数', 3, 1]);
+  }]);
+});
+    </pre>
   </div>
 
 </div>
