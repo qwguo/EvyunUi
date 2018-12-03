@@ -4039,8 +4039,8 @@ and dependencies (minified).
 $(function(){
   $('[data-toggle]').each(function(i, dom){
     dom = $(dom);
-    var toggle = dom.attr('data-toggle');
-    switch(toggle){
+    var domDate = dom.data();
+    switch(domDate.toggle){
       case 'tooltip':
         dom.tooltip({
           'container':'body',
@@ -4055,7 +4055,10 @@ $(function(){
         break;
       case 'customScroll':
         if (!dom.data('cscroll')) {
-          var j = {};
+          var j = {
+            axis : domDate.axis,
+            scrollbarPosition : domDate.position,
+          };
           var j_ = {
             axis:"yx",
             scrollInertia: 150,
@@ -4067,9 +4070,7 @@ $(function(){
               enable: false
             }
           };
-          if (j) {
-            j_ = $.extend(j_, j);
-          }
+          j_ = $.extend(j_, j);
           dom.mCustomScrollbar(j_);
           dom.data('cscroll', 1);
         } else {
