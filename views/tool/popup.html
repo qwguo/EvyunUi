@@ -35,9 +35,10 @@
   </button>
     </pre>
     <h4><srrong>方法调用方式打开：</srrong></h4>
+    <h5>参数为数组形式</h5>
     <p>
       <button type="button" id="fun_alert_1" class="btn btn-primary">
-        调用方法弹出提示框
+        默认提示框
       </button>
     </p>
     <script type="text/javascript">
@@ -48,16 +49,87 @@
       });
     </script>
     <pre class="js" name="pre">
-  //html代码
-  &lt;button type="button" id="fun_alert_1" class="btn btn-primary"&gt;
-    调用方法弹出提示框
-  &lt;/button&gt;
-  //js代码
-  $('#fun_alert_1').on('click', function(){
-    $.popupAlert(['弹窗标题', '弹窗提示框', function(){
-      $.popupPoint(['点击了确定']);
-    }]);
+//html代码
+&lt;button type="button" id="fun_alert_1" class="btn btn-primary"&gt;
+  调用方法弹出提示框
+&lt;/button&gt;
+//js代码
+$('#fun_alert_1').on('click', function(){
+  $.popupAlert(['弹窗标题', '弹窗提示框', function(){
+    $.popupPoint(['点击了确定']);
+  }]);
+});
+      </pre>
+    <h5>参数为对象形式</h5>
+    <p id="fun_alert_object">
+      <button type="button" data-pos="t-l" id="fun_alert_object_1" class="btn">
+          上左
+      </button>
+      <button type="button" data-pos="t-c" id="fun_alert_object_2" class="btn btn-success">
+          上中
+      </button>
+      <button type="button" data-pos="t-r" id="fun_alert_object_3" class="btn btn-danger">
+          上右
+      </button>
+      <button type="button" data-pos="m-l" id="fun_alert_object_4" class="btn btn-warning">
+          中左
+      </button>
+      <button type="button" data-pos="m-c" id="fun_alert_object_5" class="btn btn-info">
+          中间
+      </button>
+      <button type="button" data-pos="m-r" id="fun_alert_object_6" class="btn btn-primary">
+          中右
+      </button>
+      <button type="button" data-pos="b-l" id="fun_alert_object_7" class="btn btn-outline-primary">
+          下左
+      </button>
+      <button type="button" data-pos="b-c" id="fun_alert_object_8" class="btn btn-outline-success">
+          下中
+      </button>
+      <button type="button" data-pos="b-r" id="fun_alert_object_9" class="btn btn-outline-info">
+          下右
+      </button>
+    </p>
+    <script type="text/javascript">
+    (function(){
+      $('#fun_alert_object').on('click', 'button', function(){
+        var pos = $(this).data('pos'),
+          addTarget = $('body', window.parent.document);
+        $.popupAlert({
+          addTarget: addTarget,
+          shade: false,
+          position: {pos: pos},
+          animate: ['rotateIn', 'rotateOut'],
+          opBtn: {close: 1, min: 0, max: 0},
+          size: {width: 200, height: 'auto'},
+          con: {
+            html: '<span class="h4">提示信息</span>',
+            icon: 3,
+            btn:{'btn1':{text:'确定', className:'btn-primary my-class'}}
+          }
+        });
+      });
+    }());
+    </script>
+    <pre class="js" name="pre">
+//html代码
+&lt;button type="button" id="fun_alert_object_2" class="btn btn-primary"&gt;
+  调用方法弹出提示框
+&lt;/button&gt;
+//js代码
+$('#fun_alert_object_2').on('click', function(){
+  $.popupAlert({
+    addTarget: addTarget, //指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素
+    position: {pos: 'm-c'}, //位置取值：t-l, t-c, t-r, m-l, m-c, m-r, b-l, b-c, b-r
+    opBtn: {close: 1},
+    size: {width: 200, height: 100},
+    con: {
+      html: '<span class="h4">提示信息</span>',
+      icon: 3,
+      btn:{'btn':{text:'确定', noClose:false, className:'btn-primary my-class'}}
+    }
   });
+});
     </pre>
     <dl class="arr-explain-list">
     <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupAlert(arguments)</code>方法，说明如下：</dt>
@@ -75,14 +147,45 @@ $.popupAlert([popupHead, popupHint, enterCallBack]);
           </ul>
         </li>
         <li>
-          <b>对象形式：</b>
-          <p class="text-warning">后期添加</p>
-          <!--<ul class="list-type-lower-roman">
-            <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
-            <li><code>popupHead</code>：打开窗口的标题。</li>
-            <li><code>popupHint</code>：打开窗口的提示消息。</li>
-            <li><code>enterCallBack</code>：单击确定的回调函数。</li>
-          </ul>-->
+          <b>对象形式：</b>详细查看
+          <pre class="js" name="pre">
+$('#fun_alert_object_2').on('click', function(){
+  var popup_obj = $.popupAlert({
+    addTarget: addTarget,
+    position: {pos: 'm-c'},
+    opBtn: {close: 1},
+    size: {width: 200, height: 100},
+    con: {
+      html: "提示信息",
+      icon: 3,
+      btn:{'btn':{text:'确定', noClose:false, className:'btn-primary my-class', callBack: function(){
+        //按钮回调函数执行
+      }}}
+    }
+  });
+});
+          </pre>
+          <ul class="list-type-upper-alpha">
+              <li><code>addTarget</code>：//指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素</li>
+              <li><code>position</code>：//位置取值：t-l（上左）, t-c（上中）, t-r（上右）, m-l（中左）, m-c（居中）, m-r（中右）, b-l（下左）, b-c（下中）, b-r（下右）。</li>
+              <li><code>opBtn</code>：表示是否显示右上角的操作按钮，close:1 表示显示关闭按钮，0表示不显示关闭按钮。</li>
+              <li><code>size</code>：表示弹出框的大小，<code>width</code>：宽度值，取值：<code>'auto'</code>|<code>数字</code></li>
+              <li><code>con</code>：表示弹窗中的内容对象：
+                <ul class="list-type-lower-alpha">
+                  <li><code>html</code>：提示消息文字</li>
+                  <li><code>icon</code>：提示图标</li>
+                  <li><code>btn</code>：提示框中的按钮：
+                    <ul class="list-type-georgian">
+                      <li><code>text</code>：按钮文字；
+                      <li><code>noClose</code>：按钮单击是否关闭本弹窗，<code>false</code>：表示不关闭，<code>true</code>：表示关闭；
+                      <li><code>className</code>：按钮的样式名称，可以使用框架内带<a href="../button/base_button.html">按钮</a>的所有class名，也可以自定义class名，如果使用多个class名可以写成<code>'class-1 class-2 class-3'</code>空格隔开的形式；
+                      <li><code>callBack</code>：单击按钮后要执行的函数
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <h5>更多的参数请查看：<a href="#popupSenior">弹窗高级使用</a></h5>
         </li>
       </ol>
     </dd>
@@ -255,6 +358,248 @@ $('#fun_point_1').on('click', function(){
     </dl>
   </div>
 
+
+  <div class="show-popup-div">
+    <style>
+      .html-con{
+        padding: 20px;
+      }
+      .html-con-2{
+        padding: 5px;
+        min-width: 900px;
+      }
+    </style>
+    <div id="htmlDiv_1" style="display:none;">
+      <div class="html-con">
+        <h5>前端问题：</h5>
+        <ul class="list list-type-upper-latin">
+          <li>前端技术的发展</li>
+          <li>前端职位的崛起</li>
+          <li>什么是前端开发，您真的了解前端吗？</li>
+          <li>谈一下您对前端开发的理解</li>
+          <li>前端技术都需要掌握哪些知识？</li>
+          <li>前端未来的发展方向</li>
+          <li>前端的最新技术是什么？</li>
+          <li>为什么前端开发越来越复杂？</li>
+        </ul>
+      </div>
+    </div>
+    <div id="htmlDiv_2" style="display:none;">
+      <div class="html-con-2">
+        <table class="table">
+          <colgroup>
+            <col width="150">
+            <col width="250">
+            <col width="auto">
+            <col width="250">
+          </colgroup>
+          <thead>
+          <tr class="active">
+            <th class="text-center vertical-middle" rowspan="2">语言名称</th>
+            <th class="text-center" colspan="2">HTML</th>
+            <th class="text-center" colspan="2">CSS</th>
+            <th class="text-center" colspan="4">ECMAScript</th>
+          </tr>
+          <tr class="active">
+            <th class="text-center">HTML4.0/XHTML</th>
+            <th class="text-center">HTML5</th>
+            <th class="text-center">CSS2.0</th>
+            <th class="text-center">CSS3.0</th>
+            <th class="text-center">ECMAScript2</th>
+            <th class="text-center">ECMAScript3</th>
+            <th class="text-center">ECMAScript5</th>
+            <th class="text-center">ECMAScript6</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th>详细介绍</th>
+            <td><p>HTML 4 [HTML] 是标准通用标记语言下的一个应用，遵从国际标准ISO 8879，被广泛的当作 World Wide Web上的标准出版语言。</p></td>
+            <td>
+              <p>HTML5 将成为 HTML、XHTML 以及 HTML DOM 的新标准。</p>
+              <p>HTML 的上一个版本诞生于 1999 年。自从那以后，Web 世界已经经历了巨变。</p>
+              <p>HTML5 仍处于完善之中。然而，大部分现代浏览器已经具备了某些 HTML5 支持。</p>
+            </td>
+            <td><p>
+              CSS2.0是一套全新的样式表结构，是由W3C推行的，同以往的CSS1.0或CSS1.2完全不一样，CSS2.0推荐的是一套内容和表现效果分离的方式，HTML元素可以通过CSS2.0的样式控制显示效果，可完全不使用以往HTML中的table和td来定位表单的外观和样式，只需使用div和
+              Li此类HTML标签来分割元素，之后即可通过CSS2.0样式来定义表单界面的外观。</p></td>
+            <td>
+              <p>CSS是一种叫做样式表（stylesheet）的技术。也有的人称之为层叠样式表（Cascading Stylesheet）。</p>
+              <p>CSS3.0增加了更多的CSS选择器，可以实现更简单但是更强大的功能</p>
+            </td>
+            <td><p>1998年6月发布，主要是编辑加工的结果。这一版的内容更新是为了与ISO/IEC-16262保持严格一致，没有作任何新增、修改或删节处理。因此，一般不使用第2版来衡量ECMAScript实现的兼容性。</p></td>
+            <td><p>1999年12月发布，是对ECMAScript标准第一次真正的修改。新增了对正则表达式、新控制语句、try-catch异常处理的支持，修改了字符处理、错误定义和数值输出等内容。</p>
+              <p>从各方面综合来看，第3版标志着ECMAScript成为了一门真正的编程语言。</p></td>
+            <td>2009年12月发布，该版本力求澄清第3版中的歧义，并添加了新的功能。新功能包括：原生JSON对象、继承的方法、高级属性的定义以及引入严格模式。</td>
+            <td><p>2015年6月17日发布。截止发布日期，JavaScript的官方名称是ECMAScript
+              2015，Ecma国际意在更频繁地发布包含小规模增量更新的新版本，下一版本将于2016年发布，命名为ECMAScript 2016。从现在开始，新版本将按照ECMAScript+年份的形式发布。</p>
+              <p>
+                S6是继ES5之后的一次主要改进，语言规范由ES5.1时代的245页扩充至600页。ES6增添了许多必要的特性，例如：模块和类以及一些实用特性，例如Maps、Sets、Promises、生成器（Generators）等。</p>
+              <p>
+                尽管ES6做了大量的更新，但是它依旧完全向后兼容以前的版本，标准化委员会决定避免由不兼容版本语言导致的“web体验破碎”。结果是，所有老代码都可以正常运行，整个过渡也显得更为平滑，但随之而来的问题是，开发者们抱怨了多年的老问题依然存在。</p></td>
+          </tr>
+          <tr>
+            <td>重要程度</td>
+            <td colspan="2">
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+            <td>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+            <td>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+            <td colspan="3">
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+            <td colspan="2">
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>掌握程度</td>
+            <td colspan="2">
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+            <td>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+            <td>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+            <td colspan="3">
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+            <td colspan="2">
+              <i class="evicon evicon-star-1"></i>
+              <i class="evicon evicon-star-1"></i>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr class="active">
+            <td colspan="9"><h4>前端工程师所需要掌握的全部技术</h4></td>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <h4 class="page-header">打开一个自定义内部代码的弹窗</h4>
+    <h4><srrong>给元素添加属性方式打开：</srrong></h4>
+    <p>
+      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="html" data-popup-head="这是我的弹窗标题" data-popup-target="#htmlDiv_1" data-popup-width="1200" data-popup-height="700">
+        属性方式弹出提示框
+      </button>
+    </p>
+    <dl class="arr-explain-list">
+      <dt>各属性介绍：</dt>
+      <dd><code>data-popup-type="html"</code>：表示打开一个可以自己传入html代码的弹窗，<span class="text-warning">固定值</span></dd>
+      <dd><code>data-popup-head="这是我的弹窗标题"</code>：打开窗口的标题</dd>
+      <dd><code>data-popup-target="#abc"</code>：表示要传入的目标dom元素内部的代码，最好以#id的形式。</dd>
+      <dd><code>data-popup-width="1200"</code>：要打开的窗口的宽度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>1200</code>可以是任意数字值。</dd>
+      <dd><code>data-popup-height="700"</code>：要打开的窗口的高度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>700</code>可以是任意数字值。</dd>
+      <dd>代码如下：</dd>
+    </dl>
+    <pre class="html" name="pre">
+<button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="html" data-popup-head="这是我的弹窗标题" data-popup-target="#abc" data-popup-width="1200" data-popup-height="700">
+  属性方式弹出提示框
+</button>
+    </pre>
+    <h4><srrong>方法调用方式打开：</srrong></h4>
+    <h5>参数为数组形式</h5>
+    <p>
+      <button type="button" id="fun_html_1" class="btn btn-rounded btn-outline-success">
+        默认提示框
+      </button>
+    </p>
+    <script type="text/javascript">
+      $('#fun_html_1').on('click', function(){
+        $.popupHtml(['弹窗标题', '#htmlDiv_1','600', '400', function(){
+          $.popupPoint(['关闭回调函数']);
+        }]);
+      });
+    </script>
+    <pre class="js" name="pre">
+//html代码
+&lt;button type="button" id="fun_html_1" class="btn btn-rounded btn-outline-success"&gt;
+  调用方法弹出提示框
+&lt;/button&gt;
+//js代码
+$('#fun_html_1').on('click', function(){
+  $.popupAlert(['弹窗标题', '#htmlDiv_1', function(){
+    $.popupPoint(['关闭回调函数']);
+  }]);
+});
+      </pre>
+      <h5>参数为对象形式</h5>
+      <p id="fun_alert_object">
+        <button type="button" id="fun_html_object_1" class="btn btn-rounded btn-outline-info">
+            打开一个全屏弹窗
+        </button>
+      </p>
+      <script type="text/javascript">
+      (function(){
+        $('#fun_html_object_1').on('click', function(){
+          var addTarget = $('body', window.parent.document);
+          $.popupHtml({
+            addTarget: addTarget,
+            shade: false,
+            animate: ['fadeInDown', 'fadeOutUp'],
+            position: {pos: 'm-c'},
+            opBtn: {close: 1, min: 1, max: 1},
+            size: {full:1, width: 900, height: 500},
+            con: {
+              html: $('#htmlDiv_2').html()
+            },
+            closeCallBack: function(){
+              $.popupPoint(['关闭回调函数', '2']);
+            }
+          });
+        });
+      }());
+      </script>
+      <pre class="js" name="pre">
+//html代码
+&lt;button type="button" id="fun_html_object_1" class="btn btn-rounded btn-outline-info"&gt;
+  调用方法弹出提示框
+&lt;/button&gt;
+//js代码
+$('#fun_html_object_1').on('click', function(){
+  var addTarget = $('body', window.parent.document);
+  $.popupHtml({
+    addTarget: addTarget,
+    shade: false,
+    position: {pos: 'm-c'},
+    opBtn: {close: 1, min: 1, max: 1},
+    size: {full:1, width: 200, height: 'auto'},
+    con: {
+      html: $('#htmlDiv_2').html()
+    }
+  });
+});
+      </pre>
+    </div>
+
   <div class="show-popup-div">
     <h4 class="page-header">打开一个iframe窗口</h4>
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
@@ -338,7 +683,7 @@ $('#fun_iframe_1').on('click', function(){
     <h4 class="page-header">打开一个loading层</h4>
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
-      <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetiem="false">
+      <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetiem="2">
         添加属性方式打开
       </button>
     </p>
@@ -381,5 +726,251 @@ $('#fun_loading_1').on('click', function(){
     </pre>
   </div>
 
+  <div id="popupSenior"  class="show-popup-div">
+    <h3 >模态框高级使用</h3>
+    <p id="fun_object">
+      <button type="button" data-type="alert" id="fun_object_1" class="btn">
+          打开带多个按钮的提示框
+      </button>
+      <button type="button" data-type="layer" id="fun_object_2" class="btn btn-success">
+          打开一个自定义内容代码的层
+      </button>
+      <button type="button" data-type="iframe" id="fun_object_3" class="btn btn-danger">
+          打开一个iframe窗口
+      </button>
+      <button type="button" data-type="loading" id="fun_object_4" class="btn btn-warning">
+          打开一个loading层
+      </button>
+      <!-- <button type="button" data-pos="m-c" id="fun_object_5" class="btn btn-info">
+          打开一个loading层
+      </button>
+      <button type="button" data-pos="m-r" id="fun_object_6" class="btn btn-primary">
+          中右
+      </button>
+      <button type="button" data-pos="b-l" id="fun_object_7" class="btn btn-outline-primary">
+          下左
+      </button>
+      <button type="button" data-pos="b-c" id="fun_object_8" class="btn btn-outline-success">
+          下中
+      </button>
+      <button type="button" data-pos="b-r" id="fun_object_9" class="btn btn-outline-info">
+          下右
+      </button> -->
+    </p>
+    <script>
+      $('#fun_object').on('click', 'button', function(){
+        var $this = $(this),
+            type = $this.data('type'),
+            p_alert, p_layer, p_iframe, p_loading
+            addTarget = $('body', window.parent.document);
+          switch(type){
+            case 'alert':
+              p_alert = $.popup({
+                type: 1,
+                addTarget: $('body'),
+                className: 'my-class',
+                shade: {bgColor: '#fff', opacity: '0.7', close: true},
+                position: {pos: 'm-c'},
+                opBtn: {close: 1, min: 0, max: 0},
+                size: {width: 350, height: 'auto'},
+                con: {
+                  text: "提示信息",
+                  icon: 3,
+                  btn: {
+                    'btn1': {
+                      text: '加载',
+                      className: 'btn-success',
+                      callBack: function () {
+                        $.popupPoint(['正在加載中...', 4]);
+                      }
+                    },
+                    btn2: {
+                      text: '确定',
+                      className: 'btn-info',
+                      callBack: function () {
+                        $.popupPoint(['单击了确定', 1]);
+                      }
+                    },
+                    btn3: {
+                      text: '取消',
+                      className: 'btn-warning',
+                      callBack: function () {
+                        $.popupPoint(['单击了取消', 2]);
+                      }
+                    },
+                    btn4: {
+                      text: '关闭',
+                      className: 'btn-danger',
+                      noClose: true,
+                      callBack: function () {
+                        $.popupConfirm(['提示消息', '您确定要关闭吗？', function(){
+                          $.popupPoint(['点击了确定，窗口自动关闭']);
+                          p_alert.popupClose();
+                        },function(){
+                          $.popupPoint(['点击了取消，窗口不关闭']);
+                        }]);
+                      }
+                    }
+                  }
+                },
+                closeCallBack: function(){
+                  $.popupPoint(['关闭弹窗', 2]);
+                }
+              });
+            break;
+            case 'layer':
+              p_layer = $.popup({
+                type: 2,
+                addTarget: $('body'),
+                shade: {bgColor: '#fff', opacity: '0.7', close: true},
+                position: {pos: 'm-c'},
+                opBtn: {close: 1, min: 0, max: 1},
+                size: {width: 'auto', height: 'auto'},
+                con: {
+                  html: '<p>这是自定义代码</p>'
+                }
+              });
+            break;
+          }
+      });
+    </script>
+    <pre class="js" name="pre">
+//所有参数代码
+p_alert = $.popup({
+  type: 1,
+  addTarget: $('body'),
+  className: "my-class",
+  shade: {bgColor: '#fff', opacity: '0.7', close: true},
+  position: {pos: 'm-c'},
+  animate: ['zoomIn', 'zoomOut'],
+  autoClose: false,
+  opBtn: {close: 1, min: 0, max: 0},
+  size: {full: true, width: 350, height: 'auto'},
+  con: {
+    text: "提示信息",
+    icon: 3,
+    btn: {
+      'btn1': {
+        text: '加载',
+        className: 'btn-success',
+        callBack: function () {
+          $.popupPoint(['正在加載中...', 4]);
+        }
+      },
+      btn2: {
+        text: '确定',
+        className: 'btn-info',
+        callBack: function () {
+          $.popupPoint(['单击了确定', 1]);
+        }
+      },
+      btn3: {
+        text: '取消',
+        className: 'btn-warning',
+        callBack: function () {
+          $.popupPoint(['单击了取消', 2]);
+        }
+      },
+      btn4: {
+        text: '关闭',
+        className: 'btn-danger',
+        noClose: true,
+        callBack: function () {
+          $.popupConfirm(['提示消息', '您确定要关闭吗？', function(){
+            $.popupPoint(['点击了确定，窗口自动关闭']);
+            p_alert.popupClose();
+          },function(){
+            $.popupPoint(['点击了取消，窗口不关闭']);
+          }]);
+        }
+      }
+    }
+  },
+  closeCallBack: function(){
+    $.popupPoint(['关闭弹窗', 2]);
+  }
+});
+    </pre>
+    <dl class="arr-explain-list">
+      <dt>详细参数介绍：</dt>
+      <dd>
+        <ol>
+          <li><code>type</code>：//表示打开窗口的类型，目前有4中类型具体说明：
+            <ul class="list-type-lower-alpha">
+              <li><code>1</code>：表示弹窗类型，可以添加0个或多个按钮；</li>
+              <li><code>2</code>：表示自定义html代码弹出层，可以传入一段html代码或者一个指定jquery对象内部的html代码或者jquery对象；</li>
+              <li><code>3</code>：表示打开一个指定地址的弹出层；</li>
+              <li><code>4</code>：表示打开一个加载等待的弹出层；</li>
+            </ul>
+          </li>
+          <li><code>addTarget</code>：//指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素</li>
+          <li><code>className</code>：//可以自己制定一个class名称，用来自定义弹窗样式；</li>
+          <li><code>shade</code>：//指是否显示弹窗遮罩，<code>false</code>：表示不显示，<code>{bgColor: '#fff', opacity: '0.7', close: true}</code>,对象形式表示显示：可以设置的值有：
+            <ul class="list-type-lower-alpha">
+              <li><code>bgColor</code>：表示遮罩的背景颜色；</li>
+              <li><code>opacity</code>：表示遮罩的透明度；</li>
+              <li><code>close</code>：表示单击遮罩是否关闭弹窗，<code>true</code>：表示单击可以关闭，<code>false</code>：表示不关闭；</li>
+            </ul>
+          </li>
+          <li><code>animate</code>：表示弹出框的动画效果，<code>false</code>：表示不执行动画效果，<code>['zoomIn', 'zoomOut']</code>数组形式，表示执行动画参数说明：
+            <ul class="list-type-lower-alpha">
+              <li><code>zoomIn</code>：数组第一个值表示打开动画名称</li>
+              <li><code>zoomOut</code>：数组第二个值表示关闭动画名称</li>
+            </ul>
+          </li>
+          <li><code>autoClose</code>：//是否自动关闭：<code>false</code>：表示不自动关闭，数字表示自动关闭时间以秒计算；</li>
+          <li><code>position</code>：//位置取值如下：
+            <ul class="list-type-lower-alpha">
+              <li><code>t-l</code>：弹窗在整体页面的<span class="text-warning">（上左）</span></li>
+              <li><code>t-c</code>：弹窗在整体页面的<span class="text-warning">（上中）</span></li>
+              <li><code>t-r</code>：弹窗在整体页面的<span class="text-warning">（上右）</span></li>
+              <li><code>m-l</code>：弹窗在整体页面的<span class="text-warning">（中左）</span></li>
+              <li><code>m-c</code>：弹窗在整体页面的<span class="text-warning">（居中）</span></li>
+              <li><code>m-r</code>：弹窗在整体页面的<span class="text-warning">（中右）</span></li>
+              <li><code>b-l</code>：弹窗在整体页面的<span class="text-warning">（下左）</span></li>
+              <li><code>b-c</code>：弹窗在整体页面的<span class="text-warning">（下中）</span></li>
+              <li><code>b-r</code>：弹窗在整体页面的<span class="text-warning">（下右）</span></li>
+            </ul>
+          <li><code>opBtn</code>：表示是否显示右上角的操作按钮，<code>false</code>：表示不显示，<code>{close: 1, min: 0, max: 0}</code>：对象形式表示显示，并且可以设置参数：
+            <ul class="list-type-lower-alpha">
+              <li><code>close</code>：表示关闭按钮是否显示<code>1</code>表示显示，<code>0</code>：表示隐藏。</li>
+              <li><code>min</code>：表示最小化按钮是否显示<code>1</code>表示显示，<code>0</code>：表示隐藏。</li>
+              <li><code>max</code>：表示最大化按钮是否显示<code>1</code>表示显示，<code>0</code>：表示隐藏。</li>
+            </ul>
+          </li>
+          <li><code>size</code>：表示弹出框的大小取值：
+            <ul class="list-type-lower-alpha">
+              <li><code>full</code>：表示打开的弹窗是否全屏显示，<code>true</code>：表示全屏，<code>false</code>：表示不全屏</li>
+              <li><code>width</code>：打开弹窗宽度取值：<code>'auto'</code>|<code>数字</code></li>
+              <li><code>height</code>：打开弹窗高度取值：<code>'auto'</code>|<code>数字</code></li>
+            </ul>
+          <li><code>con</code>：表示弹窗中的内容对象：
+            <ul class="list-type-lower-alpha">
+              <li><code>html</code>：表示弹窗内容要展示的html代码可以用在类型1，和类型2的弹窗中。</li>
+              <li><code>src</code>：表示打开一个地址弹窗的url地址信息。</li>
+              <li><code>icon</code>：提示图标：可以使用的值：
+                <ul class="list-type-lower-alpha">
+                    <li><code>1</code>：表示成功对钩；</li>
+                    <li><code>2</code>：表示错误叉号；</li>
+                    <li><code>3</code>：表示提示感叹号；</li>
+                    <li><code>4</code>：表示加载中动态图；</li>
+                </ul>
+              </li>
+              <li><code>btn</code>：提示框中的按钮：
+                <ul class="list-type-lower-roman">
+                  <li><code>btn1</code>：表示按钮的索引键值，如果添加多个请填唯一键值；
+                  <li><code>text</code>：按钮文字；
+                  <li><code>noClose</code>：按钮单击是否关闭本弹窗，<code>false</code>：表示不关闭，<code>true</code>：表示关闭；
+                  <li><code>className</code>：按钮的样式名称，可以使用框架内带<a href="../button/base_button.html">按钮</a>的所有class名，也可以自定义class名，如果使用多个class名可以写成<code>'class-1 class-2 class-3'</code>空格隔开的形式；
+                  <li><code>callBack</code>：单击按钮后要执行的函数
+                </ul>
+              </li>
+              <li><code>closeCallBack</code>：关闭弹窗的执行函数；</li>
+            </ul>
+          </li>
+        </ol>
+      </dd>
+    </dl>
+  </div>
 </div>
 @@include('../include/foot.html')

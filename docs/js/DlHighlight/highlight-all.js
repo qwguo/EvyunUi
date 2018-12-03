@@ -128,7 +128,7 @@ var DlHighlight;
         m = m[1];
         m = m.substr(1, m.length - 2);
         if (this.args.showWhitespace)
-          m = m.replace(/\x20/g, "_");
+          m = m.replace(/\x20/g, " ");
         return m;
       },
       before: function (m) {
