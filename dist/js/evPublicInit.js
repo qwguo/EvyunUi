@@ -105,9 +105,8 @@
       $(document).mousemove(function (e) {
         moveX = $this.x + e.pageX - X;
         moveY = $this.y + e.pageY - Y;
-
         function thisXMove() { //x轴移动
-          if (isDown == true) {
+          if (isDown) {
             element.css({left: moveX});
           } else {
             return;
@@ -122,7 +121,7 @@
         }
 
         function thisYMove() { //y轴移动
-          if (isDown == true) {
+          if (isDown) {
             element.css({top: moveY});
           } else {
             return;
@@ -137,11 +136,12 @@
         }
 
         function thisAllMove() { //全部移动
-          if (isDown == true) {
+          if (isDown) {
             element.css({left: moveX, top: moveY});
           } else {
             return;
           }
+
           if (moveX < 0) {
             element.css({left: 0});
           }
@@ -161,9 +161,9 @@
         } else {
           return false;
         }
-        if (direction.toLowerCase() == "x") {
+        if (direction.toLowerCase() === "x") {
           thisXMove();
-        } else if (direction.toLowerCase() == "y") {
+        } else if (direction.toLowerCase() === "y") {
           thisYMove();
         } else {
           thisAllMove();
@@ -3965,10 +3965,7 @@ and dependencies (minified).
           parent:'parent', //定义拖动不能超出的外框,拖动范围
           randomPosition:false, //初始化随机位置
           direction:'all', //方向
-          handler:'.popup-head', //把手
-          dragStart:function(x,y){}, //拖动开始 x,y为当前坐标
-          dragEnd:function(x,y){}, //拖动停止 x,y为当前坐标
-          dragMove:function(x,y){} //拖动进行中 x,y为当前坐标
+          handler:'.popup-head' //拖动进行中 x,y为当前坐标
         });
       }
     }
@@ -4259,7 +4256,10 @@ $(function(){
           var j = {
             axis : domDate.axis,
             scrollbarPosition : domDate.position,
-            theme : domDate.theme
+            theme : domDate.theme,
+            scrollButtons: {
+              enable: !!(domDate.scrollbtn * 1)
+            }
           };
           var j_ = {
             axis:"yx",

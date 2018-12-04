@@ -105,9 +105,8 @@
       $(document).mousemove(function (e) {
         moveX = $this.x + e.pageX - X;
         moveY = $this.y + e.pageY - Y;
-
         function thisXMove() { //x轴移动
-          if (isDown == true) {
+          if (isDown) {
             element.css({left: moveX});
           } else {
             return;
@@ -122,7 +121,7 @@
         }
 
         function thisYMove() { //y轴移动
-          if (isDown == true) {
+          if (isDown) {
             element.css({top: moveY});
           } else {
             return;
@@ -137,11 +136,12 @@
         }
 
         function thisAllMove() { //全部移动
-          if (isDown == true) {
+          if (isDown) {
             element.css({left: moveX, top: moveY});
           } else {
             return;
           }
+
           if (moveX < 0) {
             element.css({left: 0});
           }
@@ -161,9 +161,9 @@
         } else {
           return false;
         }
-        if (direction.toLowerCase() == "x") {
+        if (direction.toLowerCase() === "x") {
           thisXMove();
-        } else if (direction.toLowerCase() == "y") {
+        } else if (direction.toLowerCase() === "y") {
           thisYMove();
         } else {
           thisAllMove();

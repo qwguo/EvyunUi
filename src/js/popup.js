@@ -282,10 +282,7 @@
           parent:'parent', //定义拖动不能超出的外框,拖动范围
           randomPosition:false, //初始化随机位置
           direction:'all', //方向
-          handler:'.popup-head', //把手
-          dragStart:function(x,y){}, //拖动开始 x,y为当前坐标
-          dragEnd:function(x,y){}, //拖动停止 x,y为当前坐标
-          dragMove:function(x,y){} //拖动进行中 x,y为当前坐标
+          handler:'.popup-head' //拖动进行中 x,y为当前坐标
         });
       }
     }

@@ -10,7 +10,7 @@
   <script src="../js/jquery-1.9.1.min.js"></script>
   <link rel="stylesheet" href="../js/DlHighlight/h1.css">
   <script src="../js/DlHighlight/highlight-all.js"></script>
-  <script src="../../dist/js/evPublicInit.js"></script>
+  <script src="../../dist/js/evPublicInit-min.js"></script>
   <title>隐藏显示</title>
 </head>
 <body>
@@ -21,11 +21,12 @@
 
 <div class="show-customScroll">
   <h3 class="page-header">自定义滚动条模块</h3>
+  <h3 class="page-header text-info">通过元素属性方式实现：</h3>
   <h4 class="page-header">横向和竖向都有滚动条效果：</h4>
   <div class="show-customScroll-1">
     <div class="clearfix">
       <div class="custom-scroll-element" data-toggle="customScroll" data-axis="xy" data-position="outside"
-           data-theme="dark-3">
+           data-theme="dark-3" data-scrollbtn="1">
         <div class="custom-scroll-inside">
           <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
           <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -44,7 +45,7 @@
         </div>
       </div>
       <div class="custom-scroll-element" data-toggle="customScroll" data-axis="xy" data-position="inside"
-           data-theme="dark-3">
+           data-theme="dark-3" data-scrollbtn="1">
         <div class="custom-scroll-inside">
           <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
           <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -65,12 +66,12 @@
     </div>
     <pre class="html" name="pre">
 <div class="custom-scroll-element" data-toggle="customScroll" data-axis="xy" data-position="outside"
-     data-theme="dark-3">
+     data-theme="dark-3" data-scrollbtn="1">
   <div class="custom-scroll-inside">
     这里边放置内容
   </div>
 </div>
-<div class="custom-scroll-element" data-toggle="customScroll" data-axis="xy" data-position="inside" data-theme="dark-3">
+<div class="custom-scroll-element" data-toggle="customScroll" data-axis="xy" data-position="inside" data-theme="dark-3" data-scrollbtn="1">
   <div class="custom-scroll-inside">
     这里边放置内容
   </div>
@@ -95,15 +96,17 @@
               <li><code>inside</code>：内部滚动条，减少容器的宽度</li>
             </ul>
           </li>
+          <li><code>data-scrollbtn="1"</code>：滚动条的纵向(上下)横向(左右)按钮是开启：<code>1</code>：表示开启；<code>0</code>表示不开启；</li>
           <li><code>data-theme="dark-3"</code>：滚动条的主题，可以使用的主题名称参考&nbsp;<a href="#scrollTheme">滚动条主题</a>部分</li>
         </ol>
       </dd>
     </dl>
   </div>
+
   <h4 class="page-header">只有竖向滚动条效果：</h4>
   <div class="show-customScroll-2">
     <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-         data-theme="dark-3">
+         data-theme="dark-3" data-scrollbtn="0">
       <div class="custom-scroll-inside">
         <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
         <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -121,11 +124,65 @@
       </div>
     </div>
     <pre class="html" name="pre">
-<div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="dark-3">
-  <div class="custom-scroll-inside">
+<div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="dark-3" data-scrollbtn="0">
+  <div class="custom-scroll-inside" data-scrollbtn="0">
     这里边放置内容
   </div>
 </div>
+    </pre>
+  </div>
+
+  <h3 class="page-header text-info">通过实例化方法方式实现：</h3>
+  <div class="show-customScroll-2">
+    <div class="custom-scroll-element" id="my_fun_scroll">
+      <div class="custom-scroll-inside">
+        <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
+        <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
+        <p>随着HTML的成长，为了满足页面设计者的要求，HTML添加了很多显示功能。但是随着这些功能的增加，HTML变的越来越杂乱，而且HTML页面也越来越臃肿。于是CSS便诞生了。</p>
+        <p>1994年哈坤·利提出了CSS的最初建议。而当时伯特·波斯（Bert Bos）正在设计一个名为Argo的浏览器，于是他们决定一起设计CSS。</p>
+        <p>
+          其实当时在互联网界已经有过一些统一样式表语言的建议了，但CSS是第一个含有“层叠”丰意的样式表语言。在CSS中，一个文件的样式可以从其他的样式表中继承。读者在有些地方可以使用他自己更喜欢的样式，在其他地方则继承或“层叠”作者的样式。这种层叠的方式使作者和读者都可以灵活地加入自己的设计，混合每个人的爱好。</p>
+        <p>哈坤于1994年在芝加哥的一次会议上第一次提出了CSS的建议，1995年的www网络会议上CSS又一次被提出，博斯演示了Argo浏览器支持CSS的例子，哈肯也展示了支持CSS的Arena浏览器。</p>
+        <p>同年，W3C组织（World WideWeb
+          Consortium）成立，CSS的创作成员全部成为了W3C的工作小组并且全力以赴负责研发CSS标准，层叠样式表的开发终于走上正轨。有越来越多的成员参与其中，例如微软公司的托马斯·莱尔顿(Thomas
+          Reaxdon)，他的努力最终令Internet
+          Explorer浏览器支持CSS标准。哈坤、波斯和其他一些人是这个项目的主要技术负责人。1996年底，CSS初稿已经完成，同年12月，层叠样式表的第一份正式标准（Cascading style Sheets Level
+          1）完成，成为w3c的推荐标准。</p>
+        <p>1997年初，W3C组织负责CSS的工作组开始讨论第一版中没有涉及到的问题。其讨论结果组成了1998年5月出版的CSS规范第二版。 [4-5]</p>
+      </div>
+    </div>
+    <script>
+      $('#my_fun_scroll').mCustomScrollbar({
+        axis:"yx",
+        scrollInertia: 150,
+        scrollbarPosition: 'outside',
+        theme: "dark-3",
+        autoHideScrollbar: false,
+        mouseWheel: {preventDefault: true},
+        scrollButtons: {
+          enable: true
+        }
+      });
+    </script>
+    <pre class="js" name="pre">
+// html代码部分
+&lt;div class="custom-scroll-element" id="my_fun_scroll"&gt;
+  &lt;div class="custom-scroll-inside"&gt;
+    这里边放置内容
+  &lt;/div&gt;
+&lt;/div&gt;
+// js代码部分
+$('#my_fun_scroll').mCustomScrollbar({
+  axis:"y",
+  scrollInertia: 150,
+  scrollbarPosition: 'outside',
+  theme: "dark-3",
+  autoHideScrollbar: false,
+  mouseWheel: {preventDefault: true},
+  scrollButtons: {
+    enable: true
+  }
+});
     </pre>
   </div>
 
@@ -135,8 +192,7 @@
     <div class="clearfix">
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">light</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="light">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="light" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -157,8 +213,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">light-2</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="light-2">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="light-2" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -179,8 +234,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">light-3</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="light-3">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="light-3" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -201,8 +255,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">light-thick</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="light-thick">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="light-thick" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -223,8 +276,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">light-thin</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="light-thin">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="light-thin" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -248,8 +300,7 @@
     <div class="clearfix">
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">dark</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="dark">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="dark" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -270,8 +321,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">dark-2</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="dark-2">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="dark-2" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -292,8 +342,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">dark-thick</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="dark-thick">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="dark-thick" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -314,8 +363,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">dark-thin</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="dark-thin">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="dark-thin" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -339,8 +387,7 @@
     <div class="clearfix">
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">inset</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="inset">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="inset" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -361,8 +408,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">inset-dark</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="inset-dark">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="inset-dark" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -383,8 +429,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">inset-2</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="inset-2">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="inset-2" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -405,8 +450,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">inset-2-dark</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="inset-2-dark">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="inset-2-dark" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -427,8 +471,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">inset-3</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="inset-3">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="inset-3" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -449,8 +492,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">inset-3-dark</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="inset-3-dark">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="inset-3-dark" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -474,8 +516,7 @@
     <div class="clearfix">
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">minimal</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="minimal">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="minimal" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -496,8 +537,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">minimal-dark</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="minimal-dark">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="minimal-dark" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -521,8 +561,7 @@
     <div class="clearfix">
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">rounded</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="rounded">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="rounded" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -543,8 +582,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">rounded-dark</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="rounded-dark">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="rounded-dark" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -565,8 +603,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">rounded-dots</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="rounded-dots">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="rounded-dots" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -587,8 +624,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">rounded-dots-da</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="rounded-dots-dark">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="rounded-dots-dark" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -612,8 +648,7 @@
     <div class="clearfix">
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">3d</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="3d">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="3d" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -634,8 +669,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">3d-dark</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="3d-dark">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="3d-dark" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -656,8 +690,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">3d-thick</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="3d-thick">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="3d-thick" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -678,8 +711,7 @@
       </div>
       <div class="my-scroll-them">
         <span class="h2 text-center text-warning">3d-thick-dark</span>
-        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside"
-             data-theme="3d-thick-dark">
+        <div class="custom-scroll-element" data-toggle="customScroll" data-axis="y" data-position="inside" data-theme="3d-thick-dark" data-scrollbtn="1">
           <div class="custom-scroll-inside">
             <p>1990年，Tim Berners-Lee和Robert Cailliau共同发明了Web。1994年，Web真正走出实验室。 [3]</p>
             <p>从HTML被发明开始，样式就以各种形式存在。不同的浏览器结合它们各自的样式语言为用户提供页面效果的控制。最初的HTML只包含很少的显示属性。</p>
@@ -701,7 +733,6 @@
     </div>
   </div>
 </div>
-
 
   </div>
   </div>

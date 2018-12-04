@@ -20,7 +20,10 @@ $(function(){
           var j = {
             axis : domDate.axis,
             scrollbarPosition : domDate.position,
-            theme : domDate.theme
+            theme : domDate.theme,
+            scrollButtons: {
+              enable: !!(domDate.scrollbtn * 1)
+            }
           };
           var j_ = {
             axis:"yx",

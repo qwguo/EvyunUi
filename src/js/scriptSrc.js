@@ -1,5 +1,7 @@
 exports.src = function(){
   return [
+    /*'./src/js/jquery.event.ue.js',
+    './src/js/jquery.udraggable.js',*/
     './src/js/jquery.drag.js',
     './src/js/jquery.mousewheel.js',
     './src/js/jquery.mCustomScrollbar.js',
