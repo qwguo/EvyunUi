@@ -23,125 +23,135 @@
   <h3 class="page-header">上传按钮</h3>
   <div class="upload-show">
     <h5 class="page-header">单个上传按钮</h5>
-    <div class="upload-element">
-      <input class="sr-only" type="file" name="upload_0">
-      <button class="btn btn-outline-danger"><i class="evicon evicon-upload-1"></i><span>上传</span></button>
+    <div class="upload-element" data-toggle="upload">
+      <span class="upload-btn">
+        <button class="btn btn-outline-danger"><input type="file" name="upload_0"><i class="evicon evicon-upload-1"></i><span>上传文件</span></button>
+      </span>
+      <span class="upload-tip">c/windows/fonts/文件名称.txt</span>
+    </div>
+    <pre class="html" name="pre">
+<div class="upload-element" data-toggle="upload">
+  <span class="upload-btn">
+    <button class="btn btn-outline-danger"><input type="file" name="upload_0"><i class="evicon evicon-upload-1"></i><span>上传文件</span></button>
+  </span>
+  <span class="upload-tip">c/windows/fonts/文件名称.txt</span>
+</div>
+    </pre>
+  </div>
+  <div class="upload-show">
+    <h5 class="page-header">带预览列表的上传</h5>
+    <div class="upload-element" data-toggle="upload">
+      <span class="upload-btn">
+        <button class="btn btn-outline-danger"><input type="file" name="upload_0"><i class="evicon evicon-upload-1"></i><span>上传文件</span></button>
+      </span>
       <span class="upload-tip">c/windows/fonts/文件名称.txt</span>
       <ul class="upload-images-list">
         <li class="list-item">
-          <i class="evicon evicon-close-1"></i>
+          <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
           <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
         </li>
         <li class="list-item">
+          <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
           <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
         </li>
         <li class="list-item">
+          <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
           <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
         </li>
         <li class="list-item">
+          <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+          <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+        </li>
+      </ul>
+      <span class="upload-tip">最多上传五张，支持格式jpg png gif提示信息</span>
+    </div>
+    <pre class="html" name="pre">
+<div class="upload-element" data-toggle="upload">
+  <span class="upload-btn">
+    <button class="btn btn-outline-danger"><input type="file" name="upload_0"><i class="evicon evicon-upload-1"></i><span>上传文件</span></button>
+  </span>
+  <span class="upload-tip">c/windows/fonts/文件名称.txt</span>
+  <ul class="upload-images-list">
+    <li class="list-item">
+      <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+      <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+    </li>
+    <li class="list-item">
+      <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+      <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+    </li>
+    <li class="list-item">
+      <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+      <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+    </li>
+    <li class="list-item">
+      <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+      <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+    </li>
+  </ul>
+  <span class="upload-tip">最多上传五张，支持格式jpg png gif提示信息</span>
+</div>
+    </pre>
+  </div>
+  <div class="upload-show">
+    <h5 class="page-header">预览列表的上传</h5>
+    <div class="upload-element" data-toggle="upload">
+      <ul class="upload-images-list">
+        <li class="list-item">
+          <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+          <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+        </li>
+        <li class="list-item">
+          <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+          <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+        </li>
+        <li class="list-item">
+          <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+          <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+        </li>
+        <li class="list-item">
+          <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
           <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
         </li>
         <li class="upload-btn">
-
+          <input type="file" name="upload_0">
+          <i class="x"></i>
+          <i class="y"></i>
         </li>
       </ul>
+      <span class="upload-tip">最多上传五张，支持格式jpg png gif提示信息</span>
     </div>
-  </div>
-  <pre class="html" name="pre">
-<label class="radio-element">
-  <input type="radio" name="sex_0_0">
-  <i class="dot"></i>
-  <span class="radio-label">单选</span>
-</label>
-      </pre>
-  <h4 class="page-header">多个单选按钮</h4>
-  <div class="radio-show">
-    <h5 class="page-header">普通单选按钮</h5>
-    <div class="radio-element-group">
-      <label class="radio-element">
-        <input type="radio" name="sex_1">
-        <i class="dot"></i>
-        <span class="radio-label">男</span>
-      </label>
-      <label class="radio-element checked">
-        <input type="radio" checked="checked" name="sex_1">
-        <i class="dot"></i>
-        <span class="radio-label">女</span>
-      </label>
-    </div>
-  </div>
-  <pre class="html" name="pre">
-<div class="radio-element-group">
-  <label class="radio-element">
-    <input type="radio" name="sex_1_1">
-    <i class="dot"></i>
-    <span class="radio-label">男</span>
-  </label>
-  <label class="radio-element checked">
-    <input type="radio" checked="checked" name="sex_1_1">
-    <i class="dot"></i>
-    <span class="radio-label">女</span>
-  </label>
-</div>
-      </pre>
-  <div class="radio-show">
-    <h5 class="page-header">禁止单选按钮</h5>
-    <div class="radio-element-group">
-      <label class="radio-element disabled">
-        <input type="radio" disabled="disabled" name="sex_2">
-        <i class="dot"></i>
-        <span class="radio-label">男</span>
-      </label>
-      <label class="radio-element disabled">
-        <input type="radio" disabled="disabled" checked="checked" name="sex_2">
-        <i class="dot"></i>
-        <span class="radio-label">女</span>
-      </label>
-    </div>
-  </div>
-  <pre class="html" name="pre">
-<div class="radio-element-group">
-  <label class="radio-element disabled">
-    <input type="radio" disabled="disabled" name="sex_2_2">
-    <i class="dot"></i>
-    <span class="radio-label">男</span>
-  </label>
-  <label class="radio-element disabled">
-    <input type="radio" disabled="disabled" checked="checked" name="sex_2_2">
-    <i class="dot"></i>
-    <span class="radio-label">女</span>
-  </label>
+    <pre class="html" name="pre">
+<div class="upload-element" data-toggle="upload">
+  <ul class="upload-images-list">
+    <li class="list-item">
+      <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+      <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+    </li>
+    <li class="list-item">
+      <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+      <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+    </li>
+    <li class="list-item">
+      <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+      <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+    </li>
+    <li class="list-item">
+      <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
+      <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
+    </li>
+    <li class="upload-btn">
+      <input type="file" name="upload_0">
+      <i class="x"></i>
+      <i class="y"></i>
+    </li>
+  </ul>
+  <span class="upload-tip">最多上传五张，支持格式jpg png gif提示信息</span>
 </div>
     </pre>
-  <div class="radio-show">
-    <h5 class="page-header">错误提示单选按钮</h5>
-    <div class="radio-element-group">
-      <label class="radio-element error">
-        <input type="radio" name="sex_3">
-        <i class="dot"></i>
-        <span class="radio-label">男</span>
-      </label>
-      <label class="radio-element error">
-        <input type="radio" checked="checked" name="sex_3">
-        <i class="dot"></i>
-        <span class="radio-label">女</span>
-      </label>
-    </div>
   </div>
-  <pre class="html" name="pre">
-<div class="radio-element-group">
-  <label class="radio-element error">
-    <input type="radio" disabled="disabled" name="sex_3_3">
-    <i class="dot"></i>
-    <span class="radio-label">男</span>
-  </label>
-  <label class="radio-element error">
-    <input type="radio" disabled="disabled" checked="checked" name="sex_3_3">
-    <i class="dot"></i>
-    <span class="radio-label">女</span>
-  </label>
-</div>
-      </pre>
+
+
 </div>
 
   </div>

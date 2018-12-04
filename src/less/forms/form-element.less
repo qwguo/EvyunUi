@@ -1,0 +1,65 @@
+// Form variable
+
+@form-label-width: 140px;
+@form-label-color: #666666;
+@form-item-tip-font-size: 12px;
+@form-label-font-size: 14px;
+@form-label-padding-v: 7px;
+@form-label-padding-h: 10px;
+@form-item-margin-bottom: 15px;
+
+.form-element {
+  .form-item {
+    margin-bottom: @form-item-margin-bottom;
+    .item-label {
+      width: @form-label-width;
+      float: left;
+      text-align: right;
+      padding: @form-label-padding-v @form-label-padding-h;
+      font-size: @form-label-font-size;
+      color: @form-label-color;
+      + .item-con {
+        margin-left: @form-label-width;
+      }
+      &.block{
+        display: block;
+        float: none;
+        text-align: left;
+        padding: @form-label-padding-h 0;
+        &:empty{
+          padding:0;
+        }
+        .clearfix();
+        + .item-con{
+          margin-left: 0;
+        }
+      }
+    }
+    .item-con {
+      .radio-element,
+      .checkbox-element{
+        margin-top: @form-label-padding-v;
+      }
+      .item-tip{
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: @form-label-padding-h;
+        font-size: @form-item-tip-font-size;
+        .evicon{
+          margin-right: .5em;
+          font-size: 1.3em;
+        }
+        &.block{
+          display: block;
+          margin-left: 0;
+          .clearfix();
+        }
+      }
+    }
+  }
+  > .form-item-group {
+    .form-item {
+      display: inline-block;
+    }
+  }
+}

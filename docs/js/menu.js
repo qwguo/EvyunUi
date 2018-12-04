@@ -25,8 +25,8 @@ var menu = new Vue({
         'name': 'button',
         'cur': 0,
         'sub': [
-          {'title': '基本按钮', 'name': 'base_button', 'href': 'button/base_button.html'},
-          {'title': '按钮组', 'name': 'base_button', 'href': 'button/group_button.html'}
+          {'title': '基本按钮', 'name': 'base_button', 'href': 'button/base_button.html'}
+          // {'title': '按钮组', 'name': 'base_button', 'href': 'button/group_button.html'}
         ]
       },
       {
@@ -47,6 +47,7 @@ var menu = new Vue({
         'name': 'forms',
         'cur': 0,
         'sub': [
+          {'title': '表单布局结构', 'name': 'forms_layout', 'href': 'forms/forms_layout.html'},
           {'title': '输入框', 'name': 'input_element', 'href': 'forms/input_element.html'},
           {'title': '多行输入框', 'name': 'textarea_element', 'href': 'forms/textarea_element.html'},
           {'title': '单选按钮', 'name': 'radio_element', 'href': 'forms/radio_element.html'},
@@ -54,7 +55,6 @@ var menu = new Vue({
           {'title': '开关', 'name': 'switch_element', 'href': 'forms/switch_element.html'},
           {'title': '下拉菜单', 'name': 'select_element', 'href': 'forms/select_element.html'},
           {'title': '上传组件', 'name': 'upload_element', 'href': 'forms/upload_element.html'}
-          // {'title': '基本表单元素', 'name': 'base_forms', 'href': 'forms/base_forms.html'},
           // {'title': '表单', 'name': 'forms_sub', 'href': 'forms/forms_sub.html'}
         ]
       },
