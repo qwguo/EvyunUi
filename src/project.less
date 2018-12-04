@@ -147,3 +147,50 @@ code{
     }
   }
 }
+
+.show-customScroll {
+  .custom-scroll-element {
+    height: 200px;
+  }
+  .show-customScroll-1 {
+    .custom-scroll-element {
+      height: 200px;
+      width: 500px;
+      float: left;
+    }
+    .custom-scroll-inside {
+      width: 800px;
+    }
+  }
+  .show-customScroll-2 {
+    .custom-scroll-element {
+      width: 800px;
+    }
+  }
+  .show-customScroll-3 {
+
+    .my-scroll-them {
+      width: 300px;
+      float: left;
+      margin: 10px;
+      > h2{
+        display: inline-block;
+        padding: 5px;
+      }
+    }
+    .custom-scroll-element{
+      .custom-scroll-inside{
+        padding: 5px;
+      }
+      border-radius: 8px;
+      &[data-theme]{
+        background-color: #333;
+        color: #bbb;
+      }
+      &[data-theme*='dark']{
+        background-color: #bbb;
+        color: #333;
+      }
+    }
+  }
+}
