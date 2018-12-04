@@ -54,8 +54,8 @@ var menu = new Vue({
           {'title': '复选按钮', 'name': 'checkbox_element', 'href': 'forms/checkbox_element.html'},
           {'title': '开关', 'name': 'switch_element', 'href': 'forms/switch_element.html'},
           {'title': '下拉菜单', 'name': 'select_element', 'href': 'forms/select_element.html'},
-          {'title': '上传组件', 'name': 'upload_element', 'href': 'forms/upload_element.html'}
-          // {'title': '表单', 'name': 'forms_sub', 'href': 'forms/forms_sub.html'}
+          {'title': '上传组件', 'name': 'upload_element', 'href': 'forms/upload_element.html'},
+          {'title': '日期选择', 'name': 'date_element', 'href': 'forms/date_element.html'}
         ]
       },
       {
