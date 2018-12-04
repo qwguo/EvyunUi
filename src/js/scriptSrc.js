@@ -1,5 +1,6 @@
 exports.src = function(){
   return [
+    './src/js/jquery.drag.js',
     './src/js/jquery.mousewheel.js',
     './src/js/jquery.mCustomScrollbar.js',
     './src/js/tooltip.js',

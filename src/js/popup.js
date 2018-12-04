@@ -145,6 +145,7 @@
         that.popup.appendTo(j.addTarget);
         that.popupCountWH();
         that.popupOffset();
+        that.popupDrag();
         that.popup.on({
           'click': function () {
             var targetDom = $(this);
@@ -215,17 +216,19 @@
               iframes.siblings('.popup-loading-wait').remove();
               iframes[0].contentWindow.iframeNumber = that.numbers;
               iframes[0].contentWindow.popup = that;
-              iframes.css({
-                "width": (j.size.width === 'auto' ? iframes.contents().width() : j.size.width) + "px",
-                "height": (j.size.height === 'auto' ? iframes.contents().height() : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight()+5 : 0))) + "px"
-              });
+              if(!j.size.full){
+                iframes.css({
+                  "width": (j.size.width === 'auto' ? iframes.contents().width() : j.size.width) + "px",
+                  "height": (j.size.height === 'auto' ? iframes.contents().height() : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight()+5 : 0))) + "px"
+                });
+              }else{
+                iframes.css({
+                  width: '100%',
+                  height: that.popup.height() -  (j.head ? that.popup.find('.popup-head').outerHeight()+5 : 0) + 'px'
+                });
+              }
               that.popupOffset();
             });
-          }());
-          break;
-          default:
-          (function(){
-            that.popup.find('iframe')
           }());
           break;
       }
@@ -270,6 +273,21 @@
         that.popupShade && that.popupShade.remove();
         that = null;
       },210);
+    },
+    popupDrag: function(){
+      var that = this,
+          j = that.j;
+      if(j.head){
+        that.popup.drag({
+          parent:'parent', //定义拖动不能超出的外框,拖动范围
+          randomPosition:false, //初始化随机位置
+          direction:'all', //方向
+          handler:'.popup-head', //把手
+          dragStart:function(x,y){}, //拖动开始 x,y为当前坐标
+          dragEnd:function(x,y){}, //拖动停止 x,y为当前坐标
+          dragMove:function(x,y){} //拖动进行中 x,y为当前坐标
+        });
+      }
     }
   };
   $.popup = function (j) {
@@ -499,7 +517,6 @@
         icon: 1
       }
     };
-    console.log(111);
     if($.isArray(j)){
       j = {
         con: {

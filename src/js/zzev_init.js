@@ -20,6 +20,7 @@ $(function(){
           var j = {
             axis : domDate.axis,
             scrollbarPosition : domDate.position,
+            theme : domDate.theme
           };
           var j_ = {
             axis:"yx",
@@ -29,7 +30,7 @@ $(function(){
             autoHideScrollbar: false,
             mouseWheel: {preventDefault: true},
             scrollButtons: {
-              enable: false
+              enable: true
             }
           };
           j_ = $.extend(j_, j);

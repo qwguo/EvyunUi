@@ -260,13 +260,7 @@ $('#fun_confirm_1').on('click', function(){
           </li>
           <li>
             <b>对象形式：</b>
-            <p class="text-warning">后期添加</p>
-            <!--<ul class="list-type-lower-roman">
-              <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
-              <li><code>popupHead</code>：打开窗口的标题。</li>
-              <li><code>popupHint</code>：打开窗口的提示消息。</li>
-              <li><code>enterCallBack</code>：单击确定的回调函数。</li>
-            </ul>-->
+            <p class="text-warning">请查看：<a href="#popupSenior">弹窗高级使用</a></p>
           </li>
         </ol>
       </dd>
@@ -365,13 +359,7 @@ $('#fun_point_1').on('click', function(){
           </li>
           <li>
             <b>对象形式：</b>
-            <p class="text-warning">后期添加</p>
-            <!--<ul class="list-type-lower-roman">
-              <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
-              <li><code>popupHead</code>：打开窗口的标题。</li>
-              <li><code>popupHint</code>：打开窗口的提示消息。</li>
-              <li><code>enterCallBack</code>：单击确定的回调函数。</li>
-            </ul>-->
+            <p class="text-warning">请查看：<a href="#popupSenior">弹窗高级使用</a></p>
           </li>
         </ol>
       </dd>
@@ -686,13 +674,7 @@ $('#fun_iframe_1').on('click', function(){
           </li>
           <li>
             <b>对象形式：</b>
-            <p class="text-warning">后期添加</p>
-            <!--<ul class="list-type-lower-roman">
-              <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
-              <li><code>popupHead</code>：打开窗口的标题。</li>
-              <li><code>popupHint</code>：打开窗口的提示消息。</li>
-              <li><code>enterCallBack</code>：单击确定的回调函数。</li>
-            </ul>-->
+            <p class="text-warning">请查看：<a href="#popupSenior">弹窗高级使用</a></p>
           </li>
         </ol>
       </dd>
@@ -761,21 +743,6 @@ $('#fun_loading_1').on('click', function(){
       <button type="button" data-type="loading" id="fun_object_4" class="btn btn-warning">
           打开一个loading层
       </button>
-      <!-- <button type="button" data-pos="m-c" id="fun_object_5" class="btn btn-info">
-          打开一个loading层
-      </button>
-      <button type="button" data-pos="m-r" id="fun_object_6" class="btn btn-primary">
-          中右
-      </button>
-      <button type="button" data-pos="b-l" id="fun_object_7" class="btn btn-outline-primary">
-          下左
-      </button>
-      <button type="button" data-pos="b-c" id="fun_object_8" class="btn btn-outline-success">
-          下中
-      </button>
-      <button type="button" data-pos="b-r" id="fun_object_9" class="btn btn-outline-info">
-          下右
-      </button> -->
     </p>
     <script>
       $('#fun_object').on('click', 'button', function(){
@@ -847,10 +814,36 @@ $('#fun_loading_1').on('click', function(){
                 opBtn: {close: 1, min: 0, max: 1},
                 size: {width: 'auto', height: 'auto'},
                 con: {
-                  html: '<p>这是自定义代码</p>'
+                  html: $('#htmlDiv_1').html()
                 }
               });
             break;
+            case 'iframe':
+              p_iframe = $.popup({
+                type: 3,
+                addTarget: addTarget,
+                shade: {bgColor: '#fff', opacity: '0.7', close: true},
+                position: {pos: 'm-c'},
+                opBtn: {close: 1, min: 0, max: 1},
+                size: {full:1, width: '1000', height: '600'},
+                con: {
+                  src: 'tool/big_popup_iframe.html'
+                }
+              });
+              break;
+            case 'loading':
+              p_iframe = $.popup({
+                  type: 4,
+                  head: false,
+                  shade: {close: 1},
+                  autoClose: 5,
+                  position: {pos: 'm-c'},
+                  opBtn: false,
+                  con: {
+                    icon: 1
+                  }
+                });
+              break;
           }
       });
     </script>

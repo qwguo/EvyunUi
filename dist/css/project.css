@@ -137,5 +137,42 @@ code {
   word-break: break-all;
   margin: 5px 0;
 }
+.show-customScroll .custom-scroll-element {
+  height: 200px;
+}
+.show-customScroll .show-customScroll-1 .custom-scroll-element {
+  height: 200px;
+  width: 500px;
+  float: left;
+}
+.show-customScroll .show-customScroll-1 .custom-scroll-inside {
+  width: 800px;
+}
+.show-customScroll .show-customScroll-2 .custom-scroll-element {
+  width: 800px;
+}
+.show-customScroll .show-customScroll-3 .my-scroll-them {
+  width: 300px;
+  float: left;
+  margin: 10px;
+}
+.show-customScroll .show-customScroll-3 .my-scroll-them > h2 {
+  display: inline-block;
+  padding: 5px;
+}
+.show-customScroll .show-customScroll-3 .custom-scroll-element {
+  border-radius: 8px;
+}
+.show-customScroll .show-customScroll-3 .custom-scroll-element .custom-scroll-inside {
+  padding: 5px;
+}
+.show-customScroll .show-customScroll-3 .custom-scroll-element[data-theme] {
+  background-color: #333;
+  color: #bbb;
+}
+.show-customScroll .show-customScroll-3 .custom-scroll-element[data-theme*='dark'] {
+  background-color: #bbb;
+  color: #333;
+}
 
 /*# sourceMappingURL=project.css.map */
