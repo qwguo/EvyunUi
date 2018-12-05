@@ -8834,10 +8834,6 @@ a.thumbnail.active {
   cursor: pointer;
   color: #333;
 }
-.c-datepicker-picker__content {
-  position: relative;
-  margin: 10px 15px;
-}
 .c-datepicker-date-picker table {
   table-layout: fixed;
   width: 100%;
@@ -8855,11 +8851,28 @@ a.thumbnail.active {
 .c-datepicker-date-table td.prev-month .cell {
   color: #c0c4cc;
 }
+.c-datepicker-date-table td,
+.c-datepicker-month-table td,
+.c-datepicker-year-table td {
+  cursor: pointer;
+}
+.c-datepicker-date-table td.disabled,
+.c-datepicker-month-table td.disabled,
+.c-datepicker-year-table td.disabled {
+  cursor: no-drop;
+}
 .c-datepicker-date-table td.disabled .cell,
 .c-datepicker-month-table td.disabled .cell,
 .c-datepicker-year-table td.disabled .cell {
-  text-decoration: line-through;
-  color: #999;
+  color: #aaa;
+}
+.c-datepicker-date-table td.next-month .cell,
+.c-datepicker-month-table td.next-month .cell,
+.c-datepicker-year-table td.next-month .cell,
+.c-datepicker-date-table td.prev-month .cell,
+.c-datepicker-month-table td.prev-month .cell,
+.c-datepicker-year-table td.prev-month .cell {
+  color: #888;
 }
 .c-datepicker-year-table td.current .cell {
   color: #409eff;
@@ -8871,7 +8884,6 @@ a.thumbnail.active {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: center;
-  cursor: pointer;
   position: relative;
 }
 .c-datepicker-date-table td div {
@@ -8912,13 +8924,13 @@ a.thumbnail.active {
   color: #333;
   font-weight: 400;
   border-bottom: 1px solid #ebeef5;
+  text-align: center;
 }
 .c-datepicker-year-table,
 .c-datepicker-month-table {
   font-size: 14px;
-  margin: -1px;
+  margin: -1px -1px 5px -1px;
   border-collapse: collapse;
-  margin-bottom: 5px;
 }
 .c-datepicker-month-table td .cell {
   width: 48px;
@@ -8961,7 +8973,7 @@ a.thumbnail.active {
 }
 .c-datepicker-button--text {
   border-color: transparent;
-  color: #409eff;
+  color: #FFB400;
   background: 0 0;
   padding-left: 0;
   padding-right: 0;
@@ -9041,10 +9053,6 @@ a.thumbnail.active {
   -o-transition: opacity 0.12s ease-out;
   transition: opacity 0.12s ease-out;
 }
-.c-datepicker-date-table td.today .cell {
-  color: #409eff;
-  font-weight: 700;
-}
 .c-datepicker-date-table td.cell {
   width: 24px;
   height: 24px;
@@ -9060,6 +9068,11 @@ a.thumbnail.active {
 .c-datepicker-month-table td .cell:hover,
 .c-datepicker-month-table td.current:not(.disabled) .cell {
   color: #409eff;
+}
+.c-datepicker-date-table td.today .cell {
+  color: #fff;
+  font-weight: 700;
+  background-color: #FFB400;
 }
 .c-datepicker-scrollbar__bar.is-vertical {
   width: 6px;
@@ -9139,7 +9152,7 @@ a.thumbnail.active {
   border-right: 1px solid #e4e4e4;
 }
 .c-datepicker-picker__content {
-  margin: 0;
+  position: relative;
   width: 100%;
   margin: 0 auto;
 }
@@ -9210,8 +9223,7 @@ a.thumbnail.active {
 }
 .c-datepicker-date-editor {
   -webkit-appearance: none;
-  background-color: #fff;
-  background-image: none;
+  background: #fff none;
   border-radius: 4px;
   border: 1px solid #dcdfe6;
   -webkit-box-sizing: border-box;

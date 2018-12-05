@@ -11,7 +11,6 @@
   <script src="../js/jquery-1.9.1.min.js"></script>
   <link rel="stylesheet" href="../js/DlHighlight/h1.css">
   <script src="../js/DlHighlight/highlight-all.js"></script>
-  <script src="../../dist/js/evPublicInit-min.js"></script>
   <title>隐藏显示</title>
 </head>
 <body>
@@ -118,6 +117,7 @@ $('#fun_alert_1').on('click', function(){
           addTarget = $('body', window.parent.document);
         $.popupAlert({
           addTarget: addTarget,
+          head: '窗口标题',
           shade: false,
           position: {pos: pos},
           animate: ['rotateIn', 'rotateOut'],
@@ -141,6 +141,7 @@ $('#fun_alert_1').on('click', function(){
 $('#fun_alert_object_2').on('click', function(){
   $.popupAlert({
     addTarget: addTarget, //指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素
+    head: '窗口标题',
     position: {pos: 'm-c'}, //位置取值：t-l, t-c, t-r, m-l, m-c, m-r, b-l, b-c, b-r
     opBtn: {close: 1},
     size: {width: 200, height: 100},
@@ -189,6 +190,7 @@ $('#fun_alert_object_2').on('click', function(){
           <ul class="list-type-upper-alpha">
               <li><code>addTarget</code>：//指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素</li>
               <li><code>position</code>：//位置取值：t-l（上左）, t-c（上中）, t-r（上右）, m-l（中左）, m-c（居中）, m-r（中右）, b-l（下左）, b-c（下中）, b-r（下右）。</li>
+              <li><code>head</code>：表示打开窗口的标题。</li>
               <li><code>opBtn</code>：表示是否显示右上角的操作按钮，close:1 表示显示关闭按钮，0表示不显示关闭按钮。</li>
               <li><code>size</code>：表示弹出框的大小，<code>width</code>：宽度值，取值：<code>'auto'</code>|<code>数字</code></li>
               <li><code>con</code>：表示弹窗中的内容对象：
@@ -909,6 +911,13 @@ p_alert = $.popup({
       <dt>详细参数介绍：</dt>
       <dd>
         <ol>
+          <li><code>p_alert</code>：表示创建弹窗的对象，可以对它进行一些操作，具体方法是：
+            <ul class="list-type-lower-alpha">
+              <li><code>p_alert.popupClose()</code>：关闭当前弹窗</li>
+              <li><code>p_alert.popupMax()</code>：最大化当前弹窗</li>
+              <li><code>p_alert.popupMin()</code>：最小化当前弹窗</li>
+            </ul>
+          </li>
           <li><code>type</code>：//表示打开窗口的类型，目前有4中类型具体说明：
             <ul class="list-type-lower-alpha">
               <li><code>1</code>：表示弹窗类型，可以添加0个或多个按钮；</li>
@@ -919,6 +928,7 @@ p_alert = $.popup({
           </li>
           <li><code>addTarget</code>：//指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素</li>
           <li><code>className</code>：//可以自己制定一个class名称，用来自定义弹窗样式；</li>
+          <li><code>head</code>：表示打开窗口的标题<code>false</code>：表示不显示标题，其他表示显示；</li>
           <li><code>shade</code>：//指是否显示弹窗遮罩，<code>false</code>：表示不显示，<code>{bgColor: '#fff', opacity: '0.7', close: true}</code>,对象形式表示显示：可以设置的值有：
             <ul class="list-type-lower-alpha">
               <li><code>bgColor</code>：表示遮罩的背景颜色；</li>
@@ -990,6 +1000,7 @@ p_alert = $.popup({
 
   </div>
   </div>
+  <script src="../../dist/js/evPublicInit.js"></script>
   <script src="../js/public.js"></script>
 </body>
 </html>

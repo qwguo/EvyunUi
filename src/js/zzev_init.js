@@ -43,21 +43,19 @@ $(function(){
           dom.mCustomScrollbar("update");
         }
         break;
-      case 'selectDate':
-        dom.datePicker({
-          hasShortcut: true,
-          format:'YYYY-MM-DD',
-          shortcutOptions: [{
-            name: '今天',
-            day: '0'
-          }, {
-            name: '昨天',
-            day: '-1'
-          }, {
-            name: '一周前',
-            day: '-7'
-          }]
-        });
+      case 'datePicker':
+        (function(){
+          var j_ = {
+
+                // hasShortcut: true,
+                format:'YYYY'
+              },
+              j = {};
+          domDate.dateMax && (j.max = domDate.dateMax.toString());
+          domDate.dateMin && (j.min = domDate.dateMin.toString());
+          console.log($.extend(true, j_, j));
+          dom.datePicker($.extend(true, j_, j));
+        }());
         break;
     }
   });
