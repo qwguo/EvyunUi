@@ -46,14 +46,13 @@ $(function(){
       case 'datePicker':
         (function(){
           var j_ = {
-
-                // hasShortcut: true,
-                format:'YYYY'
+                hasShortcut: false
               },
               j = {};
-          domDate.dateMax && (j.max = domDate.dateMax.toString());
-          domDate.dateMin && (j.min = domDate.dateMin.toString());
-          console.log($.extend(true, j_, j));
+          domDate.dateMax && (j.max = domDate.dateMax + '');
+          domDate.dateMin && (j.min = domDate.dateMin + '');
+          domDate.dateType && (j.format = domDate.dateType);
+          domDate.dateIsrange && (j.isRange = !!domDate.dateIsrange);
           dom.datePicker($.extend(true, j_, j));
         }());
         break;

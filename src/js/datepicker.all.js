@@ -78,8 +78,6 @@
       }
     },
     newDateFixed: function (_this, temp) {
-      console.log(_this)
-      console.log(temp)
       var reg = new RegExp(_this.splitStr, 'g');
       return temp ? new Date(temp.replace(reg, '/')) : new Date();
     },
@@ -395,9 +393,7 @@
       this.picker.$container.find('.c-datepicker-date-picker__prev-btn.year,.c-datepicker-date-picker__next-btn.year').addClass('is-year');
     },
     renderHtml: function (year) {
-      console.log(111);
       year = year || moment().year();
-      console.log(year);
       var min = Number(parseInt(year / 10) + '0');
       var temp = '';
       var html = '';
@@ -407,9 +403,6 @@
       for (var index = 0; index < 10; index++) {
         var _val = min + index;
         var className = _val == activeYear ? 'current available' : 'available';
-        console.log(this.picker.minJson.year);
-        console.log(this.picker.maxJson.year);
-        console.log(_val);
         if (_val < this.picker.minJson.year || _val > this.picker.maxJson.year) {
           className += ' disabled';
         }
