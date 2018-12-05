@@ -145,7 +145,7 @@
         that.popup.appendTo(j.addTarget);
         that.popupCountWH();
         that.popupOffset();
-        that.popupDrag();
+        // that.popupDrag();
         that.popup.on({
           'click': function () {
             var targetDom = $(this);
