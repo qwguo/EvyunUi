@@ -1,44 +1,23 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="icon" href="favicon.ico" />
-  <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../../dist/css/project.min.css">
-  <script src="../js/jquery-1.9.1.min.js"></script>
-  <link rel="stylesheet" href="../js/DlHighlight/h1.css">
-  <script src="../js/DlHighlight/highlight-all.js"></script>
-  <title>隐藏显示</title>
-</head>
-<body>
-<div class="main-wrap">
-  <div class="container-fluid">
-
-
-
+@@include('../include/head.html')
 
 <div class="show-forms-input">
-  <h3 class="page-header">输入框</h3>
-  <h4 class="page-header">单输入框</h4>
+  <h3 class="page-header">日期时间选择插件</h3>
   <div class="input-show">
-    <h5 class="page-header">普通输入框</h5>
-    <div class="input-element">
-      <input type="text" placeholder="输入文字">
+    <h5 class="page-header">但日期选择器</h5>
+    <div class="input-element" data-toggle="datePicker" data-date-max="2019" data-date-min="2018">
+      <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018">
     </div>
     <pre class="html" name="pre">
-<div class="input-element">
-<input type="text" placeholder="输入文字">
+<div class="input-element" data-toggle="datePicker" data-date-max="2019-12-05" data-date-min="2018-10-05">
+  <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-05">
 </div>
     </pre>
   </div>
 
   <div class="input-show">
-    <h5 class="page-header">密码输入框</h5>
-    <div class="input-element">
-      <input type="password" placeholder="输入密码">
+    <h5 class="page-header">带时间的选择器</h5>
+    <div class="input-element" data-date-max="2019-12-05" data-date-min="2018-10-05">
+      <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-05 20:18:18">
     </div>
     <pre class="html" name="pre">
 <div class="input-element">
@@ -419,11 +398,4 @@
   </div>
 </div>
 
-
-  </div>
-  </div>
-  <script src="../../dist/js/evPublicInit-min.js"></script>
-  <script src="../js/public.js"></script>
-</body>
-</html>
-
+@@include('../include/foot.html')

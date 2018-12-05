@@ -11047,6 +11047,7 @@ yx-axis
   color: #cccccc;
   margin-right: 0.4em;
   cursor: pointer;
+  line-height: inherit;
 }
 .popup .popup-option .evicon:hover {
   color: #b3b3b3;
