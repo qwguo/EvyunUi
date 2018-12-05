@@ -9,7 +9,7 @@ exports.src = function(){
     './src/js/popover.js',
     './src/js/dropdown.js',
     './src/js/popup.js',
-    './src/js/moment.min.js',
+    './src/js/moment.js',
     './src/js/datepicker.all.js',
     './src/js/zzev_init.js'
   ];
