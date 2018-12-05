@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../dist/css/project.min.css">
+  <script src="../js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="../js/DlHighlight/h1.css">
+  <script src="../js/DlHighlight/highlight-all.js"></script>
+  <script src="../../dist/js/evPublicInit-min.js"></script>
+  <title>隐藏显示</title>
+</head>
+<body>
+<div class="main-wrap">
+  <div class="container-fluid">
+
+
+
+
+<div class="show-text">
+  <h3 class="page-header">文本使用</h3>
+  <h4 class="page-header">文本颜色</h4>
+  <p>默认文本颜色</p>
+  <p class="text-gray">text-gray：文本颜色</p>
+  <p class="text-primary">text-primary：文本颜色</p>
+  <p class="text-success">text-success：文本颜色</p>
+  <p class="text-info">text-info：文本颜色</p>
+  <p class="text-warning">text-warning：文本颜色</p>
+  <p class="text-danger">text-danger：文本颜色</p>
+  <pre name="pre" class="html">
+<p>默认文本颜色</p>
+<p class="text-gray">text-gray：文本颜色</p>
+<p class="text-primary">text-primary：文本颜色</p>
+<p class="text-success">text-success：文本颜色</p>
+<p class="text-info">text-info：文本颜色</p>
+<p class="text-warning">text-warning：文本颜色</p>
+<p class="text-danger">text-danger：文本颜色</p>
+    </pre>
+  <h4 class="page-header">默认文本</h4>
+  <h5 class="page-header">整个页面使用 <strong>14px</strong>字大小，<code>line-height</code>为 <strong>1.428</strong>作为主要样式。同时给，<code>&lt;p&gt;</code>
+    （段落）元素还被设置了等于 1/2 行高（即 10px）的底部外边距（margin）。</h5>
+  <p>样式表定义如何显示 HTML 元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS
+    文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <p>由于允许同时控制多重页面的样式和布局，CSS 可以称得上 WEB 设计领域的一个突破。作为网站开发者，你能够为每个
+    HTML元素定义样式，并将之应用于你希望的任意多的页面中。如需进行全局的更新，只需简单地改变样式，然后网站中的所有元素均会自动地更新。</p>
+  <pre name="pre" class="html">
+<p>样式表定义如何显示 HTML 元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS 文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+<p>由于允许同时控制多重页面的样式和布局，CSS 可以称得上 WEB 设计领域的一个突破。作为网站开发者，你能够为每个 HTML元素定义样式，并将之应用于你希望的任意多的页面中。如需进行全局的更新，只需简单地改变样式，然后网站中的所有元素均会自动地更新。</p>
+  </pre>
+  <h4 class="page-header">突出文本，可以给<code>&lt;p&gt;</code>标签添加<code>class="lead"</code>类来实现突出文本。字号会增加到<code>21px</code>;</h4>
+  <p class="lead">样式表定义如何显示 HTML 元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS
+    文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p class="lead">样式表定义如何显示 HTML 元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h4 class="page-header">我们可以在段落文本中使用不同的标签包裹文本来实现不同的样式</h4>
+  <h5 class="page-header">高亮显示文字：<code>&lt;mark&gt;</code></h5>
+  <p>样式表定义如何显示 <mark>HTML</mark> 元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS
+    文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p>样式表定义如何显示 <mark>HTML</mark> 元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS 文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h5 class="page-header">被删除的文本：<code>&lt;del&gt;</code></h5>
+  <p>样式表定义如何显示 HTML元素，<del>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</del>。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS
+    文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p>样式表定义如何显示 HTML元素，<del>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</del>。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS 文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h5 class="page-header">无用文本：<code>&lt;s&gt;</code></h5>
+  <p>样式表定义如何显示 HTML元素，<s>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</s>。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的
+    CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p>样式表定义如何显示 HTML元素，<s>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</s>。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的 CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h5 class="page-header">插入文本：<code>&lt;ins&gt;</code></h5>
+  <p>样式表定义如何显示 HTML元素，<ins>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</ins>。样式通常保存在外部的 .css
+    文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p>样式表定义如何显示 HTML元素，<ins>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</ins>。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h5 class="page-header">带下划线的文本：<code>&lt;u&gt;</code></h5>
+  <p>样式表定义如何显示 HTML元素，<u>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</u>。样式通常保存在外部的 .css
+    文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p>样式表定义如何显示 HTML元素，<u>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</u>。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h5 class="page-header">小号文本：<code>&lt;small&gt;</code></h5>
+  <p>样式表定义如何显示 HTML元素，<small>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</small>。样式通常保存在外部的 .css
+    文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p>样式表定义如何显示 HTML元素，<small>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</small>。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h5 class="page-header">着重文本：<code>&lt;strong&gt;</code></h5>
+  <p>样式表定义如何显示 HTML元素，<stong>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</stong>。样式通常保存在外部的 .css
+    文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p>样式表定义如何显示 HTML元素，<stong>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</stong>。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h5 class="page-header">斜体文本：<code>&lt;em&gt;</code></h5>
+  <p>样式表定义如何显示 HTML元素，<em>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</em>。样式通常保存在外部的 .css
+    文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p>样式表定义如何显示 HTML元素，<em>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</em>。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h4 class="page-header">文本的对齐方式：</h4>
+  <p class="text-left">文字左对齐，默认</p>
+  <p class="text-center">文本居中对齐</p>
+  <p class="text-right">文本右对齐</p>
+  <p class="text-justify">两端对齐</p>
+  <p class="text-nowrap">文本不换行，一行显示。样式表定义如何显示 HTML元素，<em>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</em>。样式通常保存在外部的 .css
+    文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  <pre name="pre" class="html">
+<p class="text-left">文字左对齐，默认</p>
+<p class="text-center">文本居中对齐</p>
+<p class="text-right">文本右对齐</p>
+<p class="text-justify">两端对齐</p>
+<p class="text-nowrap">文本不换行，一行显示。样式表定义如何显示 HTML元素，<em>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</em>。样式通常保存在外部的 .css文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </pre>
+  <h4 class="page-header">改变文字的大小写：</h4>
+  <p class="text-lowercase">Lowercased text.</p>
+  <p class="text-uppercase">Uppercased text.</p>
+  <p class="text-capitalize">Capitalized text.</p>
+  <pre name="pre" class="html">
+<p class="text-lowercase">Lowercased text.</p>
+<p class="text-uppercase">Uppercased text.</p>
+<p class="text-capitalize">Capitalized text.</p>
+  </pre>
+  <h4 class="page-header">引用</h4>
+  <h5 class="page-header">默认引入样式</h5>
+  <blockquote>
+    <p>样式表定义如何显示 HTML元素，<em>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</em>。样式通常保存在外部的 .css
+      文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+  </blockquote>
+  <pre name="pre" class="html">
+<blockquote>
+<p>样式表定义如何显示 HTML元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+</blockquote>
+      </pre>
+  <h5 class="page-header">带引入源的引入样式</h5>
+  <blockquote>
+    <p>样式表定义如何显示 HTML元素，<em>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</em>。样式通常保存在外部的 .css
+      文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+    <footer>备注说明<cite title="这是备注说明">这是备注说明</cite></footer>
+  </blockquote>
+  <pre name="pre" class="html">
+<blockquote>
+<p>样式表定义如何显示 HTML元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+<footer>备注说明<cite title="这是备注说明">这是备注说明</cite></footer>
+</blockquote>
+      </pre>
+  <h5 class="page-header">右对齐的引入，给引入标签添加<code>.blockquote-reverse</code>类来实现。</h5>
+  <blockquote class="blockquote-reverse">
+    <p>样式表定义如何显示 HTML元素，<em>就像 HTML 3.2 的字体标签和颜色属性所起的作用那样</em>。样式通常保存在外部的 .css
+      文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+    <footer>备注说明<cite title="这是备注说明">这是备注说明</cite></footer>
+  </blockquote>
+  <pre name="pre" class="html">
+<blockquote class="blockquote-reverse">
+<p>样式表定义如何显示 HTML元素，就像 HTML 3.2 的字体标签和颜色属性所起的作用那样。样式通常保存在外部的 .css 文件中。通过仅仅编辑一个简单的CSS文档，外部样式表使你有能力同时改变站点中所有页面的布局和外观。</p>
+<footer>备注说明<cite title="这是备注说明">这是备注说明</cite></footer>
+</blockquote>
+      </pre>
+  <h4 class="page-header">描述</h4>
+  <h5 class="page-header">带有描述的短语列表。</h5>
+  <dl>
+    <dt>CSS</dt>
+    <dd>层叠样式表(英文全称：Cascading Style
+      Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</dd>
+    <dt>HTML</dt>
+    <dd>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容</dd>
+    <dt>JavaScript</dt>
+    <dd>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</dd>
+  </dl>
+  <pre name="pre" class="html">
+<dl>
+  <dt>CSS</dt>
+  <dd>层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</dd>
+  <dt>HTML</dt>
+  <dd>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容</dd>
+  <dt>JavaScript</dt>
+  <dd>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</dd>
+</dl>
+      </pre>
+  <h5 class="page-header">水平排列的带有描述的短语列表，只需要给<code>&lt;dl&gt;</code>添加<code>dl-horizontal</code>类即可实现</h5>
+  <dl class="dl-horizontal">
+    <dt>CSS</dt>
+    <dd>层叠样式表(英文全称：Cascading Style
+      Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</dd>
+    <dt>HTML</dt>
+    <dd>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容</dd>
+    <dt>JavaScript</dt>
+    <dd>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</dd>
+  </dl>
+  <pre name="pre" class="html">
+<dl class="dl-horizontal">
+  <dt>CSS</dt>
+  <dd>层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</dd>
+  <dt>HTML</dt>
+  <dd>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容</dd>
+  <dt>JavaScript</dt>
+  <dd>JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</dd>
+</dl>
+      </pre>
+</div>
+
+
+  </div>
+  </div>
+  <script src="../js/public.js"></script>
+</body>
+</html>
+

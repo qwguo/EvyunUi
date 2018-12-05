@@ -4279,6 +4279,22 @@ $(function(){
           dom.mCustomScrollbar("update");
         }
         break;
+      case 'selectDate':
+        dom.datePicker({
+          hasShortcut: true,
+          format:'YYYY-MM-DD',
+          shortcutOptions: [{
+            name: '今天',
+            day: '0'
+          }, {
+            name: '昨天',
+            day: '-1'
+          }, {
+            name: '一周前',
+            day: '-7'
+          }]
+        });
+        break;
     }
   });
 });
