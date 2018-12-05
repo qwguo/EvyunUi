@@ -3890,7 +3890,8 @@ and dependencies (minified).
     // 计算弹窗宽高
     popupCountWH: function () {
       var that = this,
-        j = that.j;
+        j = that.j,
+        winAttr = that.winAttr();
       switch (j.type) {
         case 3:
           (function () {
@@ -3902,7 +3903,7 @@ and dependencies (minified).
               if(!j.size.full){
                 iframes.css({
                   "width": (j.size.width === 'auto' ? iframes.contents().width() : j.size.width) + "px",
-                  "height": (j.size.height === 'auto' ? iframes.contents().height() : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight()+5 : 0))) + "px"
+                  "height": (j.size.height === 'auto' ? iframes.contents().height() : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0))) + "px"
                 });
               }else{
                 iframes.css({
@@ -3910,8 +3911,32 @@ and dependencies (minified).
                   height: that.popup.height() -  (j.head ? that.popup.find('.popup-head').outerHeight()+5 : 0) + 'px'
                 });
               }
+              (function(){
+                var w = j.size.width,
+                  h = j.size.height;
+                w = (w === 'auto' ? that.popup.width() : w);
+                h = (h === 'auto' ? that.popup.height() : h);
+                w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
+                h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
+                that.popup.css({width: w + 'px', height: h + 'px'});
+                iframes.css({
+                  width: w + 'px',
+                  height: (h - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0)) + 'px'
+                });
+              }());
               that.popupOffset();
             });
+          }());
+          break;
+        default:
+          (function(){
+            var w = j.size.width,
+              h = j.size.height;
+            w = (w === 'auto' ? that.popup.width() : w);
+            h = (h === 'auto' ? that.popup.height() : h);
+            w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
+            h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
+            that.popup.css({width: w + 'px', height: h + 'px'});
           }());
           break;
       }
