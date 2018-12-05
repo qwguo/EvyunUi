@@ -32,16 +32,6 @@
   content: "\e61f"
 }
 
-a {
-  color: #20a0ff
-}
-
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box
-}
 
 .c-datepicker-picker {
   -webkit-box-sizing: border-box;
@@ -49,17 +39,7 @@ a {
   box-sizing: border-box;
   width: 296px;
   position: absolute;
-  z-index: 2001
-}
-
-.c-datepicker-picker *:before,
-.c-datepicker-picker *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box
-}
-
-.c-datepicker-picker {
+  z-index: 2001;
   color: #333;
   border: 1px solid #e4e7ed;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
@@ -74,7 +54,14 @@ a {
       text-decoration:none;
     }
   }
+  *:before,
+  *:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+  }
 }
+
 
 .c-datepicker-date-picker.has-time .c-datepicker-picker__body-wrapper {
   position: relative
