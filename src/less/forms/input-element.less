@@ -39,7 +39,7 @@
   display: inline-block;
   position: relative;
   font-size: @input-font-size;
-  margin-bottom:@input-margin-bottom;
+  margin-bottom: @input-margin-bottom;
   > input {
     height: @input-height;
     background-color: @input-bg;
@@ -48,7 +48,7 @@
     color: @input-color;
     border-radius: @input-radius;
     outline: 0;
-    &:hover{
+    &:hover {
       border-color: darken(@input-border-color, 8%);
     }
     &:focus {
@@ -80,9 +80,9 @@
       left: 0;
     }
   }
-  &.block{
+  &.block {
     display: block;
-    > input{
+    > input {
       width: 100%;
     }
   }
@@ -91,7 +91,7 @@
       color: @input-disabled-color;
       background-color: @input-disabled-bg;
       border-color: @input-disabled-border-color;
-      cursor: @cursor-disabled!important;
+      cursor: @cursor-disabled !important;
     }
   }
   &.error {
@@ -108,6 +108,12 @@
       border-color: @input-success-border-color;
     }
   }
+  &[data-toggle="datePicker"] {
+    > input {
+      cursor: pointer;
+
+    }
+  }
 }
 
 //Input Group
@@ -115,24 +121,25 @@
   font-size: 0;
   > .input-element,
   > .input-element-brothers,
-  > .input-element-joint{
+  > .input-element-joint {
     margin-left: 15px;
   }
   > .input-element:first-child,
   > .input-element-brothers:first-child,
   > .input-element-joint:first-child,
-  > .input-element.block{
+  > .input-element.block {
     margin-left: 0;
   }
 }
+
 // Brothers Input
-.input-element-brothers{
+.input-element-brothers {
   font-size: 0;
   display: inline-block;
   > .input-element {
     margin-left: 0;
   }
-  > .brothers-line{
+  > .brothers-line {
     display: inline-block;
     font-size: @input-font-size;
     height: @input-height;
@@ -141,23 +148,30 @@
     color: darken(@input-border-color, 20%);
     font-style: normal;
   }
+  &[data-toggle="datePicker"] {
+    > .input-element{
+      > input {
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 //Joint Input
-.input-element-joint{
-  font-size:0;
+.input-element-joint {
+  font-size: 0;
   display: inline-block;
-  > .input-element:first-child{
-    > input{
+  > .input-element:first-child {
+    > input {
       .border-right-radius(0);
     }
   }
-  > .input-element:last-child{
-    > input{
+  > .input-element:last-child {
+    > input {
       .border-left-radius(0);
     }
   }
-  > .joint-line{
+  > .joint-line {
     display: inline-block;
     vertical-align: top;
     font-size: @input-font-size;
@@ -167,15 +181,23 @@
     color: darken(@input-border-color, 20%);
     font-style: normal;
     border-width: @input-border-width 0;
-    border-style:solid;
+    border-style: solid;
     border-color: @input-border-color;
   }
+  &[data-toggle="datePicker"] {
+    > .input-element{
+      > input {
+        cursor: pointer;
+      }
+    }
+  }
 }
+
 //btn input
-.input-element-btn{
+.input-element-btn {
   font-size: 0;
   display: inline-block;
-  > .input-element{
+  > .input-element {
     margin-bottom: 0;
     &:first-child {
       margin-right: -(@input-border-width);

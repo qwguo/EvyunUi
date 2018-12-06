@@ -7760,6 +7760,9 @@ a.thumbnail.active {
   background-color: #fff;
   border-color: green;
 }
+.input-element[data-toggle="datePicker"] > input {
+  cursor: pointer;
+}
 .input-element-group {
   font-size: 0;
 }
@@ -7790,6 +7793,9 @@ a.thumbnail.active {
   color: #acbac5;
   font-style: normal;
 }
+.input-element-brothers[data-toggle="datePicker"] > .input-element > input {
+  cursor: pointer;
+}
 .input-element-joint {
   font-size: 0;
   display: inline-block;
@@ -7814,6 +7820,9 @@ a.thumbnail.active {
   border-width: 1px 0;
   border-style: solid;
   border-color: #E8ECEF;
+}
+.input-element-joint[data-toggle="datePicker"] > .input-element > input {
+  cursor: pointer;
 }
 .input-element-btn {
   font-size: 0;

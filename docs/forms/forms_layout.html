@@ -214,195 +214,22 @@
         </div>
       </div>
     </form>
+    <h4>表单每项的代码结构如下：</h4>
     <pre class="html" name="pre">
+<!--首先要给form元素或者div元素添加form-element类-->
 <form action="" class="form-element">
+  <!--表单每一项使用form-item类包裹-->
   <div class="form-item">
+    <!--表单项名称使用item-label类-->
     <label class="item-label">产品名称：</label>
+    <!--表单项内容使用item-con类-->
     <div class="item-con">
+      <!--这里边放表单的其他元素，包括输入框，单选，复选，切换，下拉，多行输入都可以-->
       <div class="input-element">
         <input type="text" placeholder="产品名称">
       </div>
+      <!--这是表单项的说明文字使用item-tip类，text-gray表示默认灰色字，同时也可以使用其他状态文字-->
       <span class="item-tip text-gray"><i class="evicon evicon-point-1"></i>这是默认提示信息</span>
-    </div>
-  </div>
-  <div class="form-item">
-    <label class="item-label">产品编号：</label>
-    <div class="item-con">
-      <div class="input-element">
-        <input type="text" placeholder="产品编号">
-      </div>
-      <span class="item-tip text-warning"><i class="evicon evicon-close-2"></i>这是错误提示信息</span>
-    </div>
-  </div>
-  <div class="form-item">
-    <label class="item-label">产品属性：</label>
-    <div class="item-con">
-      <div class="checkbox-element-group">
-        <label class="checkbox-element">
-          <input type="checkbox" name="hobby_1_1">
-          <i class="dot evicon evicon-right-2"></i>
-          <span class="checkbox-label">体育</span>
-        </label>
-        <label class="checkbox-element checked">
-          <input type="checkbox" checked="checked" name="hobby_1_1">
-          <i class="dot evicon evicon-right-2"></i>
-          <span class="checkbox-label">音乐</span>
-        </label>
-        <label class="checkbox-element disabled">
-          <input type="checkbox" disabled="disabled" name="hobby_1">
-          <i class="dot evicon evicon-right-2"></i>
-          <span class="checkbox-label">旅游</span>
-        </label>
-        <label class="checkbox-element checked">
-          <input type="checkbox" checked="checked" name="hobby_1">
-          <i class="dot evicon evicon-right-2"></i>
-          <span class="checkbox-label">交友</span>
-        </label>
-        <label class="checkbox-element checked">
-          <input type="checkbox" checked="checked" name="hobby_1">
-          <i class="dot evicon evicon-right-2"></i>
-          <span class="checkbox-label">上网</span>
-        </label>
-        <label class="checkbox-element">
-          <input type="checkbox" name="hobby_1">
-          <i class="dot evicon evicon-right-2"></i>
-          <span class="checkbox-label">学习</span>
-        </label>
-        <label class="checkbox-element">
-          <input type="checkbox" name="hobby_1">
-          <i class="dot evicon evicon-right-2"></i>
-          <span class="checkbox-label">睡觉</span>
-        </label>
-        <label class="checkbox-element checked">
-          <input type="checkbox" checked="checked" name="hobby_1">
-          <i class="dot evicon evicon-right-2"></i>
-          <span class="checkbox-label">美食</span>
-        </label>
-      </div>
-      <span class="item-tip text-success"><i class="evicon evicon-right-1"></i>这是正确提示信息</span>
-    </div>
-  </div>
-  <div class="form-item">
-    <label class="item-label">产品分类：</label>
-    <div class="item-con">
-      <div class="select-element dropdown">
-        <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown" aria-haspopup="false">
-          <input type="text" readonly="readonly" placeholder="输入文字">
-          <i class="evicon evicon-arrow-up-2"></i>
-        </div>
-        <div class="option-list dropdown-menu">
-          <dl>
-            <dt><span>CSS系列教程</span></dt>
-            <dd title="CSS2系列教程" data-value="1"><a href="###"><span>CSS2系列教程</span></a></dd>
-            <dd title="CSS3系列教程" data-value="1"><a href="###"><span>CSS3系列教程</span></a></dd>
-            <dt><span>HTML系列教程</span></dt>
-            <dd title="HTML4系列教程" data-value="2" class="disabled"><a href="###"><span>HTML4系列教程</span></a></dd>
-            <dd title="HTML4系列教程" data-value="2"><a href="###"><span>HTML4系列教程</span></a></dd>
-            <dd title="HTML5系列教程" data-value="2"><a href="###"><span>HTML5系列教程</span></a></dd>
-            <dt><span>ECMAScript系列教程</span></dt>
-            <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript3.0系列教程</span></a></dd>
-            <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript4.0系列教程</span></a></dd>
-            <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-            <dd title="JScript系列教程" data-value="3" class="disabled"><a href="###"><span>JScript系列教程</span></a></dd>
-            <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-            <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="form-item">
-    <label class="item-label">是否推荐：</label>
-    <div class="item-con">
-      <div class="radio-element-group">
-        <label class="radio-element">
-          <input type="radio" name="tuijian">
-          <i class="dot"></i>
-          <span class="radio-label">是</span>
-        </label>
-        <label class="radio-element checked">
-          <input type="radio" checked="checked" name="tuijian">
-          <i class="dot"></i>
-          <span class="radio-label">否</span>
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-item">
-    <label class="item-label">是否热卖：</label>
-    <div class="item-con">
-      <div class="switch-element-group">
-        <label class="switch-element">
-          <input type="checkbox" name="hobby_1">
-          <span class="switch-btn">
-            <i class="NO">No</i>
-            <i class="OFF">OFF</i>
-            <em class="dot"></em>
-          </span>
-        </label>
-        <label class="switch-element checked">
-          <input type="checkbox" checked="checked" name="hobby_1">
-          <span class="switch-btn">
-            <i class="NO">No</i>
-            <i class="OFF">OFF</i>
-            <em class="dot"></em>
-          </span>
-        </label>
-        <label class="switch-element">
-          <input type="checkbox" name="hobby_1">
-          <span class="switch-btn">
-            <i class="NO">No</i>
-            <i class="OFF">OFF</i>
-            <em class="dot"></em>
-          </span>
-        </label>
-      </div>
-    </div>
-  </div>
-  <div class="form-item">
-    <label class="item-label">产品图片：</label>
-    <div class="item-con">
-      <div class="upload-element" data-toggle="upload">
-        <ul class="upload-images-list">
-          <li class="list-item">
-            <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
-            <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
-          </li>
-          <li class="list-item">
-            <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
-            <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
-          </li>
-          <li class="list-item">
-            <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
-            <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
-          </li>
-          <li class="list-item">
-            <a href="###" class="image-remove-btn badge-circle xs badge-warning"><i class="evicon evicon-close-1"></i></a>
-            <div class="show-image"><img src="../../images/tu.jpg" alt=""></div>
-          </li>
-          <li class="upload-btn">
-            <input type="file" name="upload_0">
-            <i class="x"></i>
-            <i class="y"></i>
-          </li>
-        </ul>
-      </div>
-      <span class="item-tip text-gray block"><i class="evicon evicon-close-2"></i>这是单行提示信息</span>
-    </div>
-  </div>
-  <div class="form-item">
-    <label class="item-label">产品说明：</label>
-    <div class="item-con">
-      <div class="textarea-element block">
-        <textarea placeholder="产品说明" cols="50" rows="5"></textarea>
-      </div>
-      <span class="item-tip text-gray block"><i class="evicon evicon-close-2"></i>这是单行提示信息</span>
-    </div>
-  </div>
-  <div class="form-item">
-    <label class="item-label"></label>
-    <div class="item-con">
-      <input type="submit" class="btn btn-primary" value="上架产品">
     </div>
   </div>
 </form>
@@ -604,6 +431,39 @@
         </form>
       </div>
     </fieldset>
+    <h4>表单每项的代码结构如下：</h4>
+    <pre class="html" name="pre">
+<!--这是使用分组模块里边的分组区块来包裹表单-->
+<fieldset class="fieldset">
+  <legend class="fieldset-heading">表单1</legend>
+  <div class="fieldset-body">
+    <!--首先要给form元素或者div元素添加form-element类-->
+    <form action="" class="form-element">
+      <!--使用类名为form-item-group元素来包裹多个form-item元素实现一行多表单项-->
+      <div class="form-item-group">
+        <div class="form-item">
+          <label class="item-label">项目1：</label>
+          <div class="item-con">
+            ...
+          </div>
+        </div>
+        <div class="form-item">
+          <label class="item-label">项目2：</label>
+          <div class="item-con">
+            ...
+          </div>
+        </div>
+        <div class="form-item">
+          <label class="item-label">项目3：</label>
+          <div class="item-con">
+            ...
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</fieldset>
+    </pre>
   </div>
   <div class="show-forms-layout">
     <fieldset class="fieldset fieldset-top-border">
@@ -771,6 +631,25 @@
         </form>
       </div>
     </fieldset>
+    <h4>表单每项的代码结构如下：</h4>
+    <pre class="html" name="pre">
+<!--这是使用分组模块里边的分组区块来包裹表单-->
+<fieldset class="fieldset">
+  <legend class="fieldset-heading">表单1</legend>
+  <div class="fieldset-body">
+    <!--首先要给form元素或者div元素添加form-element类-->
+    <form action="" class="form-element">
+      <div class="form-item">
+        <!--我们给项目名item-label添加black类实现项目名单行显示效果-->
+        <label class="item-label block">项目1：</label>
+        <div class="item-con">
+          ...
+        </div>
+      </div>
+    </form>
+  </div>
+</fieldset>
+    </pre>
   </div>
 </div>
   

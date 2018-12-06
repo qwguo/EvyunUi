@@ -26,7 +26,7 @@
     <h4 class="page-header">单日期选择器</h4>
     <div class="input-element prefix" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="0">
       <i class="evicon evicon-date-1"></i>
-      <input type="text" size="20" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="">
+      <input type="text" size="20" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-5">
     </div>
     <pre class="html" name="pre">
 <div class="input-element" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="0">
@@ -61,6 +61,7 @@
           <li><code>data-date-max="2019-01-02"</code>：表示最大日期，时间可选择的范围，格式和日期格式一致</li>
           <li><code>data-date-min="2018-01-09"</code>：表示最小日期，时间可选择的范围，格式和日期格式一致</li>
           <li><code>data-date-isrange="0"</code>：表示是否开启日期区间选择，<code>0</code>或比添加：表示不开启，<code>1</code>：表示开启，<span class="text-warning">如果开启必须有两个<code>input</code>标签</span></li>
+          <li>给子元素<code>input</code>：添加<code>value="2018-12-05"</code>属性来实现默认日期值，如果不添加表示使用系统当前日期；</li>
         </ol>
       </dd>
     </dl>
@@ -108,6 +109,17 @@
   <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年/月/日" value="">
 </div>
     </pre>
+    <h5 class="page-header">禁止选择</h5>
+    <div class="input-element suffix disabled" data-toggle="datePicker" data-date-type="YYYY-MM-DD HH:mm:ss" data-date-max="2019-10-10" data-date-min="2018-10-03">
+      <i class="evicon evicon-date-2"></i>
+      <input type="text" autocomplete="off" name="" disabled="disabled" readonly="readonly" placeholder="选择年/月/日" value="">
+    </div>
+    <pre class="html" name="pre">
+<div class="input-element suffix" data-toggle="datePicker" data-date-type="YYYY-MM-DD HH:mm" data-date-max="2019-10-10" data-date-min="2018-10-03">
+  <i class="evicon evicon-date-2"></i>
+  <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年/月/日" value="">
+</div>
+    </pre>
   </div>
 
   <div class="datePicker-show">
@@ -115,21 +127,21 @@
     <h5 class="page-header">年、月、日日期范围</h5>
     <div class="input-element-joint" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
       <div class="input-element">
-        <input type="text" placeholder="输入文字">
+        <input size="10" type="text" readonly="readonly" placeholder="输入文字">
       </div>
       <i class="joint-line">至</i>
       <div class="input-element">
-        <input type="text" placeholder="输入文字">
+        <input size="10" type="text" readonly="readonly" placeholder="输入文字">
       </div>
     </div>
     <pre class="html" name="pre">
 <div class="input-element-joint" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
   <div class="input-element">
-    <input type="text" placeholder="输入文字">
+    <input size="10" type="text" readonly="readonly" placeholder="输入文字">
   </div>
   <i class="joint-line">至</i>
   <div class="input-element">
-    <input type="text" placeholder="输入文字">
+    <input size="10" type="text" readonly="readonly" placeholder="输入文字">
   </div>
 </div>
     </pre>
@@ -137,24 +149,24 @@
     <div class="input-element-joint" data-toggle="datePicker" data-date-type="YYYY-MM-DD HH:mm:ss" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
       <div class="input-element prefix">
         <i class="evicon evicon-date-1"></i>
-        <input type="text" placeholder="输入文字">
+        <input size="10" type="text" readonly="readonly" placeholder="输入文字">
       </div>
       <i class="joint-line">至</i>
       <div class="input-element suffix">
         <i class="evicon evicon-date-1"></i>
-        <input type="text" placeholder="输入文字">
+        <input size="10" type="text" readonly="readonly" placeholder="输入文字">
       </div>
     </div>
     <pre class="html" name="pre">
 <div class="input-element-joint prefix" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
   <div class="input-element">
     <i class="evicon evicon-date-1"></i>
-    <input type="text" placeholder="输入文字">
+    <input size="10" type="text" readonly="readonly" placeholder="输入文字">
   </div>
   <i class="joint-line">至</i>
   <div class="input-element suffix">
     <i class="evicon evicon-date-1"></i>
-    <input type="text" placeholder="输入文字">
+    <input size="10" type="text" readonly="readonly" placeholder="输入文字">
   </div>
 </div>
     </pre>

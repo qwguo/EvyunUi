@@ -11,7 +11,7 @@
   <title>隐藏显示</title>
 </head>
 <body>
-  <div class="main-menu" id="mainMenu">
+  <div class="main-menu" id="mainMenu" data-toggle="customScroll" data-axis="y" data-position="outside" data-theme="dark-3" data-scrollbtn="1">
     <dl v-for="big,bkey in list" v-bind:class="{'cur': big.cur}">
       <dt><a :href="'#'+big.name" v-on:click="details(bkey)"><b>{{big.title}}</b><i></i></a></dt>
       <dd v-if="big.sub &&big.sub.length">
@@ -28,6 +28,8 @@
   </div>
   <script src="js/vue.js"></script>
   <script src="js/menu.js"></script>
+  <script src="../dist/js/evPublicInit-min.js"></script>
+
 </body>
 </html>
 
