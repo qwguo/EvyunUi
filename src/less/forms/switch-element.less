@@ -168,13 +168,19 @@
     }
     .switchSize(@switch-width; @switch-height; @switch-radius; @switch-font-size);
   }
-  &.switch-element-disabled {
-    > .switch-btn {
-      cursor: @cursor-disabled;
-      .switchColor(@switch-disabled-bg; @switch-disabled-bg; @switch-disabled-border-color; @switch-disabled-dot-bg; @switch-disabled-color;);
+  &.disabled {
+    input{
+      & + .switch-btn {
+        cursor: @cursor-disabled;
+        .switchColor(@switch-disabled-bg; @switch-disabled-bg; @switch-disabled-border-color; @switch-disabled-dot-bg; @switch-disabled-color;);
+      }
+
+      &:checked + .switch-btn{
+        .switchColor(tint(@switch-bg, 75%); tint(@switch-checked-bg, 75%); tint(@switch-border-color, 75%); tint(@switch-dot-bg, 60%); tint(@switch-color, 60%););
+      }
     }
   }
-  &.switch-element-error {
+  &.error {
     > .switch-btn {
       .switchColor(@switch-error-bg; @switch-error-bg; @switch-error-border-color; @switch-error-dot-bg; @switch-error-color;);
     }

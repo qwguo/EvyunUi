@@ -14,12 +14,36 @@
         </div>
       </div>
       <div class="form-item">
+        <label class="item-label">产品别名：</label>
+        <div class="item-con">
+          <div class="input-element disabled">
+            <input type="text" disabled="disabled" placeholder="产品别名">
+          </div>
+          <span class="item-tip text-gray"><i class="evicon evicon-point-1"></i>这是默认提示信息</span>
+        </div>
+      </div>
+      <div class="form-item">
         <label class="item-label">产品编号：</label>
         <div class="item-con">
-          <div class="input-element">
+          <div class="input-element error">
             <input type="text" placeholder="产品编号">
           </div>
           <span class="item-tip text-warning"><i class="evicon evicon-close-2"></i>这是错误提示信息</span>
+        </div>
+      </div>
+      <div class="form-item">
+        <label class="item-label">产品价格区间：</label>
+        <div class="item-con">
+          <div class="input-element-brothers">
+            <div class="input-element">
+              <input type="text" size="10" placeholder="最低价格">
+            </div>
+            <i class="brothers-line">&mdash;</i>
+            <div class="input-element">
+              <input type="text" size="10" placeholder="最高价格">
+            </div>
+          </div>
+          <span class="item-tip text-primary"><i class="evicon evicon-close-2"></i>这是醒目提示</span>
         </div>
       </div>
       <div class="form-item">
@@ -51,8 +75,8 @@
               <i class="dot evicon evicon-right-2"></i>
               <span class="checkbox-label">上网</span>
             </label>
-            <label class="checkbox-element">
-              <input type="checkbox" name="hobby_1">
+            <label class="checkbox-element checked disabled">
+              <input type="checkbox" checked="checked" disabled="disabled" name="hobby_1">
               <i class="dot evicon evicon-right-2"></i>
               <span class="checkbox-label">学习</span>
             </label>
@@ -136,8 +160,24 @@
                 <em class="dot"></em>
               </span>
             </label>
-            <label class="switch-element">
+            <label class="switch-element checked disabled">
+              <input type="checkbox" checked="checked" disabled="disabled" name="hobby_1">
+              <span class="switch-btn">
+                <i class="NO">No</i>
+                <i class="OFF">OFF</i>
+                <em class="dot"></em>
+              </span>
+            </label>
+            <label class="switch-element error">
               <input type="checkbox" name="hobby_1">
+              <span class="switch-btn">
+                <i class="NO">No</i>
+                <i class="OFF">OFF</i>
+                <em class="dot"></em>
+              </span>
+            </label>
+            <label class="switch-element disabled">
+              <input type="checkbox" disabled="disabled" name="hobby_1">
               <span class="switch-btn">
                 <i class="NO">No</i>
                 <i class="OFF">OFF</i>

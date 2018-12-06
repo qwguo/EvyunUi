@@ -23,6 +23,7 @@
   <h3 class="page-header">开关按钮</h3>
   <h4 class="page-header">单个开关按钮</h4>
   <div class="switch-show">
+    <h5 class="page-header">默认开关</h5>
     <label class="switch-element">
       <input type="checkbox" name="hobby_1">
       <span class="switch-btn">
@@ -31,8 +32,7 @@
         <em class="dot"></em>
       </span>
     </label>
-  </div>
-  <pre class="html" name="pre">
+    <pre class="html" name="pre">
 <label class="switch-element">
   <input type="checkbox" name="hobby_1">
   <span class="switch-btn">
@@ -41,11 +41,33 @@
     <em class="dot"></em>
   </span>
 </label>
-      </pre>
+    </pre>
+  </div>
+  <div class="switch-show">
+    <h5 class="page-header">选中开关</h5>
+    <label class="switch-element">
+      <input type="checkbox" checked="checked" name="hobby_1">
+      <span class="switch-btn">
+        <i class="NO">No</i>
+        <i class="OFF">OFF</i>
+        <em class="dot"></em>
+      </span>
+    </label>
+    <pre class="html" name="pre">
+<label class="switch-element">
+  <input type="checkbox" checked="checked" name="hobby_1">
+  <span class="switch-btn">
+    <i class="NO">No</i>
+    <i class="OFF">OFF</i>
+    <em class="dot"></em>
+  </span>
+</label>
+    </pre>
+  </div>
   <div class="checkbox-show">
-    <h5 class="page-header">禁止复选按钮</h5>
+    <h5 class="page-header">禁止使用开关</h5>
     <div class="switch-element-group">
-      <label class="switch-element switch-element-disabled">
+      <label class="switch-element disabled">
         <input type="checkbox" disabled="disabled" name="hobby_1">
         <span class="switch-btn">
           <i class="NO">No</i>
@@ -54,22 +76,47 @@
         </span>
       </label>
     </div>
-  </div>
-  <pre class="html" name="pre">
+    <pre class="html" name="pre">
 <div class="checkbox-element-group">
-<label class="switch-element switch-element-disabled">
-  <input type="checkbox" name="hobby_1">
+  <label class="switch-element disabled">
+    <input type="checkbox" name="hobby_1">
     <span class="switch-btn">
       <i class="NO">No</i>
       <i class="OFF">OFF</i>
       <em class="dot"></em>
     </span>
-</label>
+  </label>
 </div>
     </pre>
+  </div>
+  <div class="checkbox-show">
+    <h5 class="page-header">禁止使用选中开关</h5>
+    <div class="switch-element-group">
+      <label class="switch-element disabled">
+        <input type="checkbox" checked="checked" disabled="disabled" name="hobby_1">
+        <span class="switch-btn">
+          <i class="NO">No</i>
+          <i class="OFF">OFF</i>
+          <em class="dot"></em>
+        </span>
+      </label>
+    </div>
+    <pre class="html" name="pre">
+<div class="checkbox-element-group">
+  <label class="switch-element disabled">
+    <input type="checkbox" name="hobby_1">
+    <span class="switch-btn">
+      <i class="NO">No</i>
+      <i class="OFF">OFF</i>
+      <em class="dot"></em>
+    </span>
+  </label>
+</div>
+    </pre>
+  </div>
   <div class="checkbox-show">
     <h5 class="page-header">错误提示复选按钮</h5>
-    <label class="switch-element switch-element-error">
+    <label class="switch-element error">
       <input type="checkbox" name="hobby_1">
       <span class="switch-btn">
         <i class="NO">No</i>
@@ -77,9 +124,8 @@
         <em class="dot"></em>
       </span>
     </label>
-  </div>
-  <pre class="html" name="pre">
-<label class="switch-element switch-element-error">
+    <pre class="html" name="pre">
+<label class="switch-element error">
   <input type="checkbox" name="hobby_1">
   <span class="switch-btn">
     <i class="NO">No</i>
@@ -87,9 +133,11 @@
     <em class="dot"></em>
   </span>
 </label>
-      </pre>
+    </pre>
+  </div>
+
+  <h4 class="page-header">多个开关按钮</h4>
   <div class="checkbox-show">
-    <h5 class="page-header">多个开关</h5>
     <div class="switch-element-group">
       <label class="switch-element">
         <input type="checkbox" name="hobby_1">
@@ -116,8 +164,7 @@
         </span>
       </label>
     </div>
-  </div>
-  <pre class="html" name="pre">
+    <pre class="html" name="pre">
 <div class="switch-element-group">
   <label class="switch-element">
     <input type="checkbox" name="hobby_1">
@@ -144,10 +191,11 @@
     </span>
   </label>
 </div>
-      </pre>
+    </pre>
+  </div>
 
+  <h4 class="page-header">开关大小</h4>
   <div class="checkbox-show">
-    <h5 class="page-header">开关大小</h5>
     <p>可以给<code>switch-element</code>类的标签添加<code>lg</code>，<code>sm</code>，<code>xs</code>实现大小开关</p>
     <div class="switch-element-group">
       <label class="switch-element lg">
@@ -183,8 +231,7 @@
         </span>
       </label>
     </div>
-  </div>
-  <pre class="html" name="pre">
+    <pre class="html" name="pre">
 <div class="switch-element-group">
   <label class="switch-element lg">
     <input type="checkbox" name="hobby_1">
@@ -219,7 +266,8 @@
     </span>
   </label>
 </div>
-  </pre>
+    </pre>
+  </div>
 </div>
 
 

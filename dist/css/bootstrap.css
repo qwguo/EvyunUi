@@ -8291,31 +8291,44 @@ a.thumbnail.active {
   left: 30px;
   margin-left: -30px;
 }
-.switch-element.switch-element-disabled > .switch-btn {
+.switch-element.disabled input + .switch-btn {
   cursor: not-allowed;
   background-color: #e9e9e9;
   border-color: #e9e9e9;
 }
-.switch-element.switch-element-disabled > .switch-btn::before {
+.switch-element.disabled input + .switch-btn::before {
   background-color: #e9e9e9;
 }
-.switch-element.switch-element-disabled > .switch-btn > .dot::before {
+.switch-element.disabled input + .switch-btn > .dot::before {
   background-color: #fff;
 }
-.switch-element.switch-element-disabled > .switch-btn > i {
+.switch-element.disabled input + .switch-btn > i {
   color: #bbb;
 }
-.switch-element.switch-element-error > .switch-btn {
+.switch-element.disabled input:checked + .switch-btn {
+  background-color: #f2f4f5;
+  border-color: #f2f4f5;
+}
+.switch-element.disabled input:checked + .switch-btn::before {
+  background-color: #bfe3ff;
+}
+.switch-element.disabled input:checked + .switch-btn > .dot::before {
+  background-color: #ffffff;
+}
+.switch-element.disabled input:checked + .switch-btn > i {
+  color: #ffffff;
+}
+.switch-element.error > .switch-btn {
   background-color: #ff5152;
   border-color: #ff5152;
 }
-.switch-element.switch-element-error > .switch-btn::before {
+.switch-element.error > .switch-btn::before {
   background-color: #ff5152;
 }
-.switch-element.switch-element-error > .switch-btn > .dot::before {
+.switch-element.error > .switch-btn > .dot::before {
   background-color: #fff;
 }
-.switch-element.switch-element-error > .switch-btn > i {
+.switch-element.error > .switch-btn > i {
   color: #fff;
 }
 .switch-element.lg > .switch-btn {
