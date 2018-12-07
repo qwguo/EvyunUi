@@ -3584,8 +3584,8 @@ and dependencies (minified).
     if($this.attr('data-type') === 'select'){
       var optionList = $this.siblings('.option-list');
       if(optionList.length && !$parent.data('selectClick')){
+        optionList.data('toggle') === 'customScroll' && optionList.mCustomScrollbar('scrollTo', ['top', 'left']);
         $parent.data('selectClick', 1);
-        // optionList.data('toggle') === 'customScroll' && (optionList.css('height', 300).mCustomScrollbar("update"), optionList.find('dl').width(500));
         $parent.on('click.dropdown.select', function(ev){
           var cTargetDom = $(ev.target),
               curItem = cTargetDom.closest('dd');
@@ -3603,7 +3603,7 @@ and dependencies (minified).
           }
         });
       }else if(optionList.length){
-        // optionList.data('toggle') === 'customScroll' && optionList.mCustomScrollbar('update');
+        optionList.data('toggle') === 'customScroll' && optionList.mCustomScrollbar('scrollTo',['top','left']);
       }
     }
     return false
@@ -4022,7 +4022,7 @@ and dependencies (minified).
             html: j[1],
             btn:{'btn1':{callBack: j[2]}}
           }
-        }
+        };
       break;
       case $.isPlainObject(j):
           j.type = 1;
@@ -4077,7 +4077,7 @@ and dependencies (minified).
       j = {
         head: j[0],
         con:{
-          text: j[1],
+          html: j[1],
           btn:{
             'btn1':{callBack: j[2]},
             'btn2':{callBack: j[3]}
@@ -9573,7 +9573,8 @@ $(function(){
           };
           domDate.height && (j.setHeight = domDate.height);
           var j_ = {
-            axis:"yx",
+            axis:"x",
+            scrollEasing: "none",
             scrollInertia: 150,
             scrollbarPosition: 'outside',
             theme: "dark-3",

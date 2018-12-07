@@ -27,7 +27,8 @@ $(function(){
           };
           domDate.height && (j.setHeight = domDate.height);
           var j_ = {
-            axis:"yx",
+            axis:"x",
+            scrollEasing: "none",
             scrollInertia: 150,
             scrollbarPosition: 'outside',
             theme: "dark-3",

@@ -5,7 +5,7 @@ var menu = new Vue({
       {
         'title': '网格系统',
         'name': 'grid',
-        'cur': 1,
+        'cur': 0,
         'sub': [
           {'title': '基本布局', 'name': 'column_gird', 'href': 'gird/column_gird.html'},
           {'title': '布局列偏移', 'name': 'column_gird_offset', 'href': 'gird/column_gird_offset.html'}
@@ -61,7 +61,7 @@ var menu = new Vue({
       {
         'title': '分组',
         'name': 'panel',
-        'cur': 0,
+        'cur': 1,
         'sub': [
           {'title': '面板', 'name': 'panel', 'href': 'panel/panel.html'},
           {'title': '标签切换面板', 'name': 'tabpanel', 'href': 'panel/tab_panel.html'},

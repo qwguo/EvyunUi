@@ -336,7 +336,7 @@
             html: j[1],
             btn:{'btn1':{callBack: j[2]}}
           }
-        }
+        };
       break;
       case $.isPlainObject(j):
           j.type = 1;
@@ -391,7 +391,7 @@
       j = {
         head: j[0],
         con:{
-          text: j[1],
+          html: j[1],
           btn:{
             'btn1':{callBack: j[2]},
             'btn2':{callBack: j[3]}

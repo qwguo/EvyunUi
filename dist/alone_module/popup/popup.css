@@ -1,3 +1,393 @@
+.q:before,
+.q:after {
+  display: table;
+  content: " ";
+}
+.q:after {
+  clear: both;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small,
+.h1 small,
+.h2 small,
+.h3 small,
+.h4 small,
+.h5 small,
+.h6 small,
+h1 .small,
+h2 .small,
+h3 .small,
+h4 .small,
+h5 .small,
+h6 .small,
+.h1 .small,
+.h2 .small,
+.h3 .small,
+.h4 .small,
+.h5 .small,
+.h6 .small {
+  font-weight: 400;
+  line-height: 1;
+  color: #b3b3b3;
+}
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+h1 small,
+.h1 small,
+h2 small,
+.h2 small,
+h3 small,
+.h3 small,
+h1 .small,
+.h1 .small,
+h2 .small,
+.h2 .small,
+h3 .small,
+.h3 .small {
+  font-size: 65%;
+}
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+h4 small,
+.h4 small,
+h5 small,
+.h5 small,
+h6 small,
+.h6 small,
+h4 .small,
+.h4 .small,
+h5 .small,
+.h5 .small,
+h6 .small,
+.h6 .small {
+  font-size: 75%;
+}
+h1,
+.h1 {
+  font-size: 36px;
+}
+h2,
+.h2 {
+  font-size: 30px;
+}
+h3,
+.h3 {
+  font-size: 24px;
+}
+h4,
+.h4 {
+  font-size: 18px;
+}
+h5,
+.h5 {
+  font-size: 14px;
+}
+h6,
+.h6 {
+  font-size: 12px;
+}
+p {
+  margin: 0 0 10px;
+}
+.lead {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  /* @media (min-width: @screen-sm-min) {
+    font-size: (@font-size-base * 1.5);
+  } */
+}
+small,
+.small {
+  font-size: 85%;
+}
+mark,
+.mark {
+  padding: 0.2em;
+  background-color: #ffd4d4;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-nowrap {
+  white-space: nowrap;
+}
+.vertical-baseline {
+  vertical-align: baseline;
+}
+.vertical-sub {
+  vertical-align: sub;
+}
+.vertical-super {
+  vertical-align: super;
+}
+.vertical-top {
+  vertical-align: top;
+}
+.vertical-text-top {
+  vertical-align: text-top;
+}
+.vertical-middle {
+  vertical-align: middle;
+}
+.vertical-bottom {
+  vertical-align: bottom;
+}
+.vertical-text-bottom {
+  vertical-align: text-bottom;
+}
+.text-lowercase {
+  text-transform: lowercase;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+.text-muted {
+  color: #a3a3a3;
+}
+.text-gray {
+  color: #a3a3a3;
+}
+a.text-gray:hover,
+a.text-gray:focus {
+  color: #8a8a8a;
+}
+.text-primary {
+  color: #0090FF;
+}
+a.text-primary:hover,
+a.text-primary:focus {
+  color: #0073cc;
+}
+.text-success {
+  color: #39CD8B;
+}
+a.text-success:hover,
+a.text-success:focus {
+  color: #2ba870;
+}
+.text-info {
+  color: #FFB400;
+}
+a.text-info:hover,
+a.text-info:focus {
+  color: #cc9000;
+}
+.text-warning {
+  color: #FF5151;
+}
+a.text-warning:hover,
+a.text-warning:focus {
+  color: #ff1e1e;
+}
+.text-danger {
+  color: #343A40;
+}
+a.text-danger:hover,
+a.text-danger:focus {
+  color: #1d2124;
+}
+.bg-primary {
+  color: #fff;
+  background-color: #0090FF;
+}
+a.bg-primary:hover,
+a.bg-primary:focus {
+  background-color: #0073cc;
+}
+.bg-success {
+  color: #fff;
+  background-color: #39CD8B;
+}
+a.bg-success:hover,
+a.bg-success:focus {
+  background-color: #2ba870;
+}
+.bg-info {
+  color: #fff;
+  background-color: #FFB400;
+}
+a.bg-info:hover,
+a.bg-info:focus {
+  background-color: #cc9000;
+}
+.bg-warning {
+  color: #fff;
+  background-color: #FF5151;
+}
+a.bg-warning:hover,
+a.bg-warning:focus {
+  background-color: #ff1e1e;
+}
+.bg-danger {
+  color: #fff;
+  background-color: #343A40;
+}
+a.bg-danger:hover,
+a.bg-danger:focus {
+  background-color: #1d2124;
+}
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: #b3b3b3 solid 1px;
+}
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-bottom: 0;
+}
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+.list-inline {
+  margin: 0 -5px;
+}
+.list-inline > li {
+  float: left;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+dl {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+dt,
+dd {
+  line-height: 1.42857143;
+}
+dt {
+  font-weight: 700;
+}
+dd {
+  margin-left: 0;
+}
+.dl-horizontal {
+  /* @media (min-width: @dl-horizontal-breakpoint) {
+    dt {
+      float: left;
+      width: (@dl-horizontal-offset - 20);
+      clear: left;
+      text-align: right;
+      .text-overflow();
+    }
+    dd {
+      margin-left: @dl-horizontal-offset;
+    }
+  } */
+}
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid #e6e6e6;
+}
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+blockquote footer,
+blockquote small,
+blockquote .small {
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857143;
+  color: #a3a3a3;
+}
+blockquote footer:before,
+blockquote small:before,
+blockquote .small:before {
+  content: "\2014 \00A0";
+}
+.blockquote-reverse,
+blockquote.pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  text-align: right;
+  border-right: 5px solid #e6e6e6;
+  border-left: 0;
+}
+.blockquote-reverse footer:before,
+blockquote.pull-right footer:before,
+.blockquote-reverse small:before,
+blockquote.pull-right small:before,
+.blockquote-reverse .small:before,
+blockquote.pull-right .small:before {
+  content: "";
+}
+.blockquote-reverse footer:after,
+blockquote.pull-right footer:after,
+.blockquote-reverse small:after,
+blockquote.pull-right small:after,
+.blockquote-reverse .small:after,
+blockquote.pull-right .small:after {
+  content: "\00A0 \2014";
+}
+address {
+  margin-bottom: 20px;
+  font-style: normal;
+  line-height: 1.42857143;
+}
 @font-face {
   font-family: 'evicon';
   /* project id 931572 */

@@ -7389,7 +7389,6 @@ a.thumbnail.active {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 16px;
-  color: inherit;
 }
 .fieldset-heading > a,
 .fieldset-heading > small,
@@ -7438,21 +7437,20 @@ a.thumbnail.active {
   color: #343A40;
 }
 .panel {
-  margin-bottom: 10px;
   background-color: #fff;
   border: 1px solid #f2f2f2;
   border-radius: 0;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-.panel .panel-heading {
+.panel > .panel-heading {
   border-bottom: 1px solid #ededed;
   height: 60px;
   line-height: 60px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.panel .panel-heading .panel-title {
+.panel > .panel-heading .panel-title {
   display: inline-block;
   height: 100%;
   border-bottom: 3px solid transparent;
@@ -7460,34 +7458,50 @@ a.thumbnail.active {
   padding: 0 0.1em;
   color: #333333;
 }
-.panel .panel-heading .panel-title:first-child {
+.panel > .panel-heading .panel-title:first-child {
   margin-left: 30px;
 }
-.panel .panel-heading .panel-title.panel-title-active {
+.panel > .panel-heading .panel-title.panel-title-active {
   color: #0090ff;
   border-color: #0090ff;
 }
-.panel .panel-body {
+.panel > .panel-body {
   padding: 10px;
 }
-.panel .panel-body:before,
-.panel .panel-body:after {
+.panel > .panel-body:before,
+.panel > .panel-body:after {
   display: table;
   content: " ";
 }
-.panel .panel-body:after {
+.panel > .panel-body:after {
   clear: both;
 }
-.panel .panel-body:before,
-.panel .panel-body:after {
+.panel > .panel-body:before,
+.panel > .panel-body:after {
   display: table;
   content: " ";
 }
-.panel .panel-body:after {
+.panel > .panel-body:after {
   clear: both;
 }
-.panel .panel-body.no-spacing {
+.panel > .panel-body.no-spacing {
   padding: 0;
+}
+.panel > .panel-body > .table:last-child {
+  margin-bottom: 0;
+}
+.panel.hover:hover {
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.panel.turn-off .panel-body {
+  display: none;
+}
+.panel.turn-on .panel-body {
+  display: block;
+}
+.panel-group.spacing > .panel {
+  margin-bottom: 10px;
 }
 .tab-panel {
   margin-bottom: 10px;

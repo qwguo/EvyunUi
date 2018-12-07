@@ -90,8 +90,8 @@
     if($this.attr('data-type') === 'select'){
       var optionList = $this.siblings('.option-list');
       if(optionList.length && !$parent.data('selectClick')){
+        optionList.data('toggle') === 'customScroll' && optionList.mCustomScrollbar('scrollTo', ['top', 'left']);
         $parent.data('selectClick', 1);
-        // optionList.data('toggle') === 'customScroll' && (optionList.css('height', 300).mCustomScrollbar("update"), optionList.find('dl').width(500));
         $parent.on('click.dropdown.select', function(ev){
           var cTargetDom = $(ev.target),
               curItem = cTargetDom.closest('dd');
@@ -109,7 +109,7 @@
           }
         });
       }else if(optionList.length){
-        // optionList.data('toggle') === 'customScroll' && optionList.mCustomScrollbar('update');
+        optionList.data('toggle') === 'customScroll' && optionList.mCustomScrollbar('scrollTo',['top','left']);
       }
     }
     return false
