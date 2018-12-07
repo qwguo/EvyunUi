@@ -116,7 +116,7 @@ gulp.task('popup', function(){
     }))
     .pipe(gulp.dest('./dist/alone_module/popup'));
   // css - min
-  gulp.src(['./dist/css/popup.css'])
+  gulp.src(['./dist/alone_module/popup/popup.css'])
     .pipe(rename({suffix: ".min"}))
     .pipe(minifyCss({keepSpecialComments: 1, keepBreaks: false, removeEmpty: true, debug: true}))
     .pipe(gulp.dest('./dist/alone_module/popup'))
