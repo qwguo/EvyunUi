@@ -25,6 +25,7 @@ $(function(){
               enable: !!(domDate.scrollbtn * 1)
             }
           };
+          domDate.height && (j.setHeight = domDate.height);
           var j_ = {
             axis:"yx",
             scrollInertia: 150,

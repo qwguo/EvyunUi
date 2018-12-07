@@ -3585,6 +3585,7 @@ and dependencies (minified).
       var optionList = $this.siblings('.option-list');
       if(optionList.length && !$parent.data('selectClick')){
         $parent.data('selectClick', 1);
+        // optionList.data('toggle') === 'customScroll' && (optionList.css('height', 300).mCustomScrollbar("update"), optionList.find('dl').width(500));
         $parent.on('click.dropdown.select', function(ev){
           var cTargetDom = $(ev.target),
               curItem = cTargetDom.closest('dd');
@@ -3601,6 +3602,8 @@ and dependencies (minified).
             }
           }
         });
+      }else if(optionList.length){
+        // optionList.data('toggle') === 'customScroll' && optionList.mCustomScrollbar('update');
       }
     }
     return false
@@ -9568,6 +9571,7 @@ $(function(){
               enable: !!(domDate.scrollbtn * 1)
             }
           };
+          domDate.height && (j.setHeight = domDate.height);
           var j_ = {
             axis:"yx",
             scrollInertia: 150,

@@ -8422,37 +8422,37 @@ a.thumbnail.active {
   -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
-.select-element > .option-list > .option-list-search {
+.select-element > .option-list .option-list-search {
   margin: 10px 5px 0;
 }
-.select-element > .option-list > .option-list-search > .input-element {
+.select-element > .option-list .option-list-search > .input-element {
   margin-bottom: 0;
 }
-.select-element > .option-list > .option-list-search > .input-element > input {
+.select-element > .option-list .option-list-search > .input-element > input {
   width: 100%;
 }
-.select-element > .option-list > dl {
+.select-element > .option-list dl {
   margin: 0;
   padding: 10px 0;
 }
-.select-element > .option-list > dl > dt,
-.select-element > .option-list > dl > dd {
+.select-element > .option-list dl > dt,
+.select-element > .option-list dl > dd {
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
   white-space: nowrap;
 }
-.select-element > .option-list > dl > dt {
+.select-element > .option-list dl > dt {
   line-height: 30px;
   font-weight: 700;
   font-size: 12px;
 }
-.select-element > .option-list > dl > dt > span {
+.select-element > .option-list dl > dt > span {
   margin: 0 0.5em;
   color: inherit;
   font: inherit;
 }
-.select-element > .option-list > dl > dd > a {
+.select-element > .option-list dl > dd > a {
   display: block;
   cursor: pointer;
   line-height: 28px;
@@ -8460,23 +8460,23 @@ a.thumbnail.active {
   font-size: 12px;
   text-decoration: none;
 }
-.select-element > .option-list > dl > dd > a > span {
+.select-element > .option-list dl > dd > a > span {
   display: inline-block;
   margin: 0 1em;
 }
-.select-element > .option-list > dl > dd > a:hover,
-.select-element > .option-list > dl > dd > a:focus {
+.select-element > .option-list dl > dd > a:hover,
+.select-element > .option-list dl > dd > a:focus {
   outline: 0;
   background-color: #f5f5f5;
 }
-.select-element > .option-list > dl > dd.disabled > a,
-.select-element > .option-list > dl > dd.disabled > a:hover {
+.select-element > .option-list dl > dd.disabled > a,
+.select-element > .option-list dl > dd.disabled > a:hover {
   background-color: #e9ecef;
   color: #a5a5a6;
   cursor: not-allowed;
 }
-.select-element > .option-list > dl > dd.active > a,
-.select-element > .option-list > dl > dd.active > a:hover {
+.select-element > .option-list dl > dd.active > a,
+.select-element > .option-list dl > dd.active > a:hover {
   background-color: #f0f0f0;
   color: #666;
 }
@@ -9854,12 +9854,12 @@ yx-axis
   left: 0;
   right: 0;
   bottom: 0;
-  margin-right: 30px;
-  margin-bottom: 30px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 .mCSB_container_wrapper > .mCSB_container {
-  padding-right: 30px;
-  padding-bottom: 30px;
+  padding-right: 20px;
+  padding-bottom: 20px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }

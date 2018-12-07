@@ -132,16 +132,18 @@
       </div>
     </div>
     <script>
-      $('#my_fun_scroll').mCustomScrollbar({
-        axis:"yx",
-        scrollInertia: 150,
-        scrollbarPosition: 'outside',
-        theme: "dark-3",
-        autoHideScrollbar: false,
-        mouseWheel: {preventDefault: true},
-        scrollButtons: {
-          enable: true
-        }
+      $(function(){
+        $('#my_fun_scroll').mCustomScrollbar({
+          axis:"yx",
+          scrollInertia: 150,
+          scrollbarPosition: 'outside',
+          theme: "dark-3",
+          autoHideScrollbar: false,
+          mouseWheel: {preventDefault: true},
+          scrollButtons: {
+            enable: true
+          }
+        });
       });
     </script>
     <pre class="js" name="pre">
