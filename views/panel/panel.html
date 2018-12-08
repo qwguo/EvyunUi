@@ -1,5 +1,5 @@
 @@include('../include/head.html')
-<script src="/src/js/collapse.js"></script>
+
 <div class="show-panel">
   <h3 class="page-header">面板</h3>
   <h4 class="page-header">基本面板使用</h4>
@@ -263,13 +263,11 @@
     <fieldset class="fieldset">
       <legend class="fieldset-heading text-info">用面板制作折叠，展开效果</legend>
       <div class="fieldset-body">
-        <div class="panel-group spacing">
+        <div class="panel-group" data-toggle="collapse" data-operate-target="panel" data-click-target="panel-heading" data-switch-target="panel-body">
           <div class="panel turn-on">
-            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion"
-                 href="#collapseexample"><span class="panel-title panel-title-active">面板标题</span></div>
-            <div class="panel-body spacing" id="collapseexample">
+            <div class="panel-heading"><span class="panel-title panel-title-active">面板标题</span></div>
+            <div class="panel-body">
               面板内容区
-
             </div>
           </div>
           <div class="panel turn-off">

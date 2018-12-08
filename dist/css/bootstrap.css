@@ -7503,7 +7503,7 @@ a.thumbnail.active {
 .panel-group.spacing > .panel {
   margin-bottom: 10px;
 }
-.tab-panel {
+e1e1e1 .tab-panel {
   margin-bottom: 10px;
   background-color: #fff;
   border: 1px solid #f2f2f2;
@@ -7511,14 +7511,14 @@ a.thumbnail.active {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-.tab-panel .tab-panel-heading {
+e1e1e1 .tab-panel .tab-panel-heading {
   border-bottom: 1px solid #ededed;
   height: 60px;
   line-height: 60px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-.tab-panel .tab-panel-heading .tab-panel-title {
+e1e1e1 .tab-panel .tab-panel-heading .tab-panel-title {
   display: inline-block;
   height: 100%;
   border-bottom: 3px solid transparent;
@@ -7528,37 +7528,37 @@ a.thumbnail.active {
   cursor: pointer;
   margin-right: 1em;
 }
-.tab-panel .tab-panel-heading .tab-panel-title:first-child {
+e1e1e1 .tab-panel .tab-panel-heading .tab-panel-title:first-child {
   margin-left: 30px;
 }
-.tab-panel .tab-panel-heading .tab-panel-title.panel-title-active {
+e1e1e1 .tab-panel .tab-panel-heading .tab-panel-title.panel-title-active {
   color: #0090ff;
   border-color: #0090ff;
 }
-.tab-panel .tab-panel-body:before,
-.tab-panel .tab-panel-body:after {
+e1e1e1 .tab-panel .tab-panel-body:before,
+e1e1e1 .tab-panel .tab-panel-body:after {
   display: table;
   content: " ";
 }
-.tab-panel .tab-panel-body:after {
+e1e1e1 .tab-panel .tab-panel-body:after {
   clear: both;
 }
-.tab-panel .tab-panel-body:before,
-.tab-panel .tab-panel-body:after {
+e1e1e1 .tab-panel .tab-panel-body:before,
+e1e1e1 .tab-panel .tab-panel-body:after {
   display: table;
   content: " ";
 }
-.tab-panel .tab-panel-body:after {
+e1e1e1 .tab-panel .tab-panel-body:after {
   clear: both;
 }
-.tab-panel .tab-panel-body .tab-panel-item {
+e1e1e1 .tab-panel .tab-panel-body .tab-panel-item {
   padding: 10px;
   display: none;
 }
-.tab-panel .tab-panel-body .tab-panel-item.no-spacing {
+e1e1e1 .tab-panel .tab-panel-body .tab-panel-item.no-spacing {
   padding: 0;
 }
-.tab-panel .tab-panel-body .tab-panel-item.tab-panel-item-active {
+e1e1e1 .tab-panel .tab-panel-body .tab-panel-item.tab-panel-item-active {
   display: block;
 }
 .tree-element .tree-item > .tree-body {
