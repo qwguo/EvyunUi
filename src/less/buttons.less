@@ -46,18 +46,24 @@
 
 
 // for button size
+// lg
 @btn-font-size-lg: 16px;
-@btn-font-size: 14px;
-@btn-font-size-sm: 12px;
-@btn-font-size-xs: 10px;
 @btn-border-radius-lg: 4px;
-@btn-border-radius: 2px;
+@btn-padding-lg: 14px 28px;
+
+@btn-font-size: 14px;
+@btn-border-radius: 3px;
+@btn-padding: 10px 20px;
+
+@btn-font-size-sm: 12px;
 @btn-border-radius-sm: 2px;
-@btn-border-radius-xs: 2px;
-@btn-padding-lg: 16px 28px;
-@btn-padding: 12px 20px;
-@btn-padding-sm: 8px 12px;
-@btn-padding-xs: 4px 6px;
+@btn-padding-sm: 6px 12px;
+
+@btn-font-size-xs: 10px;
+@btn-border-radius-xs: 1px;
+@btn-padding-xs: 2px 4px;
+
+
 @btn-border-rounded: 60px;
 @btn-border-circle: 100px;
 @cursor-disabled: not-allowed;
@@ -119,8 +125,9 @@
       font-size: 1.4em;
     }
   }
-  // Alternate buttons
-  // --------------------------------------------------
+  & + .btn{
+    margin-left: 10px;
+  }
 
   & {
     .button-variant(@btn-color; @btn-bg; @btn-border);

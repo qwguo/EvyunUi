@@ -1,18 +1,41 @@
 //== Input Variable
 //
-@input-height: 35px;
-@input-padding: 15px;
-@input-radius: 3px;
 @brothers-line-color: #E8ECEF;
 
-// Input size
+/* Input size */
+// lg
+@input-lg-height: 46px;
+@input-lg-padding: 0 20px;
+@input-lg-radius: 4px;
+@input-lg-font-size: 16px;
+@input-lg-border-width: 1px;
+@input-lg-fix-width: 40px;
+// default
+@input-height: 36px;
+@input-padding: 0 15px;
+@input-radius: 3px;
 @input-font-size: 14px;
-@input-padding-lg: 20px;
-@input-padding-sm: 10px;
-@input-padding-xs: 15px;
 @input-border-width: 1px;
+@input-fix-width: 30px;
+// sm
+@input-sm-height: 26px;
+@input-sm-padding: 0 10px;
+@input-sm-radius: 2px;
+@input-sm-font-size: 12px;
+@input-sm-border-width: 1px;
+@input-sm-fix-width: 20px;
+// xs
+@input-xs-height: 16px;
+@input-xs-padding: 0 5px;
+@input-xs-radius: 1px;
+@input-xs-font-size: 10px;
+@input-xs-border-width: 1px;
+@input-xs-fix-width: 10px;
+// no
 @input-padding-no: 0;
 @input-margin-bottom: 0;
+
+/* color */
 // default
 @input-bg: #fff;
 @input-color: #666;
@@ -20,33 +43,62 @@
 // focus
 @input-focus-bg: #fff;
 @input-focus-color: #666;
-@input-focus-border-color: #0099ff;
+@input-focus-border-color: @color-primary;
 // error
 @input-error-bg: #fff;
-@input-error-color: #666;
-@input-error-border-color: rgb(240, 26, 11);
+@input-error-color: @color-warning;
+@input-error-border-color: @color-warning;
 // success
 @input-success-bg: #fff;
-@input-success-color: #666;
-@input-success-border-color: green;
+@input-success-color: @color-success;
+@input-success-border-color: @color-success;
 // disabled
 @input-disabled-bg: #ddd;
-@input-disabled-color: #ddd;
-@input-disabled-border-color: #cccccc;
+@input-disabled-color: @color-disabled;
+@input-disabled-border-color: @color-disabled;
+
+
+.input-style(@bg-color; @border-color; @color){
+  > input{
+    color: @color;
+    background-color: @bg-color;
+    border-color: @border-color;
+  }
+  > .evicon{
+    color: tint(@color, 70%);
+  }
+}
+.input-size(@height;@padding;@radius;@font-size;@border-width;@fix-width){
+  > input{
+    height: @height;
+    padding: @padding;
+    border-width: @border-width;
+    border-radius: @radius;
+    font-size: @font-size;
+  }
+  &.suffix {
+    > input {
+      padding: 0 @fix-width 0 @fix-width/2;
+    }
+  }
+  &.prefix {
+    > input {
+      padding: 0 @fix-width/2 0 @fix-width;
+    }
+  }
+  .evicon{
+    line-height: @height;
+    font-size: @font-size * 1.2
+  }
+}
 
 /* input element */
 .input-element {
   display: inline-block;
   position: relative;
-  font-size: @input-font-size;
   margin-bottom: @input-margin-bottom;
   > input {
-    height: @input-height;
-    background-color: @input-bg;
-    padding: 0 @input-padding;
-    border: @input-border-width solid @input-border-color;
-    color: @input-color;
-    border-radius: @input-radius;
+    border-style: solid;
     outline: 0;
     &:hover {
       border-color: darken(@input-border-color, 8%);
@@ -57,25 +109,17 @@
     }
   }
   > .evicon {
-    font-size: 1.2em;
+    // font-size: 1.2em;
     position: absolute;
     height: 100%;
-    line-height: @input-height;
-    color: #ccc;
     padding: 0 .3em;
   }
   &.suffix {
-    > input {
-      padding: 0 30px 0 @input-padding;
-    }
     > .evicon {
       right: 0;
     }
   }
   &.prefix {
-    > input {
-      padding: 0 @input-padding 0 30px;
-    }
     > .evicon {
       left: 0;
     }
@@ -86,32 +130,37 @@
       width: 100%;
     }
   }
+  &{
+    .input-style(@input-bg; @input-border-color;@input-color);
+    .input-size(@input-height;@input-padding;@input-radius;@input-font-size;@input-border-width;@input-fix-width);
+  }
   &.disabled {
+    .input-style(@input-disabled-bg; @input-disabled-border-color;@input-disabled-color);
     > input {
-      color: @input-disabled-color;
-      background-color: @input-disabled-bg;
-      border-color: @input-disabled-border-color;
       cursor: @cursor-disabled !important;
     }
   }
   &.error {
-    > input {
-      color: @input-error-color;
-      background-color: @input-error-bg;
-      border-color: @input-error-border-color;
-    }
+    .input-style(@input-error-bg; @input-error-border-color;@input-error-color);
   }
   &.success {
-    > input {
-      color: @input-success-color;
-      background-color: @input-success-bg;
-      border-color: @input-success-border-color;
-    }
+    .input-style(@input-success-bg; @input-success-border-color;@input-success-color);
+  }
+  &.lg{
+    .input-size(@input-lg-height;@input-lg-padding;@input-lg-radius;@input-lg-font-size;@input-lg-border-width;@input-lg-fix-width);
+  }
+  &.sm{
+    .input-size(@input-sm-height;@input-sm-padding;@input-sm-radius;@input-sm-font-size;@input-sm-border-width;@input-sm-fix-width);
+  }
+  &.sm{
+    .input-size(@input-sm-height;@input-sm-padding;@input-sm-radius;@input-sm-font-size;@input-sm-border-width;@input-sm-fix-width);
+  }
+  &.xs{
+    .input-size(@input-xs-height;@input-xs-padding;@input-xs-radius;@input-xs-font-size;@input-xs-border-width;@input-xs-fix-width);
   }
   &[data-toggle="datePicker"] {
     > input {
       cursor: pointer;
-
     }
   }
 }
