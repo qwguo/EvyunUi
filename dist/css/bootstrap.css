@@ -7667,8 +7667,16 @@ a.thumbnail.active {
   color: #0090ff;
   border-color: #0090ff;
 }
+.tab-panel.style-1 > .tab-panel-heading.no-border {
+  border: none;
+}
 .tab-panel.style-1 > .tab-panel-body > .tab-panel-item {
   padding: 10px;
+}
+.tab-panel.style-1.no-border {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .tab-panel.style-2 {
   background-color: transparent;
@@ -7739,7 +7747,6 @@ a.thumbnail.active {
 }
 .breadcrumb {
   padding: 8px 15px;
-  margin-bottom: 20px;
   list-style: none;
   font-size: 14px;
   color: #ccc;
