@@ -6734,48 +6734,78 @@ a.badge:focus {
 .badge-circle.xs > .evicon {
   top: 0;
 }
-.badge-primary {
+.badge.primary,
+.badge-circle.primary,
+.badge-dot.primary {
   background-color: #0090FF;
   color: #fff;
 }
-.badge-primary[href]:hover,
-.badge-primary[href]:focus {
+.badge.primary[href]:hover,
+.badge-circle.primary[href]:hover,
+.badge-dot.primary[href]:hover,
+.badge.primary[href]:focus,
+.badge-circle.primary[href]:focus,
+.badge-dot.primary[href]:focus {
   background-color: #0073cc;
   color: #fff;
 }
-.badge-success {
+.badge.success,
+.badge-circle.success,
+.badge-dot.success {
   background-color: #39CD8B;
   color: #fff;
 }
-.badge-success[href]:hover,
-.badge-success[href]:focus {
+.badge.success[href]:hover,
+.badge-circle.success[href]:hover,
+.badge-dot.success[href]:hover,
+.badge.success[href]:focus,
+.badge-circle.success[href]:focus,
+.badge-dot.success[href]:focus {
   background-color: #2ba870;
   color: #fff;
 }
-.badge-info {
+.badge.info,
+.badge-circle.info,
+.badge-dot.info {
   background-color: #FFB400;
   color: #fff;
 }
-.badge-info[href]:hover,
-.badge-info[href]:focus {
+.badge.info[href]:hover,
+.badge-circle.info[href]:hover,
+.badge-dot.info[href]:hover,
+.badge.info[href]:focus,
+.badge-circle.info[href]:focus,
+.badge-dot.info[href]:focus {
   background-color: #cc9000;
   color: #fff;
 }
-.badge-warning {
+.badge.warning,
+.badge-circle.warning,
+.badge-dot.warning {
   background-color: #FF5151;
   color: #fff;
 }
-.badge-warning[href]:hover,
-.badge-warning[href]:focus {
+.badge.warning[href]:hover,
+.badge-circle.warning[href]:hover,
+.badge-dot.warning[href]:hover,
+.badge.warning[href]:focus,
+.badge-circle.warning[href]:focus,
+.badge-dot.warning[href]:focus {
   background-color: #ff1e1e;
   color: #fff;
 }
-.badge-danger {
+.badge.danger,
+.badge-circle.danger,
+.badge-dot.danger {
   background-color: #343A40;
   color: #fff;
 }
-.badge-danger[href]:hover,
-.badge-danger[href]:focus {
+.badge.danger[href]:hover,
+.badge-circle.danger[href]:hover,
+.badge-dot.danger[href]:hover,
+.badge.danger[href]:focus,
+.badge-circle.danger[href]:focus,
+.badge-dot.danger[href]:focus {
   background-color: #1d2124;
   color: #fff;
 }
