@@ -39,37 +39,35 @@
 // Panels
 // --------------------------------------------------
 
-/*
 // Base class
 .tab-panel {
   margin-bottom: @tab-panel-bottom-margin;
-  background-color: @panel-bg;
-  border: 1px solid @panel-border-color;
-  border-radius: @panel-border-radius;
+  background-color: @tab-panel-bg;
+  border: 1px solid @tab-panel-border-color;
+  border-radius: @tab-panel-border-radius;
   .box-shadow(0 1px 1px rgba(0, 0, 0, .05));
   // Optional heading
   .tab-panel-heading {
-    border-bottom: 1px solid @panel-heading-border-color;
-    height: @panel-heading-height;
-    line-height: @panel-heading-height;
-    .border-top-radius(@panel-border-radius);
+    border-bottom: 1px solid @tab-panel-heading-border-color;
+    height: @tab-panel-heading-height;
+    line-height: @tab-panel-heading-height;
+    .border-top-radius(@tab-panel-border-radius);
     // Within heading, strip any `h*` tag of its default margins for spacing.
     .tab-panel-title {
       display: inline-block;
       height: 100%;
       border-bottom: 3px solid transparent;
-      font-size: @panel-title-font-size;
-      color: @panel-title-color;
+      font-size: @tab-panel-title-font-size;
+      color: @tab-panel-title-color;
       padding: 0 .1em;
-      color: @panel-title-color;
       cursor: pointer;
       margin-right: 1em;
       &:first-child{
         margin-left: 30px;
       }
       &.panel-title-active{
-        color: @panel-title-active-color;
-        border-color: @panel-title-active-color;
+        color: @tab-panel-title-active-color;
+        border-color: @tab-panel-title-active-color;
       }
     }
   }
@@ -77,7 +75,7 @@
   .tab-panel-body {
     .clearfix();
     .tab-panel-item{
-      padding: @panel-body-padding;
+      padding: @tab-panel-body-padding;
       display: none;
       &.no-spacing{
         padding:0;
@@ -87,4 +85,4 @@
       }
     }
   }
-}*/
+}
