@@ -66,7 +66,9 @@
         height: 100%;
         border-bottom: 3px solid transparent;
         font-size: @tab-panel-style-1-title-font-size;
-        color: @tab-panel-style-1-title-color;
+        &, &a, & a {
+          color: @tab-panel-style-1-title-color;
+        }
         padding: 0 .1em;
         cursor: pointer;
         margin-right: 1em;
@@ -74,7 +76,9 @@
           margin-left: 30px;
         }
         &.active {
-          color: @tab-panel-style-1-title-active-color;
+          &, &a, & a {
+            color: @tab-panel-style-1-title-active-color;
+          }
           border-color: @tab-panel-style-1-title-active-color;
         }
       }
@@ -103,18 +107,24 @@
         display: inline-block;
         height: 100%;
         font-size: @tab-panel-style-2-title-font-size;
-        color: @tab-panel-style-2-title-color;
+        &, &a, & a {
+          color: @tab-panel-style-2-title-color;
+        }
         padding: 0 2.3em;
         cursor: pointer;
         margin-right: .72em;
         background-color: @tab-panel-style-2-title-bg-color;
         &:hover {
-          color: @tab-panel-style-2-title-hover-color;
+          &, &a, & a {
+            color: @tab-panel-style-2-title-hover-color;
+          }
           border-color: @tab-panel-style-2-title-hover-border-color;
           background-color: @tab-panel-style-2-title-hover-bg-color;
         }
         &.active {
-          color: @tab-panel-style-2-title-active-color;
+          &, &a, & a {
+            color: @tab-panel-style-2-title-active-color;
+          }
           border-color: @tab-panel-style-2-title-active-border-color;
           background-color: @tab-panel-style-2-title-active-bg-color;
         }
