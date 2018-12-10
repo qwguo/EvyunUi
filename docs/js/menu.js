@@ -5,7 +5,7 @@ var menu = new Vue({
       {
         'title': '网格系统',
         'name': 'grid',
-        'cur': 0,
+        'cur': 1,
         'sub': [
           {'title': '基本布局', 'name': 'column_gird', 'href': 'gird/column_gird.html'},
           {'title': '布局列偏移', 'name': 'column_gird_offset', 'href': 'gird/column_gird_offset.html'}
