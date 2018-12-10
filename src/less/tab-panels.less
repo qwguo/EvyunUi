@@ -1,88 +1,125 @@
-
-//== Panels variable
+//== Tab Panels variable
 //
 //##
 
-@tab-panel-bg:                    #fff;
-@tab-panel-heading-height:        60px;
-@tab-panel-heading-border-color:  #ededed;
-@tab-panel-title-color:        #333333;
-@tab-panel-title-font-size:        14px;
-@tab-panel-title-active-color: #0090ff;
-@tab-panel-body-padding:          10px;
-@tab-panel-border-radius:         0;
-@tab-panel-border-color:          #f2f2f2;
-@tab-panel-bottom-margin:          10px;
+@tab-panel-bottom-margin: 10px;
 
 //style 1
-@tab-panel-style-1-bg:                    #fff;
-@tab-panel-style-1-heading-height:        60px;
-@tab-panel-style-1-heading-border-color:  #ededed;
-@tab-panel-style-1-title-color:        #333333;
-@tab-panel-style-1-title-font-size:        14px;
+@tab-panel-style-1-bg: #fff;
+@tab-panel-style-1-radius: 0;
+@tab-panel-style-1-border-color: #f2f2f2;
+@tab-panel-style-1-heading-height: 60px;
+@tab-panel-style-1-heading-border-color: #ededed;
+@tab-panel-style-1-title-color: #555;
+@tab-panel-style-1-title-font-size: 14px;
 @tab-panel-style-1-title-active-color: #0090ff;
-@tab-panel-style-1-body-padding:          10px;
-@tab-panel-style-1-border-radius:         0;
-@tab-panel-style-1-border-color:          #f2f2f2;
-@tab-panel-style-1-bottom-margin:          10px;
+@tab-panel-style-1-body-bg-color: #fff;
+@tab-panel-style-1-body-padding: 10px;
 
-@tab-panel-style-1-title-bg: #e1e1e1;
+//style 2
+@tab-panel-style-2-bg: transparent;
+@tab-panel-style-2-border-color: #fff;
+@tab-panel-style-2-radius: 0;
+@tab-panel-style-2-heading-height: 40px;
+@tab-panel-style-2-heading-border-color: #e1e1e1;
+@tab-panel-style-2-title-font-size: 14px;
+@tab-panel-style-2-title-color: #333333;
+@tab-panel-style-2-title-border-color: #e1e1e1;
+@tab-panel-style-2-title-bg-color: #e1e1e1;
+@tab-panel-style-2-title-hover-color: #333333;
+@tab-panel-style-2-title-hover-border-color: #d4d4d4;
+@tab-panel-style-2-title-hover-bg-color: #d4d4d4;
+@tab-panel-style-2-title-active-color: #0090ff;
+@tab-panel-style-2-title-active-border-color: #fff;
+@tab-panel-style-2-title-active-bg-color: #fff;
+@tab-panel-style-2-body-bg-color: #fff;
+@tab-panel-style-2-body-padding: 10px;
 
 
-
-
-
-
-// stylelint-disable selector-max-type, selector-max-compound-selectors, selector-max-combinators, no-duplicate-selectors
-
-//
-// Panels
-// --------------------------------------------------
-
-// Base class
-.tab-panel {
+.tab-panel{
   margin-bottom: @tab-panel-bottom-margin;
-  background-color: @tab-panel-bg;
-  border: 1px solid @tab-panel-border-color;
-  border-radius: @tab-panel-border-radius;
-  .box-shadow(0 1px 1px rgba(0, 0, 0, .05));
-  // Optional heading
-  .tab-panel-heading {
-    border-bottom: 1px solid @tab-panel-heading-border-color;
-    height: @tab-panel-heading-height;
-    line-height: @tab-panel-heading-height;
-    .border-top-radius(@tab-panel-border-radius);
-    // Within heading, strip any `h*` tag of its default margins for spacing.
-    .tab-panel-title {
-      display: inline-block;
-      height: 100%;
-      border-bottom: 3px solid transparent;
-      font-size: @tab-panel-title-font-size;
-      color: @tab-panel-title-color;
-      padding: 0 .1em;
-      cursor: pointer;
-      margin-right: 1em;
-      &:first-child{
-        margin-left: 30px;
-      }
-      &.panel-title-active{
-        color: @tab-panel-title-active-color;
-        border-color: @tab-panel-title-active-color;
-      }
-    }
-  }
-  // Panel contents
-  .tab-panel-body {
+  > .tab-panel-body {
     .clearfix();
-    .tab-panel-item{
-      padding: @tab-panel-body-padding;
+    .tab-panel-item {
       display: none;
-      &.no-spacing{
-        padding:0;
+      &.no-spacing {
+        padding: 0;
       }
-      &.tab-panel-item-active{
+      &.tab-panel-item-active {
         display: block;
       }
     }
   }
+  //风格1
+  &.style-1{
+    background-color: @tab-panel-style-1-bg;
+    border: 1px solid @tab-panel-style-1-border-color;
+    border-radius: @tab-panel-style-1-radius;
+    .box-shadow(0 1px 1px rgba(0, 0, 0, .05));
+    > .tab-panel-heading {
+      border-bottom: 1px solid @tab-panel-style-1-heading-border-color;
+      height: @tab-panel-style-1-heading-height;
+      line-height: @tab-panel-style-1-heading-height;
+      .border-top-radius(@tab-panel-style-1-radius);
+      > .tab-panel-title {
+        display: inline-block;
+        height: 100%;
+        border-bottom: 3px solid transparent;
+        font-size: @tab-panel-style-1-title-font-size;
+        color: @tab-panel-style-1-title-color;
+        padding: 0 .1em;
+        cursor: pointer;
+        margin-right: 1em;
+        &:first-child {
+          margin-left: 30px;
+        }
+        &.panel-title-active {
+          color: @tab-panel-style-1-title-active-color;
+          border-color: @tab-panel-style-1-title-active-color;
+        }
+      }
+    }
+    > .tab-panel-body {
+      > .tab-panel-item {
+        padding: @tab-panel-style-1-body-padding;
+      }
+    }
+  }
+  &.style-2{
+    background-color: @tab-panel-style-2-bg;
+    border-radius: @tab-panel-style-1-radius;
+    > .tab-panel-heading{
+      height: @tab-panel-style-2-heading-height;
+      line-height: @tab-panel-style-2-heading-height;
+      > .tab-panel-title {
+        .border-top-radius(5px);
+        display: inline-block;
+        height: 100%;
+        font-size: @tab-panel-style-2-title-font-size;
+        color: @tab-panel-style-2-title-color;
+        padding: 0 2.3em;
+        cursor: pointer;
+        margin-right: .72em;
+        background-color: @tab-panel-style-2-title-bg-color;
+        &:hover {
+          color: @tab-panel-style-2-title-hover-color;
+          border-color: @tab-panel-style-2-title-hover-border-color;
+          background-color: @tab-panel-style-2-title-hover-bg-color;
+        }
+        &.panel-title-active {
+          color: @tab-panel-style-2-title-active-color;
+          border-color: @tab-panel-style-2-title-active-border-color;
+          background-color: @tab-panel-style-2-title-active-bg-color;
+        }
+      }
+    }
+    > .tab-panel-body {
+      > .tab-panel-item {
+        padding: @tab-panel-style-2-body-padding;
+        background-color: @tab-panel-style-2-body-bg-color;
+      }
+    }
+  }
 }
+
+
