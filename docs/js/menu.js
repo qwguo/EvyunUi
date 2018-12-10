@@ -61,7 +61,7 @@ var menu = new Vue({
       {
         'title': '分组',
         'name': 'panel',
-        'cur': 1,
+        'cur': 0,
         'sub': [
           {'title': '面板', 'name': 'panel', 'href': 'panel/panel.html'},
           {'title': '标签切换面板', 'name': 'tabpanel', 'href': 'panel/tab_panel.html'},
@@ -104,7 +104,15 @@ var menu = new Vue({
           {'title': '滚动条', 'name': 'scroll', 'href': 'tool/scroll.html'},
           {'title': '页码', 'name': 'pagination', 'href': 'tool/pagination.html'}
         ]
-      }
+      }/*,
+      {
+        'title': '测试',
+        'name': 'test',
+        'cur': 1,
+        'sub': [
+          {'title': '测试', 'name': 'test', 'href': 'test/index.html'}
+        ]
+      }*/
     ]
   },
   methods: {
