@@ -45,9 +45,9 @@
 @input-focus-color: #666;
 @input-focus-border-color: @color-primary;
 // error
-@input-error-bg: #fff;
-@input-error-color: @color-warning;
-@input-error-border-color: @color-warning;
+@input-warning-bg: #fff;
+@input-warning-color: @color-warning;
+@input-warning-border-color: @color-warning;
 // success
 @input-success-bg: #fff;
 @input-success-color: @color-success;
@@ -140,11 +140,11 @@
       cursor: @cursor-disabled !important;
     }
   }
-  &.error {
-    .input-style(@input-error-bg; @input-error-border-color;@input-error-color);
+  &.warning {
+    .input-style(@input-warning-bg; @input-warning-border-color;@input-warning-color);
   }
   &.success {
-    .input-style(@input-success-bg; @input-success-border-color;@input-success-color);
+    .input-style(@input-success-bg; @input-success-border-color;@input-color);
   }
   &.lg{
     .input-size(@input-lg-height;@input-lg-padding;@input-lg-radius;@input-lg-font-size;@input-lg-border-width;@input-lg-fix-width);

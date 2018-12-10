@@ -7393,6 +7393,7 @@ a.thumbnail.active {
   display: inline-block;
   height: 100%;
   width: 1px;
+  vertical-align: top;
 }
 .hr.hr-y.hr-1 {
   width: 1px;
@@ -7855,21 +7856,21 @@ a.thumbnail.active {
 .input-element.disabled > input {
   cursor: not-allowed !important;
 }
-.input-element.error > input {
+.input-element.warning > input {
   color: #FF5151;
   background-color: #fff;
   border-color: #FF5151;
 }
-.input-element.error > .evicon {
+.input-element.warning > .evicon {
   color: #ffcbcb;
 }
 .input-element.success > input {
-  color: #39CD8B;
+  color: #666;
   background-color: #fff;
   border-color: #39CD8B;
 }
 .input-element.success > .evicon {
-  color: #c4f0dc;
+  color: #d1d1d1;
 }
 .input-element.lg > input {
   height: 46px;
