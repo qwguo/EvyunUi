@@ -7660,13 +7660,11 @@ a.thumbnail.active {
   margin-right: 1em;
 }
 .tab-panel.style-1 > .tab-panel-heading > .tab-panel-title,
-.tab-panel.style-1 > .tab-panel-heading > .tab-panel-titlea,
 .tab-panel.style-1 > .tab-panel-heading > .tab-panel-title a {
   text-decoration: none;
   color: #555;
 }
 .tab-panel.style-1 > .tab-panel-heading > .tab-panel-title:hover,
-.tab-panel.style-1 > .tab-panel-heading > .tab-panel-titlea:hover,
 .tab-panel.style-1 > .tab-panel-heading > .tab-panel-title:hover a {
   text-decoration: none;
 }
@@ -7677,7 +7675,6 @@ a.thumbnail.active {
   border-color: #0090ff;
 }
 .tab-panel.style-1 > .tab-panel-heading > .tab-panel-title.active,
-.tab-panel.style-1 > .tab-panel-heading > .tab-panel-title.activea,
 .tab-panel.style-1 > .tab-panel-heading > .tab-panel-title.active a {
   color: #0090ff;
 }
@@ -7712,7 +7709,6 @@ a.thumbnail.active {
   background-color: #e1e1e1;
 }
 .tab-panel.style-2 > .tab-panel-heading > .tab-panel-title,
-.tab-panel.style-2 > .tab-panel-heading > .tab-panel-titlea,
 .tab-panel.style-2 > .tab-panel-heading > .tab-panel-title a {
   text-decoration: none;
   color: #333333;
@@ -7722,7 +7718,6 @@ a.thumbnail.active {
   background-color: #d4d4d4;
 }
 .tab-panel.style-2 > .tab-panel-heading > .tab-panel-title:hover,
-.tab-panel.style-2 > .tab-panel-heading > .tab-panel-title:hovera,
 .tab-panel.style-2 > .tab-panel-heading > .tab-panel-title:hover a {
   text-decoration: none;
   color: #333333;
@@ -7732,7 +7727,6 @@ a.thumbnail.active {
   background-color: #fff;
 }
 .tab-panel.style-2 > .tab-panel-heading > .tab-panel-title.active,
-.tab-panel.style-2 > .tab-panel-heading > .tab-panel-title.activea,
 .tab-panel.style-2 > .tab-panel-heading > .tab-panel-title.active a {
   text-decoration: none;
   color: #0090ff;
