@@ -7425,22 +7425,22 @@ a.thumbnail.active {
 .hr.hr-y.hr-10 {
   width: 10px;
 }
-.hr.hr-no-spacing {
+.hr.no-spacing {
   margin: 0;
 }
-.hr.hr-primary {
+.hr.primary {
   background-color: #0090FF;
 }
-.hr.hr-success {
+.hr.success {
   background-color: #39CD8B;
 }
-.hr.hr-info {
+.hr.info {
   background-color: #FFB400;
 }
-.hr.hr-warning {
+.hr.warning {
   background-color: #FF5151;
 }
-.hr.hr-danger {
+.hr.danger {
   background-color: #343A40;
 }
 .fieldset {
@@ -7603,7 +7603,7 @@ a.thumbnail.active {
 .tab-panel > .tab-panel-body .tab-panel-item.no-spacing {
   padding: 0;
 }
-.tab-panel > .tab-panel-body .tab-panel-item.tab-panel-item-active {
+.tab-panel > .tab-panel-body .tab-panel-item.active {
   display: block;
 }
 .tab-panel.style-1 {
@@ -7633,7 +7633,7 @@ a.thumbnail.active {
 .tab-panel.style-1 > .tab-panel-heading > .tab-panel-title:first-child {
   margin-left: 30px;
 }
-.tab-panel.style-1 > .tab-panel-heading > .tab-panel-title.panel-title-active {
+.tab-panel.style-1 > .tab-panel-heading > .tab-panel-title.active {
   color: #0090ff;
   border-color: #0090ff;
 }
@@ -7665,7 +7665,7 @@ a.thumbnail.active {
   border-color: #d4d4d4;
   background-color: #d4d4d4;
 }
-.tab-panel.style-2 > .tab-panel-heading > .tab-panel-title.panel-title-active {
+.tab-panel.style-2 > .tab-panel-heading > .tab-panel-title.active {
   color: #0090ff;
   border-color: #fff;
   background-color: #fff;
