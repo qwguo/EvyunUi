@@ -7351,24 +7351,95 @@ a.thumbnail.active {
   color: #555;
 }
 .hr {
-  margin: 20px 0;
-  height: 1px;
   border: 0;
   background-color: #CCC;
 }
-.hr-primary {
+.hr.hr-x {
+  margin: 20px 0;
+  height: 1px;
+}
+.hr.hr-x.hr-1 {
+  height: 1px;
+}
+.hr.hr-x.hr-2 {
+  height: 2px;
+}
+.hr.hr-x.hr-3 {
+  height: 3px;
+}
+.hr.hr-x.hr-4 {
+  height: 4px;
+}
+.hr.hr-x.hr-5 {
+  height: 5px;
+}
+.hr.hr-x.hr-6 {
+  height: 6px;
+}
+.hr.hr-x.hr-7 {
+  height: 7px;
+}
+.hr.hr-x.hr-8 {
+  height: 8px;
+}
+.hr.hr-x.hr-9 {
+  height: 9px;
+}
+.hr.hr-x.hr-10 {
+  height: 10px;
+}
+.hr.hr-y {
+  margin: 0 20px;
+  display: inline-block;
+  height: 100%;
+  width: 1px;
+}
+.hr.hr-y.hr-1 {
+  width: 1px;
+}
+.hr.hr-y.hr-2 {
+  width: 2px;
+}
+.hr.hr-y.hr-3 {
+  width: 3px;
+}
+.hr.hr-y.hr-4 {
+  width: 4px;
+}
+.hr.hr-y.hr-5 {
+  width: 5px;
+}
+.hr.hr-y.hr-6 {
+  width: 6px;
+}
+.hr.hr-y.hr-7 {
+  width: 7px;
+}
+.hr.hr-y.hr-8 {
+  width: 8px;
+}
+.hr.hr-y.hr-9 {
+  width: 9px;
+}
+.hr.hr-y.hr-10 {
+  width: 10px;
+}
+.hr.hr-no-spacing {
+  margin: 0;
+}
+.hr.hr-primary {
   background-color: #0090FF;
 }
-.hr-success {
+.hr.hr-success {
   background-color: #39CD8B;
 }
-.hr-info {
+.hr.hr-info {
   background-color: #FFB400;
 }
-.hr-warning {
+.hr.hr-warning {
   background-color: #FF5151;
 }
-.hr-danger {
+.hr.hr-danger {
   background-color: #343A40;
 }
 .fieldset {

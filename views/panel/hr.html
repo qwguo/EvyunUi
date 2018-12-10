@@ -1,38 +1,106 @@
 @@include('../include/head.html')
 
 <div class="show-hr">
-    <h3 class="page-header">分割线</h3>
-    <p>我们可以使用<code>hr</code>标签来实现分割线效果。</p>
-    <h4 class="page-header">默认分割线</h4>
-    <hr class="hr hr-default">
-<pre name="pre" class="html">
-  <hr class="hr">
-</pre>
-    <h4 class="page-header">颜色1</h4>
-    <hr class="hr hr-primary">
-<pre name="pre" class="html">
-  <hr class="hr hr-primary">
-</pre>
-    <h4 class="page-header">颜色2</h4>
-    <hr class="hr hr-success">
-<pre name="pre" class="html">
-  <hr class="hr hr-success">
-</pre>
-    <h4 class="page-header">颜色3</h4>
-    <hr class="hr hr-info">
-<pre name="pre" class="html">
-  <hr class="hr hr-info">
-</pre>
-    <h4 class="page-header">颜色4</h4>
-    <hr class="hr hr-warning">
-<pre name="pre" class="html">
-  <hr class="hr hr-warning">
-</pre>
-    <h4 class="page-header">颜色5</h4>
-    <hr class="hr hr-danger">
-<pre name="pre" class="html">
-  <hr class="hr hr-danger">
-</pre>
+
+  <h3 class="page-header">分割线横向</h3>
+  <p>我们可以使用<code>hr</code>标签来实现分割线效果。</p>
+  <div class="show-hr-div">
+    <h4>默认分割线</h4>
+    <hr class="hr hr-x hr-1">
+    <pre name="pre" class="html">
+<hr class="hr hr-x">
+    </pre>
+  </div>
+  <div class="show-hr-div">
+    <h4 class="page-header">线条大小，分为<code>1-10</code>像素</h4>
+    <hr class="hr hr-x hr-1">
+    <hr class="hr hr-x hr-2">
+    <hr class="hr hr-x hr-3">
+    <hr class="hr hr-x hr-4">
+    <hr class="hr hr-x hr-5">
+    <hr class="hr hr-x hr-6">
+    <hr class="hr hr-x hr-7">
+    <hr class="hr hr-x hr-8">
+    <hr class="hr hr-x hr-9">
+    <hr class="hr hr-x hr-10">
+    <pre name="pre" class="html">
+<hr class="hr hr-x">
+    </pre>
+  </div>
+  <div class="show-hr-div">
+    <h4>颜色</h4>
+    <hr class="hr hr-x hr-primary">
+    <hr class="hr hr-x hr-success">
+    <hr class="hr hr-x hr-info">
+    <hr class="hr hr-x hr-warning">
+    <hr class="hr hr-x hr-danger">
+    <pre name="pre" class="html">
+<hr class="hr hr-x hr-primary">
+<hr class="hr hr-x hr-success">
+<hr class="hr hr-x hr-info">
+<hr class="hr hr-x hr-warning">
+<hr class="hr hr-x hr-danger">
+    </pre>
+  </div>
+
+  <h3 class="page-header">分割线纵向</h3>
+  <div class="show-hr-div">
+    <h4>默认分割线</h4>
+    <div class="hr-y-div" style="height: 50px;">
+      <hr class="hr hr-y">
+    </div>
+    <pre name="pre" class="html">
+<hr class="hr hr-y ">
+    </pre>
+  </div>
+  </div>
+
+  <div class="show-hr-div">
+    <h4>分割线颜色</h4>
+    <div class="hr-y-div" style="height: 50px;">
+      <hr class="hr hr-y hr-primary">
+      <hr class="hr hr-y hr-success">
+      <hr class="hr hr-y hr-info">
+      <hr class="hr hr-y hr-warning">
+      <hr class="hr hr-y hr-danger">
+    </div>
+    <pre name="pre" class="html">
+<hr class="hr hr-y hr-primary">
+<hr class="hr hr-y hr-success">
+<hr class="hr hr-y hr-info">
+<hr class="hr hr-y hr-warning">
+<hr class="hr hr-y hr-danger">
+    </pre>
+  </div>
+  </div>
+
+  <div class="show-hr-div">
+    <h4>分割线大小</h4>
+    <div class="hr-y-div" style="height: 50px;">
+      <hr class="hr hr-y hr-1">
+      <hr class="hr hr-y hr-2">
+      <hr class="hr hr-y hr-3">
+      <hr class="hr hr-y hr-4">
+      <hr class="hr hr-y hr-5">
+      <hr class="hr hr-y hr-6">
+      <hr class="hr hr-y hr-7">
+      <hr class="hr hr-y hr-8">
+      <hr class="hr hr-y hr-9">
+      <hr class="hr hr-y hr-10">
+    </div>
+    <pre name="pre" class="html">
+<hr class="hr hr-y hr-1">
+<hr class="hr hr-y hr-2">
+<hr class="hr hr-y hr-3">
+<hr class="hr hr-y hr-4">
+<hr class="hr hr-y hr-5">
+<hr class="hr hr-y hr-6">
+<hr class="hr hr-y hr-7">
+<hr class="hr hr-y hr-8">
+<hr class="hr hr-y hr-9">
+<hr class="hr hr-y hr-10">
+    </pre>
+  </div>
   </div>
 
 @@include('../include/foot.html')
