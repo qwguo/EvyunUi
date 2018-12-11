@@ -116,5 +116,26 @@
       display: block;
     }
   }
+  &.block{
+   display: block;
+    > .input-element{
+      &,
+      & > input{
+        width: 100%;
+      }
+    }
+  }
+}
+
+//Select Group
+.select-element-group {
+  font-size: 0;
+  > .select-element {
+    margin-left: 15px;
+  }
+  > .select-element:first-child,
+  > .select-element.block {
+    margin-left: 0;
+  }
 }
 

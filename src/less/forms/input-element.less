@@ -69,12 +69,12 @@
   }
 }
 .input-size(@height;@padding;@radius;@font-size;@border-width;@fix-width){
+  font-size: @font-size;
   > input{
     height: @height;
     padding: @padding;
     border-width: @border-width;
     border-radius: @radius;
-    font-size: @font-size;
   }
   &.suffix {
     > input {
@@ -100,6 +100,7 @@
   > input {
     border-style: solid;
     outline: 0;
+    font-size: inherit;
     &:hover {
       border-color: darken(@input-border-color, 8%);
     }

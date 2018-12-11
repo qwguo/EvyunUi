@@ -7899,10 +7899,12 @@ a.thumbnail.active {
   display: inline-block;
   position: relative;
   margin-bottom: 0;
+  font-size: 14px;
 }
 .input-element > input {
   border-style: solid;
   outline: 0;
+  font-size: inherit;
 }
 .input-element > input:hover {
   border-color: #d0d8de;
@@ -7941,7 +7943,6 @@ a.thumbnail.active {
   padding: 0 15px;
   border-width: 1px;
   border-radius: 3px;
-  font-size: 14px;
 }
 .input-element.suffix > input {
   padding: 0 30px 0 15px;
@@ -7980,12 +7981,14 @@ a.thumbnail.active {
 .input-element.success > .evicon {
   color: #d1d1d1;
 }
+.input-element.lg {
+  font-size: 16px;
+}
 .input-element.lg > input {
   height: 46px;
   padding: 0 20px;
   border-width: 1px;
   border-radius: 4px;
-  font-size: 16px;
 }
 .input-element.lg.suffix > input {
   padding: 0 40px 0 20px;
@@ -7997,12 +8000,14 @@ a.thumbnail.active {
   line-height: 46px;
   font-size: 19.2px;
 }
+.input-element.sm {
+  font-size: 12px;
+}
 .input-element.sm > input {
   height: 26px;
   padding: 0 10px;
   border-width: 1px;
   border-radius: 2px;
-  font-size: 12px;
 }
 .input-element.sm.suffix > input {
   padding: 0 20px 0 10px;
@@ -8014,12 +8019,14 @@ a.thumbnail.active {
   line-height: 26px;
   font-size: 14.4px;
 }
+.input-element.sm {
+  font-size: 12px;
+}
 .input-element.sm > input {
   height: 26px;
   padding: 0 10px;
   border-width: 1px;
   border-radius: 2px;
-  font-size: 12px;
 }
 .input-element.sm.suffix > input {
   padding: 0 20px 0 10px;
@@ -8030,13 +8037,15 @@ a.thumbnail.active {
 .input-element.sm .evicon {
   line-height: 26px;
   font-size: 14.4px;
+}
+.input-element.xs {
+  font-size: 10px;
 }
 .input-element.xs > input {
   height: 16px;
   padding: 0 5px;
   border-width: 1px;
   border-radius: 1px;
-  font-size: 10px;
 }
 .input-element.xs.suffix > input {
   padding: 0 10px 0 5px;
@@ -8778,6 +8787,23 @@ a.thumbnail.active {
 }
 .select-element.open > .option-list {
   display: block;
+}
+.select-element.block {
+  display: block;
+}
+.select-element.block > .input-element,
+.select-element.block > .input-element > input {
+  width: 100%;
+}
+.select-element-group {
+  font-size: 0;
+}
+.select-element-group > .select-element {
+  margin-left: 15px;
+}
+.select-element-group > .select-element:first-child,
+.select-element-group > .select-element.block {
+  margin-left: 0;
 }
 .upload-element {
   display: inline-block;
