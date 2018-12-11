@@ -3756,7 +3756,7 @@ and dependencies (minified).
         (function () {
           var style = ['z-index:' + (that.zIndex++)];
           !!j.shade.bgColor && style.push(' background-color:' + j.shade.bgColor);
-          !!j.shade.opacity && style.push(' opacity:' + j.shade.opacity);
+          !isNaN(j.shade.opacity) && (typeof(j.shade.opacity) === 'string' || typeof(j.shade.opacity) === 'number') && style.push(' opacity:' + j.shade.opacity);
           that.popupShade = $("<div/>", {
             "class": "popup-shade",
             "id": "popupShade_" + that.numbers,
@@ -4048,7 +4048,7 @@ and dependencies (minified).
     if($.isArray(j)){
       j = {
         con:{
-          text: j[0],
+          html: j[0],
           icon: j[1]
         },
         autoClose: j[2],
@@ -4167,7 +4167,7 @@ and dependencies (minified).
             }())
           },
           closeCallBack: j[4]
-        }
+        };
       break;
       case $.isPlainObject(j):
           j.type = 2;
