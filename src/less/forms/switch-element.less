@@ -1,4 +1,5 @@
 // Radio Variable
+@switch-group-item-margin: 10px;
 // Radio Size
 @switch-height: 30px;
 @switch-width: 76px;
@@ -85,10 +86,10 @@
 
 .switch-element-group {
   > .switch-element {
-    margin-left: 15px;
+    margin-right: @switch-group-item-margin;
   }
-  > .switch-element:first-child {
-    margin-left: 0;
+  > .switch-element:last-child {
+    margin-right: 0;
   }
 }
 .switch-element {

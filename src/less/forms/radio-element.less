@@ -21,11 +21,11 @@
 @radio-checked-color: #666;
 @radio-checked-border-color: #0099ff;
 @radio-checked-dot-bg: #fff;
-// error
-@radio-error-bg: #ff5152;
-@radio-error-color: #ff5152;
-@radio-error-border-color: #ff5152;
-@radio-error-dot-bg: #fff;
+// warning
+@radio-warning-bg: #ff5152;
+@radio-warning-color: #ff5152;
+@radio-warning-border-color: #ff5152;
+@radio-warning-dot-bg: #fff;
 // success
 @radio-success-bg: #38cd8b;
 @radio-success-color: #38cd8b;
@@ -70,10 +70,10 @@
 .radio-element-group {
   display: inline-block;
   > .radio-element {
-    margin-left: @radio-group-item-margin;
+    margin-right: @radio-group-item-margin;
   }
-  > .radio-element:first-child {
-    margin-left: 0;
+  > .radio-element:last-child {
+    margin-right: 0;
   }
 }
 
@@ -129,8 +129,8 @@
     cursor: @cursor-disabled;
     .radioColor(@radio-disabled-bg; @radio-disabled-bg; @radio-disabled-border-color; @radio-disabled-border-color; @radio-disabled-dot-bg; @radio-disabled-color; @radio-disabled-color);
   }
-  &.error {
-    .radioColor(@radio-error-bg; @radio-error-bg; @radio-error-border-color; @radio-error-border-color; @radio-error-dot-bg; @radio-error-color; @radio-error-color);
+  &.warning {
+    .radioColor(@radio-warning-bg; @radio-warning-bg; @radio-warning-border-color; @radio-warning-border-color; @radio-warning-dot-bg; @radio-warning-color; @radio-warning-color);
   }
   &.lg{
     .radioSize(@radio-lg-size, @radio-lg-font-size);

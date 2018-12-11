@@ -1,8 +1,6 @@
-//== Tables Variable
+//== Textarea Variable
+@textarea-group-item-margin: 10px;
 //
-//## Customizes the `.table` component with basic values, each used across all table variations.
-
-//** Padding for `<th>`s and `<td>`s.
 @textarea-height: 100px;
 @textarea-width:  200px;
 @textarea-padding: 10px;
@@ -14,7 +12,7 @@
 @textarea-padding-no: 0;
 @textarea-margin-bottom: 10px;
 @brothers-line-color: #E8ECEF;
-//** Padding for cells in `.table-condensed`.
+
 // default
 @textarea-bg: #fff;
 @textarea-color: #666;
@@ -23,10 +21,10 @@
 @textarea-focus-bg: #fff;
 @textarea-focus-color: #666;
 @textarea-focus-border-color: #0099ff;
-// error
-@textarea-error-bg: #fff;
-@textarea-error-color: #666;
-@textarea-error-border-color: rgb(240, 26, 11);
+// warning
+@textarea-warning-bg: #fff;
+@textarea-warning-color: #666;
+@textarea-warning-border-color: rgb(240, 26, 11);
 // success
 @textarea-success-bg: #fff;
 @textarea-success-color: #666;
@@ -68,11 +66,11 @@
       cursor: @cursor-disabled;
     }
   }
-  &.error {
+  &.warning {
     > textarea {
-      color: @textarea-error-color;
-      background-color: @textarea-error-bg;
-      border-color: @textarea-error-border-color;
+      color: @textarea-warning-color;
+      background-color: @textarea-warning-bg;
+      border-color: @textarea-warning-border-color;
     }
   }
   &.success {
@@ -99,10 +97,10 @@
 .textarea-element-group {
   font-size: 0;
   > .textarea-element{
-    margin-left: 15px;
+    margin-right: @textarea-group-item-margin;
   }
-  > .textarea-element:first-child,
+  > .textarea-element:last-child,
   > .textarea-element.block{
-    margin-left: 0;
+    margin-right: 0;
   }
 }

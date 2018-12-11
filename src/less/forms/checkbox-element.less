@@ -1,4 +1,5 @@
 // Radio Variable
+@checkbox-group-item-margin: 10px;
 // Radio Size
 @checkbox-height: 20px;
 @checkbox-width: 20px;
@@ -30,10 +31,10 @@
 @checkbox-checked-border-color: #0099ff;
 @checkbox-checked-dot-bg: #fff;
 // error
-@checkbox-error-bg: #ff5152;
-@checkbox-error-color: #ff5152;
-@checkbox-error-border-color: #ff5152;
-@checkbox-error-dot-bg: #fff;
+@checkbox-warning-bg: #ff5152;
+@checkbox-warning-color: #ff5152;
+@checkbox-warning-border-color: #ff5152;
+@checkbox-warning-dot-bg: #fff;
 // success
 @checkbox-success-bg: #38cd8b;
 @checkbox-success-color: #38cd8b;
@@ -83,10 +84,10 @@
 .checkbox-element-group {
   display: inline-block;
   > .checkbox-element {
-    margin-left: 15px;
+    margin-right: @checkbox-group-item-margin;
   }
-  > .checkbox-element:first-child {
-    margin-left: 0;
+  > .checkbox-element:last-child {
+    margin-right: 0;
   }
 }
 
@@ -137,8 +138,8 @@
     cursor: @cursor-disabled;
     .checkboxColor(@checkbox-disabled-bg; @checkbox-disabled-bg; @checkbox-disabled-border-color; @checkbox-disabled-border-color; @checkbox-disabled-dot-bg; @checkbox-disabled-color; @checkbox-disabled-color);
   }
-  &.error {
-    .checkboxColor(@checkbox-error-bg; @checkbox-error-bg; @checkbox-error-border-color; @checkbox-error-border-color; @checkbox-error-dot-bg; @checkbox-error-color; @checkbox-error-color);
+  &.warning {
+    .checkboxColor(@checkbox-warning-bg; @checkbox-warning-bg; @checkbox-warning-border-color; @checkbox-warning-border-color; @checkbox-warning-dot-bg; @checkbox-warning-color; @checkbox-warning-color);
   }
   &.lg{
     .checkSize(@checkbox-lg-width;@checkbox-lg-height;@checkbox-lg-radius;@checkbox-lg-dot-font-size;@checkbox-lg-font-size);
