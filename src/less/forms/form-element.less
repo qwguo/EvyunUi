@@ -11,7 +11,7 @@
 .form-element {
   .form-item {
     margin-bottom: @form-item-margin-bottom;
-    .item-label {
+    > .item-label {
       width: @form-label-width;
       float: left;
       text-align: right;
@@ -35,7 +35,7 @@
         }
       }
     }
-    .item-con {
+    > .item-con {
       .radio-element,
       .checkbox-element{
         margin-top: @form-label-padding-v;
@@ -54,6 +54,19 @@
           margin-left: 0;
           .clearfix();
         }
+      }
+    }
+    &.form-item-inline{
+      > .item-label{
+        display: inline-block;
+        float: none;
+        width: auto;
+        & + .item-con{
+          margin-left: 0;
+        }
+      }
+      > .item-con{
+        display: inline-block;
       }
     }
   }

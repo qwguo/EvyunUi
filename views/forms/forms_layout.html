@@ -1,6 +1,7 @@
 @@include('../include/head.html')
 <div class="show-forms">
   <h3 class="page-header">表单布局基本结构</h3>
+
   <div class="show-forms-layout">
     <h4 class="page-header">基本表单</h4>
     <form action="" class="form-element">
@@ -255,6 +256,7 @@
 </form>
     </pre>
   </div>
+
   <div class="show-forms-layout">
     <h4 class="page-header">分组各种组合使用</h4>
     <fieldset class="fieldset">
@@ -338,6 +340,37 @@
               </div>
             </div>
             <div class="form-item">
+              <label class="item-label">QQ号：</label>
+              <div class="item-con">
+                <div class="input-element-group">
+                  <div class="input-element">
+                    <input size="10" type="text" placeholder="QQ号1">
+                  </div>
+                  <div class="input-element">
+                    <input size="10" type="text" placeholder="QQ号2">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-item-group">
+            <div class="form-item form-item-inline">
+              <label class="item-label">手机号：</label>
+              <div class="item-con">
+                <div class="input-element">
+                  <input size="20" type="text" placeholder="手机号">
+                </div>
+              </div>
+            </div>
+            <div class="form-item form-item-inline">
+              <label class="item-label">邮箱：</label>
+              <div class="item-con">
+                <div class="input-element">
+                  <input size="20" type="text" placeholder="邮箱">
+                </div>
+              </div>
+            </div>
+            <div class="form-item form-item-inline">
               <label class="item-label">QQ号：</label>
               <div class="item-con">
                 <div class="input-element-group">
@@ -485,6 +518,7 @@
 </fieldset>
     </pre>
   </div>
+
   <div class="show-forms-layout">
     <fieldset class="fieldset fieldset-top-border">
       <legend class="fieldset-heading">文字单行表单</legend>
@@ -671,5 +705,6 @@
 </fieldset>
     </pre>
   </div>
+
 </div>
   @@include('../include/foot.html')

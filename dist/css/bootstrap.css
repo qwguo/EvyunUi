@@ -7805,7 +7805,7 @@ a.thumbnail.active {
 .form-element .form-item {
   margin-bottom: 15px;
 }
-.form-element .form-item .item-label {
+.form-element .form-item > .item-label {
   width: 140px;
   float: left;
   text-align: right;
@@ -7813,70 +7813,81 @@ a.thumbnail.active {
   font-size: 14px;
   color: #666666;
 }
-.form-element .form-item .item-label + .item-con {
+.form-element .form-item > .item-label + .item-con {
   margin-left: 140px;
 }
-.form-element .form-item .item-label.block {
+.form-element .form-item > .item-label.block {
   display: block;
   float: none;
   text-align: left;
   padding: 10px 0;
 }
-.form-element .form-item .item-label.block:empty {
+.form-element .form-item > .item-label.block:empty {
   padding: 0;
 }
-.form-element .form-item .item-label.block:before,
-.form-element .form-item .item-label.block:after {
+.form-element .form-item > .item-label.block:before,
+.form-element .form-item > .item-label.block:after {
   display: table;
   content: " ";
 }
-.form-element .form-item .item-label.block:after {
+.form-element .form-item > .item-label.block:after {
   clear: both;
 }
-.form-element .form-item .item-label.block:before,
-.form-element .form-item .item-label.block:after {
+.form-element .form-item > .item-label.block:before,
+.form-element .form-item > .item-label.block:after {
   display: table;
   content: " ";
 }
-.form-element .form-item .item-label.block:after {
+.form-element .form-item > .item-label.block:after {
   clear: both;
 }
-.form-element .form-item .item-label.block + .item-con {
+.form-element .form-item > .item-label.block + .item-con {
   margin-left: 0;
 }
-.form-element .form-item .item-con .radio-element,
-.form-element .form-item .item-con .checkbox-element {
+.form-element .form-item > .item-con .radio-element,
+.form-element .form-item > .item-con .checkbox-element {
   margin-top: 7px;
 }
-.form-element .form-item .item-con .item-tip {
+.form-element .form-item > .item-con .item-tip {
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
   font-size: 12px;
 }
-.form-element .form-item .item-con .item-tip .evicon {
+.form-element .form-item > .item-con .item-tip .evicon {
   margin-right: 0.5em;
   font-size: 1.3em;
 }
-.form-element .form-item .item-con .item-tip.block {
+.form-element .form-item > .item-con .item-tip.block {
   display: block;
   margin-left: 0;
 }
-.form-element .form-item .item-con .item-tip.block:before,
-.form-element .form-item .item-con .item-tip.block:after {
+.form-element .form-item > .item-con .item-tip.block:before,
+.form-element .form-item > .item-con .item-tip.block:after {
   display: table;
   content: " ";
 }
-.form-element .form-item .item-con .item-tip.block:after {
+.form-element .form-item > .item-con .item-tip.block:after {
   clear: both;
 }
-.form-element .form-item .item-con .item-tip.block:before,
-.form-element .form-item .item-con .item-tip.block:after {
+.form-element .form-item > .item-con .item-tip.block:before,
+.form-element .form-item > .item-con .item-tip.block:after {
   display: table;
   content: " ";
 }
-.form-element .form-item .item-con .item-tip.block:after {
+.form-element .form-item > .item-con .item-tip.block:after {
   clear: both;
+}
+.form-element .form-item.form-item-inline > .item-label {
+  display: inline-block;
+  float: none;
+  width: auto;
+}
+.form-element .form-item.form-item-inline > .item-label + .item-con {
+  margin-left: 0;
+}
+.form-element .form-item.form-item-inline > .item-con {
+  display: inline-block;
 }
 .form-element > .form-item-group .form-item {
   display: inline-block;
