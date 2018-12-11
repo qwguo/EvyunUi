@@ -1,83 +1,60 @@
-// Fieldset
-@fieldset-bg:                 #FFF;
-@fieldset-border-color:       #EDEDED;
-@fieldset-heading-padding:    5px 15px;
-@fieldset-body-padding:       5px;
-@fieldset-footer-padding:     @fieldset-heading-padding;
-@fieldset-border-radius:      5px;
+// Fieldset variables
+@fieldset-bg: #FFF;
+@fieldset-border-color: #EDEDED;
+@fieldset-border-margin-bottom: 20px;
+@fieldset-heading-padding: 5px 15px;
+@fieldset-heading-font-size: 14px;
+@fieldset-body-padding: 5px 15px;
+@fieldset-border-radius: 5px;
 
-// stylelint-disable selector-max-type, selector-max-compound-selectors, selector-max-combinators, no-duplicate-selectors
 
-//
-// fieldset
-// --------------------------------------------------
-
-// Base class
+.fieldset-style(@color){
+  border-color:@color;
+}
+// Base style
 .fieldset {
-  margin-bottom: @line-height-computed;
+  margin-bottom: @fieldset-border-margin-bottom;
   background-color: @fieldset-bg;
-  border: 1px solid @fieldset-border-color;
+  border-width: 1px;
+  border-color:solid;
   border-radius: @fieldset-border-radius;
   .box-shadow(0 1px 1px rgba(0, 0, 0, .05));
-}
-
-// Panel contents
-.fieldset-body {
-  margin: @fieldset-body-padding;
-  &:extend(.clearfix all);
-}
-
-// Optional heading
-.fieldset-heading {
-  padding: @fieldset-heading-padding;
-  > .dropdown .dropdown-toggle {
-    color: inherit;
+  > .fieldset-heading {
+    padding: @fieldset-heading-padding;
+    font-size: @fieldset-heading-font-size;
   }
-}
-
-// Within heading, strip any `h*` tag of its default margins for spacing.
-.fieldset-heading {
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: ceil((@font-size-base * 1.125));
-  //color: inherit;
-  > a,
-  > small,
-  > .small,
-  > small > a,
-  > .small > a {
-    color: inherit;
+  > .fieldset-body {
+    margin: @fieldset-body-padding;
+    .clearfix();
   }
-}
-.fieldset-top-border{
-  border-width: 1px 0 0;
-  > .fieldset-heading{
-    margin-left: 2em;
+  &.only-top-border {
+    border-width: 1px 0 0;
+    border-radius: 0;
+    .box-shadow(none);
+    > .fieldset-heading {
+      margin-left: 2em;
+    }
+    > .fieldset-body {
+      margin: 0;
+    }
   }
-  > .fieldset-body{
-    margin: 0;
+  &{
+    .fieldset-style(@fieldset-border-color);
   }
-}
-
-.fieldset-variant(@border-color){
-  border-color: @border-color;
-  > .fieldset-heading{
-    color: @border-color;
+  // color
+  &.primary {
+    .fieldset-style(@color-primary);
   }
-}
-// Contextual variations
-.fieldset-primary {
-  .fieldset-variant(@color-primary);
-}
-.fieldset-success {
-  .fieldset-variant(@color-success);
-}
-.fieldset-info {
-  .fieldset-variant(@color-info);
-}
-.fieldset-warning {
-  .fieldset-variant(@color-warning);
-}
-.fieldset-danger {
-  .fieldset-variant(@color-danger);
+  &.success {
+    .fieldset-style(@color-success);
+  }
+  &.info {
+    .fieldset-style(@color-info);
+  }
+  &.warning {
+    .fieldset-style(@color-warning);
+  }
+  &.danger {
+    .fieldset-style(@color-danger);
+  }
 }
