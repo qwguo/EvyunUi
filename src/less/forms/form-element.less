@@ -7,11 +7,10 @@
 @form-label-padding-v: 7px;
 @form-label-padding-h: 10px;
 @form-item-margin-bottom: 15px;
-@form-item-con-child-right: 10px;
+@form-item-con-child-margin: 10px;
 
 .form-element {
   .form-item {
-    margin-bottom: @form-item-margin-bottom;
     > .item-label {
       width: @form-label-width;
       float: left;
@@ -54,9 +53,9 @@
       > .radio-element-group*/
       > *{
         display: inline-block;
-        margin-left: @form-item-con-child-right;
-        &:first-child{
-          margin-left: 0;
+        margin: 0 @form-item-con-child-margin @form-item-con-child-margin 0;
+        &:last-child{
+          margin-right: 0;
         }
       }
       .item-tip{

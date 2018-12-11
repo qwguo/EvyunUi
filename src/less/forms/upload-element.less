@@ -31,7 +31,6 @@
     color: @upload-tip-color;
   }
   > .upload-images-list {
-    padding-top: 10px;
     list-style: none;
     padding-left: 0;
     font-size: 0;
@@ -107,5 +106,12 @@
         }
       }
     }
+  }
+  > .upload-btn + .upload-images-list,
+  > .upload-btn + .upload-tip + .upload-images-list{
+    padding-top: 10px;
+  }
+  > .upload-images-list + .upload-tip{
+    margin-top: 10px;
   }
 }

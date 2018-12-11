@@ -5603,9 +5603,6 @@ fieldset[disabled] a.btn {
 .btn .evicon:last-child {
   font-size: 1.4em;
 }
-.btn + .btn {
-  margin-left: 10px;
-}
 .btn:focus,
 .btn.focus {
   color: #555555;
@@ -7802,9 +7799,6 @@ a.thumbnail.active {
 .breadcrumb.sm {
   font-size: 12px;
 }
-.form-element .form-item {
-  margin-bottom: 15px;
-}
 .form-element .form-item > .item-label {
   width: 140px;
   float: left;
@@ -7863,10 +7857,10 @@ a.thumbnail.active {
 }
 .form-element .form-item > .item-con > * {
   display: inline-block;
-  margin-left: 10px;
+  margin: 0 10px 10px 0;
 }
-.form-element .form-item > .item-con > *:first-child {
-  margin-left: 0;
+.form-element .form-item > .item-con > *:last-child {
+  margin-right: 0;
 }
 .form-element .form-item > .item-con .item-tip {
   display: inline-block;
@@ -8191,7 +8185,6 @@ a.thumbnail.active {
   width: 100%;
   min-width: 200px;
   min-height: 100px;
-  margin-bottom: 10px;
   outline: 0;
 }
 .textarea-element > textarea:hover {
@@ -8847,7 +8840,6 @@ a.thumbnail.active {
   color: #a9a9a9;
 }
 .upload-element > .upload-images-list {
-  padding-top: 10px;
   list-style: none;
   padding-left: 0;
   font-size: 0;
@@ -8924,6 +8916,13 @@ a.thumbnail.active {
 }
 .upload-element > .upload-images-list > .upload-btn:hover > i {
   background-color: #0090FF;
+}
+.upload-element > .upload-btn + .upload-images-list,
+.upload-element > .upload-btn + .upload-tip + .upload-images-list {
+  padding-top: 10px;
+}
+.upload-element > .upload-images-list + .upload-tip {
+  margin-top: 10px;
 }
 @font-face {
   font-family: kxiconfont;
