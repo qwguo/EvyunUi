@@ -7844,14 +7844,33 @@ a.thumbnail.active {
 .form-element .form-item > .item-label.block + .item-con {
   margin-left: 0;
 }
+.form-element .form-item > .item-con {
+  /*> .input-element,
+      > .input-element-joint,
+      > .input-element-brothers,
+      > .input-element-btn,
+      > .checkbox-element,
+      > .checkbox-element-group,
+      > .radio-element,
+      > .radio-element-group*/
+}
 .form-element .form-item > .item-con .radio-element,
 .form-element .form-item > .item-con .checkbox-element {
   margin-top: 7px;
 }
+.form-element .form-item > .item-con > .input-element-group {
+  display: inline-block;
+}
+.form-element .form-item > .item-con > * {
+  display: inline-block;
+  margin-left: 10px;
+}
+.form-element .form-item > .item-con > *:first-child {
+  margin-left: 0;
+}
 .form-element .form-item > .item-con .item-tip {
   display: inline-block;
   vertical-align: middle;
-  margin-left: 10px;
   font-size: 12px;
 }
 .form-element .form-item > .item-con .item-tip .evicon {
@@ -8066,7 +8085,7 @@ a.thumbnail.active {
 .input-element-group > .input-element,
 .input-element-group > .input-element-brothers,
 .input-element-group > .input-element-joint {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 .input-element-group > .input-element:first-child,
 .input-element-group > .input-element-brothers:first-child,
@@ -8221,7 +8240,7 @@ a.thumbnail.active {
   display: inline-block;
 }
 .radio-element-group > .radio-element {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 .radio-element-group > .radio-element:first-child {
   margin-left: 0;
@@ -8360,7 +8379,7 @@ a.thumbnail.active {
 }
 .checkbox-element > .dot {
   display: inline-block;
-  vertical-align: text-bottom;
+  vertical-align: middle;
   position: relative;
   border-width: 0;
   border-style: solid;
@@ -8799,7 +8818,7 @@ a.thumbnail.active {
   font-size: 0;
 }
 .select-element-group > .select-element {
-  margin-left: 15px;
+  margin-left: 10px;
 }
 .select-element-group > .select-element:first-child,
 .select-element-group > .select-element.block {

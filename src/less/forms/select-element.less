@@ -1,5 +1,6 @@
 //== Select Variable
 //
+@select-group-item-margin: 10px;
 @option-list-max-height: 300px;
 @option-list-bg: #fff;
 @option-list-item-height: 28px;
@@ -131,7 +132,7 @@
 .select-element-group {
   font-size: 0;
   > .select-element {
-    margin-left: 15px;
+    margin-left: @select-group-item-margin;
   }
   > .select-element:first-child,
   > .select-element.block {

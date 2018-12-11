@@ -7,6 +7,7 @@
 @form-label-padding-v: 7px;
 @form-label-padding-h: 10px;
 @form-item-margin-bottom: 15px;
+@form-item-con-child-right: 10px;
 
 .form-element {
   .form-item {
@@ -40,10 +41,27 @@
       .checkbox-element{
         margin-top: @form-label-padding-v;
       }
+      > .input-element-group{
+        display: inline-block;
+      }
+      /*> .input-element,
+      > .input-element-joint,
+      > .input-element-brothers,
+      > .input-element-btn,
+      > .checkbox-element,
+      > .checkbox-element-group,
+      > .radio-element,
+      > .radio-element-group*/
+      > *{
+        display: inline-block;
+        margin-left: @form-item-con-child-right;
+        &:first-child{
+          margin-left: 0;
+        }
+      }
       .item-tip{
         display: inline-block;
         vertical-align: middle;
-        margin-left: @form-label-padding-h;
         font-size: @form-item-tip-font-size;
         .evicon{
           margin-right: .5em;
