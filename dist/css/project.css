@@ -186,5 +186,12 @@ code {
 .show-layout .layout-second .layout-second {
   background-color: #c4c4c4;
 }
+.show-global-class .show-margin-div .list {
+  border: 1px solid #c00;
+  background-color: #ccc;
+}
+.show-global-class .show-margin-div .list li {
+  background-color: #f6f6f6;
+}
 
 /*# sourceMappingURL=project.css.map */

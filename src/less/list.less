@@ -1,133 +1,52 @@
-// stylelint-disable selector-no-qualifying-type
-
-//
 // List
-// --------------------------------------------------
+@list-inline-li-margin: 10px;
 
-// Base class
-//
-// Easily usable on <ul>, <ol>
+.list-type(@type){
+  &.list-type-@{type}{
+    list-style-type: @type;
+  }
+}
+
 
 .list {
   list-style-position: inside;
   padding-left: 0;
+  margin: 0;
   li > .list {
     padding-left: 1em;
   }
+  &.inline {
+    .clearfix();
+    margin:0 -5px;
+    > li {
+      float: left;
+      margin-right: @list-inline-li-margin;
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+  .list-type(none);
+  .list-type(disc);
+  .list-type(circle);
+  .list-type(square);
+  .list-type(decimal);
+  .list-type(lower-roman);
+  .list-type(upper-roman);
+  .list-type(lower-alpha);
+  .list-type(upper-alpha);
+  .list-type(armenian);
+  .list-type(cjk-ideographic);
+  .list-type(georgian);
+  .list-type(lower-greek);
+  .list-type(hebrew);
+  .list-type(hiragana);
+  .list-type(hiragana-iroha);
+  .list-type(katakana);
+  .list-type(katakana-iroha);
+  .list-type(lower-latin);
+  .list-type(upper-latin);
 }
 
-.list-type-disc {
-  &, &.list-inline {
-    list-style-type: disc;
-  }
-}
-
-.list-type-circle {
-  &, &.list-inline {
-    list-style-type: circle;
-  }
-}
-
-.list-type-square {
-  &, &.list-inline {
-    list-style-type: square;
-  }
-}
-
-.list-type-decimal {
-  &, &.list-inline {
-    list-style-type: decimal;
-  }
-}
-
-.list-type-lower-roman {
-  &, &.list-inline {
-    list-style-type: lower-roman;
-  }
-}
-
-.list-type-upper-roman {
-  &, &.list-inline {
-    list-style-type: upper-roman;
-  }
-}
-
-.list-type-lower-alpha {
-  &, &.list-inline {
-    list-style-type: lower-alpha;
-  }
-}
-
-.list-type-upper-alpha {
-  &, &.list-inline {
-    list-style-type: upper-alpha;
-  }
-}
-
-.list-type-armenian {
-  &, &.list-inline {
-    list-style-type: armenian;
-  }
-}
-
-.list-type-cjk-ideographic {
-  &, &.list-inline {
-    list-style-type: cjk-ideographic;
-  }
-}
-
-.list-type-georgian {
-  &, &.list-inline {
-    list-style-type: georgian;
-  }
-}
-
-.list-type-lower-greek {
-  &, &.list-inline {
-    list-style-type: lower-greek;
-  }
-}
-
-.list-type-hebrew {
-  &, &.list-inline {
-    list-style-type: hebrew;
-  }
-}
-
-.list-type-hiragana {
-  &, &.list-inline {
-    list-style-type: hiragana;
-  }
-}
-
-.list-type-hiragana-iroha {
-  &, &.list-inline {
-    list-style-type: hiragana-iroha;
-  }
-}
-
-.list-type-katakana {
-  &, &.list-inline {
-    list-style-type: katakana;
-  }
-}
-
-.list-type-katakana-iroha {
-  &, &.list-inline {
-    list-style-type: katakana-iroha;
-  }
-}
-
-.list-type-lower-latin {
-  &, &.list-inline {
-    list-style-type: lower-latin;
-  }
-}
-
-.list-type-upper-latin {
-  &, &.list-inline {
-    list-style-type: upper-latin;
-  }
-}
 
 
