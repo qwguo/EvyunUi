@@ -14,7 +14,7 @@ var menu = new Vue({
       'name': 'layout',
       'cur': 0,
       'sub': [
-        {'title': '布局', 'name': 'layout_tow_columns', 'href': 'layout/layout_tow_columns.html'}
+        {'title': '布局', 'name': 'layout_columns', 'href': 'layout/layout_columns.html'}
       ]
     }, {
       'title': '全局类',

@@ -267,72 +267,72 @@ hr {
 .layout:after {
   clear: both;
 }
-.layout-tow-columns > .layout-main-wrap {
+.layout > .layout-main-wrap {
   position: relative;
   width: 100%;
 }
-.layout-tow-columns > .layout-main-wrap > .layout-main:before,
-.layout-tow-columns > .layout-main-wrap > .layout-main:after {
+.layout > .layout-main-wrap > .layout-main:before,
+.layout > .layout-main-wrap > .layout-main:after {
   display: table;
   content: " ";
 }
-.layout-tow-columns > .layout-main-wrap > .layout-main:after {
+.layout > .layout-main-wrap > .layout-main:after {
   clear: both;
 }
-.layout-tow-columns > .layout-main-wrap > .layout-main:before,
-.layout-tow-columns > .layout-main-wrap > .layout-main:after {
+.layout > .layout-main-wrap > .layout-main:before,
+.layout > .layout-main-wrap > .layout-main:after {
   display: table;
   content: " ";
 }
-.layout-tow-columns > .layout-main-wrap > .layout-main:after {
+.layout > .layout-main-wrap > .layout-main:after {
   clear: both;
 }
-.layout-tow-columns > .layout-second {
+.layout > .layout-second {
   position: relative;
   width: 250px;
 }
-.layout-tow-columns > .layout-second:before,
-.layout-tow-columns > .layout-second:after {
+.layout > .layout-second:before,
+.layout > .layout-second:after {
   display: table;
   content: " ";
 }
-.layout-tow-columns > .layout-second:after {
+.layout > .layout-second:after {
   clear: both;
 }
-.layout-tow-columns > .layout-second:before,
-.layout-tow-columns > .layout-second:after {
+.layout > .layout-second:before,
+.layout > .layout-second:after {
   display: table;
   content: " ";
 }
-.layout-tow-columns > .layout-second:after {
+.layout > .layout-second:after {
   clear: both;
 }
-.layout-tow-columns.layout-l-r > .layout-main-wrap {
+.layout-l-r > .layout-main-wrap {
   float: left;
 }
-.layout-tow-columns.layout-l-r > .layout-main-wrap > .layout-main {
+.layout-l-r > .layout-main-wrap > .layout-main {
   margin-left: 260px;
 }
-.layout-tow-columns.layout-l-r > .layout-main-wrap + .layout-second {
+.layout-l-r > .layout-main-wrap + .layout-second {
   margin-right: 0;
   margin-left: -100%;
 }
-.layout-tow-columns.layout-l-r > .layout-second {
+.layout-l-r > .layout-second {
   float: left;
   margin-right: -100%;
   z-index: 2;
 }
-.layout-tow-columns.layout-r-l > .layout-main-wrap {
+.layout-r-l > .layout-main-wrap {
   float: right;
 }
-.layout-tow-columns.layout-r-l > .layout-main-wrap > .layout-main {
+.layout-r-l > .layout-main-wrap > .layout-main {
   margin-right: 260px;
 }
-.layout-tow-columns.layout-r-l > .layout-main-wrap + .layout-second {
+.layout-r-l > .layout-main-wrap + .layout-second {
   margin-left: 0;
   margin-right: -100%;
 }
-.layout-tow-columns.layout-r-l > .layout-second {
+.layout-r-l > .layout-second {
   float: right;
   margin-left: -100%;
 }

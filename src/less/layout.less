@@ -2,8 +2,6 @@
 
 .layout {
   .clearfix();
-}
-&.layout-tow-columns {
   > .layout-main-wrap {
     position: relative;
     width: 100%;
@@ -16,37 +14,37 @@
     width: 250px;
     .clearfix();
   }
-  &.layout-l-r{
-    > .layout-main-wrap{
-      float: left;
-      > .layout-main {
-        margin-left: 260px;
-      }
-      & + .layout-second{
-        margin-right: 0;
-        margin-left: -100%;
-      }
+}
+.layout-l-r{
+  > .layout-main-wrap{
+    float: left;
+    > .layout-main {
+      margin-left: 260px;
     }
-    > .layout-second {
-      float: left;
-      margin-right: -100%;
-      z-index: 2;
-    }
-  }
-  &.layout-r-l{
-    > .layout-main-wrap{
-      float: right;
-      > .layout-main {
-        margin-right: 260px;
-      }
-      & + .layout-second {
-        margin-left: 0;
-        margin-right: -100%;
-      }
-    }
-    > .layout-second {
-      float: right;
+    & + .layout-second{
+      margin-right: 0;
       margin-left: -100%;
     }
+  }
+  > .layout-second {
+    float: left;
+    margin-right: -100%;
+    z-index: 2;
+  }
+}
+.layout-r-l{
+  > .layout-main-wrap{
+    float: right;
+    > .layout-main {
+      margin-right: 260px;
+    }
+    & + .layout-second {
+      margin-left: 0;
+      margin-right: -100%;
+    }
+  }
+  > .layout-second {
+    float: right;
+    margin-left: -100%;
   }
 }
