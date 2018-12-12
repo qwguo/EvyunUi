@@ -89,15 +89,31 @@ table {
             text-decoration: underline;
           }
         }
+        text-align: inherit;
+        &.text-left{
+          text-align: left;
+        }
+        &.text-center{
+          text-align: center;
+        }
+        &.text-right{
+          text-align: right;
+        }
       }
+      &.vertical-top > th,
+      &.vertical-top > td,
       > th.vertical-top,
       > td.vertical-top {
         vertical-align: top;
       }
+      &.vertical-middle > th,
+      &.vertical-middle > td,
       > th.vertical-middle,
       > td.vertical-middle {
         vertical-align: middle;
       }
+      &.vertical-bottom > th,
+      &.vertical-bottom > td,
       > th.vertical-bottom,
       > td.vertical-bottom {
         vertical-align: bottom;

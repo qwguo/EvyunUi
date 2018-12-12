@@ -5423,6 +5423,7 @@ table th {
   border: 1px solid #dee2e6;
   color: #555555;
   font-size: 12px;
+  text-align: inherit;
 }
 .table > thead > tr > th a,
 .table > tbody > tr > th a,
@@ -5440,6 +5441,36 @@ table th {
 .table > tfoot > tr > td a:hover {
   text-decoration: underline;
 }
+.table > thead > tr > th.text-left,
+.table > tbody > tr > th.text-left,
+.table > tfoot > tr > th.text-left,
+.table > thead > tr > td.text-left,
+.table > tbody > tr > td.text-left,
+.table > tfoot > tr > td.text-left {
+  text-align: left;
+}
+.table > thead > tr > th.text-center,
+.table > tbody > tr > th.text-center,
+.table > tfoot > tr > th.text-center,
+.table > thead > tr > td.text-center,
+.table > tbody > tr > td.text-center,
+.table > tfoot > tr > td.text-center {
+  text-align: center;
+}
+.table > thead > tr > th.text-right,
+.table > tbody > tr > th.text-right,
+.table > tfoot > tr > th.text-right,
+.table > thead > tr > td.text-right,
+.table > tbody > tr > td.text-right,
+.table > tfoot > tr > td.text-right {
+  text-align: right;
+}
+.table > thead > tr.vertical-top > th,
+.table > tbody > tr.vertical-top > th,
+.table > tfoot > tr.vertical-top > th,
+.table > thead > tr.vertical-top > td,
+.table > tbody > tr.vertical-top > td,
+.table > tfoot > tr.vertical-top > td,
 .table > thead > tr > th.vertical-top,
 .table > tbody > tr > th.vertical-top,
 .table > tfoot > tr > th.vertical-top,
@@ -5448,6 +5479,12 @@ table th {
 .table > tfoot > tr > td.vertical-top {
   vertical-align: top;
 }
+.table > thead > tr.vertical-middle > th,
+.table > tbody > tr.vertical-middle > th,
+.table > tfoot > tr.vertical-middle > th,
+.table > thead > tr.vertical-middle > td,
+.table > tbody > tr.vertical-middle > td,
+.table > tfoot > tr.vertical-middle > td,
 .table > thead > tr > th.vertical-middle,
 .table > tbody > tr > th.vertical-middle,
 .table > tfoot > tr > th.vertical-middle,
@@ -5456,6 +5493,12 @@ table th {
 .table > tfoot > tr > td.vertical-middle {
   vertical-align: middle;
 }
+.table > thead > tr.vertical-bottom > th,
+.table > tbody > tr.vertical-bottom > th,
+.table > tfoot > tr.vertical-bottom > th,
+.table > thead > tr.vertical-bottom > td,
+.table > tbody > tr.vertical-bottom > td,
+.table > tfoot > tr.vertical-bottom > td,
 .table > thead > tr > th.vertical-bottom,
 .table > tbody > tr > th.vertical-bottom,
 .table > tfoot > tr > th.vertical-bottom,
