@@ -174,5 +174,17 @@ code {
   background-color: #bbb;
   color: #333;
 }
+.show-layout .layout-main {
+  background-color: #f5f5f5;
+}
+.show-layout .layout-main .layout-main {
+  background-color: #dcdcdc;
+}
+.show-layout .layout-second {
+  background-color: #ddd;
+}
+.show-layout .layout-second .layout-second {
+  background-color: #c4c4c4;
+}
 
 /*# sourceMappingURL=project.css.map */

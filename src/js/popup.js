@@ -1,3 +1,4 @@
+var ppppp = null;
 // Popup
 (function (window, $) {
   var Popup = function (j_) {
@@ -28,6 +29,7 @@
   Popup.prototype = {
     constructor: Popup,
     numbers: 0,
+    allPopupList: null,
     alertType: ['alert', 'html', 'iframe', 'loading', 'taps', 'tab'],
     alertIcon: ['<i class="evicon evicon-right-1 text-success"></i>', '<i class="evicon evicon-close-2 text-warning"></i>', '<i class="evicon evicon-point-2 text-info"></i>', '<i class="evicon load-wait"></i>'],
     //得到窗口的宽高，dom的宽高，elemnet的宽高
@@ -180,6 +182,8 @@
           that.popupClose();
         }, j.autoClose * 1000);
       }
+      /*Popup.prototype.allPopupList = Popup.prototype.allPopupList || {};
+      Popup.prototype.allPopupList['popup_'+Popup.prototype.numbers] = that;*/
     },
     // 计算弹窗的位置
     popupOffset: function () {
@@ -296,9 +300,19 @@
         typeof(j.closeCallBack) === 'function' && j.closeCallBack();
         that.popup.remove();
         that.popupShade && that.popupShade.remove();
+        // that.popup = null;
         that = null;
       },210);
-    },
+    }/*,
+    popupCloseAll: function(){
+      var that = this;
+      if(that.allPopupList){
+        $.each(that.allPopupList, function(i, v){
+          console.log(v);
+          v.popupClose();
+        });
+      }
+    }*/,
     popupDrag: function(){
       var that = this,
           j = that.j;

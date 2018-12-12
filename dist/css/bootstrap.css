@@ -251,6 +251,91 @@ hr {
 [role="button"] {
   cursor: pointer;
 }
+.layout:before,
+.layout:after {
+  display: table;
+  content: " ";
+}
+.layout:after {
+  clear: both;
+}
+.layout:before,
+.layout:after {
+  display: table;
+  content: " ";
+}
+.layout:after {
+  clear: both;
+}
+.layout.layout-tow-columns > .layout-main-wrap {
+  position: relative;
+  width: 100%;
+}
+.layout.layout-tow-columns > .layout-main-wrap > .layout-main:before,
+.layout.layout-tow-columns > .layout-main-wrap > .layout-main:after {
+  display: table;
+  content: " ";
+}
+.layout.layout-tow-columns > .layout-main-wrap > .layout-main:after {
+  clear: both;
+}
+.layout.layout-tow-columns > .layout-main-wrap > .layout-main:before,
+.layout.layout-tow-columns > .layout-main-wrap > .layout-main:after {
+  display: table;
+  content: " ";
+}
+.layout.layout-tow-columns > .layout-main-wrap > .layout-main:after {
+  clear: both;
+}
+.layout.layout-tow-columns > .layout-second {
+  position: relative;
+  width: 250px;
+}
+.layout.layout-tow-columns > .layout-second:before,
+.layout.layout-tow-columns > .layout-second:after {
+  display: table;
+  content: " ";
+}
+.layout.layout-tow-columns > .layout-second:after {
+  clear: both;
+}
+.layout.layout-tow-columns > .layout-second:before,
+.layout.layout-tow-columns > .layout-second:after {
+  display: table;
+  content: " ";
+}
+.layout.layout-tow-columns > .layout-second:after {
+  clear: both;
+}
+.layout.layout-tow-columns.layout-l-r > .layout-main-wrap {
+  float: left;
+}
+.layout.layout-tow-columns.layout-l-r > .layout-main-wrap > .layout-main {
+  margin-left: 260px;
+}
+.layout.layout-tow-columns.layout-l-r > .layout-main-wrap + .layout-second {
+  margin-right: 0;
+  margin-left: -100%;
+}
+.layout.layout-tow-columns.layout-l-r > .layout-second {
+  float: left;
+  margin-right: -100%;
+  z-index: 2;
+}
+.layout.layout-tow-columns.layout-r-l > .layout-main-wrap {
+  float: right;
+}
+.layout.layout-tow-columns.layout-r-l > .layout-main-wrap > .layout-main {
+  margin-right: 260px;
+}
+.layout.layout-tow-columns.layout-r-l > .layout-main-wrap + .layout-second {
+  margin-left: 0;
+  margin-right: -100%;
+}
+.layout.layout-tow-columns.layout-r-l > .layout-second {
+  float: right;
+  margin-left: -100%;
+}
 .q:before,
 .q:after {
   display: table;
@@ -5330,7 +5415,6 @@ table th {
 .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 20px;
   border: 1px solid #dee2e6;
 }
 .table > thead > tr,

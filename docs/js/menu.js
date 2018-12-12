@@ -10,6 +10,13 @@ var menu = new Vue({
           {'title': '基本布局', 'name': 'column_gird', 'href': 'gird/column_gird.html'},
           {'title': '布局列偏移', 'name': 'column_gird_offset', 'href': 'gird/column_gird_offset.html'}
         ]
+      },{
+        'title': '布局系统',
+        'name': 'layout',
+        'cur': 0,
+        'sub': [
+          {'title': '布局', 'name': 'layout_tow_columns', 'href': 'layout/layout_tow_columns.html'},
+        ]
       },
       {
         'title': '表格',
@@ -108,7 +115,7 @@ var menu = new Vue({
       {
         'title': '测试',
         'name': 'test',
-        'cur': 1,
+        'cur': 0,
         'sub': [
           {'title': '测试', 'name': 'test', 'href': 'test/index.html'}
         ]
@@ -117,8 +124,8 @@ var menu = new Vue({
   },
   methods: {
     details: function (id) {
-      this.list.map(function(i, v){
-        if(v !== id){
+      this.list.map(function (i, v) {
+        if (v !== id) {
           i.cur = 0;
         }
       });
