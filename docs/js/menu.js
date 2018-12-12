@@ -10,7 +10,7 @@ var menu = new Vue({
         {'title': '布局列偏移', 'name': 'column_gird_offset', 'href': 'gird/column_gird_offset.html'}
       ]
     }, {
-      'title': '布局系统',
+      'title': '布局',
       'name': 'layout',
       'cur': 0,
       'sub': [
