@@ -25,7 +25,7 @@
   <div class="show-layout-div">
     <h4 class="page-header">两列布局，一列固定宽度，另一列自适应宽度：</h4>
     <h5 class="text-warning">左边固定右边自适应（代码结构是非主要内容在前，主要内容在后）</h5>
-    <div class="layout layout-tow-columns layout-l-r">
+    <div class="layout layout-l-r">
       <div class="layout-second">
         <h3>这里放置非主要的内容</h3>
         <ul class="list">
@@ -55,7 +55,7 @@
       </div>
     </div>
     <h5 class="text-warning">左边固定右边自适应（代码结构是主要内容在前，非主要内容在后）</h5>
-    <div class="layout layout-tow-columns layout-l-r">
+    <div class="layout layout-l-r">
       <div class="layout-main-wrap">
         <div class="layout-main">
           <h3>这里放置主要的内容</h3>
@@ -88,7 +88,7 @@
     </div>
     <pre class="html" name="pre">
 <!--代码结构1-->
-<div class="layout layout-tow-columns layout-l-r">
+<div class="layout layout-l-r">
   <div class="layout-main-wrap">
     <div class="layout-main">
       <h3>这里放置主要的内容</h3>
@@ -99,7 +99,7 @@
   </div>
 </div>
       <!--代码结构2-->
-<div class="layout layout-tow-columns layout-l-r">
+<div class="layout layout-l-r">
   <div class="layout-second">
     <h3>这里放置非主要的内容</h3>
   </div>
@@ -112,7 +112,7 @@
     </pre>
 
     <h5 class="text-warning">有边固定左边自适应（代码结构是非主要内容在前，主要内容在后）</h5>
-    <div class="layout layout-tow-columns layout-r-l">
+    <div class="layout layout-r-l">
       <div class="layout-second">
         <h3>这里放置非主要的内容</h3>
         <ul class="list">
@@ -144,7 +144,7 @@
       </div>
     </div>
     <h5 class="text-warning">右边固定左边自适应（代码结构是主要内容在前，非主要内容在后）</h5>
-    <div class="layout layout-tow-columns layout-r-l">
+    <div class="layout layout-r-l">
       <div class="layout-main-wrap">
         <div class="layout-main">
           <h3>这里放置主要的内容</h3>
@@ -177,7 +177,7 @@
     </div>
     <pre class="html" name="pre">
 <!--代码结构1-->
-<div class="layout layout-tow-columns layout-r-l">
+<div class="layout layout-r-l">
   <div class="layout-main-wrap">
     <div class="layout-main">
       <h3>这里放置主要的内容</h3>
@@ -188,7 +188,7 @@
   </div>
 </div>
       <!--代码结构2-->
-<div class="layout layout-tow-columns layout-r-l">
+<div class="layout layout-r-l">
   <div class="layout-second">
     <h3>这里放置非主要的内容</h3>
   </div>
@@ -203,7 +203,6 @@
     <dl class="arr-explain-list">
       <dt>布局介绍：</dt>
       <dd><code>layout</code>：表示最外层的元素的class，用这个来实现布局效果。</dd>
-      <dd><code>layout-tow-columns</code>：表示的是两列布局的class。</dd>
       <dd><code>layout-l-r</code>：表示布局的方向，<code>layout-l-r</code>：表示主要内容在右，次要内容在左。<code>layout-r-l</code>：表示次要内容在右，主要内容在左。</dd>
       <dd><code>layout-second</code>：次要内容的class类。</dd>
       <dd><code>layout-main-wrap</code>：主要内容的父级元素的class类。</dd>
@@ -217,10 +216,10 @@
   <div class="show-layout-div">
     <h4 class="page-header">布局结构的嵌套</h4>
     <h5 class="text-warning">两边固定宽度中间自适应</h5>
-    <div class="layout layout-tow-columns layout-r-l">
+    <div class="layout layout-r-l">
       <div class="layout-main-wrap">
         <div class="layout-main">
-          <div class="layout layout-tow-columns layout-l-r">
+          <div class="layout layout-l-r">
             <div class="layout-main-wrap">
               <div class="layout-main">
                 <p>2015年6月17日发布。截止发布日期，JavaScript的官方名称是ECMAScript 2015，Ecma国际意在更频繁地发布包含小规模增量更新的新版本，下一版本将于2016年发布，命名为ECMAScript
@@ -260,10 +259,10 @@
       </div>
     </div>
     <pre class="html" name="pre">
-<div class="layout layout-tow-columns layout-r-l">
+<div class="layout layout-r-l">
       <div class="layout-main-wrap">
         <div class="layout-main">
-          <div class="layout layout-tow-columns layout-l-r">
+          <div class="layout layout-l-r">
             <div class="layout-main-wrap">
               <div class="layout-main">
                 文章内容区
@@ -281,10 +280,10 @@
     </div>
     </pre>
     <h5 class="text-warning">左边两列固定，右边自适应</h5>
-    <div class="layout layout-tow-columns layout-l-r">
+    <div class="layout layout-l-r">
       <div class="layout-main-wrap">
         <div class="layout-main">
-          <div class="layout layout-tow-columns layout-l-r">
+          <div class="layout layout-l-r">
             <div class="layout-main-wrap">
               <div class="layout-main">
                 <p>2015年6月17日发布。截止发布日期，JavaScript的官方名称是ECMAScript 2015，Ecma国际意在更频繁地发布包含小规模增量更新的新版本，下一版本将于2016年发布，命名为ECMAScript
@@ -324,10 +323,10 @@
       </div>
     </div>
     <pre class="html" name="pre">
-<div class="layout layout-tow-columns layout-r-l">
+<div class="layout layout-r-l">
       <div class="layout-main-wrap">
         <div class="layout-main">
-          <div class="layout layout-tow-columns layout-l-r">
+          <div class="layout layout-l-r">
             <div class="layout-main-wrap">
               <div class="layout-main">
                 文章内容区
@@ -346,7 +345,6 @@
     </pre>
   </div>
 
-
 </div>
 
 
@@ -356,5 +354,4 @@
   <script src="../js/public.js"></script>
 </body>
 </html>
-
 
