@@ -52,7 +52,6 @@
   }
 }
 
-
 // Outline button variants
 //
 // Easily pump out default styles, as well as :hover, :focus, :active,
@@ -60,7 +59,7 @@
 
 .outline-button-variant(@color; @background; @border) {
   color: @color;
-  background-color: @background;
+  background-color: transparent;
   border-color: @border;
 
   &:focus,
@@ -102,15 +101,23 @@
 
     }
   }
-
   .badge {
     color: @background;
     background-color: @color;
   }
 }
+
 // Button sizes
-.button-size(@padding; @font-size; @border-radius) {
-  padding: @padding;
+.button-size(@padding-x;@padding-y; @font-size; @border-radius) {
+  padding: @padding-y @padding-x;
   font-size: @font-size;
   border-radius: @border-radius;
+  &.btn-circle {
+    padding: 0;
+    width: @font-size*2 + @padding-y;
+    height: @font-size*2 + @padding-y;
+  }
+  &.btn-square{
+    padding: @padding-y;
+  }
 }

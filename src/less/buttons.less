@@ -44,24 +44,27 @@
 @btn-lighter-warning-border: #ffd4d4;
 
 
-
 // for button size
 // lg
 @btn-font-size-lg: 16px;
 @btn-border-radius-lg: 4px;
-@btn-padding-lg: 14px 28px;
+@btn-padding-lg-x: 28px;
+@btn-padding-lg-y: 14px;
 
 @btn-font-size: 14px;
 @btn-border-radius: 3px;
-@btn-padding: 10px 20px;
+@btn-padding-x: 20px;
+@btn-padding-y: 10px;
 
 @btn-font-size-sm: 12px;
 @btn-border-radius-sm: 2px;
-@btn-padding-sm: 6px 12px;
+@btn-padding-sm-x: 12px;
+@btn-padding-sm-y: 6px;
 
 @btn-font-size-xs: 10px;
 @btn-border-radius-xs: 1px;
-@btn-padding-xs: 2px 4px;
+@btn-padding-xs-x: 4px;
+@btn-padding-xs-y: 2px;
 
 
 @btn-border-rounded: 60px;
@@ -83,14 +86,14 @@
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
   .user-select(none);
-  &,
+  /*&,
   &:active,
   &.active {
     &:focus,
     &.focus {
-      .tab-focus();
+      //.tab-focus();
     }
-  }
+  }*/
   &:hover,
   &:focus,
   &.focus {
@@ -103,11 +106,12 @@
     outline: 0;
   }
   &.disabled,
-  &[disabled],
-  a& {
-    &.disabled{
+  &[disabled]{
+    a&{
       pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
     }
+    cursor:no-drop;
+    .opacity(.4);
   }
   > .evicon {
     vertical-align: baseline;
@@ -181,18 +185,18 @@
   // Button Sizes
   // --------------------------------------------------
   &{
-    .button-size(@btn-padding; @btn-font-size; @btn-border-radius);
+    .button-size(@btn-padding-x; @btn-padding-y; @btn-font-size; @btn-border-radius);
   }
   &.btn-lg {
-    .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-lg);
+    .button-size(@btn-padding-lg-x; @btn-padding-lg-y; @btn-font-size-lg; @btn-border-radius-lg);
   }
 
   &.btn-sm {
-    .button-size(@btn-padding-sm; @btn-font-size-sm; @btn-border-radius-sm);
+    .button-size(@btn-padding-sm-x; @btn-padding-sm-y; @btn-font-size-sm; @btn-border-radius-sm);
   }
 
   &.btn-xs {
-    .button-size(@btn-padding-xs; @btn-font-size-xs; @btn-border-radius-xs);
+    .button-size(@btn-padding-xs-x; @btn-padding-xs-y; @btn-font-size-xs; @btn-border-radius-xs);
   }
 
   // Block button
@@ -201,11 +205,6 @@
   &.btn-block {
     display: block;
     width: 100%;
-  }
-
-  // Vertically space out multiple block buttons
-  &.btn-block + .btn-block {
-    margin-top: 5px;
   }
   // Specificity overrides
   input[type="submit"],
@@ -219,17 +218,13 @@
   // --------------------------------------------------
   &.btn-rounded {
     border-radius: @btn-border-rounded;
+    outline:none;
   }
   // Circle button
   // --------------------------------------------------
   &.btn-circle {
+    outline:none;
     border-radius: @btn-border-circle;
-    padding: .9em .82em;
-    .evicon {
-      line-height: .9em;
-      font-size: 1.4em;
-      margin-right: 0;
-    }
   }
 }
 
