@@ -237,8 +237,8 @@
     </pre>
   </div>
 
-  <h4 class="page-header">多个输入框</h4>
   <div class="input-show">
+    <h4 class="page-header">多个输入框</h4>
     <div class="input-element-group">
       <div class="input-element">
         <input type="text" placeholder="输入文字">
@@ -353,8 +353,8 @@
 </div>
 </pre>
 -->
-  <h4 class="page-header">输入框组合使用</h4>
   <div class="show-input">
+    <h4 class="page-header">输入框组合使用</h4>
     <div class="input-element-group">
       <div class="input-element">
         <input type="password" placeholder="输入密码">
@@ -428,23 +428,118 @@
       </div>
       <button class="btn btn-primary"><i class="evicon evicon-search-1"></i></button>
     </div>
+    <div class="input-element-btn">
+      <div class="input-element">
+        <input type="text" placeholder="输入文字">
+      </div>
+      <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+    </div>
+    <div class="input-element-btn">
+      <div class="input-element suffix">
+        <input type="text" placeholder="输入文字">
+        <i class="evicon evicon-search-1"></i>
+      </div>
+      <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+    </div>
+    <div class="input-element-btn">
+      <div class="input-element prefix">
+        <input type="text" placeholder="输入文字">
+        <i class="evicon evicon-search-1"></i>
+      </div>
+      <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+    </div>
+    <h5 class="page-header">占整行的</h5>
+    <div class="margin-t-10">
+      <div class="input-element-btn block">
+        <div class="input-element prefix">
+          <input type="text" placeholder="输入文字">
+          <i class="evicon evicon-search-1"></i>
+        </div>
+        <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+      </div>
+    </div>
+    <pre class="html" name="pre">
+<!--按钮在右边-->
+<!--默认按钮-->
+<div class="input-element-btn">
+  <div class="input-element">
+    <input type="text" placeholder="输入文字">
+  </div>
+  <button class="btn btn-primary"><i class="evicon evicon-search-1"></i></button>
+</div>
+<!--小默认按钮-->
+<div class="input-element-btn">
+  <div class="input-element">
+    <input type="text" placeholder="输入文字">
+  </div>
+  <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+</div>
+<!--输入框带后标-->
+<div class="input-element-btn">
+  <div class="input-element suffix">
+    <input type="text" placeholder="输入文字">
+    <i class="evicon evicon-search-1"></i>
+  </div>
+  <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+</div>
+<!--输入框带前标-->
+<div class="input-element-btn">
+  <div class="input-element prefix">
+    <input type="text" placeholder="输入文字">
+    <i class="evicon evicon-search-1"></i>
+  </div>
+  <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+</div>
+<!--占整行的-->
+<div class="input-element-btn block">
+  <div class="input-element prefix">
+    <input type="text" placeholder="输入文字">
+    <i class="evicon evicon-search-1"></i>
+  </div>
+  <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+</div>
+    </pre>
+  </div>
+
+  <div class="input-show">
     <h5 class="page-header">按钮在左边</h5>
     <div class="input-element-btn">
+      <button class="btn btn-primary"><i class="evicon evicon-search-1"></i></button>
+      <div class="input-element">
+        <input type="text" placeholder="输入文字">
+      </div>
+    </div>
+    <div class="input-element-btn">
+      <button class="btn btn-square btn-primary">搜索</button>
+      <div class="input-element">
+        <input type="text" placeholder="输入文字">
+      </div>
+    </div>
+    <h5 class="page-header">占整行的</h5>
+    <div class="input-element-btn block">
       <button class="btn btn-primary">搜索</button>
       <div class="input-element">
         <input type="text" placeholder="输入文字">
       </div>
     </div>
     <pre class="html" name="pre">
-<!--按钮在右边-->
+<!--按钮在左边-->
+<!--默认按钮-->
 <div class="input-element-btn">
+  <button class="btn btn-primary"><i class="evicon evicon-search-1"></i></button>
   <div class="input-element">
     <input type="text" placeholder="输入文字">
   </div>
-  <a href="###" class="btn btn-primary"><i class="evicon evicon-search-1"></i></a>
 </div>
-      <!--按钮在右边-->
+<!--小默认按钮-->
 <div class="input-element-btn">
+  <button class="btn btn-square btn-primary">搜索</button>
+  <div class="input-element">
+    <input type="text" placeholder="输入文字">
+  </div>
+</div>
+<!--整行样式-->
+<div class="input-element-btn block">
   <button class="btn btn-primary">搜索</button>
   <div class="input-element">
     <input type="text" placeholder="输入文字">
@@ -453,8 +548,70 @@
     </pre>
   </div>
 
-  <h4 class="page-header">带按钮的输入框大小</h4>
   <div class="input-show">
+    <h5 class="page-header">带按钮的输入框组</h5>
+    <div class="input-element-group">
+      <div class="input-element-btn">
+        <button class="btn btn-primary"><i class="evicon evicon-search-1"></i></button>
+        <div class="input-element">
+          <input type="text" placeholder="输入文字">
+        </div>
+      </div>
+      <div class="input-element-btn">
+        <div class="input-element">
+          <input type="text" placeholder="输入文字">
+        </div>
+        <button class="btn btn-square btn-primary">搜索</button>
+      </div>
+      <div class="input-element-btn">
+        <button class="btn btn-square btn-primary">搜索</button>
+        <div class="input-element">
+          <input type="text" placeholder="输入文字">
+        </div>
+      </div>
+      <div class="input-element-btn">
+        <div class="input-element suffix">
+          <input type="text" placeholder="输入文字">
+          <i class="evicon evicon-search-1"></i>
+        </div>
+        <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+      </div>
+      <div class="input-element-btn">
+        <div class="input-element prefix">
+          <input type="text" placeholder="输入文字">
+          <i class="evicon evicon-search-1"></i>
+        </div>
+        <button class="btn btn-square btn-primary"><i class="evicon evicon-search-1"></i></button>
+      </div>
+    </div>
+    <pre class="html" name="pre">
+<!--按钮在左边-->
+<!--默认按钮-->
+<div class="input-element-btn">
+  <button class="btn btn-primary"><i class="evicon evicon-search-1"></i></button>
+  <div class="input-element">
+    <input type="text" placeholder="输入文字">
+  </div>
+</div>
+<!--小默认按钮-->
+<div class="input-element-btn">
+  <button class="btn btn-square btn-primary">搜索</button>
+  <div class="input-element">
+    <input type="text" placeholder="输入文字">
+  </div>
+</div>
+<!--整行样式-->
+<div class="input-element-btn block">
+  <button class="btn btn-primary">搜索</button>
+  <div class="input-element">
+    <input type="text" placeholder="输入文字">
+  </div>
+</div>
+    </pre>
+  </div>
+
+  <div class="input-show">
+    <h4 class="page-header">带按钮的输入框大小</h4>
     <div class="input-element-btn">
       <div class="input-element lg">
         <input type="text" placeholder="最大样式">
@@ -488,21 +645,21 @@
   </div>
   <button class="btn btn-lg btn-primary"><i class="evicon evicon-search-1"></i></button>
 </div>
-<!--默认-->
+      <!--默认-->
 <div class="input-element-btn">
   <div class="input-element">
     <input type="text" placeholder="默认样式">
   </div>
   <button class="btn btn-primary"><i class="evicon evicon-search-1"></i></button>
 </div>
-<!--小-->
+      <!--小-->
 <div class="input-element-btn">
   <div class="input-element sm">
     <input type="text" placeholder="小型样式">
   </div>
   <button class="btn btn-sm btn-primary"><i class="evicon evicon-search-1"></i></button>
 </div>
-<!--最小-->
+      <!--最小-->
 <div class="input-element-btn">
   <div class="input-element xs">
     <input type="text" placeholder="最小样式">
@@ -510,6 +667,208 @@
   <button class="btn btn-xs btn-primary"><i class="evicon evicon-search-1"></i></button>
 </div>
     </pre>
+  </div>
+
+  <div class="input-show">
+    <h4 class="page-header">通过使用带按钮的输入框结合实现效果</h4>
+    <div class="input-element-group">
+      <div class="input-element-btn">
+        <label class="btn active" for="username_1">用户名：</label>
+        <div class="input-element suffix">
+          <input type="text" placeholder="输入用户名" id="username_1">
+          <i class="evicon evicon-admin-1"></i>
+        </div>
+      </div>
+      <div class="input-element-btn">
+        <label class="btn active" for="userpassword_1">密码：</label>
+        <div class="input-element prefix">
+          <input type="password" placeholder="密码" id="userpassword_1">
+          <i class="evicon evicon-password-1"></i>
+        </div>
+      </div>
+      <div class="input-element-btn">
+        <label class="btn active" for="birthday_1">出生日期：</label>
+        <div class="input-element prefix">
+          <input type="password" placeholder="年/月/日" id="birthday_1">
+          <i class="evicon evicon-date-1"></i>
+        </div>
+      </div>
+      <div class="input-element-btn">
+        <label class="btn active" for="sex_1">性别：</label>
+        <div class="input-element prefix">
+          <input type="password" placeholder="输入文字" id="sex_1">
+          <i class="evicon evicon-sex-woman-1"></i>
+        </div>
+      </div>
+    </div>
+    <pre class="html" name="pre">
+<div class="input-element-group">
+  <div class="input-element-btn">
+    <label class="btn active" for="username_1">用户名：</label>
+    <div class="input-element suffix">
+      <input type="text" placeholder="输入用户名" id="username_1">
+      <i class="evicon evicon-admin-1"></i>
+    </div>
+  </div>
+  <div class="input-element-btn">
+    <label class="btn active" for="userpassword_1">密码：</label>
+    <div class="input-element prefix">
+      <input type="password" placeholder="密码" id="userpassword_1">
+      <i class="evicon evicon-password-1"></i>
+    </div>
+  </div>
+  <div class="input-element-btn">
+    <label class="btn active" for="birthday_1">出生日期：</label>
+    <div class="input-element prefix">
+      <input type="password" placeholder="年/月/日" id="birthday_1">
+      <i class="evicon evicon-date-1"></i>
+    </div>
+  </div>
+  <div class="input-element-btn">
+    <label class="btn active" for="sex_1">性别：</label>
+    <div class="input-element prefix">
+      <input type="password" placeholder="输入文字" id="sex_1">
+      <i class="evicon evicon-sex-woman-1"></i>
+    </div>
+  </div>
+</div>
+    </pre>
+  </div>
+
+  <div class="input-show">
+    <h4 class="page-header">通过使用带按钮的输入框结合实现效果</h4>
+    <div class="input-element-group">
+      <div class="input-element-btn block">
+        <label class="btn active" for="username_2">用户名：</label>
+        <div class="input-element prefix">
+          <input type="text" placeholder="输入用户名" id="username_2">
+          <i class="evicon evicon-admin-1"></i>
+        </div>
+      </div>
+      <div class="input-element-btn block">
+        <label class="btn active" for="userpassword_2">密码：</label>
+        <div class="input-element prefix">
+          <input type="password" placeholder="密码" id="userpassword_2">
+          <i class="evicon evicon-password-1"></i>
+        </div>
+      </div>
+      <div class="input-element-btn block">
+        <label class="btn active" for="birthday_2">出生日期：</label>
+        <div class="input-element prefix">
+          <input type="password" placeholder="年/月/日" id="birthday_2">
+          <i class="evicon evicon-date-1"></i>
+        </div>
+      </div>
+      <div class="input-element-btn block">
+        <label class="btn active" for="sex_2">性别：</label>
+        <div class="input-element prefix">
+          <input type="password" placeholder="输入文字" id="sex_2">
+          <i class="evicon evicon-sex-woman-1"></i>
+        </div>
+      </div>
+    </div>
+    <pre class="html" name="pre">
+<div class="input-element-group">
+  <div class="input-element-btn block">
+    <label class="btn active" for="username_2">用户匿名：</label>
+    <div class="input-element suffix">
+      <input type="text" placeholder="输入用户名" id="username_2">
+      <i class="evicon evicon-admin-1"></i>
+    </div>
+  </div>
+  <div class="input-element-btn block">
+    <label class="btn active" for="userpassword_2">用户密码：</label>
+    <div class="input-element prefix">
+      <input type="password" placeholder="密码" id="userpassword_2">
+      <i class="evicon evicon-password-1"></i>
+    </div>
+  </div>
+  <div class="input-element-btn block">
+    <label class="btn active" for="birthday_2">出生日期：</label>
+    <div class="input-element prefix">
+      <input type="password" placeholder="年/月/日" id="birthday_2">
+      <i class="evicon evicon-date-1"></i>
+    </div>
+  </div>
+  <div class="input-element-btn block">
+    <label class="btn active" for="sex_2">用户性别：</label>
+    <div class="input-element prefix">
+      <input type="password" placeholder="输入文字" id="sex_2">
+      <i class="evicon evicon-sex-woman-1"></i>
+    </div>
+  </div>
+</div>
+    </pre>
+  </div>
+
+  <h4 class="page-header">带左右按钮的输入框</h4>
+  <div class="input-show">
+    <h5 class="text-warning">带左右按钮的输入框</h5>
+    <div class="input-element-btn">
+      <button class="btn btn-square btn-gray"><i class="evicon evicon-plus-1"></i></button>
+      <div class="input-element">
+        <input size="5" type="text" class="text-center" placeholder="数字">
+      </div>
+      <button class="btn btn-square btn-gray"><i class="evicon evicon-resize-xs-1"></i></button>
+    </div>
+    <pre class="html" name="pre">
+<!--默认按钮-->
+<div class="input-element-btn">
+  <div class="input-element">
+    <input type="text" placeholder="输入文字">
+  </div>
+  <button class="btn btn-primary"><i class="evicon evicon-search-1"></i></button>
+</div>
+      </pre>
+      <h5 class="text-warning">带左右按钮的输入框</h5>
+      <div class="input-element-group">
+        <div class="input-element-btn">
+          <button class="btn btn-gray btn-square btn-lg"><i class="evicon evicon-plus-1"></i></button>
+          <div class="input-element lg">
+            <input size="5" type="text" class="text-center" placeholder="数字">
+          </div>
+          <button class="btn btn-gray btn-square btn-lg"><i class="evicon evicon-resize-xs-1"></i></button>
+        </div>
+        <div class="input-element-btn">
+          <button class="btn btn-gray btn-square btn-sm"><i class="evicon evicon-plus-1"></i></button>
+          <div class="input-element sm">
+            <input size="5" type="text" class="text-center" placeholder="数字">
+          </div>
+          <button class="btn btn-gray btn-square btn-sm"><i class="evicon evicon-resize-xs-1"></i></button>
+        </div>
+        <div class="input-element-btn">
+          <button class="btn btn-gray btn-square btn-xs"><i class="evicon evicon-plus-1"></i></button>
+          <div class="input-element xs">
+            <input size="5" type="text" class="text-center" placeholder="数字">
+          </div>
+          <button class="btn btn-gray btn-square btn-xs"><i class="evicon evicon-resize-xs-1"></i></button>
+        </div>
+      </div>
+      <pre class="html" name="pre">
+<div class="input-element-group">
+  <div class="input-element-btn">
+    <button class="btn btn-square btn-lg active"><i class="evicon evicon-plus-1"></i></button>
+    <div class="input-element lg">
+      <input size="5" type="text" class="text-center" placeholder="数字">
+    </div>
+    <button class="btn btn-square btn-lg active"><i class="evicon evicon-resize-xs-1"></i></button>
+  </div>
+  <div class="input-element-btn">
+    <button class="btn btn-square btn-sm active"><i class="evicon evicon-plus-1"></i></button>
+    <div class="input-element sm">
+      <input size="5" type="text" class="text-center" placeholder="数字">
+    </div>
+    <button class="btn btn-square btn-sm active"><i class="evicon evicon-resize-xs-1"></i></button>
+  </div>
+  <div class="input-element-btn">
+    <button class="btn btn-square btn-xs active"><i class="evicon evicon-plus-1"></i></button>
+    <div class="input-element xs">
+      <input size="5" type="text" class="text-center" placeholder="数字">
+    </div>
+    <button class="btn btn-square btn-xs active"><i class="evicon evicon-resize-xs-1"></i></button>
+  </div>
+</div>
+      </pre>
   </div>
 </div>
 

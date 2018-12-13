@@ -26,6 +26,10 @@
 @btn-danger-color: #fff;
 @btn-danger-bg: @color-danger;
 @btn-danger-border: darken(@btn-danger-bg, 3%);
+
+@btn-gray-color: #555555;
+@btn-gray-bg: @gray-light;
+@btn-gray-border: @gray;
 //lighter color btn
 @btn-lighter-primary-color: @color-primary;
 @btn-lighter-primary-bg: #d4e8ff;
@@ -147,6 +151,9 @@
   }
   &.btn-danger {
     .button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-border);
+  }
+  &.btn-gray {
+    .button-variant(@btn-gray-color; @btn-gray-bg; @btn-gray-border);
   }
   // Outline buttons
   // --------------------------------------------------
