@@ -43,6 +43,7 @@
       > .input-element-group{
         display: inline-block;
       }
+
       /*> .input-element,
       > .input-element-joint,
       > .input-element-brothers,
@@ -51,7 +52,7 @@
       > .checkbox-element-group,
       > .radio-element,
       > .radio-element-group*/
-      > *{
+      > *:not(table):not(fieldset){
         display: inline-block;
         margin: 0 @form-item-con-child-margin @form-item-con-child-margin 0;
         &:last-child{

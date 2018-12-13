@@ -7972,11 +7972,11 @@ a.thumbnail.active {
 .form-element .form-item > .item-con > .input-element-group {
   display: inline-block;
 }
-.form-element .form-item > .item-con > * {
+.form-element .form-item > .item-con > *:not(table):not(fieldset) {
   display: inline-block;
   margin: 0 10px 10px 0;
 }
-.form-element .form-item > .item-con > *:last-child {
+.form-element .form-item > .item-con > *:not(table):not(fieldset):last-child {
   margin-right: 0;
 }
 .form-element .form-item > .item-con .item-tip {
