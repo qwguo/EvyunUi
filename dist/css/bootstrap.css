@@ -5686,28 +5686,27 @@ table caption {
   background-image: none;
   outline: 0;
 }
-.btn.disabled,
-.btn[disabled],
-fieldset[disabled] .btn {
-  cursor: not-allowed;
-  filter: alpha(opacity=30);
-  opacity: 0.3;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-a.btn.disabled,
-fieldset[disabled] a.btn {
+.btn.disabled.disabled,
+.btn[disabled].disabled,
+a.btn.disabled {
   pointer-events: none;
 }
-.btn .evicon {
+.btn > .evicon {
   vertical-align: baseline;
-  font-size: 0.9em;
+  font-size: 1.2em;
+  line-height: 0.4;
 }
-.btn .evicon:not(:last-child) {
-  margin-right: 0.5em;
-}
-.btn .evicon:last-child {
+.btn > .evicon:only-child {
   font-size: 1.4em;
+  -webkit-transform: translate(0, 0.11em);
+  -ms-transform: translate(0, 0.11em);
+  transform: translate(0, 0.11em);
+}
+.btn > .evicon + span {
+  margin-left: 0.3em;
+}
+.btn > span + .evicon[class*="evicon"] {
+  margin-left: 0.3em;
 }
 .btn:focus,
 .btn.focus {
@@ -8275,10 +8274,10 @@ a.thumbnail.active {
 }
 .input-element-btn > .btn {
   vertical-align: top;
-  height: 36px;
-  padding-top: 0;
-  padding-bottom: 0;
-  line-height: 36px;
+  /*height: @input-height;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: @input-height;*/
 }
 .input-element-btn > .btn:first-child {
   border-top-right-radius: 0;

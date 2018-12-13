@@ -104,25 +104,26 @@
   }
   &.disabled,
   &[disabled],
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
-    .opacity(.3);
-    .box-shadow(none);
-  }
   a& {
-    &.disabled,
-    fieldset[disabled] & {
+    &.disabled{
       pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
     }
   }
-  .evicon {
+  > .evicon {
     vertical-align: baseline;
-    font-size: .9em;
-    &:not(:last-child) {
-      margin-right: .5em;
-    }
-    &:last-child {
+    font-size: 1.2em;
+    line-height: .4;
+    &:only-child {
       font-size: 1.4em;
+      .translate(0, .11em);
+    }
+    + span{
+      margin-left: .3em;
+    }
+  }
+  > span{
+    + .evicon[class*="evicon"]{
+      margin-left: .3em;
     }
   }
   & {
