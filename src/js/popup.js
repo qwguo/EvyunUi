@@ -331,7 +331,7 @@ var ppppp = null;
       setTimeout(function(){
         that.popup.hide();
         that.popupShade && that.popupShade.hide();
-      },210);
+      }, j.animate[1] ? 210 : 0);
     },
     popupShow: function(){
       var that = this,
@@ -352,7 +352,7 @@ var ppppp = null;
         // that.popup = null;
         that.winObject.topWindow.evPopup['popup_' + that.popupId] = null;
         that = null;
-      },210);
+      }, j.animate[1] ? 210 : 0);
     }/*,
     popupCloseAll: function(){
       var that = this;

@@ -4013,24 +4013,24 @@ var ppppp = null;
     popupHide: function(){
       var that = this,
         j = that.j;
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]).addClass(j.animate[1]);
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]||'').addClass(j.animate[1]||'');
       setTimeout(function(){
         that.popup.hide();
         that.popupShade && that.popupShade.hide();
-      },210);
+      }, j.animate[1] ? 210 : 0);
     },
     popupShow: function(){
       var that = this,
         j = that.j;
       that.popup.show();
       that.popupShade && that.popupShade.show();
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[1]).addClass(j.animate[0]);
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[1]||'').addClass(j.animate[0]||'');
     },
     // 关闭弹窗
     popupClose: function () {
       var that = this,
         j = that.j;
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]).addClass(j.animate[1]);
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]||'').addClass(j.animate[1]||'');
       setTimeout(function(){
         typeof(j.closeCallBack) === 'function' && j.closeCallBack();
         that.popup.remove();
@@ -4038,7 +4038,7 @@ var ppppp = null;
         // that.popup = null;
         that.winObject.topWindow.evPopup['popup_' + that.popupId] = null;
         that = null;
-      },210);
+      }, j.animate[1] ? 210 : 0);
     }/*,
     popupCloseAll: function(){
       var that = this;
