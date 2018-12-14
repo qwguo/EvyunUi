@@ -912,11 +912,21 @@ p_alert = $.popup({
       <dt>详细参数介绍：</dt>
       <dd>
         <ol>
-          <li><code>p_alert</code>：表示创建弹窗的对象，可以对它进行一些操作，具体方法是：
+          <li><code>p_alert</code>：表示创建弹窗的对象，可以对它进行一些操作，内部预留的对象和方法有：
             <ul class="list-type-lower-alpha">
               <li><code>p_alert.popupClose()</code>：关闭当前弹窗</li>
               <li><code>p_alert.popupMax()</code>：最大化当前弹窗</li>
               <li><code>p_alert.popupMin()</code>：最小化当前弹窗</li>
+              <li><code>p_alert.winObject</code>：预存的窗口对象，主要用于窗口之间的交互，预留值：
+                <ul class="list-type-lower-alpha">
+                  <li><code>p_alert.winObject.originWindow</code>：源<code>window</code>对象；<span class="text-warning">表示此框口的创建源，也就是此窗口是从哪个窗口创建出来的。</span></li>
+                  <li><code>p_alert.winObject.originDocument</code>：源<code>document</code>对象；<span class="text-warning">表示此框口的创建源的document对象。</span></li>
+                  <li><code>p_alert.winObject.parWindow</code>：：源<code>window</code>对象的父窗口；</li>
+                  <li><code>p_alert.winObject.parDocument</code>：源<code>window</code>对象的父窗口中的<code>document</code>对象；</li>
+                  <li><code>p_alert.winObject.topWindow</code>：最顶级<code>window</code>对象；</li>
+                  <li><code>p_alert.winObject.topDocument</code>：最顶级<code>window</code>对象中的<code>document</code>对象；</li>
+                </ul>
+              </li>
             </ul>
           </li>
           <li><code>type</code>：//表示打开窗口的类型，目前有4中类型具体说明：
@@ -972,7 +982,9 @@ p_alert = $.popup({
           <li><code>con</code>：表示弹窗中的内容对象：
             <ul class="list-type-lower-alpha">
               <li><code>html</code>：表示弹窗内容要展示的html代码可以用在类型1，和类型2的弹窗中。</li>
-              <li><code>src</code>：表示打开一个地址弹窗的url地址信息。</li>
+              <li><p><code>src</code>：表示打开一个地址弹窗的url地址信息。<span class="text-warning">这里在创建iframe窗口的时候，需要同一个域</span></p>
+                <p>创建完iframe窗口后，会在iframe中自动创建一个<code>popup</code>的变量，这个变量用于指向当前的窗口对象，也就是上边所说的<code>p_alert</code>对象，可以用次变量来进行交互操作。</p>
+              </li>
               <li><code>icon</code>：提示图标：可以使用的值：
                 <ul class="list-type-lower-alpha">
                     <li><code>1</code>：表示成功对钩；</li>
