@@ -8063,6 +8063,7 @@ a.thumbnail.active {
   margin-left: 0;
 }
 .form-element .form-item > .item-con {
+  min-height: 34px;
   /*> .input-element,
       > .input-element-joint,
       > .input-element-brothers,
