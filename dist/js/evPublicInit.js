@@ -3753,6 +3753,15 @@ var ppppp = null;
         popupBArray = [];
       that.numbers = Popup.prototype.numbers++;
       that.zIndex = that.maxZindex() + 1;
+      //这里创建来源对象
+      that.winObject = {
+        originWindow: window,
+        originDocument: window.document,
+        parWindow: window.parent,
+        parDocument: window.parent.document,
+        topWindow:window.top,
+        topDocument: window.top.document
+      };
       //添加遮罩
       if (j.shade) {
         (function () {
@@ -4274,7 +4283,6 @@ var ppppp = null;
     }
   });
 }());
-
 
 //! moment.js
 //! version : 2.10.6
