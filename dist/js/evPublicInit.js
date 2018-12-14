@@ -3709,6 +3709,7 @@ var ppppp = null;
         },
         closeCallBack: null
       };
+    j_.addTarget = j_.addTarget || $('body');
     that.j = $.extend(true, {}, jd, j_);
     that.createDom();
   };
@@ -3736,8 +3737,9 @@ var ppppp = null;
     },
     // 计算页面最大层
     maxZindex: function () {
+      var that = this;
       var arr = [];
-      $('*').each(function (i, dom) {
+      that.j.addTarget.children().each(function (i, dom) {
         dom = $(dom);
         var z = dom.css('z-index');
         !isNaN(z) && arr.push(z * 1);
@@ -3752,6 +3754,7 @@ var ppppp = null;
         popupOpArray = [],
         popupBArray = [];
       that.numbers = Popup.prototype.numbers++;
+      that.maxZindex();
       that.zIndex = that.maxZindex() + 1;
       //这里创建来源对象
       that.winObject = {
@@ -3879,7 +3882,17 @@ var ppppp = null;
       }
       /*Popup.prototype.allPopupList = Popup.prototype.allPopupList || {};
       Popup.prototype.allPopupList['popup_'+Popup.prototype.numbers] = that;*/
-      that.winObject.topWindow['popup_' + that.numbers] = that;
+      var evPopup = that.winObject.topWindow.evPopup,
+          tag = true;
+      evPopup && $.each(evPopup, function(i, v){
+        if(v){
+          tag = null;
+          return false;
+        }
+      });
+      tag && (evPopup = that.winObject.topWindow.evPopup = []);
+      that.topWindowIndex = evPopup.length;
+      evPopup[evPopup.length] = that;
     },
     // 计算弹窗的位置
     popupOffset: function () {
@@ -3997,7 +4010,7 @@ var ppppp = null;
         that.popup.remove();
         that.popupShade && that.popupShade.remove();
         // that.popup = null;
-        that.winObject.topWindow['popup_'+that.numbers] = null;
+        that.winObject.topWindow.evPopup[that.topWindowIndex] = null;
         that = null;
       },210);
     }/*,
