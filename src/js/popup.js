@@ -131,7 +131,7 @@ var ppppp = null;
             break;
           case 3:
             popupBArray.push('<div class="popup-iframe-con"><div class="popup-loading-wait"></div>');
-            popupBArray.push('<iframe src="' + j.con.src + '" frameborder="0" allowTransparency="true" name="popupIframe_' + that.numbers + '" id="popupIframe_' + that.numbers + '"></iframe>');
+            popupBArray.push('<iframe src="' + j.con.src + '" frameborder="0" allowTransparency="true" name="popup_' + that.numbers + '" id="popupIframe_' + that.numbers + '"></iframe>');
             popupBArray.push('</div>');
             break;
           case 4:
@@ -193,6 +193,7 @@ var ppppp = null;
       }
       /*Popup.prototype.allPopupList = Popup.prototype.allPopupList || {};
       Popup.prototype.allPopupList['popup_'+Popup.prototype.numbers] = that;*/
+      that.winObject.topWindow['popup_' + that.numbers] = that;
     },
     // 计算弹窗的位置
     popupOffset: function () {
@@ -310,6 +311,7 @@ var ppppp = null;
         that.popup.remove();
         that.popupShade && that.popupShade.remove();
         // that.popup = null;
+        that.winObject.topWindow['popup_'+that.numbers] = null;
         that = null;
       },210);
     }/*,

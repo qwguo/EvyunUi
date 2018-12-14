@@ -5,8 +5,9 @@
   <div class="row">
     <div class="col-md-24">
       <h2>这是弹窗里边的内容</h2>
-      <button class="btn btn-primary" id="close">关闭</button>
+      <button name="parentFun" class="btn btn-primary" id="close">关闭</button>
       <button class="btn btn-outline-danger" id="parentFun">输出弹窗中存储的窗口对象</button>
+      <a href="popup_iframe.html">这是跳转链接测试</a>
     </div>
   </div>
   <table class="table">
@@ -126,11 +127,12 @@
     </tfoot>
   </table>
   <script type="text/javascript">
+    var winP = window.parent;
     $('#close').on('click', function(){
       popup.popupClose();
     });
     $('#parentFun').on('click', function(){
-      console.log(popup.winObject);
+      winP[window.name].popupClose();
     });
   </script>
 </div>

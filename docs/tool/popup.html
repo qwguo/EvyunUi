@@ -752,7 +752,7 @@ $('#fun_loading_1').on('click', function(){
       $('#fun_object').on('click', 'button', function(){
         var $this = $(this),
             type = $this.data('type'),
-            p_alert, p_layer, p_iframe, p_loading
+            p_alert, p_layer, p_iframe, p_loading,
             addTarget = $('body', window.parent.document);
           switch(type){
             case 'alert':
@@ -829,7 +829,7 @@ $('#fun_loading_1').on('click', function(){
                 shade: {bgColor: '#fff', opacity: '0.7', close: true},
                 position: {pos: 'm-c'},
                 opBtn: {close: 1, min: 0, max: 1},
-                size: {full:1, width: '1000', height: '600'},
+                size: {full:0, width: 'auto', height: '500'},
                 con: {
                   src: 'tool/big_popup_iframe.html'
                 }

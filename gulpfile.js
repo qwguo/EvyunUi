@@ -88,7 +88,8 @@ gulp.task('htmlConcat', function () {
 });
 
 gulp.task('load', function () {
-  gulp.src(['./docs/**']).pipe(connect.reload());
+  gulp.src(['./docs/*.html']).pipe(connect.reload());
+  // gulp.pipe(connect.reload());
 });
 
 
