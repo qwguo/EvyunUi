@@ -8087,6 +8087,9 @@ a.thumbnail.active {
 .form-element .form-item > .item-con > *:not(table):not(fieldset):not(.block):last-child {
   margin-right: 0;
 }
+.form-element .form-item > .item-con > *.block {
+  margin: 0 0 10px 0;
+}
 .form-element .form-item > .item-con .item-tip {
   display: inline-block;
   vertical-align: middle;
