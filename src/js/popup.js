@@ -327,7 +327,7 @@ var ppppp = null;
     popupHide: function(){
       var that = this,
         j = that.j;
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]).addClass(j.animate[1]);
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]||'').addClass(j.animate[1]||'');
       setTimeout(function(){
         that.popup.hide();
         that.popupShade && that.popupShade.hide();
@@ -338,13 +338,13 @@ var ppppp = null;
         j = that.j;
       that.popup.show();
       that.popupShade && that.popupShade.show();
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[1]).addClass(j.animate[0]);
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[1]||'').addClass(j.animate[0]||'');
     },
     // 关闭弹窗
     popupClose: function () {
       var that = this,
         j = that.j;
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]).addClass(j.animate[1]);
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]||'').addClass(j.animate[1]||'');
       setTimeout(function(){
         typeof(j.closeCallBack) === 'function' && j.closeCallBack();
         that.popup.remove();
