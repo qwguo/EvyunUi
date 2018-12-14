@@ -4195,7 +4195,7 @@ var ppppp = null;
     var j_ = {
       type: 3,
       position: {pos: 'm-c'},
-      opBtn: {close: 1, max: 1},
+      opBtn: {close: 1, max: 0, min: 0},
       con: {
         src: 'http://www.evyun.cn'
       }
