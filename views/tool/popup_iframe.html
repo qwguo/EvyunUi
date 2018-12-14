@@ -11,6 +11,7 @@
       <h2>这是弹窗里边的内容</h2>
       <button class="btn btn-primary" id="close">调用弹窗本身方法关闭</button>
       <button class="btn btn-outline-danger" id="parentFun">调用父级方法关闭</button>
+      <button class="btn btn-outline-danger" id="parentHide">隐藏</button>
       <a href="big_popup_iframe.html">这是跳转链接测试</a>
     </div>
   </div>
@@ -24,6 +25,9 @@
     });
     $('#parentFun').on('click', function(){
       winP.evPopup[window.name].popupClose();
+    });
+    $('#parentHide').on('click', function(){
+      winP.evPopup[window.name].popupHide();
     });
   </script>
 </div>
