@@ -286,9 +286,12 @@
       border-left:0;
       .border-left-radius(0);
     }
-  }
-  > label.btn{
-    cursor: default;
+    &:not(a):not(button):not(input){
+      cursor: default;
+      &.btn-gray{
+        border-color:@input-border-color;
+      }
+    }
   }
   &.block{
     display:table;
