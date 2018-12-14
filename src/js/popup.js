@@ -29,7 +29,7 @@ var ppppp = null;
   };
   Popup.prototype = {
     constructor: Popup,
-    numbers: 0,
+    popupId: 0,
     allPopupList: null,
     alertType: ['alert', 'html', 'iframe', 'loading', 'taps', 'tab'],
     alertIcon: ['<i class="evicon evicon-right-1 text-success"></i>', '<i class="evicon evicon-close-2 text-warning"></i>', '<i class="evicon evicon-point-2 text-info"></i>', '<i class="evicon load-wait"></i>'],
@@ -49,6 +49,16 @@ var ppppp = null;
         popupH: that.popup.height()
       };
     },
+    randomS: function (len) {
+      var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
+        maxPos = chars.length,
+        pwd = '',i;
+      len = len || 5;
+      for (i = 0; i < len; i++) {
+        pwd += chars.charAt(Math.floor(Math.random() * maxPos));
+      }
+      return pwd;
+    },
     // 计算页面最大层
     maxZindex: function () {
       var that = this;
@@ -67,9 +77,7 @@ var ppppp = null;
         popupHArray = [],
         popupOpArray = [],
         popupBArray = [];
-      that.numbers = Popup.prototype.numbers++;
-      that.maxZindex();
-      that.zIndex = that.maxZindex() + 1;
+
       //这里创建来源对象
       that.winObject = {
         originWindow: window,
@@ -79,6 +87,21 @@ var ppppp = null;
         topWindow:window.top,
         topDocument: window.top.document
       };
+      that.popupId = that.randomS(5);
+      that.maxZindex();
+      that.zIndex = that.maxZindex() + 1;
+      var evPopup = that.winObject.topWindow.evPopup,
+        tag = true;
+
+      evPopup && evPopup['popup_' + that.popupId] && (that.popupId = that.randomS(5));
+      evPopup && $.each(evPopup, function(i, v){
+        if(v){
+          tag = null;
+          return false;
+        }
+      });
+      tag && (evPopup = that.winObject.topWindow.evPopup = {});
+      evPopup['popup_' + that.popupId] = that;
       //添加遮罩
       if (j.shade) {
         (function () {
@@ -87,8 +110,7 @@ var ppppp = null;
           !isNaN(j.shade.opacity) && (typeof(j.shade.opacity) === 'string' || typeof(j.shade.opacity) === 'number') && style.push(' opacity:' + j.shade.opacity);
           that.popupShade = $("<div/>", {
             "class": "popup-shade",
-            "id": "popupShade_" + that.numbers,
-            "data-index": that.numbers,
+            "id": "popupShade_" + that.popupId,
             "style": style.join(';')
           }).appendTo(j.addTarget);
           if(j.shade.close){
@@ -134,7 +156,7 @@ var ppppp = null;
             break;
           case 3:
             popupBArray.push('<div class="popup-iframe-con"><div class="popup-loading-wait"></div>');
-            popupBArray.push('<iframe src="' + j.con.src + '" frameborder="0" allowTransparency="true" name="popup_' + that.numbers + '" id="popupIframe_' + that.numbers + '"></iframe>');
+            popupBArray.push('<iframe src="' + j.con.src + '" frameborder="0" allowTransparency="true" name="popup_' + that.popupId + '" id="popup_' + that.popupId + '"></iframe>');
             popupBArray.push('</div>');
             break;
           case 4:
@@ -151,8 +173,7 @@ var ppppp = null;
         that.popup = $("<div/>", {
           "class": 'popup popup-' + that.alertType[j.type - 1] + (j.className ? (' ' + j.className) : '') + ((j.animate && j.animate.length) ? (' ' + j.animate[0]) : ''),
           "style": style.join(';'),
-          "data-index": that.numbers,
-          "id": 'popup_' + that.numbers,
+          "id": 'popup_' + that.popupId,
           html: popupOpArray.join('') + popupHArray.join('') + popupBArray.join('')
         });
         j.animate && j.animate.length && that.popup.attr('data-animated', j.animate);
@@ -196,17 +217,6 @@ var ppppp = null;
       }
       /*Popup.prototype.allPopupList = Popup.prototype.allPopupList || {};
       Popup.prototype.allPopupList['popup_'+Popup.prototype.numbers] = that;*/
-      var evPopup = that.winObject.topWindow.evPopup,
-          tag = true;
-      evPopup && $.each(evPopup, function(i, v){
-        if(v){
-          tag = null;
-          return false;
-        }
-      });
-      tag && (evPopup = that.winObject.topWindow.evPopup = []);
-      that.topWindowIndex = evPopup.length;
-      evPopup[evPopup.length] = that;
     },
     // 计算弹窗的位置
     popupOffset: function () {
@@ -242,7 +252,7 @@ var ppppp = null;
             var iframes = that.popup.find('iframe');
             iframes.on('load.resize', function () {
               iframes.siblings('.popup-loading-wait').remove();
-              iframes[0].contentWindow.iframeNumber = that.numbers;
+              iframes[0].contentWindow.iframeNumber = that.popupId;
               iframes[0].contentWindow.popup = that;
               if(!j.size.full){
                 iframes.css({
@@ -324,7 +334,7 @@ var ppppp = null;
         that.popup.remove();
         that.popupShade && that.popupShade.remove();
         // that.popup = null;
-        that.winObject.topWindow.evPopup[that.topWindowIndex] = null;
+        that.winObject.topWindow.evPopup['popup_' + that.popupId] = null;
         that = null;
       },210);
     }/*,

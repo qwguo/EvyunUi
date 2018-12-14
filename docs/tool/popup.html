@@ -929,6 +929,13 @@ p_alert = $.popup({
               </li>
             </ul>
           </li>
+          <li>在创建弹窗的时候我会给最顶级的<code>window</code>对象创建一个<code>evPopup</code>对象，用来记录我们创建的所有弹窗对象，我们可以通过他操作弹窗；具体操作方法是：
+            <ul class="list-type-lower-alpha">
+              <li>如果是在弹窗的iframe内部操作窗口自身弹窗，可以使用<code>window.top.evPopup[window.name]</code>然后用弹窗提供的所有方法进行操作。</li>
+              <li>如果是非iframe弹窗，那么可以得到当前弹窗的<code>id</code>然后使用<code>window.evPopup[id]</code>进行操作。</li>
+              <li><p class="text-warning">需要注意的是在我们关闭弹窗以后就不能再进行操作。</p></li>
+            </ul>
+          </li>
           <li><code>type</code>：//表示打开窗口的类型，目前有4中类型具体说明：
             <ul class="list-type-lower-alpha">
               <li><code>1</code>：表示弹窗类型，可以添加0个或多个按钮；</li>
