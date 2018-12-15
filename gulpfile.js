@@ -122,6 +122,28 @@ gulp.task('popup', function(){
     .pipe(minifyCss({keepSpecialComments: 1, keepBreaks: false, removeEmpty: true, debug: true}))
     .pipe(gulp.dest('./dist/alone_module/popup'))
 });
+gulp.task('datePicker', function(){
+  //js
+  gulp.src(['./src/js/datepicker.all.js'])
+    .pipe(uglify())
+    .pipe(rename({suffix: ".min"}))
+    .pipe(gulp.dest('./dist/alone_module/datepicker'));
+  // less - css
+  gulp.src(['./src/less/alone_module/datepicker.less'])
+    .pipe(less({
+      paths: [path.join(__dirname, 'less', 'includes')]
+    }))
+    .pipe(autoprefixer({
+      browsers: ['last 4 versions'],
+      cascade: true
+    }))
+    .pipe(gulp.dest('./dist/alone_module/datepicker/'));
+  // css - min
+  gulp.src(['./dist/alone_module/datepicker/datepicker.css'])
+    .pipe(rename({suffix: ".min"}))
+    .pipe(minifyCss({keepSpecialComments: 1, keepBreaks: false, removeEmpty: true, debug: true}))
+    .pipe(gulp.dest('./dist/alone_module/datepicker'))
+});
 
 
 gulp.task('watch', function () {
