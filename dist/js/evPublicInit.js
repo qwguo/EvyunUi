@@ -3766,18 +3766,15 @@ var ppppp = null;
         popupBArray = [];
 
       //这里创建来源对象
-      that.winObject = {
-        originWindow: j.win,
-        originDocument: j.win.document,
-        topWindow: window.top,
-        topDocument: window.top.document
-      };
+      that.originWindow= j.win;
+      that.originDocument= j.win.document;
+      that.topWindow= window.top;
+      that.topDocument= window.top.document;
       that.popupId = that.randomS(5);
       that.maxZindex();
       that.zIndex = that.maxZindex() + 1;
-      var evPopup = that.winObject.topWindow.evPopup,
+      var evPopup = that.topWindow.evPopup,
         tag = true;
-
       evPopup && evPopup['popup_' + that.popupId] && (that.popupId = that.randomS(5));
       evPopup && $.each(evPopup, function(i, v){
         if(v){
@@ -3785,7 +3782,7 @@ var ppppp = null;
           return false;
         }
       });
-      tag && (evPopup = that.winObject.topWindow.evPopup = {});
+      tag && (evPopup = that.topWindow.evPopup = {});
       evPopup['popup_' + that.popupId] = that;
       //添加遮罩
       if (j.shade) {
@@ -4035,7 +4032,7 @@ var ppppp = null;
         that.popup.remove();
         that.popupShade && that.popupShade.remove();
         // that.popup = null;
-        that.winObject.topWindow.evPopup['popup_' + that.popupId] = null;
+        that.topWindow.evPopup['popup_' + that.popupId] = null;
         that = null;
       }, j.animate[1] ? 210 : 0);
     }/*,

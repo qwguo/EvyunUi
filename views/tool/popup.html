@@ -837,6 +837,7 @@ $('#fun_loading_1').on('click', function(){
 p_alert = $.popup({
   type: 1,
   addTarget: $('body'),
+  win: window,
   className: "my-class",
   shade: {bgColor: '#fff', opacity: '0.7', close: true},
   position: {pos: 'm-c'},
@@ -898,14 +899,12 @@ p_alert = $.popup({
               <li><code>p_alert.popupClose()</code>：关闭当前弹窗</li>
               <li><code>p_alert.popupMax()</code>：最大化当前弹窗</li>
               <li><code>p_alert.popupMin()</code>：最小化当前弹窗</li>
-              <li><code>p_alert.winObject</code>：预存的窗口对象，主要用于窗口之间的交互，预留值：
+              <li>同时还预存了两个窗口对象，主要用于窗口之间的交互，预留值：
                 <ul class="list-type-lower-alpha">
-                  <li><code>p_alert.winObject.originWindow</code>：源<code>window</code>对象；<span class="text-warning">表示此框口的创建源，也就是此窗口是从哪个窗口创建出来的。</span></li>
-                  <li><code>p_alert.winObject.originDocument</code>：源<code>document</code>对象；<span class="text-warning">表示此框口的创建源的document对象。</span></li>
-                  <li><code>p_alert.winObject.parWindow</code>：：源<code>window</code>对象的父窗口；</li>
-                  <li><code>p_alert.winObject.parDocument</code>：源<code>window</code>对象的父窗口中的<code>document</code>对象；</li>
-                  <li><code>p_alert.winObject.topWindow</code>：最顶级<code>window</code>对象；</li>
-                  <li><code>p_alert.winObject.topDocument</code>：最顶级<code>window</code>对象中的<code>document</code>对象；</li>
+                  <li><code>p_alert.originWindow</code>：源<code>window</code>对象；<span class="text-warning">表示此框口的创建源，也就是此窗口是从哪个窗口创建出来的。</span></li>
+                  <li><code>p_alert.originDocument</code>：源<code>document</code>对象；<span class="text-warning">表示此框口的创建源的document对象。</span></li>
+                  <li><code>p_alert.topWindow</code>：最顶级<code>window</code>对象；</li>
+                  <li><code>p_alert.topDocument</code>：最顶级<code>window</code>对象中的<code>document</code>对象；</li>
                 </ul>
               </li>
             </ul>
@@ -925,7 +924,8 @@ p_alert = $.popup({
               <li><code>4</code>：表示打开一个加载等待的弹出层；</li>
             </ul>
           </li>
-          <li><code>addTarget</code>：//指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素</li>
+          <li><code>addTarget</code>：//指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素，默认情况下是调用那个窗口对象中的<code>body</code></li>
+          <li><code>win</code>：//表示当前创建弹出层的<code>window</code>对象，如果是在<code>iframe</code>下执行的父级方法创建的层那么次值指的是<code>iframe</code>的<code>window</code>对象，可以使用<code>originWindow</code>来进行操作它。</li>
           <li><code>className</code>：//可以自己制定一个class名称，用来自定义弹窗样式；</li>
           <li><code>head</code>：表示打开窗口的标题<code>false</code>：表示不显示标题，其他表示显示；</li>
           <li><code>shade</code>：//指是否显示弹窗遮罩，<code>false</code>：表示不显示，<code>{bgColor: '#fff', opacity: '0.7', close: true}</code>,对象形式表示显示：可以设置的值有：
