@@ -23,8 +23,13 @@
 <script>
   $(function(){
     $('#abc').on('click', function(){
-      console.log($(this).prev().find('input[type="text"]').val());
-      console.log($(this).prev().find('input[type="hidden"]').val());
+      var inputs = $(this).prev();
+      $.popupPoint({
+        autoClose: 5,
+        con: {
+          html: '<span class="text-warning">当先显示的文字是：'+inputs.find('input[type="text"]').val()+'</span><span class="text-info">当先值是：'+inputs.find('input[type="hidden"]').val()+'</span>'
+        }
+      });
     });
   });
 </script>
@@ -56,7 +61,7 @@
         </dl>
       </div>
     </div>
-    <button id="abc">获取值</button>
+    <button id="abc" class="btn btn-primary">获取值</button>
     <pre class="html" name="pre">
 <div class="select-element dropdown">
   <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
