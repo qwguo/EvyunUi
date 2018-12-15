@@ -124,7 +124,8 @@ gulp.task('popup', function(){
 });
 gulp.task('datePicker', function(){
   //js
-  gulp.src(['./src/js/datepicker.all.js'])
+  gulp.src(['./src/js/moment.js', './src/js/datepicker.all.js'])
+    .pipe(concat('datepicker.js'))
     .pipe(uglify())
     .pipe(rename({suffix: ".min"}))
     .pipe(gulp.dest('./dist/alone_module/datepicker'));
