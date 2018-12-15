@@ -645,19 +645,20 @@ dt {
 dd {
   margin-left: 0;
 }
-.dl-horizontal {
-  /* @media (min-width: @dl-horizontal-breakpoint) {
-    dt {
-      float: left;
-      width: (@dl-horizontal-offset - 20);
-      clear: left;
-      text-align: right;
-      .text-overflow();
-    }
-    dd {
-      margin-left: @dl-horizontal-offset;
-    }
-  } */
+@media (min-width: 768px) {
+  .dl-horizontal dt {
+    float: left;
+    width: 120px;
+    clear: left;
+    text-align: right;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .dl-horizontal dd {
+    margin-left: 140px;
+  }
 }
 .initialism {
   font-size: 90%;

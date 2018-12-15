@@ -3594,10 +3594,12 @@ and dependencies (minified).
               ev.stopPropagation();
             }else{
               if($this.attr('data-multiple') * 1){
-                $this.find('input').val(cTargetDom.text()).attr('data-val',curItem.attr('data-val'));
+                $this.find('input[type="hidden"]').val(curItem.attr('data-val'));
+                $this.find('input[type="text"]').val(cTargetDom.text());
               }else{
                 curItem.addClass('active').siblings('.active').removeClass('active');
-                $this.find('input').val(cTargetDom.text()).attr('data-val',curItem.attr('data-val'));
+                $this.find('input[type="hidden"]').val(curItem.attr('data-val'));
+                $this.find('input[type="text"]').val(cTargetDom.text());
               }
             }
           }

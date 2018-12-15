@@ -7,6 +7,7 @@
   .clearfix();
 }
 
+
 // Headings
 // -------------------------
 
@@ -204,19 +205,18 @@ dd {
   dd {
     &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present
   }
-
-  /* @media (min-width: @dl-horizontal-breakpoint) {
+   @media (min-width: 768px) {
     dt {
       float: left;
-      width: (@dl-horizontal-offset - 20);
+      width: (140px - 20);
       clear: left;
       text-align: right;
       .text-overflow();
     }
     dd {
-      margin-left: @dl-horizontal-offset;
+      margin-left: 140px;
     }
-  } */
+  }
 }
 
 
