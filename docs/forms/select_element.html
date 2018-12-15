@@ -20,6 +20,14 @@
 
 
 
+<script>
+  $(function(){
+    $('#abc').on('click', function(){
+      console.log($(this).prev().find('input[type="text"]').val());
+      console.log($(this).prev().find('input[type="hidden"]').val());
+    });
+  });
+</script>
 <div class="show-forms-sub">
   <h3 class="page-header">下拉菜单</h3>
   <p>我们在做表单下拉菜单的时候，给表单的<code>class="select-element"</code>元素添加<code>dropdown</code>类，并且给<code>class="input-element"</code>子类添加下列属性来实现js交互；</p>
@@ -48,6 +56,7 @@
         </dl>
       </div>
     </div>
+    <button id="abc">获取值</button>
     <pre class="html" name="pre">
 <div class="select-element dropdown">
   <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
@@ -471,4 +480,6 @@
   <script src="../js/public.js"></script>
 </body>
 </html>
+
+
 
