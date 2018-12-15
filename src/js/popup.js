@@ -6,6 +6,7 @@ var ppppp = null;
       jd = {
         addTarget: $('body'),
         type: 1,
+        win: window,
         className: "",
         shade: {bgColor: '#000000', opacity: 0.5, close: false},
         size: {full: 0, width: 'auto', height: 'auto'},
@@ -80,11 +81,9 @@ var ppppp = null;
 
       //这里创建来源对象
       that.winObject = {
-        originWindow: window,
-        originDocument: window.document,
-        parWindow: window.parent,
-        parDocument: window.parent.document,
-        topWindow:window.top,
+        originWindow: j.win,
+        originDocument: j.win.document,
+        topWindow: window.top,
         topDocument: window.top.document
       };
       that.popupId = that.randomS(5);
