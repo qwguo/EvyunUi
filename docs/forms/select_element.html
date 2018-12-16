@@ -24,11 +24,9 @@
   $(function(){
     $('#abc').on('click', function(){
       var inputs = $(this).prev();
-      $.popupPoint({
-        autoClose: 5,
-        con: {
-          html: '<span class="text-warning">当先显示的文字是：'+inputs.find('input[type="text"]').val()+'</span><span class="text-info">当先值是：'+inputs.find('input[type="hidden"]').val()+'</span>'
-        }
+      $.evPopupPoint({
+        closeTime: 3,
+        hint: '<span class="text-warning">当先显示的文字是：'+inputs.find('input[type="text"]').val()+'</span><span class="text-info">当先值是：'+inputs.find('input[type="hidden"]').val()+'</span>'
       });
     });
   });
