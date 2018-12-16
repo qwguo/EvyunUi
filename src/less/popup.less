@@ -97,14 +97,19 @@
   .popup-body{}
   .popup-hint-info{
     padding: 20px;
+    min-width: 110px;
     .evicon{
       font-size: 30px;
       vertical-align: middle;
       margin-right: 10px;
-      &.load-wait{
+      &.load-wait-1{
         background:url(http://aimg8.oss-cn-shanghai.aliyuncs.com/tj/public_pic/loading-wait-bg.gif) center center no-repeat;
         width: 32px;
         height: 32px;
+      }
+      + span.hint-text{
+        vertical-align: middle;
+        white-space: nowrap;
       }
     }
     .hint{

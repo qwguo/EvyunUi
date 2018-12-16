@@ -3690,38 +3690,42 @@ var ppppp = null;
 // Popup
 (function (window, $) {
   var Popup = function (j_) {
-    var that = this,
-      jd = {
-        addTarget: $('body'),
-        type: 1,
-        win: window,
-        className: "",
-        shade: {bgColor: '#000000', opacity: 0.5, close: false},
-        size: {full: 0, width: 'auto', height: 'auto'},
-        position: {fixed: 1, pos: 'm-c'},
-        animate: ['zoomIn', 'zoomOut'],
-        autoClose: false,
-        move: 0,
-        head: '默认标题',
-        opBtn: {close: 1, min: 1, max: 1},
-        con: {
-          html: "提示信息",
-          icon: 1,
-          src: null,
-          btn: null
-        },
-        closeCallBack: null
-      };
-    j_.addTarget = j_.addTarget || $('body');
-    that.j = $.extend(true, {}, jd, j_);
-    that.createDom();
+    var that = this;
+    that.topWindow= window.top;
+    that.topDocument= window.top.document;
+    if(j_){
+      var jd = {
+          addTarget: $('body'),
+          type: 1,
+          win: window,
+          className: "",
+          shade: {bgColor: '#000000', opacity: 0.5, close: false},
+          size: {full: 0, width: 'auto', height: 'auto'},
+          position: {fixed: 1, pos: 'm-c'},
+          animate: ['zoomIn', 'zoomOut'],
+          autoClose: false,
+          move: 0,
+          head: '默认标题',
+          opBtn: {close: 1, min: 1, max: 1},
+          con: {
+            html: "提示信息",
+            icon: 1,
+            src: null,
+            btn: null
+          },
+          closeCallBack: null
+        };
+      j_.addTarget = j_.addTarget || $('body');
+      that.j = $.extend(true, {}, jd, j_);
+      that.createDom();
+    }
   };
   Popup.prototype = {
     constructor: Popup,
     popupId: 0,
     allPopupList: null,
     alertType: ['alert', 'html', 'iframe', 'loading', 'taps', 'tab'],
-    alertIcon: ['<i class="evicon evicon-right-1 text-success"></i>', '<i class="evicon evicon-close-2 text-warning"></i>', '<i class="evicon evicon-point-2 text-info"></i>', '<i class="evicon load-wait"></i>'],
+    alertIcon: ['<i class="evicon evicon-right-1 text-success"></i>', '<i class="evicon evicon-close-2 text-warning"></i>', '<i class="evicon evicon-point-2 text-info"></i>', '<i class="evicon load-wait-1"></i>'],
     //得到窗口的宽高，dom的宽高，elemnet的宽高
     winAttr: function () {
       var that = this,
@@ -3770,8 +3774,6 @@ var ppppp = null;
       //这里创建来源对象
       that.originWindow= j.win;
       that.originDocument= j.win.document;
-      that.topWindow= window.top;
-      that.topDocument= window.top.document;
       that.popupId = that.randomS(5);
       that.maxZindex();
       that.zIndex = that.maxZindex() + 1;
@@ -3828,7 +3830,7 @@ var ppppp = null;
             if (j.con.btn) {
               popupBArray.push('<div class="popup-but-area"><span class="popup-but">');
               $.each(j.con.btn, function (i, v) {
-                popupBArray.push('<a href="javascript:;" data-btn-index="' + i + '" data-action="btn" class="btn btn-sm ' + v.className + '">' + v.text + '</a>');
+                popupBArray.push('<a href="javascript:;" data-btn-index="' + i + '" data-action="btn" class="btn btn-sm ' +( v.className || '' )+ '">' + v.text + '</a>');
               });
               popupBArray.push('</span></div>');
             }
@@ -3862,9 +3864,6 @@ var ppppp = null;
         });
         j.animate && j.animate.length && that.popup.attr('data-animated', j.animate);
         that.popup.appendTo(j.addTarget);
-        that.popupCountWH();
-        that.popupOffset();
-        // that.popupDrag();
         that.popup.on({
           'click': function () {
             var targetDom = $(this);
@@ -3882,7 +3881,7 @@ var ppppp = null;
                 that.popupClose();
                 break;
               case 'btn':
-                j.con.btn && j.con.btn[targetDom.data('btnIndex')]['callBack'] && j.con.btn[targetDom.data('btnIndex')]['callBack']();
+                j.con.btn && j.con.btn[targetDom.data('btnIndex')]['callBack'] && j.con.btn[targetDom.data('btnIndex')]['callBack'](targetDom, that.popup);
                 if(!j.con.btn[targetDom.data('btnIndex')]['noClose']){
                   that.popupClose();
                 }
@@ -3890,17 +3889,22 @@ var ppppp = null;
             }
           }
         }, '.popup-option .evicon,.popup-but .btn');
-        if(j.size.full && j.opBtn && j.opBtn.max){
-          that.popupMax();
-        }
+        setTimeout(function(){
+          that.popupCountWH();
+          that.popupOffset();
+          // that.popupDrag();
+          if(j.size.full){
+            that.popupMax();
+          }
+        });
       }());
       if(!isNaN(j.autoClose) && (typeof(j.autoClose) === 'string' || typeof(j.autoClose) === 'number')){
         setTimeout(function(){
           that.popupClose();
         }, j.autoClose * 1000);
       }
-      /*Popup.prototype.allPopupList = Popup.prototype.allPopupList || {};
-      Popup.prototype.allPopupList['popup_'+Popup.prototype.numbers] = that;*/
+      Popup.prototype.allPopupList = Popup.prototype.allPopupList || {};
+      Popup.prototype.allPopupList['popup_' + that.popupId] = that;
     },
     // 计算弹窗的位置
     popupOffset: function () {
@@ -3970,11 +3974,14 @@ var ppppp = null;
           (function(){
             var w = j.size.width,
               h = j.size.height;
-            w = (w === 'auto' ? that.popup.width() : w);
-            h = (h === 'auto' ? that.popup.height() : h);
-            w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
-            h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
-            that.popup.css({width: w + 'px', height: h + 'px'});
+            if(j.size.width !== 'auto'){
+              w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
+              that.popup.css('width', w + 'px');
+            }
+            if(h !== 'auto'){
+              h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
+              that.popup.css('height', h + 'px');
+            }
           }());
           break;
       }
@@ -4034,19 +4041,27 @@ var ppppp = null;
         that.popup.remove();
         that.popupShade && that.popupShade.remove();
         // that.popup = null;
-        that.topWindow.evPopup['popup_' + that.popupId] = null;
+        that.allPopupList && (that.allPopupList['popup_' + that.popupId] = null);
+        that.topWindow.evPopup && (that.topWindow.evPopup['popup_' + that.popupId] = null);
         that = null;
       }, j.animate[1] ? 210 : 0);
-    }/*,
+    },
     popupCloseAll: function(){
       var that = this;
       if(that.allPopupList){
         $.each(that.allPopupList, function(i, v){
-          console.log(v);
-          v.popupClose();
+          v && v.popupClose();
         });
       }
-    }*/,
+    },
+    popupCloseWinAll: function(){
+      var that = this;
+      if(that.topWindow.evPopup){
+        $.each(that.topWindow.evPopup, function(i, v){
+          v && v.popupClose();
+        });
+      }
+    },
     popupDrag: function(){
       var that = this,
           j = that.j;
@@ -4060,40 +4075,45 @@ var ppppp = null;
       }
     }
   };
-  $.popup = function (j) {
+  $.evPopup = function (j) {
     return new Popup(j);
   };
   //alert
-  $.popupAlert = function(j){
+  $.evPopupAlert = function(j){
     var j_ = {
       type: 1,
       position: {pos: 'm-c'},
+      shade:{close:0},
       opBtn: {close: 1, min: 0, max: 0},
       size: {width: 300},
       con: {
         html: "提示信息",
         icon: 3,
-        btn:{'btn1':{text:'确定', className:'btn-primary'}}
+        btn:{'btn0':{text:'确定', className:'btn-primary'}}
       }
     };
-    switch(true){
-      case $.isArray(j):
-        j = {
-          head: j[0],
-          con:{
-            html: j[1],
-            btn:{'btn1':{callBack: j[2]}}
-          }
-        };
-      break;
-      case $.isPlainObject(j):
-          j.type = 1;
-      break;
+    j.head && (j_.head = j.head);
+    j.hint && (j_.con.html = j.hint);
+    j.icon && (j_.con.icon = j.icon);
+    j.win && (j_.win = j.win);
+    j.position && (j_.position.pos = j.position);
+    if(j.shade != undefined){
+      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
-    return new Popup($.extend(true, {}, j_, j));
+    if(j.btn){
+      if($.isArray(j.btn)){
+        $.each(j.btn, function(i, v){
+          j_.con.btn['btn' + i] = $.extend(true,{}, j_.con.btn['btn' + i], v);
+        });
+      }else{
+        j_.con.btn.btn0 = $.extend(true,{}, j_.con.btn.btn0, j.btn);
+      }
+    }
+    j.closeCallBack && (j_.closeCallBack = j_.closeCallBack);
+    return new Popup(j_);
   };
   //Point
-  $.popupPoint = function(j){
+  $.evPopupPoint = function(j){
     var j_ = {
       type: 1,
       head: false,
@@ -4101,56 +4121,33 @@ var ppppp = null;
       position: {pos: 'm-c'},
       opBtn: false,
       con: {
-        html: "提示信息",
+        html: '<span class="hint-text">提示信息</span>',
         icon: 1,
         btn: false
       },
       autoClose: 1
     };
-    if($.isArray(j)){
-      j = {
-        con:{
-          html: j[0],
-          icon: j[1]
-        },
-        autoClose: j[2],
-        closeCallBack: j[3]
-      }
+    j.hint && (j_.con.html = (j.hint.indexOf('<') != -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
+    j.icon && (j_.con.icon = j.icon);
+    if(j.shade != undefined){
+      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
-    return new Popup($.extend(true, {}, j_, j));
+    j.closeTime && (j_.autoClose = j.closeTime);
+    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
+    return new Popup(j_);
   };
   //confirm
-  $.popupConfirm = function(j){
-    var j_ = {
-      type: 1,
-      position: {pos: 'm-c'},
-      opBtn: {close: 1, min: 0, max: 0},
-      size: {width: 300},
-      con: {
-        html: "提示信息",
-        icon: 3,
-        btn:{
-          'btn1':{text:'确定', className:'btn-primary'},
-          'btn2':{text:'取消', className:'btn-outline-danger'}
-          }
-      }
+  $.evPopupConfirm = function(j){
+    var btn = [{text:'确定', className:'btn-primary'},{text:'取消', className:'btn-outline-danger'}];
+    if(j.btn && $.isArray(j.btn)){
+      $.each(j.btn, function(i, v) {
+        j.btn[i] = $.extend({},btn[i], v);
+      });
     };
-    if($.isArray(j)){
-      j = {
-        head: j[0],
-        con:{
-          html: j[1],
-          btn:{
-            'btn1':{callBack: j[2]},
-            'btn2':{callBack: j[3]}
-          }
-        }
-      }
-    }
-    return new Popup($.extend(true, {}, j_, j))
+    $.evPopupAlert(j);
   };
   // Prompt
-  $.popupPrompt = function(j){
+  $.evPopupPrompt = function(j){
     var input = $('input'),
       j_ = {
       type: 1,
@@ -4181,102 +4178,40 @@ var ppppp = null;
     return new Popup($.extend(true, {}, j_, j))
   };
   // Html代码形式
-  $.popupHtml = function(j){
+  $.evPopupHtml = function(j){
     var j_ = {
       type: 2,
       head: "HTML层",
       position: {pos: 'm-c'},
-      opBtn: {close: 1, min: 0, max: 1},
+      opBtn: {close: 1, min: 0, max: 0},
+      size:{width: 'auto', height: 'auto'},
+      win: window,
       con: {
         html: '<p>这是html代码</p>'
       }
     };
-    var win = $(window),
-      getHtml = function(str){
+    var getHtml = function(str){
         if(str instanceof jQuery){
           str = str.html()
-        }else{
-          if(typeof(str) === 'string') {
-            if($.inArray(str.substr(0, 1), ['.', '#']) != -1){
-              if($(str).length){
-                str = $(str).html();
-              }
-            }
-          }
+        }else if(typeof(str) === 'string' && $.inArray(str.substr(0, 1), ['.', '#']) != -1 && $(str).length) {
+          str = $(str).html();
         }
         return str;
       };
-    switch(true){
-      case $.isArray(j):
-        j = {
-          head: j[0],
-          con:{
-            html: getHtml(j[1])
-          },
-          size:{
-            width: (function(){
-              var w = 'auto';
-              if(j[2]){
-                w = (j[2] > win.width()) ? (win.width() - 20) : j[2];
-              }
-              return w;
-            }()), height: (function(){
-              var h = 'auto';
-              if(j[3]){
-                h = (j[3] > win.width()) ? (win.width() - 20) : j[3];
-              }
-              return h;
-            }())
-          },
-          closeCallBack: j[4]
-        };
-      break;
-      case $.isPlainObject(j):
-          j.type = 2;
-          j.con.html = getHtml(j.con.html);
-      break;
+    j.head && (j_.con.head = j.head);
+    j.html && (j_.con.html = getHtml(j.html));
+    j.width && (j_.size.width = j.width);
+    j.full && (j_.size.full = j.full);
+    j.win && (j_.win = j.win);
+    j.height && (j_.size.height = j.height);
+    if(j.shade != undefined){
+      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
-    return new Popup($.extend(true, {}, j_, j));
-  };
-  //Iframe
-  $.popupIframe = function(j){
-    var j_ = {
-      type: 3,
-      position: {pos: 'm-c'},
-      opBtn: {close: 1, max: 0, min: 0},
-      con: {
-        src: 'http://www.evyun.cn'
-      }
-    },
-    win = $(window);
-    if($.isArray(j)){
-      j = {
-        head: j[0],
-        con:{
-          src: j[1]
-        },
-        size:{
-          width: (function(){
-            var w = 'auto';
-            if(j[2]){
-              w = (j[2] > win.width()) ? (win.width() - 20) : j[2];
-            }
-            return w;
-          }()), height: (function(){
-            var h = 'auto';
-            if(j[3]){
-              h = (j[3] > win.width()) ? (win.width() - 20) : j[3];
-            }
-            return h;
-          }())
-        },
-        closeCallBack: j[4]
-      }
-    }
-    return new Popup($.extend(true, {}, j_, j))
+    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);  
+    return new Popup(j_);
   };
   //Loading
-  $.popupLoading = function (j) {
+  $.evPopupLoading = function (j) {
     var j_ = {
       type: 4,
       head: false,
@@ -4287,37 +4222,89 @@ var ppppp = null;
         icon: 1
       }
     };
-    if($.isArray(j)){
-      j = {
-        con: {
-          icon: j[0]
-        },
-        autoClose: j[1],
-        closeCallBack: j[2] || null
-      }
+    j.icon && (j_.con.icon = j.icon);
+    j.closeTime && (j_.autoClose = j.closeTime);
+    if(j.shade != undefined){
+      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
+    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup($.extend(true, {}, j_, j));
+  };
+  //Iframe
+  $.evPopupIframe = function(j){
+    var j_ = {
+      type: 3,
+      position: {pos: 'm-c'},
+      size:{},
+      opBtn: {close: 1, max: 0, min: 0},
+      con: {
+        src: 'http://www.evyun.cn'
+      }
+    };
+    j.head && (j_.con.head = j.head);
+    j.width && (j_.size.width = j.width);
+    j.height && (j_.size.height = j.height);
+    j.full && (j_.size.full = j.full);
+    j.win && (j_.win = j.win);
+    j.src && (j_.con.src = j.src);
+    if(j.shade != undefined){
+      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
+    }
+    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);  
+    return new Popup(j_);
+  };
+  // 关闭当前iframe中的弹窗
+  $.evPopupCloseAll = function(){
+    var popup = new Popup();
+    popup.popupCloseAll();
+    popup = null;
+  };
+  // 关闭所有的弹窗
+  $.evPopupCloseWinAll = function(){
+    var popup = new Popup();
+    popup.popupCloseWinAll();
+    popup = null;
   };
 })(window, jQuery);
 (function () {
-  $(document).on('click.popup', '[data-toggle="popup"]', function (ev) {
+  $(document).on('click.evPopup', '[data-toggle="popup"]', function (ev) {
     var $this = $(this),
         domDate = $this.data();
     switch(domDate.popupType){
       case 'alert':
-        $.popupAlert([domDate.popupHead, domDate.popupHint]);
+        $.evPopupAlert({
+          head:domDate.popupHead,
+          hint: domDate.popupHint
+        });
         break;
       case 'point':
-        $.popupPoint([domDate.popupHint, domDate.popupIcontype, domDate.popupClosetiem]);
+        $.evPopupPoint({
+          icon: domDate.popupIcontype,
+          hint: '<span class="hint-text">' + domDate.popupHint + '</span>',
+          closeTime: domDate.popupClosetime
+        });
         break;
       case 'html':
-        $.popupHtml([domDate.popupHead, domDate.popupTarget, domDate.popupWidth, domDate.popupHeight]);
+        $.evPopupHtml({
+          head:domDate.popupHead,
+          html: domDate.popupTarget,
+          width:domDate.popupWidth,
+          height: domDate.popupHeight
+        });
         break;
       case 'loading':
-        $.popupLoading([domDate.popupIcontype, domDate.popupClosetiem]);
+        $.evPopupLoading({
+          icon: domDate.popupIcontype,
+          closeTime: domDate.popupClosetime
+        });
         break;
       case 'iframe':
-        $.popupIframe([domDate.popupHead, domDate.popupSrc, domDate.popupWidth, domDate.popupHeight]);
+        $.evPopupIframe({
+          head:domDate.popupHead,
+          src: domDate.popupSrc,
+          width: domDate.popupWidth,
+          height: domDate.popupHeight
+        });
         break;
     }
   });

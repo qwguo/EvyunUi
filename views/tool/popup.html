@@ -1,15 +1,19 @@
 @@include('../include/head.html')
 <div class="show-popup">
   <h3 class="page-header">模态提示框</h3>
+  <p class="text-warning">各位非常抱歉，通过在做微圈的时候使用这个弹窗我发现，用到咱们现在的后台后出现很多的问题，和操作不便，再加上和以前的插件命名冲突，所以这次我从新改了一下这个模态框插件；各位已经使用过这个插件的还麻烦你们修改一下。</p>
   <h4>我们想要实现一个弹窗效果有两种方式：</h4>
   <ol class="arr-explain-list">
-    <li>我们可以给任何的标签元素添加<code>data-toggle="popup"</code>属性来实现打开模态框，不同类型的模态框添加的属性不一样</li>
-    <li>可以通过调用方法的形式来实现，目前定义了几种弹窗的方法如下：
+    <li>我们可以给任何的标签元素添加<code>data-toggle="popup"</code>属性来实现打开模态框，不同类型的模态框添加的属性不一样;</li>
+    <li>可以通过调用方法的形式来实现，<span class="text-warning">这次我把所有的方法前边都加了一个前缀ev，并且把参数都由数组改成了对象，更加直观</span>;目前定义了几种弹窗的方法如下：
       <ul class="list-type-lower-roman">
-        <li><code>$.popupAlert(arguments)</code>：打开一个带<b>确定</b>按钮的提示框。</li>
-        <li><code>$.popupConfirm(arguments)</code>：打开一个带<b>确定</b>，<b>取消</b>按钮的提示框。</li>
-        <li><code>$.popupPoint(arguments)</code>：打开一个提示信息。</li>
-        <li><code>$.pupupIframe(arguments)</code>：打开一个页面的弹出框。</li>
+        <li><code>$.evPopupAlert(arguments)</code>：打开一个带<b>确定</b>按钮的提示框。</li>
+        <li><code>$.evPopupPoint(arguments)</code>：打开一个提示信息。</li>
+        <li><code>$.evPopupConfirm(arguments)</code>：打开一个带<b>确定</b>，<b>取消</b>按钮的提示框。</li>
+        <li><code>$.evPopupIframe(arguments)</code>：打开一个iframe的弹出框。</li>
+        <li><code>$.evPopupHtml(arguments)</code>：打开一个自定义代码的弹出框。</li>
+        <li><code>$.evPopupLoading(arguments)</code>：打开一个加载等待层。</li>
+        <li><code>$.evPopup(arguments)</code>：弹窗的高级使用。</li>
       </ul>
     </li>
   </ol>
@@ -35,18 +39,26 @@
   </button>
     </pre>
     <h4><srrong>方法调用方式打开：</srrong></h4>
-    <h5>参数为数组形式</h5>
-    <p>
-      <button type="button" id="fun_alert_1" class="btn btn-primary">
-        默认提示框
-      </button>
-    </p>
+    <button type="button" id="fun_alert_1" class="btn btn-primary">
+      默认提示框
+    </button>
     <script type="text/javascript">
-      $('#fun_alert_1').on('click', function(){
-        $.popupAlert(['弹窗标题', '弹窗提示框', function(){
-          $.popupPoint(['点击了确定']);
-        }]);
-      });
+      $('#fun_alert_1').on('click', function () {
+          $.evPopupAlert({
+            head: '弹窗标题',
+            hint: '弹窗提示框',
+            shade: false,
+            icon: 2,
+            btn: {
+              text: '确定1', className: 'btn-primary btn-lg', callBack: function () {
+                $.evPopupPoint({hint: '单击了确定回调'})
+              }
+            },
+            closeCallBack: function () {
+              $.evPopupPoint({hint: '执行了关闭回调'})
+            }
+          });
+        });
     </script>
     <pre class="js" name="pre">
 //html代码
@@ -55,144 +67,182 @@
 &lt;/button&gt;
 //js代码
 $('#fun_alert_1').on('click', function(){
-  $.popupAlert(['弹窗标题', '弹窗提示框', function(){
-    $.popupPoint(['点击了确定']);
-  }]);
+  $.evPopupAlert({
+    head: '弹窗标题',
+    hint: '弹窗提示框',
+    icon: 2,
+    btn: {
+      text: '确定1', className: 'btn-primary btn-lg', callBack: function () {
+        $.evPopupPoint({hint: '单击了确定回调'})
+      }
+    },
+    closeCallBack: function () {
+      $.evPopupPoint({hint: '执行了关闭回调'})
+    }
+  });
 });
       </pre>
-    <h5>参数为对象形式</h5>
-    <p id="fun_alert_object">
-      <button type="button" data-pos="t-l" id="fun_alert_object_1" class="btn">
+    <h5>弹窗位置</h5>
+    <div id="fun_alert_object">
+      <h5>调用本iframe方法，创建到iframe中窗口</h5>
+      <button type="button" data-pos="t-l" class="btn">
           上左
       </button>
-      <button type="button" data-pos="t-c" id="fun_alert_object_2" class="btn btn-success">
+      <button type="button" data-pos="t-c" class="btn btn-success">
           上中
       </button>
-      <button type="button" data-pos="t-r" id="fun_alert_object_3" class="btn btn-danger">
+      <button type="button" data-pos="t-r" class="btn btn-danger">
           上右
       </button>
-      <button type="button" data-pos="m-l" id="fun_alert_object_4" class="btn btn-warning">
+      <button type="button" data-pos="m-l" class="btn btn-warning">
           中左
       </button>
-      <button type="button" data-pos="m-c" id="fun_alert_object_5" class="btn btn-info">
+      <button type="button" data-pos="m-c" class="btn btn-info">
           中间
       </button>
-      <button type="button" data-pos="m-r" id="fun_alert_object_6" class="btn btn-primary">
+      <button type="button" data-pos="m-r" class="btn btn-primary">
           中右
       </button>
-      <button type="button" data-pos="b-l" id="fun_alert_object_7" class="btn btn-outline-primary">
+      <button type="button" data-pos="b-l" class="btn btn-outline-primary">
           下左
       </button>
-      <button type="button" data-pos="b-c" id="fun_alert_object_8" class="btn btn-outline-success">
+      <button type="button" data-pos="b-c" class="btn btn-outline-success">
           下中
       </button>
-      <button type="button" data-pos="b-r" id="fun_alert_object_9" class="btn btn-outline-info">
+      <button type="button" data-pos="b-r" class="btn btn-outline-info">
           下右
       </button>
-    </p>
+      <h5>调用父级window方法，创建到父级窗口</h5>
+      <a type="button" data-pos="t-l" class="btn">
+          上左
+      </a>
+      <a type="button" data-pos="t-c" class="btn btn-success">
+          上中
+      </a>
+      <a type="button" data-pos="t-r" class="btn btn-danger">
+          上右
+      </a>
+      <a type="button" data-pos="m-l" class="btn btn-warning">
+          中左
+      </a>
+      <a type="button" data-pos="m-c" class="btn btn-info">
+          中间
+      </a>
+      <a type="button" data-pos="m-r" class="btn btn-primary">
+          中右
+      </a>
+      <a type="button" data-pos="b-l" class="btn btn-outline-primary">
+          下左
+      </a>
+      <a type="button" data-pos="b-c" class="btn btn-outline-success">
+          下中
+      </a>
+      <a type="button" data-pos="b-r" class="btn btn-outline-info">
+          下右
+      </a>
+      <a type="button" id="close_all" class="btn btn-outline-danger">
+          关闭iframe下全部弹窗
+      </a>
+      <a type="button" id="close_win_all" class="btn btn-outline-danger">
+          关闭所有弹窗
+      </a>
+    </div>
     <script type="text/javascript">
     (function(){
-      $('#fun_alert_object').on('click', 'button', function(){
-        var pos = $(this).data('pos'),
-          addTarget = $('body', window.parent.document);
-        $.popupAlert({
-          addTarget: addTarget,
-          head: '窗口标题',
-          shade: false,
-          position: {pos: pos},
-          animate: ['rotateIn', 'rotateOut'],
-          opBtn: {close: 1, min: 0, max: 0},
-          size: {width: 200, height: 'auto'},
-          con: {
-            html: '<span class="h4">提示信息</span>',
+      $('#fun_alert_object').on('click', '.btn', function(){
+        var $this = $(this),
+          pos = $this.data('pos');
+          winP = $this[0].tagName.toLocaleLowerCase() == 'a'? window.parent : window;
+        if(pos){
+          winP.$.evPopupAlert({
+            head: '弹窗标题',
+            hint: $this.text() + '弹窗提示框',
+            shade: false,
             icon: 2,
-            btn:{'btn1':{text:'确定', className:'btn-primary my-class'}}
+            win: winP === window && window,
+            position: pos,
+            btn: {
+              text: '确定', className: $this.attr('class'), callBack: function () {
+                $.evPopupPoint({hint: '单击了确定回调'})
+              }
+            },
+            closeCallBack: function () {
+              $.evPopupPoint({hint: '执行了关闭回调'})
+            }
+          });
+        }else{
+          if($this.attr('id') === 'close_all'){
+            $.evPopupCloseAll();
+          }else{
+            $.evPopupCloseWinAll();
           }
-        });
+        }
       });
     }());
     </script>
     <pre class="js" name="pre">
-//html代码
+//html代码 调用iframe打开
 &lt;button type="button" id="fun_alert_object_2" class="btn btn-primary"&gt;
-  调用方法弹出提示框
+  调用iframe打开
 &lt;/button&gt;
 //js代码
 $('#fun_alert_object_2').on('click', function(){
-  $.popupAlert({
-    addTarget: addTarget, //指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素
+  $.evPopupAlert({
     head: '窗口标题',
-    position: {pos: 'm-c'}, //位置取值：t-l, t-c, t-r, m-l, m-c, m-r, b-l, b-c, b-r
-    opBtn: {close: 1},
-    size: {width: 200, height: 100},
-    con: {
-      html: '<span class="h4">提示信息</span>',
-      icon: 3,
-      btn:{'btn':{text:'确定', noClose:false, className:'btn-primary my-class'}}
-    }
+    hint: '弹窗提示框',
+    position: 'm-c', //位置取值：t-l, t-c, t-r, m-l, m-c, m-r, b-l, b-c, b-r
   });
+});
+//html代码 调用window父级打开
+&lt;button type="button" id="fun_alert_object_3" class="btn btn-primary"&gt;
+  调用window父级打开
+&lt;/button&gt;
+//js代码
+$('#fun_alert_object_3').on('click', function(){
+  window.parent.$.evPopupAlert({
+    head: '窗口标题',
+    hint: '弹窗提示框',
+    position: 'm-c', //位置取值：t-l, t-c, t-r, m-l, m-c, m-r, b-l, b-c, b-r
+    win: window     //这里我们可以传入一个当前iframe的window对象，可以来进行交互操作
+  });
+});
+// html代码
+&lt;a type="button" id="close_all" class="btn btn-outline-danger"&gt;
+    关闭iframe下全部弹窗
+&lt;/a&gt;
+// js代码
+$('#close_all').on('click', function(){
+  $.evPopupCloseAll();
+});
+&lt;a type="button" id="close_win_all" class="btn btn-outline-danger"&gt;
+    关闭所有弹窗
+&lt;/a&gt;
+// js代码
+$('#close_win_all').on('click', function(){
+  $.evPopupCloseWinAll();
 });
     </pre>
     <dl class="arr-explain-list">
-    <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupAlert(arguments)</code>方法，说明如下：</dt>
-    <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
-    <dd><code>arguments</code>：打开弹窗时传递的参数。可以分为两种一种是<code>array</code>数组形式，一种是<code>json</code>对象像是
-      <ol>
-        <li><b>数组形式：</b>
-          <pre class="js" name="pre">
-$.popupAlert([popupHead, popupHint, enterCallBack]);
-          </pre>
-          <ul class="list-type-lower-roman">
-            <li><code>popupHead</code>：打开窗口的标题。</li>
-            <li><code>popupHint</code>：打开窗口的提示消息。</li>
-            <li><code>enterCallBack</code>：单击确定的回调函数。</li>
-          </ul>
-        </li>
-        <li>
-          <b>对象形式：</b>详细查看
-          <pre class="js" name="pre">
-$('#fun_alert_object_2').on('click', function(){
-  var popup_obj = $.popupAlert({
-    addTarget: addTarget,
-    position: {pos: 'm-c'},
-    opBtn: {close: 1},
-    size: {width: 200, height: 100},
-    con: {
-      html: "提示信息",
-      icon: 3,
-      btn:{'btn':{text:'确定', noClose:false, className:'btn-primary my-class', callBack: function(){
-        //按钮回调函数执行
-      }}}
-    }
-  });
-});
-          </pre>
-          <ul class="list-type-upper-alpha">
-              <li><code>addTarget</code>：//指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素</li>
-              <li><code>position</code>：//位置取值：t-l（上左）, t-c（上中）, t-r（上右）, m-l（中左）, m-c（居中）, m-r（中右）, b-l（下左）, b-c（下中）, b-r（下右）。</li>
-              <li><code>head</code>：表示打开窗口的标题。</li>
-              <li><code>opBtn</code>：表示是否显示右上角的操作按钮，close:1 表示显示关闭按钮，0表示不显示关闭按钮。</li>
-              <li><code>size</code>：表示弹出框的大小，<code>width</code>：宽度值，取值：<code>'auto'</code>|<code>数字</code></li>
-              <li><code>con</code>：表示弹窗中的内容对象：
-                <ul class="list-type-lower-alpha">
-                  <li><code>html</code>：提示消息文字</li>
-                  <li><code>icon</code>：提示图标</li>
-                  <li><code>btn</code>：提示框中的按钮：
-                    <ul class="list-type-georgian">
-                      <li><code>text</code>：按钮文字；
-                      <li><code>noClose</code>：按钮单击是否关闭本弹窗，<code>false</code>：表示不关闭，<code>true</code>：表示关闭；
-                      <li><code>className</code>：按钮的样式名称，可以使用框架内带<a href="../button/base_button.html">按钮</a>的所有class名，也可以自定义class名，如果使用多个class名可以写成<code>'class-1 class-2 class-3'</code>空格隔开的形式；
-                      <li><code>callBack</code>：单击按钮后要执行的函数
-                    </ul>
-                  </li>
-                </ul>
-              </li>
+      <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.evPopupAlert(arguments)</code>方法，说明如下：</dt>
+      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
+      <dd><code>arguments</code>：打开弹窗时传递的参数，具体参数说明。
+        <ol>
+          <li><code>position</code>：//位置取值：t-l（上左）, t-c（上中）, t-r（上右）, m-l（中左）, m-c（居中）, m-r（中右）, b-l（下左）, b-c（下中）, b-r（下右）。</li>
+          <li><code>head</code>：表示打开窗口的标题。</li>
+          <li><code>hint</code>：提示消息文字</li>
+          <li><code>icon</code>：提示图标</li>
+          <li><code>win</code>：可以传入当前的iframe中的<code>window</code>对象，可以使用<code>popup_obj.originWindow</code>调用。</li>
+          <li><code>btn</code>：提示框中的按钮：
+            <ul class="list-type-georgian">
+              <li><code>text</code>：按钮文字；
+              <li><code>noClose</code>：按钮单击是否关闭本弹窗，<code>false</code>：表示不关闭，<code>true</code>：表示关闭；
+              <li><code>className</code>：按钮的样式名称，可以使用框架内带<a href="../button/base_button.html">按钮</a>的所有class名，也可以自定义class名，如果使用多个class名可以写成<code>'class-1 class-2 class-3'</code>空格隔开的形式；
+              <li><code>callBack</code>：单击按钮后要执行的函数
             </ul>
-            <h5>更多的参数请查看：<a href="#popupSenior">弹窗高级使用</a></h5>
-        </li>
-      </ol>
-    </dd>
-  </dl>
+          </li>
+        </ol>
+      </dd>
+    </dl>
   </div>
 
   <div class="show-popup-div">
@@ -204,11 +254,25 @@ $('#fun_alert_object_2').on('click', function(){
     </p>
     <script type="text/javascript">
       $('#fun_confirm_1').on('click', function(){
-        $.popupConfirm(['弹窗标题', '弹窗提示框', function(){
-          $.popupPoint(['点击了确定']);
-        },function(){
-          $.popupPoint(['点击了取消']);
-        }]);
+        $.evPopupConfirm({
+          head: '弹窗标题',
+          hint: '弹窗提示框',
+          icon: 3,
+          btn: [{
+            text: '确定',
+            className: 'btn-primary',
+            callBack: function () {
+              $.evPopupPoint({ hint: '单击了确定回调'});
+            }
+          }, {
+            text: '取消', className: 'btn-outline-danger', callBack: function () {
+              $.evPopupPoint({ hint: '单击了取消回调', icon: 3});
+            }
+          }],
+          closeCallBack: function () {
+            $.evPopupPoint({hint: '执行了关闭回调'})
+          }
+        });
       });
     </script>
     <pre class="js" name="pre">
@@ -217,36 +281,30 @@ $('#fun_alert_object_2').on('click', function(){
   调用方法弹出确定取消框
 &lt;/button&gt;
 $('#fun_confirm_1').on('click', function(){
-  $.popupConfirm(['弹窗标题', '弹窗提示框', function(){
-    $.popupPoint(['点击了确定']);
-  },function(){
-    $.popupPoint(['点击了取消']);
-  }]);
+  var popup_obj = $.evPopupConfirm({
+    head: '弹窗标题',
+    hint: '弹窗提示框',
+    icon: 3,
+    btn: [{
+      text: '确定',
+      className: 'btn-primary',
+      callBack: function () {
+        $.evPopupPoint({ hint: '单击了确定回调'})
+      }
+    }, {
+      text: '取消', className: 'btn-outline-danger', callBack: function () {
+        $.evPopupPoint({ hint: '单击了取消回调'})
+      }
+    }],
+    closeCallBack: function () {
+      $.evPopupPoint({hint: '执行了关闭回调'})
+    }
+  });
 });
-      </pre>
+    </pre>
     <dl class="arr-explain-list">
-      <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupAlert(arguments)</code>方法，说明如下：</dt>
-      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
-      <dd><code>arguments</code>：打开弹窗时传递的参数。可以分为两种一种是<code>array</code>数组形式，一种是<code>json</code>对象像是
-        <ol>
-          <li><b>数组形式：</b>
-            <pre class="js" name="pre">
-  $.popupAlert(popupHead, popupHint, enterCallBack, cancelCallBack);
-            </pre>
-            <ul class="list-type-lower-roman">
-              <li><code>popupObj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</li>
-              <li><code>popupHead</code>：打开窗口的标题。</li>
-              <li><code>popupHint</code>：打开窗口的提示消息。</li>
-              <li><code>enterCallBack</code>：单击确定的回调函数。</li>
-              <li><code>cancelCallBack</code>：单击取消的回调函数。</li>
-            </ul>
-          </li>
-          <li>
-            <b>对象形式：</b>
-            <p class="text-warning">请查看：<a href="#popupSenior">弹窗高级使用</a></p>
-          </li>
-        </ol>
-      </dd>
+      <dt>方法打开：此弹窗和带确定按钮的提示框参数基本一样，不同之处：</dt>
+      <dd><code>btn</code>：提示框中的按钮，类型为数组，每个数组值是json形式，可以传入1个或多个；</dd>
     </dl>
   </div>
 
@@ -254,16 +312,16 @@ $('#fun_confirm_1').on('click', function(){
     <h4 class="page-header">打开一个提示消息框</h4>
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
-      <button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetiem="1">
+      <button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetime="1">
         正确
       </button>
-      <button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetiem="1">
+      <button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetime="1">
         错误
       </button>
-      <button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetiem="1">
+      <button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetime="1">
         警告
       </button>
-      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetiem="1">
+      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetime="1">
         等待
       </button>
     </p>
@@ -272,20 +330,20 @@ $('#fun_confirm_1').on('click', function(){
       <dd><code>data-popup-type="point"</code>：打开消息提示框, <span class="text-warning">固定值</span></dd>
       <dd><code>data-popup-hint="这是提示内容"</code>：提示消息</dd>
       <dd><code>data-popup-icontype="1"</code>：提示图标类型，<code>1</code>：表示成功对钩，<code>2</code>：表示错误叉号，<code>3</code>：表示提示感叹号，<code>4</code>：表示加载中动态图</dd>
-      <dd><code>data-popup-closetiem="2"</code>：自动关闭时间数值型(以秒计算) <code>false</code>或者非数字表示不自动关闭</dd>
+      <dd><code>data-popup-closetime="2"</code>：自动关闭时间数值型(以秒计算) <code>false</code>或者非数字表示不自动关闭</dd>
       <dd>代码如下：</dd>
     </dl>
     <pre class="html" name="pre">
-<button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetiem="1">
+<button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetime="1">
   正确
 </button>
-<button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetiem="1">
+<button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetime="1">
   错误
 </button>
-<button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetiem="1">
+<button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetime="1">
   警告
 </button>
-<button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetiem="1">
+<button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetime="1">
   等待
 </button>
 
@@ -307,9 +365,14 @@ $('#fun_confirm_1').on('click', function(){
     </p>
     <script type="text/javascript">
         $('#fun_point_1').on('click','.btn', function(){
-          $.popupPoint([$(this).text()+'提示内容', $(this).index() + 1, 1, function(){
-            $.popupPoint(['自动关闭回调函数', 3, 1]);
-          }]);
+          $.evPopupPoint({
+            hint: $(this).text() + '提示',
+            icon: $(this).index() + 1,
+            closetime: 1,
+            closeCallBack: function(){
+              $.evPopupPoint({hint: '关闭的回调函数'});
+            }
+          });
         });
       </script>
     <pre class="js" name="pre">
@@ -319,31 +382,25 @@ $('#fun_confirm_1').on('click', function(){
 &lt;/button&gt;
 // js代码
 $('#fun_point_1').on('click', function(){
-  $.popupPoint(['这是提示内容', 2, 1, function(){
-    $.popupPoint(['自动关闭回调函数', 3, 1]);
-  }]);
+  var popup_obj = $.evPopupPoint({
+    hint: '提示消息',
+    icon: 1,
+    closetime: 1,
+    closeCallBack: function(){
+      $.evPopupPoint({hint: '关闭'});
+    }
+  });
 });
     </pre>
     <dl class="arr-explain-list">
-      <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupPoint(arguments)</code>方法，说明如下：</dt>
+      <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.evPopupPoint(arguments)</code>方法，说明如下：</dt>
       <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
-      <dd><code>arguments</code>：打开弹窗时传递的参数。可以分为两种一种是<code>array</code>数组形式，一种是<code>json</code>对象像是
+      <dd><code>arguments</code>：打开弹窗时传递的参数，对象形式：
         <ol>
-          <li><b>数组形式：</b>
-            <pre class="js" name="pre">
-  $.popupAlert([popupHint, popupIcontype, popupClosetiem, closeCallBack]);
-            </pre>
-            <ul class="list-type-lower-roman">
-              <li><code>popupHint</code>：打开窗口的标题。</li>
-              <li><code>popupIcontype</code>：打开窗口的提示消息。</li>
-              <li><code>popupClosetiem</code>：打开窗口的提示消息。</li>
-              <li><code>closeCallBack</code>：单击确定的回调函数。</li>
-            </ul>
-          </li>
-          <li>
-            <b>对象形式：</b>
-            <p class="text-warning">请查看：<a href="#popupSenior">弹窗高级使用</a></p>
-          </li>
+          <li><code>hint</code>：提示文字</li>
+          <li><code>icon</code>：提示图标</li>
+          <li><code>closetime</code>：自动关闭时间</li>
+          <li><code>closeCallBack</code>：关闭后回调函数</li>
         </ol>
       </dd>
     </dl>
@@ -497,7 +554,7 @@ $('#fun_point_1').on('click', function(){
     <h4 class="page-header">打开一个自定义内部代码的弹窗</h4>
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
-      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="html" data-popup-head="这是我的弹窗标题" data-popup-target="#htmlDiv_1" data-popup-width="2200" data-popup-height="1500">
+      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="html" data-popup-head="这是我的弹窗标题" data-popup-target="#htmlDiv_1" data-popup-width="600" data-popup-height="500">
         属性方式打开自定义代码框
       </button>
     </p>
@@ -516,17 +573,21 @@ $('#fun_point_1').on('click', function(){
 </button>
     </pre>
     <h4><srrong>方法调用方式打开：</srrong></h4>
-    <h5>参数为数组形式</h5>
-    <p>
-      <button type="button" id="fun_html_1" class="btn btn-rounded btn-outline-success">
-        方法调用方式打开自定义代码框
-      </button>
-    </p>
+    <h5>在iframe内打开</h5>
+    <button type="button" id="fun_html_1" class="btn btn-rounded btn-outline-success">
+      方法调用方式打开自定义代码框
+    </button>
     <script type="text/javascript">
       $('#fun_html_1').on('click', function(){
-        $.popupHtml(['弹窗标题', '#htmlDiv_1','600', '400', function(){
-          $.popupPoint(['关闭回调函数']);
-        }]);
+        $.evPopupHtml({
+          head:'弹窗标题',
+          html:'#htmlDiv_1',
+          width:600,
+          height:400,
+          closeCallBack:function(){
+            $.evPopupPoint(['关闭回调函数']);
+          }
+        });
       });
     </script>
     <pre class="js" name="pre">
@@ -536,37 +597,38 @@ $('#fun_point_1').on('click', function(){
 &lt;/button&gt;
 //js代码
 $('#fun_html_1').on('click', function(){
-  $.popupAlert(['弹窗标题', '#htmlDiv_1', function(){
-    $.popupPoint(['关闭回调函数']);
-  }]);
+  $.evPopupHtml({
+    head:'弹窗标题',
+    html:'#htmlDiv_1',
+    width:600,
+    height:400,
+    closeCallBack:function(){
+      $.evPopupPoint(['关闭回调函数']);
+    }
+  });
 });
       </pre>
-      <h5>参数为对象形式</h5>
+      <h5>在iframe父级窗口打开</h5>
       <p id="fun_alert_object">
         <button type="button" id="fun_html_object_1" class="btn btn-rounded btn-outline-info">
             打开一个全屏弹窗
         </button>
       </p>
       <script type="text/javascript">
-      (function(){
-        $('#fun_html_object_1').on('click', function(){
-          var addTarget = $('body', window.parent.document);
-          $.popupHtml({
-            addTarget: addTarget,
-            shade: false,
-            animate: ['fadeInDown', 'fadeOutUp'],
-            position: {pos: 'm-c'},
-            opBtn: {close: 1, min: 1, max: 1},
-            size: {full:1, width: 900, height: 500},
-            con: {
-              html: $('#htmlDiv_2').html()
-            },
-            closeCallBack: function(){
-              $.popupPoint(['关闭回调函数', '2']);
-            }
+        (function () {
+          $('#fun_html_object_1').on('click', function () {
+            window.parent.$.evPopupHtml({
+              head: '弹窗标题',
+              html: $('#htmlDiv_2').html(),
+              width: 600,
+              height: 400,
+              full: 1,
+              closeCallBack: function () {
+                $.evPopupPoint(['关闭回调函数']);
+              }
+            });
           });
-        });
-      }());
+        }());
       </script>
       <pre class="js" name="pre">
 //html代码
@@ -574,22 +636,86 @@ $('#fun_html_1').on('click', function(){
   调用方法弹出提示框
 &lt;/button&gt;
 //js代码
-$('#fun_html_object_1').on('click', function(){
-  var addTarget = $('body', window.parent.document);
-  $.popupHtml({
-    addTarget: addTarget,
-    shade: false,
-    position: {pos: 'm-c'},
-    opBtn: {close: 1, min: 1, max: 1},
-    size: {full:1, width: 200, height: 'auto'},
-    con: {
-      html: $('#htmlDiv_2').html()
+$('#fun_html_object_1').on('click', function () {
+  window.parent.$.evPopupHtml({
+    head: '弹窗标题',
+    html: $('#htmlDiv_2').html(),
+    width: 600,
+    height: 400,
+    full: 1,
+    closeCallBack: function () {
+      $.evPopupPoint(['关闭回调函数']);
     }
   });
 });
-      </pre>
-    </div>
+  </pre>
+  <dl class="arr-explain-list">
+      <dt>各属性介绍：</dt>
+      <dd><code>head</code>：打开窗口的标题</dd>
+      <dd><code>html</code>：表示打开一个可以自己传入html代码的弹窗</dd>
+      <dd><code>full</code>：表示是全屏打开</dd>
+      <dd><code>closeCallBack</code>：关闭窗口回调函数</dd>
+      <dd><code>width</code>：要打开的窗口的宽度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>1200</code>可以是任意数字值。</dd>
+      <dd><code>height</code>：要打开的窗口的高度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>700</code>可以是任意数字值。</dd>
+      <dd>代码如下：</dd>
+    </dl>
+  </div>
 
+  <div class="show-popup-div">
+    <h4 class="page-header">打开一个loading层</h4>
+    <h4><srrong>给元素添加属性方式打开：</srrong></h4>
+    <p>
+      <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetime="2">
+        添加属性方式打开
+      </button>
+    </p>
+    <dl class="arr-explain-list">
+      <dt>各属性介绍：</dt>
+      <dd><code>data-popup-type="loading"</code>：打开一个loading加载层, <span class="text-warning">固定值</span></dd>
+      <dd><code>data-popup-icontype="1"</code>：打开加载层的图片类型，暂时有1个</dd>
+      <dd><code>data-popup-closetime="1"</code>：自动关闭加载层时间，<code>false</code>：表示不关闭，大于零表示多少秒关闭。</dd>
+      <dd>代码如下：</dd>
+    </dl>
+    <pre class="html" name="pre">
+<button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetime="1">
+  添加属性方式打开
+</button>
+    </pre>
+    <h4><srrong>调用方法方式打开：</srrong></h4>
+    <p>
+      <button type="button" id="fun_loading_1" class="btn btn-outline-primary">
+        调用方法打开加载等待层
+      </button>
+    </p>
+    <script type="text/javascript">
+      $('#fun_loading_1').on('click', function(){
+        $.evPopupLoading({
+          icon:1,
+          closeTime: 2,
+          closeCallBack: function(){
+            $.evPopupPoint({hint:'关闭回调函数'});
+          }
+        });
+      });
+    </script>
+    <pre class="js" name="pre">
+// html代码
+&lt;button type="button" id="fun_loading_1" class="btn btn-primary"&gt;
+  调用方法打开加载等待层
+&lt;/button&gt;
+// js代码
+$('#fun_loading_1').on('click', function(){
+  $.evPopupLoading({
+    icon:1,
+    closeTime: 2,
+    closeCallBack: function(){
+      $.evPopupPoint({hint:'关闭回调函数'});
+    }
+  });
+});
+    </pre>
+  </div>
+  
 
   <div class="show-popup-div">
     <h4 class="page-header">打开一个iframe窗口</h4>
@@ -614,102 +740,94 @@ $('#fun_html_object_1').on('click', function(){
 </button>
     </pre>
     <h4><srrong>调用方法打开：</srrong></h4>
-    <p>
-      <button type="button" id="fun_iframe_1" class="btn btn-primary">
-        调用方法打开iframe窗口
-      </button>
-    </p>
+    <h5 class="text-warning">在iframe下打开</h5>
+    <button type="button" id="fun_iframe_1" class="btn btn-primary">
+      在iframe中打开窗口
+    </button>
     <script type="text/javascript">
       $('#fun_iframe_1').on('click', function(){
-        $.popupIframe(['这是提示内容', '../tool/popup_iframe.html', 800, 500, function(){
-          $.popupPoint(['关闭的回调函数', 3, 1]);
-        }]);
+        $.evPopupIframe({
+          head:'这是弹窗标题',
+          src:'../tool/popup_iframe.html',
+          width:800,
+          head: 500,
+          closeCallBack: function(){
+            $.evPopupPoint({hint:'关闭的回调函数', icon:3});
+          }
+        });
       });
     </script>
     <pre class="js" name="pre">
 // html代码
 &lt;button type="button" id="fun_iframe_1" class="btn btn-primary"&gt;
-  调用方法打开iframe窗口
+  在iframe中打开窗口
 &lt;/button&gt;
 // js代码
 $('#fun_iframe_1').on('click', function(){
-  $.popupIframe(['这是提示内容', '../tool/popup_iframe.html', 800, 500, function(){
-    $.popupPoint(['关闭的回调函数', 3, 1]);
-  }]);
+  $.evPopupIframe({
+    head:'这是弹窗标题',
+    src:'../tool/popup_iframe.html',
+    width:800,
+    head: 500,
+    closeCallBack: function(){
+      $.evPopupPoint({hint:'关闭的回调函数', icon:3});
+    }
+  });
 });
-      </pre>
+    </pre>
+    <h5 class="text-warning">在iframe父级窗口下打开</h5>
+    <button type="button" id="fun_iframe_2" class="btn btn-primary">
+      在父级窗口打开窗口
+    </button>
+    <script type="text/javascript">
+      $('#fun_iframe_2').on('click', function(){
+        window.parent.$.evPopupIframe({
+          head:'这是弹窗标题',
+          src:'tool/popup_iframe.html',
+          width:800,
+          head: 500,
+          win: window,
+          closeCallBack: function(){
+            $.evPopupPoint({hint:'关闭的回调函数', icon:3});
+          }
+        });
+      });
+    </script>
+    <pre class="js" name="pre">
+// html代码
+&lt;button type="button" id="fun_iframe_2" class="btn btn-primary"&gt;
+  在父级窗口打开窗口
+&lt;/button&gt;
+// js代码
+$('#fun_iframe_2').on('click', function(){
+  window.parent.$.evPopupIframe({
+    head:'这是弹窗标题',
+    src:'../tool/popup_iframe.html',
+    width:800,
+    head: 500,
+    win: window,
+    closeCallBack: function(){
+      $.evPopupPoint({hint:'关闭的回调函数', icon:3});
+    }
+  });
+});
+    </pre>
     <dl class="arr-explain-list">
-      <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.popupPoint(arguments)</code>方法，说明如下：</dt>
+      <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.evPopupPoint(arguments)</code>方法，说明如下：</dt>
       <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
-      <dd><code>arguments</code>：打开弹窗时传递的参数。可以分为两种一种是<code>array</code>数组形式，一种是<code>json</code>对象像是
+      <dd><code>arguments</code>：打开弹窗时传递的参数,类型为对象
         <ol>
-          <li><b>数组形式：</b>
-            <pre class="js" name="pre">
-  $.popupAlert([popupHead, popupSrc, popupWidth, popupHeight, closeCallBack]);
-            </pre>
-            <ul class="list-type-lower-roman">
-              <li><code>popupHead</code>：打开窗口的标题。</li>
-              <li><code>popupSrc</code>：打开窗口的iframe地址。</li>
-              <li><code>popupWidth</code>：打开窗口的宽度。</li>
-              <li><code>popupHeight</code>：打开窗口的高度。</li>
-              <li><code>closeCallBack</code>：关闭窗口的回调方法。</li>
-            </ul>
-          </li>
-          <li>
-            <b>对象形式：</b>
-            <p class="text-warning">请查看：<a href="#popupSenior">弹窗高级使用</a></p>
-          </li>
+          <li><code>head</code>：打开窗口的标题。</li>
+          <li><code>src</code>：打开窗口的iframe地址。</li>
+          <li><code>win</code>：触发事件的<code>window</code>对象。<span>一般只有在窗口创建到父级的时候才用到</span></li>
+          <li><code>width</code>：打开窗口的宽度。</li>
+          <li><code>head</code>：打开窗口的高度。</li>
+          <li><code>closeCallBack</code>：关闭窗口的回调方法。</li>
         </ol>
       </dd>
     </dl>
   </div>
 
-  <div class="show-popup-div">
-    <h4 class="page-header">打开一个loading层</h4>
-    <h4><srrong>给元素添加属性方式打开：</srrong></h4>
-    <p>
-      <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetiem="2">
-        添加属性方式打开
-      </button>
-    </p>
-    <dl class="arr-explain-list">
-      <dt>各属性介绍：</dt>
-      <dd><code>data-popup-type="loading"</code>：打开一个loading加载层, <span class="text-warning">固定值</span></dd>
-      <dd><code>data-popup-icontype="1"</code>：打开加载层的图片类型，暂时有1个</dd>
-      <dd><code>data-popup-closetiem="1"</code>：自动关闭加载层时间，<code>false</code>：表示不关闭，大于零表示多少秒关闭。</dd>
-      <dd>代码如下：</dd>
-    </dl>
-    <pre class="html" name="pre">
-<button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetiem="1">
-  添加属性方式打开
-</button>
-    </pre>
-    <h4><srrong>调用方法方式打开：</srrong></h4>
-    <p>
-      <button type="button" id="fun_loading_1" class="btn btn-outline-primary">
-        调用方法打开加载等待层
-      </button>
-    </p>
-    <script type="text/javascript">
-      $('#fun_loading_1').on('click', function(){
-        $.popupLoading([1, 2, function(){
-          $.popupPoint(['关闭的回调函数', 3, 1]);
-        }]);
-      });
-    </script>
-    <pre class="js" name="pre">
-// html代码
-&lt;button type="button" id="fun_loading_1" class="btn btn-primary"&gt;
-  调用方法打开加载等待层
-&lt;/button&gt;
-// js代码
-$('#fun_loading_1').on('click', function(){
-  $.popupLoading([1, 2, function(){
-    $.popupPoint(['关闭的回调函数', 3, 1]);
-  }]);
-});
-    </pre>
-  </div>
 
   <div id="popupSenior"  class="show-popup-div">
     <h3 >模态框高级使用</h3>
@@ -735,9 +853,8 @@ $('#fun_loading_1').on('click', function(){
             addTarget = $('body', window.parent.document);
           switch(type){
             case 'alert':
-              p_alert = $.popup({
+              p_alert = window.parent.$.evPopup({
                 type: 1,
-                addTarget: $('body'),
                 className: 'my-class',
                 shade: {bgColor: '#fff', opacity: '0.7', close: true},
                 position: {pos: 'm-c'},
@@ -747,25 +864,26 @@ $('#fun_loading_1').on('click', function(){
                   html: "提示信息",
                   icon: 3,
                   btn: {
-                    'btn1': {
+                    btn1: {
                       text: '加载',
                       className: 'btn-success',
+                      noClose: true,
                       callBack: function () {
-                        $.popupPoint(['正在加載中...', 4]);
+                        $.evPopupLoading({icon:1,closeTime:1});
                       }
                     },
                     btn2: {
-                      text: '确定',
+                      text: '确定关闭窗口',
                       className: 'btn-info',
                       callBack: function () {
-                        $.popupPoint(['单击了确定', 1]);
+                        $.evPopupPoint({hint:'单击了确定', icon:1});
                       }
                     },
                     btn3: {
-                      text: '取消',
+                      text: '取消关闭窗口',
                       className: 'btn-warning',
                       callBack: function () {
-                        $.popupPoint(['单击了取消', 2]);
+                        $.evPopupPoint({hint:'单击了取消', icon:2});
                       }
                     },
                     btn4: {
@@ -773,25 +891,32 @@ $('#fun_loading_1').on('click', function(){
                       className: 'btn-danger',
                       noClose: true,
                       callBack: function () {
-                        $.popupConfirm(['提示消息', '您确定要关闭吗？', function(){
-                          $.popupPoint(['点击了确定，窗口自动关闭']);
-                          p_alert.popupClose();
-                        },function(){
-                          $.popupPoint(['点击了取消，窗口不关闭']);
-                        }]);
+                        $.evPopupConfirm({
+                          hint:'确定要关闭吗？',
+                          icon:3,
+                          btn:[{
+                            callBack: function(){
+                              $.evPopupPoint({hint:'点击了确定，窗口自动关闭', icon:2});
+                              p_alert.popupClose();
+                            }
+                          },{
+                            callBack:function(){
+                              $.evPopupPoint({hint:'点击了取消，窗口不关闭', icon:2});
+                            }
+                          }]
+                        })
                       }
                     }
                   }
                 },
                 closeCallBack: function(){
-                  $.popupPoint(['关闭弹窗', 2]);
+                  // $.evPopupPoint(['关闭弹窗', 2]);
                 }
               });
             break;
             case 'layer':
-              p_layer = $.popup({
+              p_layer = $.evPopup({
                 type: 2,
-                addTarget: $('body'),
                 shade: {bgColor: '#fff', opacity: '0.7', close: true},
                 position: {pos: 'm-c'},
                 opBtn: {close: 1, min: 0, max: 1},
@@ -802,9 +927,8 @@ $('#fun_loading_1').on('click', function(){
               });
             break;
             case 'iframe':
-              p_iframe = $.popup({
+              p_iframe = window.parent.$.evPopup({
                 type: 3,
-                addTarget: addTarget,
                 animate: ['zoomIn',0],
                 shade: {bgColor: '#fff', opacity: '0.7', close: true},
                 position: {pos: 'm-c'},
@@ -816,7 +940,7 @@ $('#fun_loading_1').on('click', function(){
               });
               break;
             case 'loading':
-              p_iframe = $.popup({
+              p_iframe = $.evPopup({
                   type: 4,
                   head: false,
                   shade: {close: 1},
@@ -833,40 +957,38 @@ $('#fun_loading_1').on('click', function(){
     </script>
     <pre class="js" name="pre">
 //所有参数代码
-p_alert = $.popup({
+p_alert = window.parent.$.evPopup({
   type: 1,
-  addTarget: $('body'),
-  win: window,
-  className: "my-class",
+  className: 'my-class',
   shade: {bgColor: '#fff', opacity: '0.7', close: true},
   position: {pos: 'm-c'},
-  animate: ['zoomIn', 'zoomOut'],
-  autoClose: false,
+  win: window,
   opBtn: {close: 1, min: 0, max: 0},
-  size: {full: true, width: 350, height: 'auto'},
+  size: {width: 350, height: 'auto'},
   con: {
     html: "提示信息",
     icon: 3,
     btn: {
-      'btn1': {
+      btn1: {
         text: '加载',
         className: 'btn-success',
+        noClose: true,
         callBack: function () {
-          $.popupPoint(['正在加載中...', 4]);
+          $.evPopupLoading({icon:1,closeTime:1});
         }
       },
       btn2: {
-        text: '确定',
+        text: '确定关闭窗口',
         className: 'btn-info',
         callBack: function () {
-          $.popupPoint(['单击了确定', 1]);
+          $.evPopupPoint({hint:'单击了确定', icon:1});
         }
       },
       btn3: {
-        text: '取消',
+        text: '取消关闭窗口',
         className: 'btn-warning',
         callBack: function () {
-          $.popupPoint(['单击了取消', 2]);
+          $.evPopupPoint({hint:'单击了取消', icon:2});
         }
       },
       btn4: {
@@ -874,18 +996,26 @@ p_alert = $.popup({
         className: 'btn-danger',
         noClose: true,
         callBack: function () {
-          $.popupConfirm(['提示消息', '您确定要关闭吗？', function(){
-            $.popupPoint(['点击了确定，窗口自动关闭']);
-            p_alert.popupClose();
-          },function(){
-            $.popupPoint(['点击了取消，窗口不关闭']);
-          }]);
+          $.evPopupConfirm({
+            hint:'确定要关闭吗？',
+            icon:3,
+            btn:[{
+              callBack: function(){
+                $.evPopupPoint({hint:'点击了确定，窗口自动关闭', icon:2});
+                p_alert.popupClose();
+              }
+            },{
+              callBack:function(){
+                $.evPopupPoint({hint:'点击了取消，窗口不关闭', icon:2});
+              }
+            }]
+          })
         }
       }
     }
   },
   closeCallBack: function(){
-    $.popupPoint(['关闭弹窗', 2]);
+    // $.evPopupPoint(['关闭弹窗', 2]);
   }
 });
     </pre>
@@ -904,6 +1034,12 @@ p_alert = $.popup({
                   <li><code>p_alert.originDocument</code>：源<code>document</code>对象；<span class="text-warning">表示此框口的创建源的document对象。</span></li>
                   <li><code>p_alert.topWindow</code>：最顶级<code>window</code>对象；</li>
                   <li><code>p_alert.topDocument</code>：最顶级<code>window</code>对象中的<code>document</code>对象；</li>
+                </ul>
+              </li>
+              <li>在jquery中增加了连个方法：
+                <ul class="list-type-lower-alpha">
+                  <li><code>$.evPopupCloseAll</code>：关闭当前iframe中的所有弹框层；</li>
+                  <li><code>$.evPopupCloseWinAll</code>：关闭窗口下所有弹窗；</li>
                 </ul>
               </li>
             </ul>
@@ -939,6 +1075,7 @@ p_alert = $.popup({
               <li><code>zoomIn</code>：数组第一个值表示打开动画名称</li>
               <li><code>zoomOut</code>：数组第二个值表示关闭动画名称</li>
             </ul>
+            <p>查看更多动画效果：<a href="../tool/animate.html">更多动画</a></p>
           </li>
           <li><code>autoClose</code>：//是否自动关闭：<code>false</code>：表示不自动关闭，数字表示自动关闭时间以秒计算；</li>
           <li><code>position</code>：//位置取值如下：

@@ -11663,16 +11663,21 @@ yx-axis
 }
 .popup .popup-hint-info {
   padding: 20px;
+  min-width: 110px;
 }
 .popup .popup-hint-info .evicon {
   font-size: 30px;
   vertical-align: middle;
   margin-right: 10px;
 }
-.popup .popup-hint-info .evicon.load-wait {
+.popup .popup-hint-info .evicon.load-wait-1 {
   background: url(http://aimg8.oss-cn-shanghai.aliyuncs.com/tj/public_pic/loading-wait-bg.gif) center center no-repeat;
   width: 32px;
   height: 32px;
+}
+.popup .popup-hint-info .evicon + span.hint-text {
+  vertical-align: middle;
+  white-space: nowrap;
 }
 .popup .popup-hint-info .hint {
   font-size: 14px;

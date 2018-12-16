@@ -105,7 +105,7 @@ var menu = new Vue({
         {'title': '工具提示', 'name': 'tooltips', 'href': 'tool/tooltips.html'},
         {'title': '模态框', 'name': 'popup', 'href': 'tool/popup.html'},
         {'title': '高级提示', 'name': 'popover', 'href': 'tool/popover.html'},
-        // {'title': '显示隐藏', 'name': 'collapse', 'href': 'tool/collapse.html'},
+        {'title': '动画', 'name': 'animate', 'href': 'tool/animate.html'},
         {'title': '滚动条', 'name': 'scroll', 'href': 'tool/scroll.html'},
         {'title': '页码', 'name': 'pagination', 'href': 'tool/pagination.html'}
       ]

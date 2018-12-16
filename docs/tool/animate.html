@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../dist/css/project.min.css">
+  <script src="../js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="../js/DlHighlight/h1.css">
+  <script src="../js/DlHighlight/highlight-all.js"></script>
+  <title>隐藏显示</title>
+</head>
+<body>
+<div class="main-wrap">
+  <div class="container-fluid">
+
+
+
+
+<script>
+  $(function(){
+    $('#animationsList').on({
+      'mouseenter':function(){
+        var $this = $(this),
+          className = 'animated ' + $this.find('span').text();
+        $this.find('i').addClass(className);
+      },
+      'mouseleave':function(){
+        $(this).find('i').attr('class','');
+      }
+    }, 'li');
+  });
+</script>
+
+<div class="show-animate">
+  <h3 class="page-header">动画，整合了Animate.css动画框架，都是css3的动画效果。</h3>
+  <p>框架中可用的动画有一下类型：<span class="text-warning">鼠标经过查看效果；</span></p>
+  <div class="animations-list" id="animationsList">
+    <h4 class="page-header">Attention Seekers</h4>
+      <ul class="q">
+        <li><i></i><span>bounce</span></li>
+        <li><i></i><span>flash</span></li>
+        <li><i></i><span>pulse</span></li>
+        <li><i></i><span>rubberBand</span></li>
+        <li><i></i><span>shake</span></li>
+        <li><i></i><span>swing</span></li>
+        <li><i></i><span>tada</span></li>
+        <li><i></i><span>wobble</span></li>
+        <li><i></i><span>jello</span></li>
+      </ul>
+      <h4 class="page-header">Bouncing Entrances</h4>
+      <ul class="q">
+        <li><i></i><span>bounceIn</span></li>
+        <li><i></i><span>bounceInDown</span></li>
+        <li><i></i><span>bounceInLeft</span></li>
+        <li><i></i><span>bounceInRight</span></li>
+        <li><i></i><span>bounceInUp</span></li>
+      </ul>
+      <h4 class="page-header">Bouncing Exits</h4>
+      <ul class="q">
+        <li><i></i><span>bounceOut</span></li>
+        <li><i></i><span>bounceOutDown</span></li>
+        <li><i></i><span>bounceOutLeft</span></li>
+        <li><i></i><span>bounceOutRight</span></li>
+        <li><i></i><span>bounceOutUp</span></li>
+      </ul>
+      <h4 class="page-header">Fading Entrances</h4>
+      <ul class="q">
+        <li><i></i><span>fadeIn</span></li>
+        <li><i></i><span>fadeInDown</span></li>
+        <li><i></i><span>fadeInDownBig</span></li>
+        <li><i></i><span>fadeInLeft</span></li>
+        <li><i></i><span>fadeInLeftBig</span></li>
+        <li><i></i><span>fadeInRight</span></li>
+        <li><i></i><span>fadeInRightBig</span></li>
+        <li><i></i><span>fadeInUp</span></li>
+        <li><i></i><span>fadeInUpBig</span></li>
+      </ul>
+      <h4 class="page-header">Fading Exits</h4>
+      <ul class="q">
+        <li><i></i><span>fadeOut</span></li>
+        <li><i></i><span>fadeOutDown</span></li>
+        <li><i></i><span>fadeOutDownBig</span></li>
+        <li><i></i><span>fadeOutLeft</span></li>
+        <li><i></i><span>fadeOutLeftBig</span></li>
+        <li><i></i><span>fadeOutRight</span></li>
+        <li><i></i><span>fadeOutRightBig</span></li>
+        <li><i></i><span>fadeOutUp</span></li>
+        <li><i></i><span>fadeOutUpBig</span></li>
+      </ul>
+      <h4 class="page-header">Flippers</h4>
+      <ul class="q">
+        <li><i></i><span>flip</span></li>
+        <li><i></i><span>flipInX</span></li>
+        <li><i></i><span>flipInY</span></li>
+        <li><i></i><span>flipOutX</span></li>
+        <li><i></i><span>flipOutY</span></li>
+      </ul>
+      <h4 class="page-header">Lightspeed</h4>
+      <ul class="q">
+        <li><i></i><span>lightSpeedIn</span></li>
+        <li><i></i><span>lightSpeedOut</span></li>
+      </ul>
+      <h4 class="page-header">Rotating Entrances</h4>
+      <ul class="q">
+        <li><i></i><span>rotateIn</span></li>
+        <li><i></i><span>rotateInDownLeft</span></li>
+        <li><i></i><span>rotateInDownRight</span></li>
+        <li><i></i><span>rotateInUpLeft</span></li>
+        <li><i></i><span>rotateInUpRight</span></li>
+      </ul>
+      <h4 class="page-header">Rotating Exits</h4>
+      <ul class="q">
+        <li><i></i><span>rotateOut</span></li>
+        <li><i></i><span>rotateOutDownLeft</span></li>
+        <li><i></i><span>rotateOutDownRight</span></li>
+        <li><i></i><span>rotateOutUpLeft</span></li>
+        <li><i></i><span>rotateOutUpRight</span></li>
+      </ul>
+      <h4 class="page-header">Sliding Entrances</h4>
+      <ul class="q">
+        <li><i></i><span>slideInUp</span></li>
+        <li><i></i><span>slideInDown</span></li>
+        <li><i></i><span>slideInLeft</span></li>
+        <li><i></i><span>slideInRight</span></li>
+
+      </u <h4 class="page-header">Sliding Exits</h4>l>
+      <ul class="q">
+        <li><i></i><span>slideOutUp</span></li>
+        <li><i></i><span>slideOutDown</span></li>
+        <li><i></i><span>slideOutLeft</span></li>
+        <li><i></i><span>slideOutRight</span></li>
+        
+      </ul>
+        <h4 class="page-header">Zoom Entrances</h4>
+      <ul class="q">
+        <li><i></i><span>zoomIn</span></li>
+        <li><i></i><span>zoomInDown</span></li>
+        <li><i></i><span>zoomInLeft</span></li>
+        <li><i></i><span>zoomInRight</span></li>
+        <li><i></i><span>zoomInUp</span></li>
+      </ul>
+        <h4 class="page-header">Zoom Exits</h4>
+      <ul class="q">
+        <li><i></i><span>zoomOut</span></li>
+        <li><i></i><span>zoomOutDown</span></li>
+        <li><i></i><span>zoomOutLeft</span></li>
+        <li><i></i><span>zoomOutRight</span></li>
+        <li><i></i><span>zoomOutUp</span></li>
+      </ul>
+      <h4 class="page-header">Specials</h4>
+      <ul class="q">
+        <li><i></i><span>hinge</span></li>
+        <li><i></i><span>jackInTheBox</span></li>
+        <li><i></i><span>rollIn</span></li>
+        <li><i></i><span>rollOut</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  </div>
+  </div>
+  <script src="../../dist/js/evPublicInit-min.js"></script>
+  <script src="../js/public.js"></script>
+</body>
+</html>
+
