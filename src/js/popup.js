@@ -1,4 +1,3 @@
-var ppppp = null;
 // Popup
 (function (window, $) {
   var Popup = function (j_) {
