@@ -4132,7 +4132,7 @@ var ppppp = null;
         autoClose: 1
       };
     j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
-    j.icon && (j_.con.icon = j.icon);
+    j.icon !== undefined && (j_.con.icon = j.icon);
     if(j.shade !== undefined){
       j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }

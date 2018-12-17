@@ -11999,7 +11999,10 @@ yx-axis
   border-radius: 0;
 }
 .popup.point.block .popup-hint-info {
-  padding: 10px;
+  padding: 5px 10px;
+}
+.popup.point.block .popup-hint-info .evicon {
+  font-size: 1.5em;
 }
 .clearfix:before,
 .clearfix:after,
