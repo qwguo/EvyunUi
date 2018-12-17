@@ -715,7 +715,6 @@ $('#fun_loading_1').on('click', function(){
 });
     </pre>
   </div>
-  
 
   <div class="show-popup-div">
     <h4 class="page-header">打开一个iframe窗口</h4>
@@ -750,7 +749,7 @@ $('#fun_loading_1').on('click', function(){
           head:'这是弹窗标题',
           src:'../tool/popup_iframe.html',
           width:800,
-          head: 500,
+          height: 500,
           closeCallBack: function(){
             $.evPopupPoint({hint:'关闭的回调函数', icon:3});
           }
@@ -768,7 +767,7 @@ $('#fun_iframe_1').on('click', function(){
     head:'这是弹窗标题',
     src:'../tool/popup_iframe.html',
     width:800,
-    head: 500,
+    height: 500,
     closeCallBack: function(){
       $.evPopupPoint({hint:'关闭的回调函数', icon:3});
     }
@@ -785,7 +784,7 @@ $('#fun_iframe_1').on('click', function(){
           head:'这是弹窗标题',
           src:'tool/popup_iframe.html',
           width:800,
-          head: 500,
+          height: 500,
           win: window,
           closeCallBack: function(){
             $.evPopupPoint({hint:'关闭的回调函数', icon:3});
@@ -804,7 +803,7 @@ $('#fun_iframe_2').on('click', function(){
     head:'这是弹窗标题',
     src:'../tool/popup_iframe.html',
     width:800,
-    head: 500,
+    height: 500,
     win: window,
     closeCallBack: function(){
       $.evPopupPoint({hint:'关闭的回调函数', icon:3});
@@ -821,7 +820,7 @@ $('#fun_iframe_2').on('click', function(){
           <li><code>src</code>：打开窗口的iframe地址。</li>
           <li><code>win</code>：触发事件的<code>window</code>对象。<span>一般只有在窗口创建到父级的时候才用到</span></li>
           <li><code>width</code>：打开窗口的宽度。</li>
-          <li><code>head</code>：打开窗口的高度。</li>
+          <li><code>height</code>：打开窗口的高度。</li>
           <li><code>closeCallBack</code>：关闭窗口的回调方法。</li>
         </ol>
       </dd>

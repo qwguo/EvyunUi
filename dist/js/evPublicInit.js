@@ -4207,7 +4207,7 @@ var ppppp = null;
     if(j.shade != undefined){
       j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
-    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);  
+    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup(j_);
   };
   //Loading
@@ -4241,7 +4241,7 @@ var ppppp = null;
         src: 'http://www.evyun.cn'
       }
     };
-    j.head && (j_.con.head = j.head);
+    j.head && (j_.head = j.head);
     j.width && (j_.size.width = j.width);
     j.height && (j_.size.height = j.height);
     j.full && (j_.size.full = j.full);
@@ -4250,7 +4250,7 @@ var ppppp = null;
     if(j.shade != undefined){
       j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
-    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);  
+    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup(j_);
   };
   // 关闭当前iframe中的弹窗
