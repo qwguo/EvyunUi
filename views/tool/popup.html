@@ -368,7 +368,7 @@ $('#fun_confirm_1').on('click', function(){
           $.evPopupPoint({
             hint: $(this).text() + '提示',
             icon: $(this).index() + 1,
-            closetime: 1,
+            closeTime: 100,
             closeCallBack: function(){
               $.evPopupPoint({hint: '关闭的回调函数'});
             }
@@ -385,7 +385,7 @@ $('#fun_point_1').on('click', function(){
   var popup_obj = $.evPopupPoint({
     hint: '提示消息',
     icon: 1,
-    closetime: 1,
+    closeTime: 1,
     closeCallBack: function(){
       $.evPopupPoint({hint: '关闭'});
     }
@@ -399,7 +399,7 @@ $('#fun_point_1').on('click', function(){
         <ol>
           <li><code>hint</code>：提示文字</li>
           <li><code>icon</code>：提示图标</li>
-          <li><code>closetime</code>：自动关闭时间</li>
+          <li><code>closeTime</code>：自动关闭时间，以秒计算</li>
           <li><code>closeCallBack</code>：关闭后回调函数</li>
         </ol>
       </dd>
