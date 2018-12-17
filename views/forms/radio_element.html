@@ -1,5 +1,14 @@
 @@include('../include/head.html')
 
+<script>
+  $(function(){
+    $('body').on('click', '#getRadioVal', function(){
+      $.evPopupPoint({
+        hint: $('input[name="sex_1"]:checked').val()
+      });
+    });
+  });
+</script>
 <div class="show-forms-radio">
   <h3 class="page-header">单选按钮</h3>
   <div class="radio-show">
@@ -23,18 +32,18 @@
     <h5 class="page-header">普通单选按钮</h5>
     <div class="radio-element-group">
       <label class="radio-element">
-        <input type="radio" name="sex_1">
+        <input type="radio" value="1" name="sex_1">
         <i class="dot"></i>
         <span class="radio-label">男</span>
       </label>
       <label class="radio-element checked">
-        <input type="radio" checked="checked" name="sex_1">
+        <input type="radio" value="2" checked="checked" name="sex_1">
         <i class="dot"></i>
         <span class="radio-label">女</span>
       </label>
     </div>
-  </div>
-  <pre class="html" name="pre">
+    <button class="btn btn-primary" id="getRadioVal">获取选中的值</button>
+    <pre class="html" name="pre">
 <div class="radio-element-group">
   <label class="radio-element">
     <input type="radio" name="sex_1_1">
@@ -47,7 +56,8 @@
     <span class="radio-label">女</span>
   </label>
 </div>
-      </pre>
+    </pre>
+  </div>
 
   <div class="radio-show">
     <h5 class="page-header">禁止单选按钮</h5>

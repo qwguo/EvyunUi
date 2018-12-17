@@ -57,12 +57,12 @@
       if (randomPosition) {
         randomPlace();
       }
-      $(window).resize(function () {
+      /*$(window).resize(function () {
         initSize();
         if (randomPosition) {
           randomPlace();
         }
-      });
+      });*/
 
       //盒子 和 元素大小初始化函数
       function initSize() {
@@ -95,79 +95,81 @@
         $this.y = element.position().top;
         element.addClass('on');
         fun.dragStart(parseInt(element.css('left')), parseInt(element.css('top')));
+        jqDocument =$(document);
+        jqDocument.on('mouseup.popupDrag', function (e) {
+          fun.dragEnd(parseInt(element.css('left')), parseInt(element.css('top')));
+          element.removeClass('on');
+          jqDocument.off('.popupDrag');
+          isDown = false;
+        });
+        jqDocument.on('mousemove.popupDrag', function (e) {
+          moveX = $this.x + e.pageX - X;
+          moveY = $this.y + e.pageY - Y;
+          function thisXMove() { //x轴移动
+            if (isDown) {
+              element.css({left: moveX});
+            } else {
+              return;
+            }
+            if (moveX < 0) {
+              element.css({left: 0});
+            }
+            if (moveX > (boxWidth - sonWidth)) {
+              element.css({left: boxWidth - sonWidth});
+            }
+            return moveX;
+          }
+
+          function thisYMove() { //y轴移动
+            if (isDown) {
+              element.css({top: moveY});
+            } else {
+              return;
+            }
+            if (moveY < 0) {
+              element.css({top: 0});
+            }
+            if (moveY > (boxHeight - sonHeight)) {
+              element.css({top: boxHeight - sonHeight});
+            }
+            return moveY;
+          }
+
+          function thisAllMove() { //全部移动
+            if (isDown) {
+              element.css({left: moveX, top: moveY});
+            } else {
+              return;
+            }
+
+            if (moveX < 0) {
+              element.css({left: 0});
+            }
+            if (moveX > (boxWidth - sonWidth)) {
+              element.css({left: boxWidth - sonWidth});
+            }
+            if (moveY < 0) {
+              element.css({top: 0});
+            }
+            if (moveY > (boxHeight - sonHeight)) {
+              element.css({top: boxHeight - sonHeight});
+            }
+          }
+
+          if (isDown) {
+            fun.dragMove(parseInt(element.css('left')), parseInt(element.css('top')));
+          } else {
+            return false;
+          }
+          if (direction.toLowerCase() === "x") {
+            thisXMove();
+          } else if (direction.toLowerCase() === "y") {
+            thisYMove();
+          } else {
+            thisAllMove();
+          }
+        });
         return false;
-      });
-      $(document).mouseup(function (e) {
-        fun.dragEnd(parseInt(element.css('left')), parseInt(element.css('top')));
-        element.removeClass('on');
-        isDown = false;
-      });
-      $(document).mousemove(function (e) {
-        moveX = $this.x + e.pageX - X;
-        moveY = $this.y + e.pageY - Y;
-        function thisXMove() { //x轴移动
-          if (isDown) {
-            element.css({left: moveX});
-          } else {
-            return;
-          }
-          if (moveX < 0) {
-            element.css({left: 0});
-          }
-          if (moveX > (boxWidth - sonWidth)) {
-            element.css({left: boxWidth - sonWidth});
-          }
-          return moveX;
-        }
-
-        function thisYMove() { //y轴移动
-          if (isDown) {
-            element.css({top: moveY});
-          } else {
-            return;
-          }
-          if (moveY < 0) {
-            element.css({top: 0});
-          }
-          if (moveY > (boxHeight - sonHeight)) {
-            element.css({top: boxHeight - sonHeight});
-          }
-          return moveY;
-        }
-
-        function thisAllMove() { //全部移动
-          if (isDown) {
-            element.css({left: moveX, top: moveY});
-          } else {
-            return;
-          }
-
-          if (moveX < 0) {
-            element.css({left: 0});
-          }
-          if (moveX > (boxWidth - sonWidth)) {
-            element.css({left: boxWidth - sonWidth});
-          }
-          if (moveY < 0) {
-            element.css({top: 0});
-          }
-          if (moveY > (boxHeight - sonHeight)) {
-            element.css({top: boxHeight - sonHeight});
-          }
-        }
-
-        if (isDown) {
-          fun.dragMove(parseInt(element.css('left')), parseInt(element.css('top')));
-        } else {
-          return false;
-        }
-        if (direction.toLowerCase() === "x") {
-          thisXMove();
-        } else if (direction.toLowerCase() === "y") {
-          thisYMove();
-        } else {
-          thisAllMove();
-        }
       });
     }
   };
@@ -3892,7 +3894,7 @@ var ppppp = null;
         setTimeout(function(){
           that.popupCountWH();
           that.popupOffset();
-          // that.popupDrag();
+          that.popupDrag();
           if(j.size.full){
             that.popupMax();
           }
@@ -4067,7 +4069,7 @@ var ppppp = null;
           j = that.j;
       if(j.head){
         that.popup.drag({
-          parent:'parent', //定义拖动不能超出的外框,拖动范围
+          // parent:'parent', //定义拖动不能超出的外框,拖动范围
           randomPosition:false, //初始化随机位置
           direction:'all', //方向
           handler:'.popup-head' //拖动进行中 x,y为当前坐标
@@ -4114,22 +4116,34 @@ var ppppp = null;
   };
   //Point
   $.evPopupPoint = function(j){
-    var j_ = {
-      type: 1,
-      head: false,
-      shade:{close:0},
-      position: {pos: 'm-c'},
-      opBtn: false,
-      con: {
-        html: '<span class="hint-text">提示信息</span>',
-        icon: 1,
-        btn: false
-      },
-      autoClose: 1
-    };
-    j.hint && (j_.con.html = (j.hint.indexOf('<') != -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
+    var className = false,
+      j_ = {
+        type: 1,
+        head: false,
+        className: '',
+        shade:{close:0},
+        position: {pos: 'm-c'},
+        opBtn: false,
+        con: {
+          html: '<span class="hint-text">提示信息</span>',
+          icon: 1,
+          btn: false
+        },
+        autoClose: 1
+      };
+    j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
     j.icon && (j_.con.icon = j.icon);
-    if(j.shade != undefined){
+    j.position && (j_.position.pos = j.position);
+    switch(j.style){
+      case 'block':
+        className = ' block';
+        j_.animate = ['fadeInDown', 'fadeOutUp'];
+        j_.position.pos = j.position ? j.position : 't-c';
+        break;
+    }
+    j.className && (j_.className = j.className + ' point');
+    className && (j_.className = (j_.className + className));
+    if(j.shade !== undefined){
       j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
     j.closeTime && (j_.autoClose = j.closeTime);

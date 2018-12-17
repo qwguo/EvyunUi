@@ -57,12 +57,12 @@
       if (randomPosition) {
         randomPlace();
       }
-      $(window).resize(function () {
+      /*$(window).resize(function () {
         initSize();
         if (randomPosition) {
           randomPlace();
         }
-      });
+      });*/
 
       //盒子 和 元素大小初始化函数
       function initSize() {
@@ -95,79 +95,81 @@
         $this.y = element.position().top;
         element.addClass('on');
         fun.dragStart(parseInt(element.css('left')), parseInt(element.css('top')));
+        jqDocument =$(document);
+        jqDocument.on('mouseup.popupDrag', function (e) {
+          fun.dragEnd(parseInt(element.css('left')), parseInt(element.css('top')));
+          element.removeClass('on');
+          jqDocument.off('.popupDrag');
+          isDown = false;
+        });
+        jqDocument.on('mousemove.popupDrag', function (e) {
+          moveX = $this.x + e.pageX - X;
+          moveY = $this.y + e.pageY - Y;
+          function thisXMove() { //x轴移动
+            if (isDown) {
+              element.css({left: moveX});
+            } else {
+              return;
+            }
+            if (moveX < 0) {
+              element.css({left: 0});
+            }
+            if (moveX > (boxWidth - sonWidth)) {
+              element.css({left: boxWidth - sonWidth});
+            }
+            return moveX;
+          }
+
+          function thisYMove() { //y轴移动
+            if (isDown) {
+              element.css({top: moveY});
+            } else {
+              return;
+            }
+            if (moveY < 0) {
+              element.css({top: 0});
+            }
+            if (moveY > (boxHeight - sonHeight)) {
+              element.css({top: boxHeight - sonHeight});
+            }
+            return moveY;
+          }
+
+          function thisAllMove() { //全部移动
+            if (isDown) {
+              element.css({left: moveX, top: moveY});
+            } else {
+              return;
+            }
+
+            if (moveX < 0) {
+              element.css({left: 0});
+            }
+            if (moveX > (boxWidth - sonWidth)) {
+              element.css({left: boxWidth - sonWidth});
+            }
+            if (moveY < 0) {
+              element.css({top: 0});
+            }
+            if (moveY > (boxHeight - sonHeight)) {
+              element.css({top: boxHeight - sonHeight});
+            }
+          }
+
+          if (isDown) {
+            fun.dragMove(parseInt(element.css('left')), parseInt(element.css('top')));
+          } else {
+            return false;
+          }
+          if (direction.toLowerCase() === "x") {
+            thisXMove();
+          } else if (direction.toLowerCase() === "y") {
+            thisYMove();
+          } else {
+            thisAllMove();
+          }
+        });
         return false;
-      });
-      $(document).mouseup(function (e) {
-        fun.dragEnd(parseInt(element.css('left')), parseInt(element.css('top')));
-        element.removeClass('on');
-        isDown = false;
-      });
-      $(document).mousemove(function (e) {
-        moveX = $this.x + e.pageX - X;
-        moveY = $this.y + e.pageY - Y;
-        function thisXMove() { //x轴移动
-          if (isDown) {
-            element.css({left: moveX});
-          } else {
-            return;
-          }
-          if (moveX < 0) {
-            element.css({left: 0});
-          }
-          if (moveX > (boxWidth - sonWidth)) {
-            element.css({left: boxWidth - sonWidth});
-          }
-          return moveX;
-        }
-
-        function thisYMove() { //y轴移动
-          if (isDown) {
-            element.css({top: moveY});
-          } else {
-            return;
-          }
-          if (moveY < 0) {
-            element.css({top: 0});
-          }
-          if (moveY > (boxHeight - sonHeight)) {
-            element.css({top: boxHeight - sonHeight});
-          }
-          return moveY;
-        }
-
-        function thisAllMove() { //全部移动
-          if (isDown) {
-            element.css({left: moveX, top: moveY});
-          } else {
-            return;
-          }
-
-          if (moveX < 0) {
-            element.css({left: 0});
-          }
-          if (moveX > (boxWidth - sonWidth)) {
-            element.css({left: boxWidth - sonWidth});
-          }
-          if (moveY < 0) {
-            element.css({top: 0});
-          }
-          if (moveY > (boxHeight - sonHeight)) {
-            element.css({top: boxHeight - sonHeight});
-          }
-        }
-
-        if (isDown) {
-          fun.dragMove(parseInt(element.css('left')), parseInt(element.css('top')));
-        } else {
-          return false;
-        }
-        if (direction.toLowerCase() === "x") {
-          thisXMove();
-        } else if (direction.toLowerCase() === "y") {
-          thisYMove();
-        } else {
-          thisAllMove();
-        }
       });
     }
   };

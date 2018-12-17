@@ -331,20 +331,18 @@ $('#fun_confirm_1').on('click', function(){
   <div class="show-popup-div">
     <h4 class="page-header">打开一个提示消息框</h4>
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
-    <p>
-      <button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetime="1">
-        正确
-      </button>
-      <button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetime="1">
-        错误
-      </button>
-      <button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetime="1">
-        警告
-      </button>
-      <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetime="1">
+    <button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetime="1">
+      正确
+    </button>
+    <button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetime="1">
+      错误
+    </button>
+    <button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetime="1">
+      警告
+    </button>
+    <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetime="100">
         等待
       </button>
-    </p>
     <dl class="arr-explain-list">
       <dt>各属性介绍：</dt>
       <dd><code>data-popup-type="point"</code>：打开消息提示框, <span class="text-warning">固定值</span></dd>
@@ -383,12 +381,89 @@ $('#fun_confirm_1').on('click', function(){
         等待
       </button>
     </p>
+    <div id="fun_point_2">
+      <h5>非整行，有颜色的</h5>
+      <button type="button" data-skin="primary" class="btn btn-primary">
+        primary
+      </button>
+      <button type="button" data-skin="success" class="btn btn-success">
+        success
+      </button>
+      <button type="button" data-skin="danger" class="btn btn-danger">
+        danger
+      </button>
+      <button type="button" data-skin="warning" class="btn btn-warning">
+        warning
+      </button>
+      <button type="button" data-skin="info" class="btn btn-info">
+        info
+      </button>
+      <button type="button" data-skin="light-primary" class="btn btn-outline-primary">
+        light-primary
+      </button>
+      <button type="button" data-skin="light-success" class="btn btn-outline-success">
+        light-success
+      </button>
+      <button type="button" data-skin="light-danger" class="btn btn-outline-danger">
+        light-danger
+      </button>
+      <button type="button" data-skin="light-warning" class="btn btn-outline-warning">
+        light-warning
+      </button>
+      <button type="button" data-skin="light-info" class="btn btn-outline-info">
+        light-info
+      </button>
+      <h5>非整行，有颜色的</h5>
+      <button type="button" data-skin="primary" data-type="block" class="btn btn-primary">
+        正确
+      </button>
+      <button type="button" data-skin="success" data-type="block" class="btn btn-success">
+        正确
+      </button>
+      <button type="button" data-skin="danger" data-type="block" class="btn btn-danger">
+        错误
+      </button>
+      <button type="button" data-skin="warning" data-type="block" class="btn btn-warning">
+        警告
+      </button>
+      <button type="button" data-skin="info" data-type="block" class="btn btn-info">
+        等待
+      </button>
+      <button type="button" data-skin="light-primary" data-type="block" class="btn btn-info">
+        等待
+      </button>
+      <button type="button" data-skin="light-success" data-type="block" class="btn btn-success">
+        正确
+      </button>
+      <button type="button" data-skin="light-danger" data-type="block" class="btn btn-danger">
+        错误
+      </button>
+      <button type="button" data-skin="light-warning" data-type="block" class="btn btn-warning">
+        警告
+      </button>
+      <button type="button" data-skin="light-info" data-type="block" class="btn btn-primary">
+        等待
+      </button>
+    </div>
     <script type="text/javascript">
         $('#fun_point_1').on('click','.btn', function(){
           $.evPopupPoint({
             hint: $(this).text() + '提示',
             icon: $(this).index() + 1,
             closeTime: 100,
+            closeCallBack: function(){
+              $.evPopupPoint({hint: '关闭的回调函数'});
+            }
+          });
+        });
+        $('#fun_point_2').on('click','.btn', function(){
+          var $this = $(this);
+          $.evPopupPoint({
+            hint: $this.text() + '提示',
+            icon: $this.index() + 1,
+            style: $this.data('type'),
+            className: $this.data('skin'),
+            closeTime: 1,
             closeCallBack: function(){
               $.evPopupPoint({hint: '关闭的回调函数'});
             }
@@ -411,6 +486,32 @@ $('#fun_point_1').on('click', function(){
     }
   });
 });
+//js代码
+//非整行，有颜色的
+$('#fun_point_1').on('click', function(){
+  $.evPopupPoint({
+    hint: 提示消息,
+    icon: 1,
+    className: 'primary',
+    closeTime: 1,
+    closeCallBack: function(){
+      $.evPopupPoint({hint: '关闭的回调函数'});
+    }
+  });
+});
+//整行，有颜色的
+$('#fun_point_1').on('click', function(){
+  $.evPopupPoint({
+    hint: 提示消息,
+    icon: 1,
+    style: 'block',
+    className: 'primary',
+    closeTime: 1,
+    closeCallBack: function(){
+      $.evPopupPoint({hint: '关闭的回调函数'});
+    }
+  });
+});
     </pre>
     <dl class="arr-explain-list">
       <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.evPopupPoint(arguments)</code>方法，说明如下：</dt>
@@ -420,6 +521,8 @@ $('#fun_point_1').on('click', function(){
           <li><code>hint</code>：提示文字</li>
           <li><code>icon</code>：提示图标</li>
           <li><code>closeTime</code>：自动关闭时间，以秒计算</li>
+          <li><code>style</code>：表示提示框的类型样式，不填写表示默认，可以取值：<code>block</code>:表示整行显示</li>
+          <li><code>className</code>：表示弹窗的class类，系统内置了<code>primary</code>、<code>success</code>、<code>danger</code>、<code>warning</code>、<code>info</code>、<code>light-primary</code>、<code>light-success</code>、<code>light-danger</code>、<code>light-warning</code>、<code>light-info</code></li>
           <li><code>closeCallBack</code>：关闭后回调函数</li>
         </ol>
       </dd>

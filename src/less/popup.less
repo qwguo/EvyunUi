@@ -1,19 +1,86 @@
 //== Popup variables
 //
 //##
+/*color */
+//default
 @popup-bg: #fff;
 @popup-border-color: #fff;
+@popup-head-bg: #fff;
+@popup-head-border-color: #ededed;
+@popup-title-color: #323232;
+@popup-hint-text-color: #555;
+@popup-head-option-color: #cccccc;
+//primary
+@popup-primary-bg: @color-primary;
+@popup-primary-border: darken(@color-primary, 5%);
+@popup-primary-text: #fff;
+
+@popup-success-bg: @color-success;
+@popup-success-text: #fff;
+@popup-success-border: darken(@color-success, 5%);
+
+@popup-info-bg: @color-info;
+@popup-info-text: #fff;
+@popup-info-border: darken(@color-info, 5%);
+
+@popup-warning-bg: @color-warning;
+@popup-warning-text: #fff;
+@popup-warning-border: darken(@color-warning, 5%);
+
+@popup-danger-bg: @color-danger;
+@popup-danger-text: #fff;
+@popup-danger-border: darken(@color-danger, 5%);
+
+// light color
+@popup-light-primary-bg: tint(@color-primary, 75%);
+@popup-light-primary-text: darken(@color-primary, 7%);
+@popup-light-primary-border: shade(@color-primary, 5%);
+
+@popup-light-success-bg: tint(@color-success, 75%);
+@popup-light-success-text: darken(@color-success, 7%);
+@popup-light-success-border: shade(@color-success, 5%);
+
+@popup-light-info-bg: tint(@color-info, 75%);
+@popup-light-info-text: darken(@color-info, 7%);
+@popup-light-info-border: shade(@color-info, 5%);
+
+@popup-light-warning-bg: tint(@color-warning, 75%);
+@popup-light-warning-text: darken(@color-warning, 7%);
+@popup-light-warning-border: shade(@color-warning, 5%);
+
+@popup-light-danger-bg: tint(@color-danger, 75%);
+@popup-light-danger-text: darken(@color-danger, 7%);
+@popup-light-danger-border: shade(@color-danger, 5%);
+
 @popup-border-width: 0;
 @popup-radius: 10px;
 @popup-head-height: 50px;
-@popup-head-border-color: #ededed;
-@popup-head-bg: #fff;
 @popup-head-border-width: 1px;
-@popup-title-color: #323232;
 @popup-title-font-size: 16px;
-@popup-head-option-color: #cccccc;
 @popup-head-option-font-size: 18px;
 
+.popupSkin(@bgColor; @borderColor; @headbg; @headBorder; @titleColor; @optionColor; @hintColor){
+  background-color: @bgColor;
+  border: @borderColor;
+  .popup-head{
+    border-color: @headBorder;
+    background-color: @headbg;
+  }
+  .popup-title{
+    color: @titleColor;
+  }
+  .popup-option{
+    .evicon{
+      color: @optionColor;
+      &:hover{
+        color: darken(@optionColor, 10%);
+      }
+    }
+  }
+  .popup-hint-info{
+    color: @hintColor;
+  }
+}
 .popup-shade{
   position: fixed;
   top: 0;
@@ -23,7 +90,6 @@
   background-color: #000;
   .opacity(.1);
 }
-
 .popup-move-shade {
   position: absolute;
   > div {
@@ -39,9 +105,9 @@
   .animation-duration(.2s);
   overflow: hidden;
   position: fixed;
-  background-color: @popup-bg;
   border-radius: @popup-radius;
-  border: solid @popup-border-color @popup-border-width;
+  border-style: solid;
+  border-width: @popup-border-width;
   .box-shadow(2px 2px 3px rgba(0, 0, 0, .4));
   .popup-loading-wait{
     position: absolute;
@@ -53,13 +119,12 @@
    }
   .popup-head{
     height: @popup-head-height;
-    border-bottom: @popup-head-border-width @popup-head-border-color solid;
+    border-style:solid;
+    border-width: 0 0 @popup-head-border-width 0;
     line-height: @popup-head-height;
-    background-color: @popup-head-bg;
   }
   .popup-title{
     display: inline-block;
-    color: @popup-title-color;
     font-size: @popup-title-font-size;
     white-space: nowrap;
     overflow:hidden;
@@ -82,7 +147,6 @@
     .evicon{
       vertical-align: middle;
       font-size: @popup-head-option-font-size;
-      color: @popup-head-option-color;
       margin-right: .4em;
       cursor: pointer;
       line-height: inherit;
@@ -180,6 +244,61 @@
       }
       .evicon[data-action="orig"]{
         display: inline-block;
+      }
+    }
+  }
+  &{
+    .popupSkin(@popup-bg; @popup-border-color; @popup-head-bg; @popup-head-border-color; @popup-title-color; @popup-head-option-color; @popup-hint-text-color)
+  }
+  &.point{
+    .box-shadow(none);
+    &.primary{
+      .popupSkin(@popup-primary-bg; @popup-primary-border; @popup-primary-bg; @popup-primary-text; @popup-primary-text; @popup-primary-text; @popup-primary-text);
+      .evicon{color:@popup-primary-text;}
+    }
+    &.success{
+      .popupSkin(@popup-success-bg; @popup-success-border; @popup-success-bg; @popup-success-text; @popup-success-text; @popup-success-text; @popup-success-text);
+      .evicon{color:@popup-success-text;}
+    }
+    &.info{
+      .popupSkin(@popup-info-bg; @popup-info-border; @popup-info-bg; @popup-info-text; @popup-info-text; @popup-info-text; @popup-info-text);
+      .evicon{color:@popup-info-text;}
+    }
+    &.warning{
+      .popupSkin(@popup-warning-bg; @popup-warning-border; @popup-warning-bg; @popup-warning-text; @popup-warning-text; @popup-warning-text; @popup-warning-text);
+      .evicon{color:@popup-warning-text;}
+    }
+    &.danger{
+      .popupSkin(@popup-danger-bg; @popup-danger-border; @popup-danger-bg; @popup-danger-text; @popup-danger-text; @popup-danger-text; @popup-danger-text);
+      .evicon{color:@popup-danger-bg;}
+    }
+    &.light-primary{
+      .popupSkin(@popup-light-primary-bg; @popup-light-primary-border; @popup-light-primary-bg; @popup-light-primary-text; @popup-light-primary-text; @popup-light-primary-text; @popup-light-primary-text);
+      .evicon{color:@popup-light-primary-text;}
+    }
+    &.light-success{
+      .popupSkin(@popup-light-success-bg; @popup-light-success-border; @popup-light-success-bg; @popup-light-success-text; @popup-light-success-text; @popup-light-success-text; @popup-light-success-text);
+      .evicon{color:@popup-light-success-text;}
+    }
+    &.light-info{
+      .popupSkin(@popup-light-info-bg; @popup-light-info-border; @popup-light-info-bg; @popup-light-info-text; @popup-light-info-text; @popup-light-info-text; @popup-light-info-text);
+      .evicon{color:@popup-light-info-text;}
+    }
+    &.light-warning{
+      .popupSkin(@popup-light-warning-bg; @popup-light-warning-border; @popup-light-warning-bg; @popup-light-warning-text; @popup-light-warning-text; @popup-light-warning-text; @popup-light-warning-text);
+      .evicon{color:@popup-light-warning-text;}
+    }
+    &.light-danger{
+      .popupSkin(@popup-light-danger-bg; @popup-light-danger-border; @popup-light-danger-bg; @popup-light-danger-text; @popup-light-danger-text; @popup-light-danger-text; @popup-light-danger-text);
+      .evicon{color:@popup-light-danger-text;}
+    }
+    &.block{
+      left:0;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+      .popup-hint-info{
+        padding: 10px;
       }
     }
   }

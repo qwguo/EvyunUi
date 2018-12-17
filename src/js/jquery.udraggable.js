@@ -38,9 +38,12 @@
             this.disabled = false;
             this.started = false;
             // this.normalisePosition();
+          console.log(444);
             var $target = this.options.handle ? this.$el.find(this.options.handle) : this.$el;
             if (this.options.longPress) {
                 $target.on('uheldstart.udraggable', function(e) {
+                  console.log(123);
+
                     that.start(e);
                 }).on('uheldmove.udraggable', function(e) {
                     that.move(e);
