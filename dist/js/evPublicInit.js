@@ -4133,19 +4133,20 @@ var ppppp = null;
       };
     j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
     j.icon && (j_.con.icon = j.icon);
+    if(j.shade !== undefined){
+      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
+    }
     j.position && (j_.position.pos = j.position);
     switch(j.style){
       case 'block':
         className = ' block';
         j_.animate = ['fadeInDown', 'fadeOutUp'];
+        j_.shade = false;
         j_.position.pos = j.position ? j.position : 't-c';
         break;
     }
     j.className && (j_.className = j.className + ' point');
     className && (j_.className = (j_.className + className));
-    if(j.shade !== undefined){
-      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
-    }
     j.closeTime && (j_.autoClose = j.closeTime);
     j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup(j_);
