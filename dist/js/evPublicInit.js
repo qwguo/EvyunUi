@@ -4161,36 +4161,7 @@ and dependencies (minified).
     $.evPopupAlert(j);
   };
   // Prompt
-  $.evPopupPrompt = function(j){
-    var input = $('input'),
-      j_ = {
-      type: 1,
-      position: {pos: 'm-c'},
-      opBtn: {close: 1, min: 0, max: 0},
-      size: {width: 300},
-      con: {
-        icon: 1,
-        btn:{
-          'btn1':{text:'确定', className:'btn-primary'},
-          'btn2':{text:'取消', className:'btn-outline-danger'}
-        }
-      }
-    };
-    if($.isArray(j)){
-      j = {
-        head: j[0],
-        con:{
-          text: j[1],
-          btn:{
-            'btn1':{callBack: j[2]},
-            'btn2':{callBack: j[3]}
-          }
-        },
-        closeCallBack: j[3]
-      }
-    }
-    return new Popup($.extend(true, {}, j_, j))
-  };
+  $.evPopupPrompt = function(j){};
   // Html代码形式
   $.evPopupHtml = function(j){
     var j_ = {
