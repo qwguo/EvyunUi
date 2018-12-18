@@ -58,6 +58,7 @@
 @popup-head-border-width: 1px;
 @popup-title-font-size: 16px;
 @popup-head-option-font-size: 18px;
+@popup-hint-text-font-size: 14px;
 
 .popupSkin(@bgColor; @borderColor; @headbg; @headBorder; @titleColor; @optionColor; @hintColor){
   background-color: @bgColor;
@@ -172,12 +173,11 @@
         height: 32px;
       }
       + span.hint-text{
-        vertical-align: middle;
         white-space: nowrap;
       }
     }
-    .hint{
-      font-size: 14px;
+    .hint-text{
+      font-size: @popup-hint-text-font-size;
       display: inline-block;
       vertical-align: middle;
     }

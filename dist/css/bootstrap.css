@@ -11677,10 +11677,9 @@ yx-axis
   height: 32px;
 }
 .popup .popup-hint-info .evicon + span.hint-text {
-  vertical-align: middle;
   white-space: nowrap;
 }
-.popup .popup-hint-info .hint {
+.popup .popup-hint-info .hint-text {
   font-size: 14px;
   display: inline-block;
   vertical-align: middle;

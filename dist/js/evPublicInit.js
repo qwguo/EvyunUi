@@ -4094,7 +4094,7 @@ and dependencies (minified).
       }
     };
     j.head && (j_.head = j.head);
-    j.hint && (j_.con.html = j.hint);
+    j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
     j.icon && (j_.con.icon = j.icon);
     j.win && (j_.win = j.win);
     j.position && (j_.position.pos = j.position);
