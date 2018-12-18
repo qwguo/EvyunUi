@@ -279,13 +279,10 @@ $('#close_win_all').on('click', function(){
           hint: '弹窗提示框',
           icon: 3,
           btn: [{
-            text: '确定',
-            className: 'btn-primary',
             callBack: function () {
               $.evPopupPoint({ hint: '单击了确定回调'});
             }
-          }, {
-            text: '取消', className: 'btn-outline-danger', callBack: function () {
+          }, {callBack: function () {
               $.evPopupPoint({ hint: '单击了取消回调', icon: 3});
             }
           }],

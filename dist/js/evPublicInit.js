@@ -4155,7 +4155,7 @@ and dependencies (minified).
     var btn = [{text:'确定', className:'btn-primary'},{text:'取消', className:'btn-outline-danger'}];
     if(j.btn && $.isArray(j.btn)){
       $.each(btn, function(i, v) {
-        j.btn[i] = $.extend({}, v, btn[i]);
+        j.btn[i] = $.extend({}, v, j.btn[i]);
       });
     }
     $.evPopupAlert(j);
