@@ -8948,6 +8948,7 @@ a.thumbnail.active {
 }
 .select-element {
   position: relative;
+  z-index: 3;
   display: inline-block;
 }
 .select-element > .input-element {
