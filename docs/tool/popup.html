@@ -1078,6 +1078,7 @@ $('#fun_iframe_2').on('click', function(){
 p_alert = window.parent.$.evPopup({
   type: 1,
   className: 'my-class',
+  styleCss: 'margin:10px',
   shade: {bgColor: '#fff', opacity: '0.7', close: true},
   position: {pos: 'm-c'},
   win: window,
@@ -1177,6 +1178,7 @@ p_alert = window.parent.$.evPopup({
               <li><code>4</code>：表示打开一个加载等待的弹出层；</li>
             </ul>
           </li>
+          <li><code>styleCss</code>：正对弹窗层最外层的html元素添加一些自己定义的css样式，主要是用来添加<code>margin</code>的为了实现弹窗的位置偏移量效果。</li>
           <li><code>addTarget</code>：//指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素，默认情况下是调用那个窗口对象中的<code>body</code></li>
           <li><code>win</code>：//表示当前创建弹出层的<code>window</code>对象，如果是在<code>iframe</code>下执行的父级方法创建的层那么次值指的是<code>iframe</code>的<code>window</code>对象，可以使用<code>originWindow</code>来进行操作它。</li>
           <li><code>className</code>：//可以自己制定一个class名称，用来自定义弹窗样式；</li>

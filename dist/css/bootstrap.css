@@ -11758,6 +11758,7 @@ yx-axis
   color: #555;
 }
 .popup.point {
+  margin: 30px;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -11995,6 +11996,7 @@ yx-axis
   left: 0;
   top: 0;
   right: 0;
+  margin: 0;
   border-radius: 0;
 }
 .popup.point.block .popup-hint-info {

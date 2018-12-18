@@ -3714,7 +3714,8 @@ and dependencies (minified).
             src: null,
             btn: null
           },
-          closeCallBack: null
+          closeCallBack: null,
+          styleCss: null
         };
       j_.addTarget = j_.addTarget || $('body');
       that.j = $.extend(true, {}, jd, j_);
@@ -3857,6 +3858,7 @@ and dependencies (minified).
         var style = ['z-index:' + (that.zIndex++)];
         !isNaN(j.size.width) && style.push(' width:' + j.size.width + 'px');
         !isNaN(j.size.height) && style.push(' height:' + j.size.height + 'px');
+        j.styleCss && style.push(j.styleCss);
         that.popup = $("<div/>", {
           "class": 'popup popup-' + that.alertType[j.type - 1] + (j.className ? (' ' + j.className) : '') + ((j.animate && j.animate.length) ? (' ' + j.animate[0]) : ''),
           "style": style.join(';'),
@@ -4111,6 +4113,7 @@ and dependencies (minified).
       }
     }
     j.closeCallBack && (j_.closeCallBack = j_.closeCallBack);
+    j.styleCss && (j_.styleCss = j.styleCss);
     return new Popup(j_);
   };
   //Point
@@ -4147,6 +4150,7 @@ and dependencies (minified).
     j.className && (j_.className = j.className + ' point');
     className && (j_.className = (j_.className + className));
     j.closeTime && (j_.autoClose = j.closeTime);
+    j.styleCss && (j_.styleCss = j.styleCss);
     j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup(j_);
   };
@@ -4192,6 +4196,7 @@ and dependencies (minified).
     if(j.shade != undefined){
       j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
+    j.styleCss && (j_.styleCss = j.styleCss);
     j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup(j_);
   };
@@ -4235,6 +4240,7 @@ and dependencies (minified).
     if(j.shade != undefined){
       j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
+    j.styleCss && (j_.styleCss = j.styleCss);
     j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup(j_);
   };
