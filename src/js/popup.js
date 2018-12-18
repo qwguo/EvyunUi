@@ -464,10 +464,10 @@
   $.evPopupConfirm = function(j){
     var btn = [{text:'确定', className:'btn-primary'},{text:'取消', className:'btn-outline-danger'}];
     if(j.btn && $.isArray(j.btn)){
-      $.each(j.btn, function(i, v) {
-        j.btn[i] = $.extend({},btn[i], v);
+      $.each(btn, function(i, v) {
+        j.btn[i] = $.extend({}, v, btn[i]);
       });
-    };
+    }
     $.evPopupAlert(j);
   };
   // Prompt
