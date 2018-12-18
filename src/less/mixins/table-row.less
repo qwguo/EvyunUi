@@ -58,3 +58,19 @@
     }
   }
 }
+.table-striped-x(@num, @bgColor, @no){
+  > tbody > tr:nth-of-type(@{num}) {
+    background-color: @bgColor;
+  }
+  > tbody > tr:nth-of-type(@{no}) {
+    background-color: transparent;
+  }
+}
+.table-striped-y(@num, @bgColor, @no){
+  > colgroup > col:nth-of-type(@{num}) {
+    background-color: @bgColor;
+  }
+  > colgroup > col:nth-of-type(@{no}) {
+    background-color: transparent;
+  }
+}

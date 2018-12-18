@@ -11,6 +11,7 @@ exports.src = function(){
     './src/js/popup.js',
     './src/js/moment.js',
     './src/js/datepicker.all.js',
+    './src/js/allSelect.js',
     './src/js/zzev_init.js'
   ];
 };

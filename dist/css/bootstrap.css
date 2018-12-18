@@ -5424,6 +5424,11 @@ table caption {
 .table > tfoot > tr.active {
   background-color: #f0f0f0;
 }
+.table > thead > tr.striped,
+.table > tbody > tr.striped,
+.table > tfoot > tr.striped {
+  background-color: #f6f6f6;
+}
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -5529,6 +5534,12 @@ table caption {
   border-bottom-width: 2px;
   font-weight: 400;
 }
+.table > colgroup > col.active {
+  background-color: #f0f0f0;
+}
+.table > colgroup > col.striped {
+  background-color: #f6f6f6;
+}
 /*
   table border
 */
@@ -5622,13 +5633,28 @@ table caption {
 .table-spacing-no > tfoot > tr > td {
   padding: 0;
 }
-.table-striped > thead > tr,
-.table-striped > thead ~ tbody > tr:nth-of-type(even),
-.table-striped > tbody > tr:nth-of-type(odd) {
-  background-color: #f5f5f5;
+.table-striped-x-odd > tbody > tr:nth-of-type(odd) {
+  background-color: #f6f6f6;
 }
-.table-striped > tbody > tr:nth-of-type(even),
-.table-striped > thead ~ tbody > tr:nth-of-type(odd) {
+.table-striped-x-odd > tbody > tr:nth-of-type(even) {
+  background-color: transparent;
+}
+.table-striped-x-even > tbody > tr:nth-of-type(even) {
+  background-color: #f6f6f6;
+}
+.table-striped-x-even > tbody > tr:nth-of-type(odd) {
+  background-color: transparent;
+}
+.table-striped-y-odd > colgroup > col:nth-of-type(odd) {
+  background-color: #f6f6f6;
+}
+.table-striped-y-odd > colgroup > col:nth-of-type(even) {
+  background-color: transparent;
+}
+.table-striped-y-even > colgroup > col:nth-of-type(even) {
+  background-color: #f6f6f6;
+}
+.table-striped-y-even > colgroup > col:nth-of-type(odd) {
   background-color: transparent;
 }
 .table.table-hover > tbody > tr:hover {

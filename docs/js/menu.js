@@ -57,6 +57,7 @@ var menu = new Vue({
       'cur': 0,
       'sub': [
         {'title': '表单布局结构', 'name': 'forms_layout', 'href': 'forms/forms_layout.html'},
+        {'title': '全选组件', 'name': 'all_select', 'href': 'forms/allSelect.html'},
         {'title': '输入框', 'name': 'input_element', 'href': 'forms/input_element.html'},
         {'title': '多行输入框', 'name': 'textarea_element', 'href': 'forms/textarea_element.html'},
         {'title': '单选按钮', 'name': 'radio_element', 'href': 'forms/radio_element.html'},
