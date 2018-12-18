@@ -422,6 +422,7 @@
         j_.con.btn.btn0 = $.extend(true,{}, j_.con.btn.btn0, j.btn);
       }
     }
+    j.animate && (j_.animate = j.animate);
     j.closeCallBack && (j_.closeCallBack = j_.closeCallBack);
     j.styleCss && (j_.styleCss = j.styleCss);
     return new Popup(j_);
@@ -457,6 +458,7 @@
         j_.position.pos = j.position ? j.position : 't-c';
         break;
     }
+    j.animate && (j_.animate = j.animate);
     j.className && (j_.className = j.className + ' point');
     className && (j_.className = (j_.className + className));
     j.closeTime && (j_.autoClose = j.closeTime);
@@ -507,6 +509,7 @@
       j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
     j.styleCss && (j_.styleCss = j.styleCss);
+    j.animate && (j_.animate = j.animate);
     j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup(j_);
   };
@@ -551,6 +554,7 @@
       j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
     }
     j.styleCss && (j_.styleCss = j.styleCss);
+    j.animate && (j_.animate = j.animate);
     j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup(j_);
   };
