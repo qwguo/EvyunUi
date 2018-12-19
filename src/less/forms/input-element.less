@@ -101,12 +101,15 @@
     border-style: solid;
     outline: 0;
     font-size: inherit;
+    position: relative;
     &:hover {
       border-color: darken(@input-border-color, 8%);
+      z-index: 1;
     }
     &:focus {
       outline: 0;
       border-color: @input-focus-border-color;
+      z-index: 2;
     }
   }
   > .evicon {
@@ -114,6 +117,7 @@
     position: absolute;
     height: 100%;
     padding: 0 .3em;
+    z-index: 3;
   }
   &.suffix {
     > .evicon {
@@ -255,6 +259,9 @@
 .input-element-btn {
   font-size: 0;
   display: inline-block;
+  > *{
+    vertical-align: top;
+  }
   > .input-element {
     margin-bottom: 0;
     &:first-child {
@@ -276,7 +283,6 @@
     }
   }
   > .btn {
-    vertical-align: top;
     &:first-child {
       border-right:0;
       //margin-right: -(@input-border-width);
@@ -301,6 +307,97 @@
       & > input{
         width: 100%;
       }
+    }
+  }
+}
+// select input
+.input-element-select{
+  font-size: 0;
+  display: inline-block;
+  > *{
+    vertical-align: top;
+  }
+  > .select-element{
+    &:first-child{
+       > .input-element{
+        > input{
+          .border-right-radius(0);
+        }
+      }
+      & + .input-element{
+        > input{
+          .border-left-radius(0);
+        }
+      }
+      margin-right: -(@input-border-width);
+    }
+    &:last-child{
+      > .input-element{
+        > input{
+          .border-left-radius(0);
+        }
+      }
+    }
+    &:not(:last-child):not(:first-child){
+      >input{
+        border-radius: 0;
+      }
+    }
+  }
+  > .input-element{
+    &:first-child{
+      > input{
+        .border-right-radius(0);
+      }
+      margin-right: -(@input-border-width);
+      & + .select-element{
+        > .input-element{
+          > input{
+            .border-left-radius(0);
+            }
+        }
+      }
+    }
+    &:last-child{
+      > input{
+        .border-left-radius(0);
+      }
+    }
+    &:not(:last-child):not(:first-child){
+      >input{
+        border-radius: 0;
+      }
+    }
+  }
+  > .btn {
+    &:first-child {
+      border-right:0;
+      //margin-right: -(@input-border-width);
+      .border-right-radius(0);
+    }
+    &:last-child {
+      border-left:0;
+      .border-left-radius(0);
+    }
+    &:not(a):not(button):not(input){
+      cursor: default;
+      &.btn-gray{
+        border-color:@input-border-color;
+      }
+    }
+  }
+  &.block{
+    display:table;
+    > .input-element{
+      display: table-cell;
+      &,
+      & > input{
+        width: 100%;
+      }
+    }
+    > .select-element,
+    > .btn{
+      display: table-cell;
     }
   }
 }

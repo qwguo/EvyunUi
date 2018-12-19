@@ -8174,18 +8174,22 @@ a.thumbnail.active {
   border-style: solid;
   outline: 0;
   font-size: inherit;
+  position: relative;
 }
 .input-element > input:hover {
   border-color: #d0d8de;
+  z-index: 1;
 }
 .input-element > input:focus {
   outline: 0;
   border-color: #0090FF;
+  z-index: 2;
 }
 .input-element > .evicon {
   position: absolute;
   height: 100%;
   padding: 0 0.3em;
+  z-index: 3;
 }
 .input-element.suffix > .evicon {
   right: 0;
@@ -8405,6 +8409,9 @@ a.thumbnail.active {
   font-size: 0;
   display: inline-block;
 }
+.input-element-btn > * {
+  vertical-align: top;
+}
 .input-element-btn > .input-element {
   margin-bottom: 0;
 }
@@ -8418,9 +8425,6 @@ a.thumbnail.active {
 }
 .input-element-btn > .input-element:not(:last-child):not(:first-child) > input {
   border-radius: 0;
-}
-.input-element-btn > .btn {
-  vertical-align: top;
 }
 .input-element-btn > .btn:first-child {
   border-right: 0;
@@ -8447,6 +8451,79 @@ a.thumbnail.active {
 .input-element-btn.block > .input-element,
 .input-element-btn.block > .input-element > input {
   width: 100%;
+}
+.input-element-select {
+  font-size: 0;
+  display: inline-block;
+}
+.input-element-select > * {
+  vertical-align: top;
+}
+.input-element-select > .select-element:first-child {
+  margin-right: -1px;
+}
+.input-element-select > .select-element:first-child > .input-element > input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.input-element-select > .select-element:first-child + .input-element > input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-element-select > .select-element:last-child > .input-element > input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-element-select > .select-element:not(:last-child):not(:first-child) > input {
+  border-radius: 0;
+}
+.input-element-select > .input-element:first-child {
+  margin-right: -1px;
+}
+.input-element-select > .input-element:first-child > input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.input-element-select > .input-element:first-child + .select-element > .input-element > input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-element-select > .input-element:last-child > input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-element-select > .input-element:not(:last-child):not(:first-child) > input {
+  border-radius: 0;
+}
+.input-element-select > .btn:first-child {
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.input-element-select > .btn:last-child {
+  border-left: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.input-element-select > .btn:not(a):not(button):not(input) {
+  cursor: default;
+}
+.input-element-select > .btn:not(a):not(button):not(input).btn-gray {
+  border-color: #E8ECEF;
+}
+.input-element-select.block {
+  display: table;
+}
+.input-element-select.block > .input-element {
+  display: table-cell;
+}
+.input-element-select.block > .input-element,
+.input-element-select.block > .input-element > input {
+  width: 100%;
+}
+.input-element-select.block > .select-element,
+.input-element-select.block > .btn {
+  display: table-cell;
 }
 /* input element */
 .textarea-element {
@@ -9066,6 +9143,9 @@ a.thumbnail.active {
 .select-element > .option-list dl > dd.active > a:hover {
   background-color: #f0f0f0;
   color: #666;
+}
+.select-element.open {
+  z-index: 5;
 }
 .select-element.open > .input-element > input {
   border-color: #0090FF;
