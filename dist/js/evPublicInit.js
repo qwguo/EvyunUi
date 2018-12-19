@@ -3844,7 +3844,7 @@ and dependencies (minified).
             break;
           case 3:
             popupBArray.push('<div class="popup-iframe-con"><div class="popup-loading-wait"></div>');
-            popupBArray.push('<iframe src="' + j.con.src + '" frameborder="0" allowTransparency="true" name="popup_' + that.popupId + '" id="popup_' + that.popupId + '"></iframe>');
+            popupBArray.push('<iframe src="' + j.con.src + '" frameborder="0" allowTransparency="true" name="popup_' + that.popupId + '" id="popup_iframe_' + that.popupId + '"></iframe>');
             popupBArray.push('</div>');
             break;
           case 4:
