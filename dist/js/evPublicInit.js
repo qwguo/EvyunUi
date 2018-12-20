@@ -3943,7 +3943,7 @@ and dependencies (minified).
             var iframes = that.popup.find('iframe'),
               iframeW = null,iframeH = null;
             iframes.on('load.resize', function () {
-              that.seflWin = iframes[0].contentWindow;
+              that.seflWindow = iframes[0].contentWindow;
               try{
                 that.selfDocument = iframes[0].contentWindow.document;
                 iframes[0].contentWindow.iframeNumber = that.popupId;

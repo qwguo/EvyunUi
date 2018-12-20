@@ -1134,6 +1134,8 @@ p_alert = window.parent.$.evPopup({
                   <li><code>p_alert.originDocument</code>：源<code>document</code>对象；<span class="text-warning">表示此框口的创建源的document对象。</span></li>
                   <li><code>p_alert.topWindow</code>：最顶级<code>window</code>对象；</li>
                   <li><code>p_alert.topDocument</code>：最顶级<code>window</code>对象中的<code>document</code>对象；</li>
+                  <li><code>p_alert.selfWindow</code>：相对于打开的是iframe弹窗，指向的是当前弹窗的<code>window</code>对象；</li>
+                  <li><code>p_alert.selfDocument</code>：相对于打开的是iframe弹窗，指向的是当前弹窗的<code>window</code>对象中的<code>document</code>对象；</li>
                 </ul>
               </li>
               <li>在jquery中增加了连个方法：
