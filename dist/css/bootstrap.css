@@ -8110,6 +8110,7 @@ a.thumbnail.active {
 .form-element .form-item > .item-con > *:not(table):not(fieldset):not(.block) {
   display: inline-block;
   margin: 0 10px 10px 0;
+  vertical-align: top;
 }
 .form-element .form-item > .item-con > *:not(table):not(fieldset):not(.block):last-child {
   margin-right: 0;
