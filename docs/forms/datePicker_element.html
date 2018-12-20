@@ -19,19 +19,31 @@
 
 
 
-
 <div class="show-forms-input">
   <h3 class="page-header">日期时间选择插件</h3>
   <div class="datePicker-show">
     <h4 class="page-header">单日期选择器</h4>
-    <div class="input-element prefix" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="0">
+    <div class="input-element prefix" id="abc" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="0">
       <i class="evicon evicon-date-1"></i>
       <input type="text" size="20" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-5">
     </div>
-    <pre class="html" name="pre">
-<div class="input-element" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="0">
-  <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-05">
-</div>
+    <script>
+      $(function(){
+        $('#abc').on('change', 'input', function(){
+          $.evPopupPoint({hint: '选择的日期是：'+$(this).val()});
+        })
+      });
+    </script>
+    <pre class="js" name="pre">
+//html部分
+&lt;div class="input-element" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="0"&gt;
+  &lt;input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-05"&gt;
+&lt;/div&gt;
+//js部分，不是必须的如果想要回调函数的话可以绑定
+$('.input-element').on('change', 'input', function(){
+  // 要执行的任务
+  $.evPopupPoint({hint: '选择的日期是：'+$(this).val()});
+})
     </pre>
     <dl>
       <dt>
@@ -62,6 +74,7 @@
           <li><code>data-date-min="2018-01-09"</code>：表示最小日期，时间可选择的范围，格式和日期格式一致</li>
           <li><code>data-date-isrange="0"</code>：表示是否开启日期区间选择，<code>0</code>或比添加：表示不开启，<code>1</code>：表示开启，<span class="text-warning">如果开启必须有两个<code>input</code>标签</span></li>
           <li>给子元素<code>input</code>：添加<code>value="2018-12-05"</code>属性来实现默认日期值，如果不添加表示使用系统当前日期；</li>
+          <li>使用这种方式，如果我们要执行一个回调函数的话，需要给输入框元素自己绑定一个<code>change</code>事件来实现改变值执行一个函数的目的。</li>
         </ol>
       </dd>
     </dl>
@@ -171,6 +184,52 @@
 </div>
     </pre>
   </div>
+
+  <div class="datePicker-show">
+    <h4 class="page-header">我们也可以使用方法调用的形式来实现</h4>
+      <div class="input-element prefix" id="dataDom">
+        <i class="evicon evicon-date-1"></i>
+        <input type="text" size="20" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-5">
+      </div>
+    <script>
+      $(function(){
+        $('#dataDom').datePicker({
+          format: "YYYY-MM-DD",
+          max: "2019-01-02",
+          min: "2018-01-09",
+          isRange: false,
+          show: function(){
+//            $.evPopupPoint({hint: '显示选择日期面板前'});
+          },
+          hide: function(obj){
+            $.evPopupPoint({hint: '选择的日期：'+ obj.val()});
+          }
+        });
+      });
+    </script>
+  <pre class="js" name="pre">
+//html部分
+&lt;div class="input-element prefix" id="dataDom"&gt;
+  &lt;input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-05"&gt;
+&lt;/div&gt;
+//js部分
+$('#dataDom').datePicker({
+  format: "YYYY-MM-DD", //日期格式
+  max: "2019-01-02", //最大可选日期
+  min: "2018-01-09", //最小可选日期
+  isRange: false, //是否开启区间选择
+  show: function(){ //显示选择日期面板前回调
+    // $.evPopupPoint({hint: '显示选择日期面板前'});
+  },
+  hide: function(){ //隐藏选择日期面板后
+    // 这里可以接受一个回传参数，参数指向当前的input对象
+    $.evPopupPoint({hint: '选择的日期：'+ obj.val()});
+  }
+});
+    </pre>
+  </div>
+
+
 </div>
 
   </div>

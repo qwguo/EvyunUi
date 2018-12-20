@@ -358,10 +358,10 @@
           var activeNum = $(this).text();
           _this.picker.$container.find('.c-datepicker-date-picker__header-year span').text(activeNum);
           if (_this.picker.params.isYear) {
-            _this.picker.$input.val(activeNum);
+            _this.picker.$input.val(activeNum).trigger('change');
             _this.picker.$container.find('.c-datepicker-year-table td.current').removeClass('current');
             $(this).addClass('current');
-            _this.picker.datePickerObject.hide();
+            _this.picker.datePickerObject.hide(_this.picker.$input);
           } else {
             _this.picker.monthObject.render();
             _this.hide();
@@ -440,10 +440,10 @@
           _this.picker.$container.find('.c-datepicker-date-picker__header-month span').text(month);
           if (_this.picker.params.isMonth) {
             var val = year + _this.picker.splitStr + API.fillTime(month);
-            _this.picker.$input.val(val);
+            _this.picker.$input.val(val).trigger('change');
             _this.picker.$container.find('.c-datepicker-month-table td.current').removeClass('current');
             $(this).addClass('current');
-            _this.picker.datePickerObject.hide();
+            _this.picker.datePickerObject.hide(_this.picker.$input);
           } else {
             _this.picker.dayObject.renderSingle(year, month, false, true);
             _this.hide();
@@ -566,7 +566,7 @@
           setValue.call(_this, activeNum, moment(API.newDateFixed(_this.picker, val)), moment(API.newDateFixed(_this.picker, inputVal)));
         }
         if (!_this.picker.hasTime) {
-          _this.picker.datePickerObject.hide();
+          _this.picker.datePickerObject.hide(_this.picker.$input);
         } else {
           API.judgeTimeRange(_this.picker, _this.picker.$container.find('.c-datePicker__input-day'), _this.picker.$container.find('.c-datePicker__input-time'));
         }
@@ -586,7 +586,7 @@
           'month': month,
           'date': activeNum
         }).format(this.picker.config.format);
-        this.picker.$input.val(inputVal);
+        this.picker.$input.val(inputVal).trigger('change');
       }
     },
     eventRange: function () {
@@ -657,7 +657,7 @@
             _this.current = 2;
             _this.picker.$inputBegin.val(existDate);
             _this.picker.$inputEnd.val(inputVal);
-            _this.picker.datePickerObject.hide();
+            _this.picker.datePickerObject.hide(_this.picker.$inputBegin, _this.picker.$inputEnd);
           } else {
             if (b.diff(a) < 0) {
               $day.eq(0).val(inputVal);
@@ -1060,7 +1060,7 @@
         var index = _this.picker.$container.find('.c-datePicker__input-time').index($time);
         if (!_this.picker.config.isRange) {
           var day = _this.picker.$container.find('.c-datePicker__input-day').eq(index).val();
-          _this.picker.$input.val(day + ' ' + _this.prevValue);
+          _this.picker.$input.val(day + ' ' + _this.prevValue).trigger('change');
         }
         _this.picker.$container.find('.c-datePicker__input-time').eq(index).val(_this.prevValue);
         _this.hide();
@@ -1108,7 +1108,7 @@
           val = val.join(':');
           $time.val(val);
           if (!_this.picker.config.isRange) {
-            _this.picker.$input.val(day + ' ' + val);
+            _this.picker.$input.val(day + ' ' + val).trigger('change');
           }
         }.bind(this), 100);
       })
@@ -1117,7 +1117,7 @@
       this.picker.activeTimeWrap.find('.c-datePicker__input-time').val(val);
       if (!this.picker.config.isRange) {
         var day = this.picker.$input.val().split(' ')[0];
-        this.picker.$input.val(day + ' ' + val);
+        this.picker.$input.val(day + ' ' + val).trigger('change');
       }
     },
     updateTimePanel: function (isShow) {
@@ -1354,7 +1354,7 @@
         if (_this.hasTime) {
           val += ' ' + $time.val();
         }
-        _this.$input.val(val);
+        _this.$input.val(val).trigger('change');
         _this.dayObject.renderSingle(result.year, result.month, result.day, true);
       }
     },
@@ -1549,7 +1549,7 @@
         if (isMatch) {
           var time = this.value;
           var day = _this.$container.find('.c-datePicker__input-day').val();
-          _this.$input.val(day + ' ' + time);
+          _this.$input.val(day + ' ' + time).trigger('change');
         }
       });
       this.$container.on('click', '.c-datePicker__input-time', function (event) {
@@ -1573,7 +1573,7 @@
         var _this = API.getPicker($(this));
         if (!_this.$input.val() && !this.value) {
           var now = moment().format(_this.config.format);
-          _this.$input.val(now);
+          _this.$input.val(now).trigger('change');
           now = now.split(' ');
           _this.$container.find('.c-datePicker__input-day').val(now[0]);
           $(this).val(now[1]);
@@ -1697,19 +1697,19 @@
       this.$container.on('click', '.c-datepicker-date-range-picker__next-btn.month', function () {
         var _this = API.getPicker($(this));
         renderYearMonth(_this, 'next', 'month');
-      })
+      });
       this.$container.on('click', '.c-datepicker-date-range-picker__prev-btn.month', function () {
         var _this = API.getPicker($(this));
         renderYearMonth(_this, 'prev', 'month');
-      })
+      });
       this.$container.on('click', '.c-datepicker-date-range-picker__next-btn.year', function () {
         var _this = API.getPicker($(this));
         renderYearMonth(_this, 'next', 'year');
-      })
+      });
       this.$container.on('click', '.c-datepicker-date-range-picker__prev-btn.year', function () {
         var _this = API.getPicker($(this));
         renderYearMonth(_this, 'prev', 'year');
-      })
+      });
 
       function renderYearMonth(_this, dire, type) {
         if (_this.isBlur) {
@@ -1726,7 +1726,7 @@
       this.$container.on('click', '.c-datepicker-picker__btn-clear', function () {
         var _this = API.getPicker($(this));
         _this.clear();
-      })
+      });
       this.$container.on('click', '.c-datepicker-picker__shortcut', function () {
         var _this = API.getPicker($(this));
         var days = $(this).data('value').split(',');
@@ -1742,7 +1742,7 @@
           }
         }
         _this.$inputBegin.val(begin);
-        _this.$inputEnd.val(end);
+        _this.$inputEnd.val(end).trigger('change');
         _this.datePickerObject.hide();
       });
       this.$container.on('click', '.c-datepicker-picker__link-btn.confirm', function () {
@@ -1760,7 +1760,7 @@
           end += ' ' + $times.eq(1).val();
         }
         _this.$inputBegin.val(start);
-        _this.$inputEnd.val(end);
+        _this.$inputEnd.val(end).trigger('change');
         _this.datePickerObject.hide();
       });
     },
@@ -1768,7 +1768,7 @@
       this.$container.on('keyup', '.c-datePicker__input-time', function () {
         var _this = API.getPicker($(this));
         _this.timeObject.updateTimePanel();
-      })
+      });
       this.$container.on('keyup', '.c-datePicker__input-day', function () {
         DATEPICKERAPI.renderPicker(this);
       });
@@ -1966,7 +1966,7 @@
       this.pickerObject.$container.find('.c-datepicker-time-panel').hide();
       this.pickerObject.$container.hide();
       this.betweenHandle();
-      this.config.hide.call(this.pickerObject);
+      this.config.hide.call(this.pickerObject, this.$target.find('input'));
     },
     betweenHandle: function () {
       var _config = this.config;
@@ -2070,7 +2070,7 @@
   function setValue(_this, date) {
     _this.$container.find('.c-datepicker-date-table td.current').removeClass('current');
     var timeArr = date.split(' ');
-    _this.$input.val(date);
+    _this.$input.val(date).trigger('change');
     _this.$container.find('.c-datePicker__input-day').val(timeArr[0]);
     if (timeArr.length > 1) {
       _this.$container.find('.c-datePicker__input-time').val(timeArr[1]);
