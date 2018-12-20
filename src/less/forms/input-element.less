@@ -328,8 +328,8 @@
         > input{
           .border-left-radius(0);
         }
+        margin-left: -(@input-border-width);
       }
-      margin-right: -(@input-border-width);
     }
     &:last-child{
       > .input-element{
@@ -337,6 +337,7 @@
           .border-left-radius(0);
         }
       }
+      margin-left: -(@input-border-width);
     }
     &:not(:last-child):not(:first-child){
       >input{
@@ -349,19 +350,20 @@
       > input{
         .border-right-radius(0);
       }
-      margin-right: -(@input-border-width);
       & + .select-element{
         > .input-element{
           > input{
             .border-left-radius(0);
             }
         }
+        margin-left: -(@input-border-width);
       }
     }
     &:last-child{
       > input{
         .border-left-radius(0);
       }
+      margin-left: -(@input-border-width);
     }
     &:not(:last-child):not(:first-child){
       >input{
@@ -370,14 +372,16 @@
     }
   }
   > .btn {
+    position: relative;
+    z-index: 2;
     &:first-child {
       border-right:0;
-      //margin-right: -(@input-border-width);
       .border-right-radius(0);
     }
     &:last-child {
       border-left:0;
       .border-left-radius(0);
+      margin-left: -(@input-border-width);
     }
     &:not(a):not(button):not(input){
       cursor: default;

@@ -8459,16 +8459,19 @@ a.thumbnail.active {
 .input-element-select > * {
   vertical-align: top;
 }
-.input-element-select > .select-element:first-child {
-  margin-right: -1px;
-}
 .input-element-select > .select-element:first-child > .input-element > input {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.input-element-select > .select-element:first-child + .input-element {
+  margin-left: -1px;
+}
 .input-element-select > .select-element:first-child + .input-element > input {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+.input-element-select > .select-element:last-child {
+  margin-left: -1px;
 }
 .input-element-select > .select-element:last-child > .input-element > input {
   border-top-left-radius: 0;
@@ -8477,16 +8480,19 @@ a.thumbnail.active {
 .input-element-select > .select-element:not(:last-child):not(:first-child) > input {
   border-radius: 0;
 }
-.input-element-select > .input-element:first-child {
-  margin-right: -1px;
-}
 .input-element-select > .input-element:first-child > input {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.input-element-select > .input-element:first-child + .select-element {
+  margin-left: -1px;
+}
 .input-element-select > .input-element:first-child + .select-element > .input-element > input {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+.input-element-select > .input-element:last-child {
+  margin-left: -1px;
 }
 .input-element-select > .input-element:last-child > input {
   border-top-left-radius: 0;
@@ -8494,6 +8500,10 @@ a.thumbnail.active {
 }
 .input-element-select > .input-element:not(:last-child):not(:first-child) > input {
   border-radius: 0;
+}
+.input-element-select > .btn {
+  position: relative;
+  z-index: 2;
 }
 .input-element-select > .btn:first-child {
   border-right: 0;
@@ -8504,6 +8514,7 @@ a.thumbnail.active {
   border-left: 0;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+  margin-left: -1px;
 }
 .input-element-select > .btn:not(a):not(button):not(input) {
   cursor: default;
