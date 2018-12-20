@@ -108,6 +108,7 @@ var menu = new Vue({
         {'title': '高级提示', 'name': 'popover', 'href': 'tool/popover.html'},
         {'title': '动画', 'name': 'animate', 'href': 'tool/animate.html'},
         {'title': '滚动条', 'name': 'scroll', 'href': 'tool/scroll.html'},
+        {'title': '倒计时组件', 'name': 'countDown', 'href': 'tool/countDown.html'},
         {'title': '页码', 'name': 'pagination', 'href': 'tool/pagination.html'}
       ]
     }/*, {
