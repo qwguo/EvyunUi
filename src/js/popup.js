@@ -378,7 +378,7 @@
     popupDrag: function(){
       var that = this,
           j = that.j;
-      if(j.head){
+      if(j.head && $.fn.drag){
         that.popup.drag({
           // parent:'parent', //定义拖动不能超出的外框,拖动范围
           randomPosition:false, //初始化随机位置
