@@ -9308,6 +9308,7 @@ a.thumbnail.active {
   position: relative;
   border: 1px solid #ccc;
   border-radius: 5px;
+  cursor: pointer;
 }
 .upload-element > .upload-images-list > .upload-btn > input[type='file'] {
   cursor: pointer;
@@ -9336,11 +9337,19 @@ a.thumbnail.active {
   top: 50%;
   margin-top: -1px;
 }
-.upload-element > .upload-images-list > .upload-btn:hover {
+.upload-element > .upload-images-list > .upload-btn:not(.disabled):hover {
   border-color: #0090FF;
 }
-.upload-element > .upload-images-list > .upload-btn:hover > i {
+.upload-element > .upload-images-list > .upload-btn:not(.disabled):hover > i {
   background-color: #0090FF;
+}
+.upload-element > .upload-images-list > .upload-btn.disabled {
+  filter: alpha(opacity=40);
+  opacity: 0.4;
+  cursor: no-drop;
+}
+.upload-element > .upload-images-list > .upload-btn.disabled > input[type='file'] {
+  display: none;
 }
 .upload-element > .upload-btn + .upload-images-list,
 .upload-element > .upload-btn + .upload-tip + .upload-images-list {

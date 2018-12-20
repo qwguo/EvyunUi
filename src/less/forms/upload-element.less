@@ -73,6 +73,7 @@
       position: relative;
       border: 1px solid @upload-list-btn-border-color;
       border-radius: @upload-list-img-radius;
+      cursor: pointer;
       > input[type='file'] {
         cursor: pointer;
         position: absolute;
@@ -99,10 +100,17 @@
           margin-top: -1px;
         }
       }
-      &:hover {
+      &:not(.disabled):hover {
         border-color: @upload-list-btn-hover-border-color;
         > i {
           background-color: @upload-list-btn-hover-border-color;
+        }
+      }
+      &.disabled{
+        .opacity(.4);
+        cursor: no-drop;
+        > input[type='file']{
+          display: none;
         }
       }
     }
