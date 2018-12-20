@@ -250,15 +250,25 @@
       switch (j.type) {
         case 3:
           (function () {
-            var iframes = that.popup.find('iframe');
+            var iframes = that.popup.find('iframe'),
+              iframeW = null,iframeH = null;
             iframes.on('load.resize', function () {
-              iframes.siblings('.popup-loading-wait').remove();
-              iframes[0].contentWindow.iframeNumber = that.popupId;
-              iframes[0].contentWindow.popup = that;
+              that.seflWin = iframes[0].contentWindow;
+              try{
+                that.selfDocument = iframes[0].contentWindow.document;
+                iframes[0].contentWindow.iframeNumber = that.popupId;
+                iframes[0].contentWindow.popup = that;
+                iframeW = iframes.contents().width();
+                iframeH = iframes.contents().height();
+              }
+              catch(err){
+                iframeW = j.size.width;
+                iframeH = j.size.height;
+              }
               if(!j.size.full){
                 iframes.css({
-                  "width": (j.size.width === 'auto' ? iframes.contents().width() : j.size.width) + "px",
-                  "height": (j.size.height === 'auto' ? iframes.contents().height() : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0))) + "px"
+                  "width": (j.size.width === 'auto' ? iframeW : j.size.width) + "px",
+                  "height": (j.size.height === 'auto' ? iframeW : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0))) + "px"
                 });
               }else{
                 iframes.css({
@@ -279,6 +289,7 @@
                   height: (h - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0)) + 'px'
                 });
               }());
+              iframes.siblings('.popup-loading-wait').remove();
               that.popupOffset();
             });
           }());
