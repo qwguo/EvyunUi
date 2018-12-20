@@ -673,14 +673,14 @@ $('#fun_point_1').on('click', function(){
 </button>
     </pre>
     <h4><srrong>方法调用方式打开：</srrong></h4>
-    <h5>在iframe内打开</h5>
+    <h5>在iframe内打开，一个没有标题的弹窗</h5>
     <button type="button" id="fun_html_1" class="btn btn-rounded btn-outline-success">
       方法调用方式打开自定义代码框
     </button>
     <script type="text/javascript">
       $('#fun_html_1').on('click', function(){
         $.evPopupHtml({
-          head:'弹窗标题',
+          head:0,
           html:'#htmlDiv_1',
           width:600,
           height:400,
@@ -698,7 +698,7 @@ $('#fun_point_1').on('click', function(){
 //js代码
 $('#fun_html_1').on('click', function(){
   $.evPopupHtml({
-    head:'弹窗标题',
+    head:0,
     html:'#htmlDiv_1',
     width:600,
     height:400,
@@ -708,29 +708,29 @@ $('#fun_html_1').on('click', function(){
   });
 });
       </pre>
-      <h5>在iframe父级窗口打开</h5>
-      <p id="fun_alert_object">
-        <button type="button" id="fun_html_object_1" class="btn btn-rounded btn-outline-info">
-            打开一个全屏弹窗
-        </button>
-      </p>
-      <script type="text/javascript">
-        (function () {
-          $('#fun_html_object_1').on('click', function () {
-            window.parent.$.evPopupHtml({
-              head: '弹窗标题',
-              html: $('#htmlDiv_2').html(),
-              width: 600,
-              height: 400,
-              full: 1,
-              closeCallBack: function () {
-                $.evPopupPoint(['关闭回调函数']);
-              }
-            });
+    <h5>在iframe父级窗口打开</h5>
+    <p id="fun_alert_object">
+      <button type="button" id="fun_html_object_1" class="btn btn-rounded btn-outline-info">
+          打开一个全屏弹窗
+      </button>
+    </p>
+    <script type="text/javascript">
+      (function () {
+        $('#fun_html_object_1').on('click', function () {
+          window.parent.$.evPopupHtml({
+            head: '弹窗标题',
+            html: $('#htmlDiv_2').html(),
+            width: 600,
+            height: 400,
+            full: 1,
+            closeCallBack: function () {
+              $.evPopupPoint(['关闭回调函数']);
+            }
           });
-        }());
-      </script>
-      <pre class="js" name="pre">
+        });
+      }());
+    </script>
+    <pre class="js" name="pre">
 //html代码
 &lt;button type="button" id="fun_html_object_1" class="btn btn-rounded btn-outline-info"&gt;
   调用方法弹出提示框
@@ -748,10 +748,10 @@ $('#fun_html_object_1').on('click', function () {
     }
   });
 });
-  </pre>
-  <dl class="arr-explain-list">
+</pre>
+    <dl class="arr-explain-list">
       <dt>各属性介绍：</dt>
-      <dd><code>head</code>：打开窗口的标题</dd>
+      <dd><code>head</code>：打开窗口的标题，如果不要标题可以取值false或者0</dd>
       <dd><code>html</code>：表示打开一个可以自己传入html代码的弹窗</dd>
       <dd><code>full</code>：表示是全屏打开</dd>
       <dd><code>closeCallBack</code>：关闭窗口回调函数</dd>
@@ -1162,8 +1162,8 @@ p_alert = window.parent.$.evPopup({
           <li><code>addTarget</code>：//指定要把弹窗添加到的页面body，（如果有iframe的话）可以是父级或者指定iframe的body元素，默认情况下是调用那个窗口对象中的<code>body</code></li>
           <li><code>win</code>：//表示当前创建弹出层的<code>window</code>对象，如果是在<code>iframe</code>下执行的父级方法创建的层那么次值指的是<code>iframe</code>的<code>window</code>对象，可以使用<code>originWindow</code>来进行操作它。</li>
           <li><code>className</code>：//可以自己制定一个class名称，用来自定义弹窗样式；</li>
-          <li><code>head</code>：表示打开窗口的标题<code>false</code>：表示不显示标题，其他表示显示；</li>
-          <li><code>shade</code>：//指是否显示弹窗遮罩，<code>false</code>：表示不显示，<code>{bgColor: '#fff', opacity: '0.7', close: true}</code>,对象形式表示显示：可以设置的值有：
+          <li><code>head</code>：表示打开窗口的标题<code>false</code>或<code>0</code>：表示不显示标题，其他表示显示；</li>
+          <li><code>shade</code>：//指是否显示弹窗遮罩，<code>false</code>或<code>0</code>：表示不显示，<code>{bgColor: '#fff', opacity: '0.7', close: true}</code>,对象形式表示显示：可以设置的值有：
             <ul class="list-type-lower-alpha">
               <li><code>bgColor</code>：表示遮罩的背景颜色；</li>
               <li><code>opacity</code>：表示遮罩的透明度；</li>

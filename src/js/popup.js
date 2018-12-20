@@ -405,7 +405,7 @@
         btn:{'btn0':{text:'确定', className:'btn-primary'}}
       }
     };
-    j.head && (j_.head = j.head);
+    j.head !== undefined && (j_.head = j.head);
     j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
     j.icon && (j_.con.icon = j.icon);
     j.win && (j_.win = j.win);
@@ -499,7 +499,7 @@
         }
         return str;
       };
-    j.head && (j_.con.head = j.head);
+    j.head !== undefined && (j_.head = j.head);
     j.html && (j_.con.html = getHtml(j.html));
     j.width && (j_.size.width = j.width);
     j.full && (j_.size.full = j.full);
@@ -544,7 +544,7 @@
         src: 'http://www.evyun.cn'
       }
     };
-    j.head && (j_.head = j.head);
+    j.head !== undefined && (j_.head = j.head);
     j.width && (j_.size.width = j.width);
     j.height && (j_.size.height = j.height);
     j.full && (j_.size.full = j.full);
@@ -614,5 +614,3 @@
     }
   });
 }());
-
-
