@@ -9640,14 +9640,17 @@ and dependencies (minified).
 })(jQuery);
 
 (function(){
-  // 计算父级的iframe的高度
+  // 计算父级的iframe的高度 主要是为了解决咱们的后台的iframe宽度不同意的问题
   var winP = window.parent,
     winName = window.name;
   if (winName === 'navigate_iframe') {
-    var h = $('body').height(),
+    var bodyDom = $('body'),
+        h = bodyDom.height(),
       iframe = $('iframe[name="' + winName + '"]', winP.document);
     iframe.closest('.admin_main').addClass('new-admin-main');
     iframe.height(h);
+    bodyDom.data('h', h);
+    setInterVal()
   }
 }());
 $(function(){
