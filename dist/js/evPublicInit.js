@@ -9645,12 +9645,17 @@ and dependencies (minified).
     winName = window.name;
   if (winName === 'navigate_iframe') {
     var bodyDom = $('body'),
-        h = bodyDom.height(),
       iframe = $('iframe[name="' + winName + '"]', winP.document);
     iframe.closest('.admin_main').addClass('new-admin-main');
-    iframe.height(h);
-    bodyDom.data('h', h);
-    setInterVal()
+    var realTime = function(){
+      var h = bodyDom.height();
+      if(bodyDom !== h){
+        bodyDom.data('h',h);
+        iframe.length && iframe.height(h);
+      }
+      setTimeout(realTime, 100);
+    };
+    realTime();
   }
 }());
 $(function(){
