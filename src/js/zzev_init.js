@@ -1,3 +1,14 @@
+(function(){
+  // 计算父级的iframe的高度
+  var winP = window.parent,
+    winName = window.name;
+  if (winName === 'navigate_iframe') {
+    var h = $('body').height(),
+      iframe = $('iframe[name="' + winName + '"]', winP.document);
+    iframe.closest('.admin_main').addClass('new-admin-main');
+    iframe.height(h);
+  }
+}());
 $(function(){
   $('[data-toggle]').each(function(i, dom){
     dom = $(dom);
