@@ -120,9 +120,14 @@ code {
   background-color: rgba(86, 61, 124, 0.25);
 }
 .show-font-icon .icon_lists li {
-  height: 200px;
+  height: 230px;
   text-align: center;
   list-style: none !important;
+  border: 1px solid #ccc;
+  padding: 5px 0;
+}
+.show-font-icon .icon_lists li:hover {
+  border-color: #c00;
 }
 .show-font-icon .icon_lists li .evicon {
   font-size: 42px;
