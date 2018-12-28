@@ -197,7 +197,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
-  background-color: #fff;
+  background-color: transparent;
 }
 input,
 button,
@@ -5535,7 +5535,7 @@ table caption {
   vertical-align: bottom;
 }
 .table .table {
-  background-color: #fff;
+  background-color: transparent;
 }
 .table.table-no-outer-border > thead > tr > th,
 .table.table-row-border > thead > tr > th,
