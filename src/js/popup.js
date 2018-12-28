@@ -472,7 +472,7 @@
     j.animate && (j_.animate = j.animate);
     j.className && (j_.className = j.className + ' point');
     className && (j_.className = (j_.className + className));
-    j.closeTime && (j_.autoClose = j.closeTime);
+    (j.closeTime !== undefined) && (j_.autoClose = j.closeTime);
     j.styleCss && (j_.styleCss = j.styleCss);
     j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup(j_);

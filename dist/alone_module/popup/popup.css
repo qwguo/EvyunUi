@@ -3259,8 +3259,8 @@ address {
 @font-face {
   font-family: 'evicon';
   /* project id 931572 */
-  src: url('//at.alicdn.com/t/font_931572_39hgadstlmx.eot');
-  src: url('//at.alicdn.com/t/font_931572_39hgadstlmx.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_39hgadstlmx.woff') format('woff'), url('//at.alicdn.com/t/font_931572_39hgadstlmx.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_39hgadstlmx.svg#evicon') format('svg');
+  src: url('//at.alicdn.com/t/font_931572_zd31fnid5x8.eot');
+  src: url('//at.alicdn.com/t/font_931572_zd31fnid5x8.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_zd31fnid5x8.woff') format('woff'), url('//at.alicdn.com/t/font_931572_zd31fnid5x8.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_zd31fnid5x8.svg#evicon') format('svg');
 }
 .evicon {
   position: relative;
@@ -3273,11 +3273,20 @@ address {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.evicon-resize-lg-1:before {
+  content: "\e609";
+}
 .evicon-help-2:before {
   content: "\e612";
 }
+.evicon-star-1:before {
+  content: "\e60b";
+}
 .evicon-publish-1:before {
   content: "\e625";
+}
+.evicon-admin-1:before {
+  content: "\e62e";
 }
 .evicon-comment-1:before {
   content: "\e6b9";
@@ -3288,17 +3297,32 @@ address {
 .evicon-weizhi-1:before {
   content: "\e629";
 }
+.evicon-cancel-2:before {
+  content: "\e616";
+}
 .evicon-shop-car-1:before {
   content: "\e665";
 }
 .evicon-arrow-up-1:before {
   content: "\e608";
 }
+.evicon-close-2:before {
+  content: "\e630";
+}
+.evicon-resize-sm-1:before {
+  content: "\e63e";
+}
 .evicon-arrow-up-2:before {
   content: "\e657";
 }
+.evicon-resize-xs-1:before {
+  content: "\e839";
+}
 .evicon-organization-1:before {
   content: "\e605";
+}
+.evicon-resize-orig-1:before {
+  content: "\e693";
 }
 .evicon-order-1:before {
   content: "\e7d1";
@@ -3314,6 +3338,9 @@ address {
 }
 .evicon-sex-man-1:before {
   content: "\e607";
+}
+.evicon-statistics-2:before {
+  content: "\e614";
 }
 .evicon-search-1:before {
   content: "\e60d";
@@ -3335,6 +3362,9 @@ address {
 }
 .evicon-erweima-1:before {
   content: "\e603";
+}
+.evicon-edit-3:before {
+  content: "\e60c";
 }
 .evicon-heart-1:before {
   content: "\e9f9";
@@ -3372,38 +3402,17 @@ address {
 .evicon-upload-1:before {
   content: "\e659";
 }
-.evicon-date-1:before {
-  content: "\e61d";
-}
-.evicon-plus-1:before {
-  content: "\e641";
-}
-.evicon-set-up-2:before {
-  content: "\e66e";
-}
-.evicon-home-1:before {
-  content: "\e601";
-}
-.evicon-delete-1:before {
-  content: "\e611";
-}
-.evicon-arrow-down-2:before {
-  content: "\ea39";
-}
-.evicon-admin-1:before {
-  content: "\e62e";
+.evicon-date-2:before {
+  content: "\e618";
 }
 .evicon-cord-1:before {
   content: "\e613";
 }
-.evicon-date-2:before {
-  content: "\e618";
+.evicon-arrow-right-2:before {
+  content: "\e62d";
 }
-.evicon-edit-2:before {
-  content: "\e734";
-}
-.evicon-cancel-2:before {
-  content: "\e616";
+.evicon-date-1:before {
+  content: "\e61d";
 }
 .evicon-reduce-3:before {
   content: "\e66f";
@@ -3411,26 +3420,29 @@ address {
 .evicon-plus-3:before {
   content: "\e670";
 }
-.evicon-star-1:before {
-  content: "\e60b";
+.evicon-plus-1:before {
+  content: "\e641";
 }
-.evicon-close-2:before {
-  content: "\e630";
+.evicon-password-1:before {
+  content: "\e60e";
 }
-.evicon-resize-lg-1:before {
-  content: "\e609";
+.evicon-edit-2:before {
+  content: "\e734";
 }
-.evicon-resize-sm-1:before {
-  content: "\e63e";
+.evicon-set-up-2:before {
+  content: "\e66e";
 }
-.evicon-resize-xs-1:before {
-  content: "\e839";
+.evicon-home-1:before {
+  content: "\e601";
 }
-.evicon-resize-orig-1:before {
-  content: "\e693";
+.evicon-admin-2:before {
+  content: "\e73a";
 }
-.evicon-arrow-right-2:before {
-  content: "\e62d";
+.evicon-delete-1:before {
+  content: "\e611";
+}
+.evicon-arrow-down-2:before {
+  content: "\ea39";
 }
 .evicon-arrow-right-1:before {
   content: "\ea3a";
@@ -3438,11 +3450,8 @@ address {
 .evicon-arrow-left-1:before {
   content: "\ea3b";
 }
-.evicon-edit-3:before {
-  content: "\e60c";
-}
-.evicon-password-1:before {
-  content: "\e60e";
+.evicon-article-1:before {
+  content: "\e60f";
 }
 .btn {
   display: inline-block;
