@@ -8712,7 +8712,7 @@ a.thumbnail.active {
   padding-left: 0.3em;
 }
 .radio-element > .dot {
-  background-color: #ccc;
+  background-color: #dee2e6;
   border-color: #dee2e6;
 }
 .radio-element > .dot::before {
@@ -8838,7 +8838,7 @@ a.thumbnail.active {
   padding-left: 0.3em;
 }
 .checkbox-element > .dot {
-  background-color: #ccc;
+  background-color: #dee2e6;
   border-color: #dee2e6;
 }
 .checkbox-element > .dot::before {
