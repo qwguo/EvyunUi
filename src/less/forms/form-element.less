@@ -8,6 +8,7 @@
 @form-label-padding-h: 10px;
 @form-item-margin-bottom: 15px;
 @form-item-con-child-margin: 10px;
+@form-item-con-child-size: 12px;
 
 .form-element {
   .form-item {
@@ -37,6 +38,7 @@
     }
     > .item-con {
       min-height: @form-label-padding-h * 2 + @form-label-font-size;
+      font-size:0;
       .radio-element,
       .checkbox-element{
         margin-top: @form-label-padding-v;
@@ -57,7 +59,7 @@
       > *:not(table):not(fieldset):not(.block){
         display: inline-block;
         margin: 0 @form-item-con-child-margin @form-item-con-child-margin 0;
-        vertical-align: top;
+        vertical-align: middle;
         &:last-child{
           margin-right: 0;
         }

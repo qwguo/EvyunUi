@@ -8154,6 +8154,7 @@ a.thumbnail.active {
 }
 .form-element .form-item > .item-con {
   min-height: 34px;
+  font-size: 0;
   /*> .input-element,
       > .input-element-joint,
       > .input-element-brothers,
@@ -8173,7 +8174,7 @@ a.thumbnail.active {
 .form-element .form-item > .item-con > *:not(table):not(fieldset):not(.block) {
   display: inline-block;
   margin: 0 10px 10px 0;
-  vertical-align: top;
+  vertical-align: middle;
 }
 .form-element .form-item > .item-con > *:not(table):not(fieldset):not(.block):last-child {
   margin-right: 0;
