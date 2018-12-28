@@ -8662,6 +8662,7 @@ a.thumbnail.active {
 }
 .radio-element-group {
   display: inline-block;
+  font-size: 0;
 }
 .radio-element-group > .radio-element {
   margin-right: 10px;
@@ -8673,6 +8674,7 @@ a.thumbnail.active {
   cursor: pointer;
   display: inline-block;
   position: relative;
+  font-size: 0;
 }
 .radio-element > .dot {
   font-size: 0;
@@ -8710,7 +8712,7 @@ a.thumbnail.active {
 }
 .radio-element > .radio-label {
   vertical-align: middle;
-  padding-left: 0.3em;
+  padding-left: 0.5em;
 }
 .radio-element > .dot {
   background-color: #dee2e6;
@@ -8789,6 +8791,7 @@ a.thumbnail.active {
 }
 .checkbox-element-group {
   display: inline-block;
+  font-size: 0;
 }
 .checkbox-element-group > .checkbox-element {
   margin-right: 10px;
@@ -8800,6 +8803,7 @@ a.thumbnail.active {
   cursor: pointer;
   display: inline-block;
   position: relative;
+  font-size: 0;
 }
 .checkbox-element > .dot {
   display: inline-block;
@@ -8836,7 +8840,7 @@ a.thumbnail.active {
 }
 .checkbox-element > .checkbox-label {
   vertical-align: middle;
-  padding-left: 0.3em;
+  padding-left: 0.5em;
 }
 .checkbox-element > .dot {
   background-color: #dee2e6;
@@ -8921,6 +8925,9 @@ a.thumbnail.active {
 }
 .checkbox-element.sm > .checkbox-label {
   font-size: 12px;
+}
+.switch-element-group {
+  font-size: 0;
 }
 .switch-element-group > .switch-element {
   margin-right: 10px;

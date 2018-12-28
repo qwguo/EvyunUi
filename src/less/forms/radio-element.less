@@ -70,6 +70,7 @@
 }
 .radio-element-group {
   display: inline-block;
+  font-size:0;
   > .radio-element {
     margin-right: @radio-group-item-margin;
   }
@@ -82,6 +83,7 @@
   cursor: pointer;
   display: inline-block;
   position: relative;
+  font-size:0;
   > .dot {
     font-size: 0;
     display: inline-block;
@@ -120,7 +122,7 @@
   }
   > .radio-label {
     vertical-align: middle;
-    padding-left: .3em;
+    padding-left: .5em;
   }
   & {
     .radioColor(@radio-bg; @radio-checked-bg; @radio-border-color; @radio-checked-border-color; @radio-dot-bg; @radio-color; @radio-checked-color);

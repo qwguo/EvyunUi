@@ -84,6 +84,7 @@
 
 .checkbox-element-group {
   display: inline-block;
+  font-size: 0;
   > .checkbox-element {
     margin-right: @checkbox-group-item-margin;
   }
@@ -96,6 +97,7 @@
   cursor: pointer;
   display: inline-block;
   position: relative;
+  font-size: 0;
   > .dot {
     display: inline-block;
     vertical-align: middle;
@@ -129,7 +131,7 @@
   }
   > .checkbox-label {
     vertical-align: middle;
-    padding-left: .3em;
+    padding-left: .5em;
   }
   & {
     .checkboxColor(@checkbox-bg; @checkbox-checked-bg; @checkbox-border-color; @checkbox-checked-border-color; @checkbox-dot-bg; @checkbox-color; @checkbox-checked-color);
