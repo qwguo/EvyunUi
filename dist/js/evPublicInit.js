@@ -9656,7 +9656,7 @@ and dependencies (minified).
       setTimeout(realTime, 100);
     };
     if(iframe.attr('onload') !== 'SetWinHeight()'){
-      realTime();
+      // realTime();
     }
   }
 }());
