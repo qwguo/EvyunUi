@@ -9647,9 +9647,6 @@ and dependencies (minified).
     var bodyDom = $('body'),
       iframe = $('iframe[name="' + winName + '"]', winP.document);
     iframe.closest('.admin_main').addClass('new-admin-main');
-    if(iframe.attr('onload') === 'SetWinHeight()'){
-      iframe.removeAttr('onload');
-    }
     var realTime = function(){
       var h = bodyDom.height();
       if(bodyDom !== h){
@@ -9658,7 +9655,9 @@ and dependencies (minified).
       }
       setTimeout(realTime, 100);
     };
-    realTime();
+    if(iframe.attr('onload') !== 'SetWinHeight()'){
+      realTime();
+    }
   }
 }());
 $(function(){
