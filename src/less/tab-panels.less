@@ -7,7 +7,7 @@
 //style 1
 @tab-panel-style-1-bg: #fff;
 @tab-panel-style-1-radius: 0;
-@tab-panel-style-1-border-color: #f2f2f2;
+@tab-panel-style-1-border-color: #f9f9f9;
 @tab-panel-style-1-heading-height: 60px;
 @tab-panel-style-1-heading-border-color: #ededed;
 @tab-panel-style-1-title-color: #555;
@@ -34,6 +34,7 @@
 @tab-panel-style-2-title-active-bg-color: #fff;
 @tab-panel-style-2-body-bg-color: #fff;
 @tab-panel-style-2-body-padding: 10px;
+@tab-panel-style-2-title-radius: 5px;
 
 
 .tab-panel{
@@ -110,7 +111,7 @@
       height: @tab-panel-style-2-heading-height;
       line-height: @tab-panel-style-2-heading-height;
       > .tab-panel-title {
-        .border-top-radius(5px);
+        .border-top-radius(@tab-panel-style-2-title-radius);
         display: inline-block;
         height: 100%;
         font-size: @tab-panel-style-2-title-font-size;

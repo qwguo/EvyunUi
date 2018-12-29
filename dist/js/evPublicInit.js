@@ -9644,19 +9644,20 @@ and dependencies (minified).
   var winP = window.parent,
     winName = window.name;
   if (winName === 'navigate_iframe') {
-    var bodyDom = $('body'),
+    var bodyDom = $('html'),
       iframe = $('iframe[name="' + winName + '"]', winP.document);
     iframe.closest('.admin_main').addClass('new-admin-main');
-    var realTime = function(){
-      var h = bodyDom.height();
+    /*var realTime = function(){
+      var height = bodyDom.height(),
+          h = bodyDom.data('h');
       if(bodyDom !== h){
         bodyDom.data('h',h);
         iframe.length && iframe.height(h);
       }
       setTimeout(realTime, 100);
     };
-    /*if(iframe.attr('onload') !== 'SetWinHeight()'){
-      // realTime();
+    realTime();
+    if(iframe.attr('onload') !== 'SetWinHeight()'){
     }*/
   }
 }());
