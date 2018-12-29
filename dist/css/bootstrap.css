@@ -8213,7 +8213,7 @@ a.thumbnail.active {
 }
 .form-element .form-item > .item-con .item-text {
   font-size: 12px;
-  padding: 7px 10px;
+  padding: 7px 0.2em;
 }
 .form-element .form-item.form-item-inline > .item-label {
   display: inline-block;
