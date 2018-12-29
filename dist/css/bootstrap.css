@@ -3713,8 +3713,8 @@ button.close {
 @font-face {
   font-family: 'evicon';
   /* project id 931572 */
-  src: url('//at.alicdn.com/t/font_931572_zd31fnid5x8.eot');
-  src: url('//at.alicdn.com/t/font_931572_zd31fnid5x8.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_zd31fnid5x8.woff') format('woff'), url('//at.alicdn.com/t/font_931572_zd31fnid5x8.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_zd31fnid5x8.svg#evicon') format('svg');
+  src: url('//at.alicdn.com/t/font_931572_m63w6ud3y4.eot');
+  src: url('//at.alicdn.com/t/font_931572_m63w6ud3y4.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_m63w6ud3y4.woff') format('woff'), url('//at.alicdn.com/t/font_931572_m63w6ud3y4.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_m63w6ud3y4.svg#evicon') format('svg');
 }
 .evicon {
   position: relative;
@@ -8211,6 +8211,10 @@ a.thumbnail.active {
 .form-element .form-item > .item-con .item-tip.block:after {
   clear: both;
 }
+.form-element .form-item > .item-con .item-text {
+  font-size: 12px;
+  padding: 7px 10px;
+}
 .form-element .form-item.form-item-inline > .item-label {
   display: inline-block;
   float: none;
@@ -9154,6 +9158,7 @@ a.thumbnail.active {
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 .select-element > .option-list {
   position: absolute;
