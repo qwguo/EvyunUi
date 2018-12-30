@@ -3,21 +3,21 @@
   var winP = window.parent,
     winName = window.name;
   if (winName === 'navigate_iframe') {
-    var bodyDom = $('html'),
+    var htmlDom = $('html'),
       iframe = $('iframe[name="' + winName + '"]', winP.document);
     iframe.closest('.admin_main').addClass('new-admin-main');
-    /*var realTime = function(){
-      var height = bodyDom.height(),
-          h = bodyDom.data('h');
-      if(bodyDom !== h){
-        bodyDom.data('h',h);
-        iframe.length && iframe.height(h);
+    var realTime = function(){
+      var h_ = htmlDom.height(),
+          h = htmlDom.data('h');
+      if(h_ !== h){
+        htmlDom.data('h',h_);
+        iframe.length && iframe.height(h_);
       }
       setTimeout(realTime, 100);
     };
     realTime();
-    if(iframe.attr('onload') !== 'SetWinHeight()'){
-    }*/
+    /* if(iframe.attr('onload') !== 'SetWinHeight()'){
+    } */
   }
 }());
 $(function(){
