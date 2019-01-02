@@ -40,10 +40,10 @@
   position: absolute;
   z-index: 2001;
   color: #333;
-  border: 1px solid #e4e7ed;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+  //border: 1px solid #e4e7ed;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .2);
   background: #fff;
-  border-radius: 4px;
+  border-radius: 6px;
   line-height: 30px;
   margin: 5px 0;
   display: none;
@@ -121,8 +121,8 @@
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
   border-radius: 2px;
   position: absolute;
-  width: 180px;
-  left: 0;
+  width: 210px;
+  left: -40px;
   z-index: 1000;
   user-select: none
 }
@@ -248,30 +248,35 @@
   height: 36px;
   line-height: 25px;
   text-align: right;
-  box-sizing: border-box
+  box-sizing: border-box;
+  button{
+    margin: 0 0 0 3px;
+    &.min, &.max{
+      border: 0;
+      line-height: 28px;
+      padding: 0 5px;
+      cursor: pointer;
+      background-color: transparent;
+      outline: 0;
+      font-size: 12px;
+      color: #303133;
+    }
+    &:last-child{
+      margin-right: 3px;
+    }
+  }
 }
 
-.c-datepicker-time-panel__btn {
-  border: 0;
-  line-height: 28px;
-  padding: 0 5px;
-  margin: 0 5px;
-  cursor: pointer;
-  background-color: transparent;
-  outline: 0;
-  font-size: 12px;
-  color: #303133
-}
-
+/*
 .c-datepicker-time-panel__btn.confirm {
   font-weight: 800;
   color: #409eff
-}
+}*/
 
-.c-datepicker-time-panel__btn.cancel {
+/*.c-datepicker-time-panel__btn.cancel {
   font-weight: 800;
   color: #999
-}
+}*/
 
 .c-datepicker-time-panel__btn.min,
 .c-datepicker-time-panel__btn.max {
@@ -280,10 +285,10 @@
 }
 
 .c-datepicker-date-picker__header {
-  margin: 10px 12px;
-  text-align: center
+  padding: 10px;
+  text-align: center;
+  background-color:#EEF5F9;
 }
-
 .c-datepicker-date-picker__header-label {
   font-size: 16px;
   font-weight: 500;
@@ -356,31 +361,27 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  border-radius: 50%
+  //border-radius: 50%
 }
 
 .c-datepicker-date-table td.in-range div,
 .c-datepicker-date-table td.in-range div:hover {
-  background-color: #f2f6fc
+  background-color: #E9F3FF
 }
 
 .c-datepicker-date-table td.start-date div {
   margin-left: 1px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px
 }
 
 .c-datepicker-date-table td.end-date div {
   margin-right: 1px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px
 }
 
 .c-datepicker-date-table th {
   padding: 5px;
-  color: #333;
+  color: #B6B6B6;
   font-weight: 400;
-  border-bottom: 1px solid #ebeef5;
+  //border-bottom: 1px solid #ebeef5;
   text-align:center;
 }
 
@@ -399,7 +400,7 @@
   color: #333;
   margin: 0 auto
 }
-
+/*
 .c-datepicker-button {
   display: inline-block;
   line-height: 1;
@@ -436,7 +437,7 @@
   background: 0 0;
   padding-left: 0;
   padding-right: 0
-}
+}*/
 
 .popper__arrow {
   top: -6px;
@@ -463,11 +464,12 @@
 
 .c-datepicker-picker__footer {
   border-top: 1px solid #e4e4e4;
-  padding: 4px;
+  padding: 15px 10px;
   text-align: right;
   background-color: #fff;
   position: relative;
-  font-size: 0
+  font-size: 0;
+  border-radius: 0 0 6px 6px;
 }
 
 .c-datepicker-button+.c-datepicker-button {
@@ -484,7 +486,7 @@
 
 .c-datepicker-picker__icon-btn {
   cursor: pointer;
-  padding: 2px 7px
+  padding: 2px;
 }
 
 .c-datepicker-picker__icon-btn:hover {
@@ -532,7 +534,7 @@
 
 .c-datepicker-date-table td.current:not(.disabled) .cell {
   color: #fff;
-  background-color: #409eff
+  background-color: #298EFF
 }
 
 .c-datepicker-month-table td .cell:hover,
@@ -627,11 +629,26 @@
   width: 50%;
   box-sizing: border-box;
   margin: 0;
-  padding: 10px
+  //padding: 10px
 }
 
 .c-datepicker-date-range-picker-panel__wrap.is-left {
-  border-right: 1px solid #e4e4e4
+  //border-right: 1px solid #e4e4e4
+  .c-datepicker-date-range-picker__header{
+    text-align: left;
+  }
+  .c-datepicker-picker__content{
+    padding: 0 10px 0 5px;
+  }
+}
+.c-datepicker-date-range-picker-panel__wrap.is-right {
+  //border-right: 1px solid #e4e4e4
+  .c-datepicker-date-range-picker__header{
+    text-align: right;
+  }
+  .c-datepicker-picker__content{
+    padding: 0 5px 0 10px;
+  }
 }
 
 .c-datepicker-picker__content {
@@ -667,20 +684,22 @@
 }
 
 .is-right .c-datepicker-date-range-picker__header-month {
-  margin-right: 10px
+  margin-right: 5px
 }
 
 .is-left .c-datepicker-date-range-picker__header-year {
-  margin-left: 12px
+  margin-left: 5px
 }
 
 .is-left .c-datepicker-date-range-picker__header-month {
-  margin-left: 10px
+  margin-left: 5px
 }
 
 .c-datepicker-date-range-picker__header {
   user-select: none;
-  font-size: 16px
+  font-size: 16px;
+  padding: 10px;
+  background-color: #EEF5F9;
 }
 
 .c-datepicker-data-input {

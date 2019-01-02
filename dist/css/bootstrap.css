@@ -9414,11 +9414,10 @@ a.thumbnail.active {
   position: absolute;
   z-index: 2001;
   color: #333;
-  border: 1px solid #e4e7ed;
-  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
   background: #fff;
-  border-radius: 4px;
+  border-radius: 6px;
   line-height: 30px;
   margin: 5px 0;
   display: none;
@@ -9490,8 +9489,8 @@ a.thumbnail.active {
           box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   position: absolute;
-  width: 180px;
-  left: 0;
+  width: 210px;
+  left: -40px;
   z-index: 1000;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -9607,33 +9606,41 @@ a.thumbnail.active {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-.c-datepicker-time-panel__btn {
+.c-datepicker-time-panel__footer button {
+  margin: 0 0 0 3px;
+}
+.c-datepicker-time-panel__footer button.min,
+.c-datepicker-time-panel__footer button.max {
   border: 0;
   line-height: 28px;
   padding: 0 5px;
-  margin: 0 5px;
   cursor: pointer;
   background-color: transparent;
   outline: 0;
   font-size: 12px;
   color: #303133;
 }
+.c-datepicker-time-panel__footer button:last-child {
+  margin-right: 3px;
+}
+/*
 .c-datepicker-time-panel__btn.confirm {
   font-weight: 800;
-  color: #409eff;
-}
-.c-datepicker-time-panel__btn.cancel {
+  color: #409eff
+}*/
+/*.c-datepicker-time-panel__btn.cancel {
   font-weight: 800;
-  color: #999;
-}
+  color: #999
+}*/
 .c-datepicker-time-panel__btn.min,
 .c-datepicker-time-panel__btn.max {
   float: left;
   padding-right: 0;
 }
 .c-datepicker-date-picker__header {
-  margin: 10px 12px;
+  padding: 10px;
   text-align: center;
+  background-color: #EEF5F9;
 }
 .c-datepicker-date-picker__header-label {
   font-size: 16px;
@@ -9713,27 +9720,21 @@ a.thumbnail.active {
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
-  border-radius: 50%;
 }
 .c-datepicker-date-table td.in-range div,
 .c-datepicker-date-table td.in-range div:hover {
-  background-color: #f2f6fc;
+  background-color: #E9F3FF;
 }
 .c-datepicker-date-table td.start-date div {
   margin-left: 1px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
 }
 .c-datepicker-date-table td.end-date div {
   margin-right: 1px;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
 }
 .c-datepicker-date-table th {
   padding: 5px;
-  color: #333;
+  color: #B6B6B6;
   font-weight: 400;
-  border-bottom: 1px solid #ebeef5;
   text-align: center;
 }
 .c-datepicker-year-table,
@@ -9750,6 +9751,7 @@ a.thumbnail.active {
   color: #333;
   margin: 0 auto;
 }
+/*
 .c-datepicker-button {
   display: inline-block;
   line-height: 1;
@@ -9761,33 +9763,32 @@ a.thumbnail.active {
   color: #333;
   -webkit-appearance: none;
   text-align: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   outline: 0;
   margin: 0;
-  -webkit-transition: 0.1s;
-  -o-transition: 0.1s;
-  transition: 0.1s;
+  transition: .1s;
   font-weight: 500;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   padding: 12px 20px;
   font-size: 14px;
-  border-radius: 4px;
+  border-radius: 4px
 }
+
 .c-datepicker-button--mini {
   padding: 7px 15px;
   font-size: 12px;
-  border-radius: 3px;
+  border-radius: 3px
 }
+
 .c-datepicker-button--text {
   border-color: transparent;
   color: #FFB400;
   background: 0 0;
   padding-left: 0;
-  padding-right: 0;
-}
+  padding-right: 0
+}*/
 .popper__arrow {
   top: -6px;
   left: 50%;
@@ -9811,11 +9812,12 @@ a.thumbnail.active {
 }
 .c-datepicker-picker__footer {
   border-top: 1px solid #e4e4e4;
-  padding: 4px;
+  padding: 15px 10px;
   text-align: right;
   background-color: #fff;
   position: relative;
   font-size: 0;
+  border-radius: 0 0 6px 6px;
 }
 .c-datepicker-button + .c-datepicker-button {
   margin-left: 10px;
@@ -9828,7 +9830,7 @@ a.thumbnail.active {
 }
 .c-datepicker-picker__icon-btn {
   cursor: pointer;
-  padding: 2px 7px;
+  padding: 2px;
 }
 .c-datepicker-picker__icon-btn:hover {
   color: #409eff;
@@ -9873,7 +9875,7 @@ a.thumbnail.active {
 }
 .c-datepicker-date-table td.current:not(.disabled) .cell {
   color: #fff;
-  background-color: #409eff;
+  background-color: #298EFF;
 }
 .c-datepicker-month-table td .cell:hover,
 .c-datepicker-month-table td.current:not(.disabled) .cell {
@@ -9956,10 +9958,18 @@ a.thumbnail.active {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0;
-  padding: 10px;
 }
-.c-datepicker-date-range-picker-panel__wrap.is-left {
-  border-right: 1px solid #e4e4e4;
+.c-datepicker-date-range-picker-panel__wrap.is-left .c-datepicker-date-range-picker__header {
+  text-align: left;
+}
+.c-datepicker-date-range-picker-panel__wrap.is-left .c-datepicker-picker__content {
+  padding: 0 10px 0 5px;
+}
+.c-datepicker-date-range-picker-panel__wrap.is-right .c-datepicker-date-range-picker__header {
+  text-align: right;
+}
+.c-datepicker-date-range-picker-panel__wrap.is-right .c-datepicker-picker__content {
+  padding: 0 5px 0 10px;
 }
 .c-datepicker-picker__content {
   position: relative;
@@ -9991,13 +10001,13 @@ a.thumbnail.active {
   margin-right: 10px;
 }
 .is-right .c-datepicker-date-range-picker__header-month {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .is-left .c-datepicker-date-range-picker__header-year {
-  margin-left: 12px;
+  margin-left: 5px;
 }
 .is-left .c-datepicker-date-range-picker__header-month {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .c-datepicker-date-range-picker__header {
   -webkit-user-select: none;
@@ -10005,6 +10015,8 @@ a.thumbnail.active {
       -ms-user-select: none;
           user-select: none;
   font-size: 16px;
+  padding: 10px;
+  background-color: #EEF5F9;
 }
 .c-datepicker-data-input {
   border: 0;

@@ -234,8 +234,8 @@
     '<div class="c-datepicker-time-panel__footer">' +
     '<button type="button" class="c-datepicker-time-panel__btn min">0点</button>' +
     '<button type="button" class="c-datepicker-time-panel__btn max">23:59</button>' +
-    '<button type="button" class="c-datepicker-time-panel__btn cancel">取消</button>' +
-    '<button type="button" class="c-datepicker-time-panel__btn confirm">确定</button>' +
+    '<button type="button" class="c-datepicker-time-panel__btn confirm btn btn-sm btn-primary">确定</button>' +
+    '<button type="button" class="c-datepicker-time-panel__btn cancel btn btn-sm btn-outline-danger">取消</button>' +
     '</div>' +
     '</div>';
   var SIDEBARBUTTON = '<button type="button" class="c-datepicker-picker__shortcut" data-value="{{day}}" data-time="{{time}}">{{name}}</button>';
@@ -243,14 +243,14 @@
     '{{button}}' +
     '</div>';
   var PICKERFOOTERTPL = '<div class="c-datepicker-picker__footer" style="">' +
-    '<button type="button" class="c-datepicker-button c-datepicker-picker__link-btn c-datepicker-button--text c-datepicker-button--mini {{className}}">' +
-    '<span>' +
-    '{{text}}' +
-    '</span>' +
-    '</button>' +
-    '<button type="button" class="c-datepicker-button c-datepicker-picker__link-btn confirm c-datepicker-button--default c-datepicker-button--mini is-plain">' +
+    '<button type="button" class="c-datepicker-button c-datepicker-picker__link-btn confirm c-datepicker-button--default c-datepicker-button--mini is-plain btn btn-sm btn-primary">' +
     '<span>' +
     '确定' +
+    '</span>' +
+    '</button>' +
+    '<button type="button" class="c-datepicker-button c-datepicker-picker__link-btn c-datepicker-button--text c-datepicker-button--mini {{className}} btn btn-sm btn-outline-danger">' +
+    '<span>' +
+    '{{text}}' +
     '</span>' +
     '</button>' +
     '</div>';
