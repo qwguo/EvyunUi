@@ -9,8 +9,21 @@ const gulp = require('gulp'),
   autoprefixer = require('gulp-autoprefixer'),
   concat = require('gulp-concat'),
   fileinclude = require('gulp-file-include'),
-  path = require('path');
-
+  path = require('path'),
+  fs = require('fs'),
+  iconv = require('iconv-lite'),
+  utfToGbk = function(a, orUrl, tagUrl) {
+    a.on('end', function () {
+      fs.readFile(orUrl, 'utf-8', function (err, data) {
+        var gbkCode = new Buffer(iconv.encode(data, 'gbk'));
+        fs.writeFile(tagUrl, gbkCode, function (err) {
+          if (err) {
+            return;
+          }
+        });
+      });
+    });
+  };
 /*less编译*/
 gulp.task('less', function () {
   return gulp.src(['./src/less/bootstrap.less', './src/project.less'])
@@ -32,16 +45,16 @@ gulp.task('lessCss', function () {
 
 /*css压缩*/
 gulp.task('minifyCss', function () {
-  return gulp.src(['./dist/css/*[!.min].css'])
+  var cssFlow = gulp.src(['./dist/css/*[!.min].css'])
     .pipe(rename({suffix: ".min"}))
     .pipe(minifyCss({keepSpecialComments: 1, keepBreaks: false, removeEmpty: true, debug: true}))
     .pipe(gulp.dest('./dist/css/'));
+  utfToGbk(cssFlow, './dist/css/bootstrap.min.css', './use_version/css/bootstrap.min.css')
 });
 // # 定义一个监控css文件变化的任务
 gulp.task('miniCss', function () {
   gulp.watch('./dist/css/*[!.min].css', ['minifyCss']);
 });
-
 
 /*gulp.task('rename', function(){
   gulp.src(['./src/less/animate/!**!/!*.css'])
@@ -60,11 +73,12 @@ gulp.task('miniCss', function () {
 const scriptSrc = require('./src/js/scriptSrc'),
   scriptArray = scriptSrc.src();
 gulp.task('miniScript', function() {
-  gulp.src(scriptArray)
+  var jsFlow = gulp.src(scriptArray)
     .pipe(concat('evPublicInit.js'))
     .pipe(minifyJs())
     // .pipe(rename({suffix: ".min"}))
-    .pipe(gulp.dest('dist/js'))
+    .pipe(gulp.dest('dist/js'));
+  utfToGbk(jsFlow, './dist/js/evPublicInit-min.js', './use_version/js/evPublicInit-min.js');
 });
 
 // # 定义一个监控js文件变化的任务
@@ -102,10 +116,11 @@ gulp.task('connect', function () {
 
 gulp.task('popup', function(){
   //js
-  gulp.src(['./src/js/popup.js'])
+  var jsFlow = gulp.src(['./src/js/popup.js'])
     .pipe(uglify())
     .pipe(rename({suffix: ".min"}))
     .pipe(gulp.dest('./dist/alone_module/popup'));
+  utfToGbk(jsFlow, './dist/alone_module/popup/popup.min.js', './use_version/alone_module/popup/popup.min.js');
   // less - css
   gulp.src(['./src/less/alone_module/popup.less'])
     .pipe(less({
@@ -117,18 +132,20 @@ gulp.task('popup', function(){
     }))
     .pipe(gulp.dest('./dist/alone_module/popup'));
   // css - min
-  gulp.src(['./dist/alone_module/popup/popup.css'])
+  var cssFlow = gulp.src(['./dist/alone_module/popup/popup.css'])
     .pipe(rename({suffix: ".min"}))
     .pipe(minifyCss({keepSpecialComments: 1, keepBreaks: false, removeEmpty: true, debug: true}))
-    .pipe(gulp.dest('./dist/alone_module/popup'))
+    .pipe(gulp.dest('./dist/alone_module/popup'));
+  utfToGbk(cssFlow, './dist/alone_module/popup/popup.min.css', './use_version/alone_module/popup/popup.min.css');
 });
 gulp.task('datePicker', function(){
   //js
-  gulp.src(['./src/js/moment.js', './src/js/datepicker.all.js'])
+  var jsFlow = gulp.src(['./src/js/moment.js', './src/js/datepicker.all.js'])
     .pipe(concat('datepicker.js'))
     .pipe(uglify())
     .pipe(rename({suffix: ".min"}))
     .pipe(gulp.dest('./dist/alone_module/datepicker'));
+  utfToGbk(jsFlow, './dist/alone_module/datepicker/datepicker.min.js', './use_version/alone_module/datepicker/datepicker.min.js');
   // less - css
   gulp.src(['./src/less/alone_module/datepicker.less'])
     .pipe(less({
@@ -140,10 +157,12 @@ gulp.task('datePicker', function(){
     }))
     .pipe(gulp.dest('./dist/alone_module/datepicker/'));
   // css - min
-  gulp.src(['./dist/alone_module/datepicker/datepicker.css'])
+  var cssFlow = gulp.src(['./dist/alone_module/datepicker/datepicker.css'])
     .pipe(rename({suffix: ".min"}))
     .pipe(minifyCss({keepSpecialComments: 1, keepBreaks: false, removeEmpty: true, debug: true}))
-    .pipe(gulp.dest('./dist/alone_module/datepicker'))
+    .pipe(gulp.dest('./dist/alone_module/datepicker'));
+  utfToGbk(cssFlow, './dist/alone_module/datepicker/datepicker.min.css', './use_version/alone_module/datepicker/datepicker.min.css');
+
 });
 
 
