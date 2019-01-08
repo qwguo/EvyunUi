@@ -26,18 +26,17 @@
         属性方式弹出提示框
       </button>
     </p>
+    <pre class="html" name="pre">
+<button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="alert" data-popup-head="这是我的弹窗标题" data-popup-hint="这是我的提示内容">
+  属性方式弹出提示框
+</button>
+    </pre>
     <dl class="arr-explain-list">
       <dt>各属性介绍：</dt>
       <dd><code>data-popup-type="alert"</code>：表示打开一个带确定按钮的提示框，<span class="text-warning">固定值</span></dd>
       <dd><code>data-popup-head="这是我的弹窗标题"</code>：打开窗口的标题</dd>
       <dd><code>data-popup-hint="这是我的提示内容"</code>：打开窗口的提示消息</dd>
-      <dd>代码如下：</dd>
     </dl>
-    <pre class="html" name="pre">
-  <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="alert" data-popup-head="这是我的弹窗标题" data-popup-hint="这是我的提示内容">
-    属性方式弹出提示框
-  </button>
-    </pre>
     <h4><srrong>方法调用方式打开：</srrong></h4>
     <button type="button" id="fun_alert_1" class="btn btn-primary">
       默认提示框
@@ -224,7 +223,7 @@ $('#close_win_all').on('click', function(){
     </pre>
     <dl class="arr-explain-list">
       <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.evPopupAlert(arguments)</code>方法，说明如下：</dt>
-      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
+      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。<a href="#popupDetailAttr">弹窗内置方法</a></dd>
       <dd><code>arguments</code>：打开弹窗时传递的参数，具体参数说明。
         <ol>
           <li><code>position</code>：//位置取值：t-l（上左）, t-c（上中）, t-r（上右）, m-l（中左）, m-c（居中）, m-r（中右）, b-l（下左）, b-c（下中）, b-r（下右）。</li>
@@ -320,14 +319,6 @@ $('#fun_confirm_1').on('click', function(){
     <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetime="5">
         等待
       </button>
-    <dl class="arr-explain-list">
-      <dt>各属性介绍：</dt>
-      <dd><code>data-popup-type="point"</code>：打开消息提示框, <span class="text-warning">固定值</span></dd>
-      <dd><code>data-popup-hint="这是提示内容"</code>：提示消息</dd>
-      <dd><code>data-popup-icontype="1"</code>：提示图标类型，<code>1</code>：表示成功对钩，<code>2</code>：表示错误叉号，<code>3</code>：表示提示感叹号，<code>4</code>：表示加载中动态图</dd>
-      <dd><code>data-popup-closetime="2"</code>：自动关闭时间数值型(以秒计算) <code>false</code>或者非数字表示不自动关闭</dd>
-      <dd>代码如下：</dd>
-    </dl>
     <pre class="html" name="pre">
 <button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetime="1">
   正确
@@ -343,6 +334,13 @@ $('#fun_confirm_1').on('click', function(){
 </button>
 
     </pre>
+    <dl class="arr-explain-list">
+      <dt>各属性介绍：</dt>
+      <dd><code>data-popup-type="point"</code>：打开消息提示框, <span class="text-warning">固定值</span></dd>
+      <dd><code>data-popup-hint="这是提示内容"</code>：提示消息</dd>
+      <dd><code>data-popup-icontype="1"</code>：提示图标类型，<code>1</code>：表示成功对钩，<code>2</code>：表示错误叉号，<code>3</code>：表示提示感叹号，<code>4</code>：表示加载中动态图</dd>
+      <dd><code>data-popup-closetime="2"</code>：自动关闭时间数值型(以秒计算) <code>false</code>或者非数字表示不自动关闭</dd>
+    </dl>
     <h4><srrong>调用方法方式打开，支持关闭回调函数：</srrong></h4>
     <p id="fun_point_1">
       <button type="button" class="btn btn-success">
@@ -390,7 +388,7 @@ $('#fun_confirm_1').on('click', function(){
       <button type="button" data-skin="light-info" class="btn btn-outline-info">
         light-info
       </button>
-      <h5>非整行，有颜色的</h5>
+      <h5>整行，有颜色的</h5>
       <button type="button" data-skin="primary" data-type="block" class="btn btn-primary">
         正确
       </button>
@@ -492,11 +490,11 @@ $('#fun_point_1').on('click', function(){
     </pre>
     <dl class="arr-explain-list">
       <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.evPopupPoint(arguments)</code>方法，说明如下：</dt>
-      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
+      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。可以通过这个变量来操作弹窗。<a href="#popupDetailAttr">弹窗内置方法</a></dd>
       <dd><code>arguments</code>：打开弹窗时传递的参数，对象形式：
         <ol>
           <li><code>hint</code>：提示文字</li>
-          <li><code>icon</code>：提示图标</li>
+          <li><code>icon</code>：提示图标类型，<code>1</code>：表示成功对钩，<code>2</code>：表示错误叉号，<code>3</code>：表示提示感叹号，<code>4</code>：表示加载中动态图。</li>
           <li><code>closeTime</code>：自动关闭时间，以秒计算</li>
           <li><code>style</code>：表示提示框的类型样式，不填写表示默认，可以取值：<code>block</code>:表示整行显示</li>
           <li><code>className</code>：表示弹窗的class类，系统内置了<code>primary</code>、<code>success</code>、<code>danger</code>、<code>warning</code>、<code>info</code>、<code>light-primary</code>、<code>light-success</code>、<code>light-danger</code>、<code>light-warning</code>、<code>light-info</code></li>
@@ -658,6 +656,11 @@ $('#fun_point_1').on('click', function(){
         属性方式打开自定义代码框
       </button>
     </p>
+    <pre class="html" name="pre">
+<button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="html" data-popup-head="这是我的弹窗标题" data-popup-target="#abc" data-popup-width="1200" data-popup-height="700">
+  属性方式弹出提示框
+</button>
+    </pre>
     <dl class="arr-explain-list">
       <dt>各属性介绍：</dt>
       <dd><code>data-popup-type="html"</code>：表示打开一个可以自己传入html代码的弹窗，<span class="text-warning">固定值</span></dd>
@@ -665,13 +668,7 @@ $('#fun_point_1').on('click', function(){
       <dd><code>data-popup-target="#abc"</code>：表示要传入的目标dom元素内部的代码，最好以#id的形式。</dd>
       <dd><code>data-popup-width="1200"</code>：要打开的窗口的宽度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>1200</code>可以是任意数字值。</dd>
       <dd><code>data-popup-height="700"</code>：要打开的窗口的高度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>700</code>可以是任意数字值。</dd>
-      <dd>代码如下：</dd>
     </dl>
-    <pre class="html" name="pre">
-<button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="html" data-popup-head="这是我的弹窗标题" data-popup-target="#abc" data-popup-width="1200" data-popup-height="700">
-  属性方式弹出提示框
-</button>
-    </pre>
     <h4><srrong>方法调用方式打开：</srrong></h4>
     <h5>在iframe内打开，一个没有标题的弹窗</h5>
     <button type="button" id="fun_html_1" class="btn btn-rounded btn-outline-success">
@@ -757,7 +754,6 @@ $('#fun_html_object_1').on('click', function () {
       <dd><code>closeCallBack</code>：关闭窗口回调函数</dd>
       <dd><code>width</code>：要打开的窗口的宽度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>1200</code>可以是任意数字值。</dd>
       <dd><code>height</code>：要打开的窗口的高度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>700</code>可以是任意数字值。</dd>
-      <dd>代码如下：</dd>
     </dl>
   </div>
 
@@ -769,18 +765,17 @@ $('#fun_html_object_1').on('click', function () {
         添加属性方式打开
       </button>
     </p>
-    <dl class="arr-explain-list">
-      <dt>各属性介绍：</dt>
-      <dd><code>data-popup-type="loading"</code>：打开一个loading加载层, <span class="text-warning">固定值</span></dd>
-      <dd><code>data-popup-icontype="1"</code>：打开加载层的图片类型，暂时有1个</dd>
-      <dd><code>data-popup-closetime="1"</code>：自动关闭加载层时间，<code>false</code>：表示不关闭，大于零表示多少秒关闭。</dd>
-      <dd>代码如下：</dd>
-    </dl>
     <pre class="html" name="pre">
 <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetime="1">
   添加属性方式打开
 </button>
     </pre>
+    <dl class="arr-explain-list">
+      <dt>各属性介绍：</dt>
+      <dd><code>data-popup-type="loading"</code>：打开一个loading加载层, <span class="text-warning">固定值</span></dd>
+      <dd><code>data-popup-icontype="1"</code>：打开加载层的图片类型，暂时有1个</dd>
+      <dd><code>data-popup-closetime="1"</code>：自动关闭加载层时间，<code>false</code>：表示不关闭，大于零表示多少秒关闭。</dd>
+    </dl>
     <h4><srrong>调用方法方式打开：</srrong></h4>
     <p>
       <button type="button" id="fun_loading_1" class="btn btn-outline-primary">
@@ -824,6 +819,11 @@ $('#fun_loading_1').on('click', function(){
         添加属性方式打开
       </button>
     </p>
+    <pre class="html" name="pre">
+<button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="../tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
+  窗口打开其他页面
+</button>
+    </pre>
     <dl class="arr-explain-list">
       <dt>各属性介绍：</dt>
       <dd><code>data-popup-type="iframe"</code>：打开一个iframe框, <span class="text-warning">固定值</span></dd>
@@ -831,13 +831,7 @@ $('#fun_loading_1').on('click', function(){
       <dd><code>data-popup-src="/docs/tool/popup_iframe.html"</code>：弹出框的页面地址；<span class="text-warning">这里涉及到页面之间域的问题。</span></dd>
       <dd><code>data-popup-width="1200"</code>：要打开的窗口的宽度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>1200</code>可以是任意数字值。</dd>
       <dd><code>data-popup-height="700"</code>：要打开的窗口的高度，取值可以是：<code>auto</code>自动根据打开窗口内页面的内容适配(默认)，<code>700</code>可以是任意数字值。</dd>
-      <dd>代码如下：</dd>
     </dl>
-    <pre class="html" name="pre">
-<button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="../tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
-  窗口打开其他页面
-</button>
-    </pre>
     <h4><srrong>调用方法打开：</srrong></h4>
     <h5 class="text-warning">在iframe下打开</h5>
     <button type="button" id="fun_iframe_1" class="btn btn-primary">
@@ -914,7 +908,7 @@ $('#fun_iframe_2').on('click', function(){
     </pre>
     <dl class="arr-explain-list">
       <dt>方法打开：给要交互的元素绑定一个事件然后调用<code>var popup_obj = $.evPopupPoint(arguments)</code>方法，说明如下：</dt>
-      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。</dd>
+      <dd><code>popup_obj</code>：定义一个变量，用来存储打开的弹窗的对象；可以通过这个变量来操作弹窗。可以通过这个变量来操作弹窗。<a href="#popupDetailAttr">弹窗内置方法</a></dd>
       <dd><code>arguments</code>：打开弹窗时传递的参数,类型为对象
         <ol>
           <li><code>head</code>：打开窗口的标题。</li>
@@ -925,6 +919,7 @@ $('#fun_iframe_2').on('click', function(){
           <li><code>closeCallBack</code>：关闭窗口的回调方法。</li>
         </ol>
       </dd>
+      <dd>在打开<code>iframe</code>弹窗的同时,会在<code>iframe</code>的<code>window</code>对象中生成一个<code>popup</code>对象，我们可以通过这个对象对窗口进行操作，对象中具体的方法参考<a href="#popupDetailAttr">弹窗对象内置方法</a></dd>
     </dl>
   </div>
 
@@ -968,7 +963,7 @@ $('#fun_iframe_2').on('click', function(){
                       className: 'btn-success',
                       noClose: true,
                       callBack: function () {
-                        $.evPopupLoading({icon:1,closeTime:1});
+                        window.parent.$.evPopupLoading({icon:1,closeTime:1});
                       }
                     },
                     btn2: {
@@ -990,7 +985,7 @@ $('#fun_iframe_2').on('click', function(){
                       className: 'btn-danger',
                       noClose: true,
                       callBack: function () {
-                        $.evPopupConfirm({
+                        window.parent.$.evPopupConfirm({
                           hint:'确定要关闭吗？',
                           icon:3,
                           btn:[{
@@ -1119,7 +1114,7 @@ p_alert = window.parent.$.evPopup({
   }
 });
     </pre>
-    <dl class="arr-explain-list">
+    <dl class="arr-explain-list" id="popupDetailAttr">
       <dt>详细参数介绍：</dt>
       <dd>
         <ol>
@@ -1128,6 +1123,8 @@ p_alert = window.parent.$.evPopup({
               <li><code>p_alert.popupClose()</code>：关闭当前弹窗</li>
               <li><code>p_alert.popupMax()</code>：最大化当前弹窗</li>
               <li><code>p_alert.popupMin()</code>：最小化当前弹窗</li>
+              <li><code>p_alert.popupHide()</code>：隐藏当前弹窗</li>
+              <li><code>p_alert.popupShow()</code>：显示当前弹窗</li>
               <li>同时还预存了两个窗口对象，主要用于窗口之间的交互，预留值：
                 <ul class="list-type-lower-alpha">
                   <li><code>p_alert.originWindow</code>：源<code>window</code>对象；<span class="text-warning">表示此框口的创建源，也就是此窗口是从哪个窗口创建出来的。</span></li>
@@ -1138,7 +1135,7 @@ p_alert = window.parent.$.evPopup({
                   <li><code>p_alert.selfDocument</code>：相对于打开的是iframe弹窗，指向的是当前弹窗的<code>window</code>对象中的<code>document</code>对象；</li>
                 </ul>
               </li>
-              <li>在jquery中增加了连个方法：
+              <li>在jquery中增加了两个方法：
                 <ul class="list-type-lower-alpha">
                   <li><code>$.evPopupCloseAll</code>：关闭当前iframe中的所有弹框层；</li>
                   <li><code>$.evPopupCloseWinAll</code>：关闭窗口下所有弹窗；</li>

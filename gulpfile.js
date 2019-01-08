@@ -110,7 +110,7 @@ gulp.task('load', function () {
 //定义livereload任务
 gulp.task('connect', function () {
   connect.server({
-    'livereload': true
+    livereload: true
   });
 });
 
