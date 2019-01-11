@@ -11995,6 +11995,52 @@ yx-axis
   width: 32px;
   height: 32px;
 }
+.popup.popup-alert.wrap-popup .popup-head {
+  text-align: center;
+  border-bottom: 0;
+}
+.popup.popup-alert.wrap-popup .popup-head .popup-title {
+  margin: 0;
+  padding: 0;
+}
+.popup.popup-alert.wrap-popup .popup-head + .popup-body .popup-hint-info {
+  padding-top: 0;
+}
+.popup.popup-alert.wrap-popup .popup-hint-info {
+  text-align: center;
+}
+.popup.popup-alert.wrap-popup .popup-but {
+  border-top: 1px solid #e6e6e6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+}
+.popup.popup-alert.wrap-popup .popup-but .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: transparent;
+  height: 100%;
+  padding: 0;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: #e6e6e6;
+  line-height: 0.6rem;
+  font-size: 0.28rem;
+}
+.popup.popup-alert.wrap-popup .popup-but .btn:hover,
+.popup.popup-alert.wrap-popup .popup-but .btn:focus {
+  color: #222;
+}
+.popup.popup-alert.wrap-popup .popup-but .btn:last-child {
+  border-right: 0;
+}
 .popup.popup-size-min {
   width: 200px;
   height: 50px;
@@ -12135,12 +12181,12 @@ yx-axis
   color: #fff;
 }
 .popup.point.danger {
-  background-color: #343A40;
+  background-color: rgba(52, 58, 64, 0.7);
   border: #292d32;
 }
 .popup.point.danger .popup-head {
   border-color: #fff;
-  background-color: #343A40;
+  background-color: rgba(52, 58, 64, 0.7);
 }
 .popup.point.danger .popup-title {
   color: #fff;
@@ -12155,7 +12201,30 @@ yx-axis
   color: #fff;
 }
 .popup.point.danger .evicon {
-  color: #343A40;
+  color: rgba(52, 58, 64, 0.7);
+}
+.popup.point.danger-opacity {
+  background-color: rgba(52, 58, 64, 0.7);
+  border: #292d32;
+}
+.popup.point.danger-opacity .popup-head {
+  border-color: #fff;
+  background-color: rgba(52, 58, 64, 0.7);
+}
+.popup.point.danger-opacity .popup-title {
+  color: #fff;
+}
+.popup.point.danger-opacity .popup-option .evicon {
+  color: #fff;
+}
+.popup.point.danger-opacity .popup-option .evicon:hover {
+  color: #e6e6e6;
+}
+.popup.point.danger-opacity .popup-hint-info {
+  color: #fff;
+}
+.popup.point.danger-opacity .evicon {
+  color: rgba(52, 58, 64, 0.7);
 }
 .popup.point.light-primary {
   background-color: #bfe3ff;

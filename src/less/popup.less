@@ -15,21 +15,26 @@
 @popup-primary-border: darken(@color-primary, 5%);
 @popup-primary-text: #fff;
 
+//success
 @popup-success-bg: @color-success;
 @popup-success-text: #fff;
 @popup-success-border: darken(@color-success, 5%);
 
+//info
 @popup-info-bg: @color-info;
 @popup-info-text: #fff;
 @popup-info-border: darken(@color-info, 5%);
 
+//warning
 @popup-warning-bg: @color-warning;
 @popup-warning-text: #fff;
 @popup-warning-border: darken(@color-warning, 5%);
 
-@popup-danger-bg: @color-danger;
+//danger
+@popup-danger-bg: fade(@color-danger, 70%);
 @popup-danger-text: #fff;
 @popup-danger-border: darken(@color-danger, 5%);
+
 
 // light color
 @popup-light-primary-bg: tint(@color-primary, 75%);
@@ -213,7 +218,48 @@
       height: 32px;
     }
   }
-  &.popup-alert{}
+  &.popup-alert{
+    &.wrap-popup{
+      .popup-head{
+        text-align: center;
+        border-bottom: 0;
+        .popup-title{
+          margin: 0;
+          padding: 0;
+        }
+        + .popup-body{
+          .popup-hint-info{
+            padding-top: 0;
+          }
+        }
+      }
+      .popup-hint-info{
+        text-align: center;
+      }
+      .popup-but{
+        border-top: 1px solid @gray-light;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content:center;
+        padding:0;
+        .btn{
+          flex: 1;
+          background-color: transparent;
+          height: 100%;
+          padding: 0;
+          border-width: 0 1px 0 0;
+          border-style: solid;
+          border-color: @gray-light;
+          line-height: 0.6rem;
+          font-size:0.28rem;
+          &:hover,&:focus{color:#222;}
+          &:last-child{
+            border-right: 0;
+          }
+        }
+      }
+    }
+  }
   &.popup-iframe{}
   &.popup-size-min{
     width: 200px;
@@ -270,6 +316,10 @@
       .evicon{color:@popup-warning-text;}
     }
     &.danger{
+      .popupSkin(@popup-danger-bg; @popup-danger-border; @popup-danger-bg; @popup-danger-text; @popup-danger-text; @popup-danger-text; @popup-danger-text);
+      .evicon{color:@popup-danger-bg;}
+    }
+    &.danger-opacity{
       .popupSkin(@popup-danger-bg; @popup-danger-border; @popup-danger-bg; @popup-danger-text; @popup-danger-text; @popup-danger-text; @popup-danger-text);
       .evicon{color:@popup-danger-bg;}
     }

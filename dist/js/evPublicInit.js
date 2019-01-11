@@ -3692,31 +3692,31 @@ and dependencies (minified).
 (function (window, $) {
   var Popup = function (j_) {
     var that = this;
-    that.topWindow= window.top;
-    that.topDocument= window.top.document;
-    if(j_){
+    that.topWindow = window.top;
+    that.topDocument = window.top.document;
+    if (j_) {
       var jd = {
-          addTarget: $('body'),
-          type: 1,
-          win: window,
-          className: "",
-          shade: {bgColor: '#000000', opacity: 0.5, close: false},
-          size: {full: 0, width: 'auto', height: 'auto'},
-          position: {fixed: 1, pos: 'm-c'},
-          animate: ['zoomIn', 'zoomOut'],
-          autoClose: false,
-          move: 0,
-          head: '默认标题',
-          opBtn: {close: 1, min: 1, max: 1},
-          con: {
-            html: "提示信息",
-            icon: 1,
-            src: null,
-            btn: null
-          },
-          closeCallBack: null,
-          styleCss: null
-        };
+        addTarget: $('body'),
+        type: 1,
+        win: window,
+        className: "",
+        shade: {bgColor: '#000000', opacity: 0.5, close: false},
+        size: {full: 0, width: 'auto', height: 'auto'},
+        position: {fixed: 1, pos: 'm-c'},
+        animate: ['zoomIn', 'zoomOut'],
+        autoClose: false,
+        move: 0,
+        head: '默认标题',
+        opBtn: {close: 1, min: 1, max: 1},
+        con: {
+          html: "提示信息",
+          icon: 1,
+          src: null,
+          btn: null
+        },
+        closeCallBack: null,
+        styleCss: null
+      };
       j_.addTarget = j_.addTarget || $('body');
       that.j = $.extend(true, {}, jd, j_);
       that.createDom();
@@ -3747,7 +3747,7 @@ and dependencies (minified).
     randomS: function (len) {
       var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
         maxPos = chars.length,
-        pwd = '',i;
+        pwd = '', i;
       len = len || 5;
       for (i = 0; i < len; i++) {
         pwd += chars.charAt(Math.floor(Math.random() * maxPos));
@@ -3774,16 +3774,16 @@ and dependencies (minified).
         popupBArray = [];
 
       //这里创建来源对象
-      that.originWindow= j.win;
-      that.originDocument= j.win.document;
+      that.originWindow = j.win;
+      that.originDocument = j.win.document;
       that.popupId = that.randomS(5);
       that.maxZindex();
       that.zIndex = that.maxZindex() + 1;
       var evPopup = that.topWindow.evPopup,
         tag = true;
       evPopup && evPopup['popup_' + that.popupId] && (that.popupId = that.randomS(5));
-      evPopup && $.each(evPopup, function(i, v){
-        if(v){
+      evPopup && $.each(evPopup, function (i, v) {
+        if (v) {
           tag = null;
           return false;
         }
@@ -3801,8 +3801,8 @@ and dependencies (minified).
             "id": "popupShade_" + that.popupId,
             "style": style.join(';')
           }).appendTo(j.addTarget);
-          if(j.shade.close){
-            that.popupShade.on('click', function(){
+          if (j.shade.close) {
+            that.popupShade.on('click', function () {
               that.popupClose();
             });
           }
@@ -3832,7 +3832,7 @@ and dependencies (minified).
             if (j.con.btn) {
               popupBArray.push('<div class="popup-but-area"><span class="popup-but">');
               $.each(j.con.btn, function (i, v) {
-                popupBArray.push('<a href="javascript:;" data-btn-index="' + i + '" data-action="btn" class="btn btn-sm ' +( v.className || '' )+ '">' + v.text + '</a>');
+                popupBArray.push('<a href="javascript:;" data-btn-index="' + i + '" data-action="btn" class="btn btn-sm ' + ( v.className || '' ) + '"><span>' + v.text + '</span></a>');
               });
               popupBArray.push('</span></div>');
             }
@@ -3885,24 +3885,24 @@ and dependencies (minified).
                 break;
               case 'btn':
                 j.con.btn && j.con.btn[targetDom.data('btnIndex')]['callBack'] && j.con.btn[targetDom.data('btnIndex')]['callBack'](targetDom, that.popup);
-                if(!j.con.btn[targetDom.data('btnIndex')]['noClose']){
+                if (!j.con.btn[targetDom.data('btnIndex')]['noClose']) {
                   that.popupClose();
                 }
                 break;
             }
           }
         }, '.popup-option .evicon,.popup-but .btn');
-        setTimeout(function(){
+        setTimeout(function () {
           that.popupCountWH();
           that.popupOffset();
           that.popupDrag();
-          if(j.size.full){
+          if (j.size.full) {
             that.popupMax();
           }
         });
       }());
-      if(!isNaN(j.autoClose) && (typeof(j.autoClose) === 'string' || typeof(j.autoClose) === 'number')){
-        setTimeout(function(){
+      if (!isNaN(j.autoClose) && (typeof(j.autoClose) === 'string' || typeof(j.autoClose) === 'number')) {
+        setTimeout(function () {
           that.popupClose();
         }, j.autoClose * 1000);
       }
@@ -3941,32 +3941,32 @@ and dependencies (minified).
         case 3:
           (function () {
             var iframes = that.popup.find('iframe'),
-              iframeW = null,iframeH = null;
+              iframeW = null, iframeH = null;
             iframes.on('load.resize', function () {
               that.selfWindow = iframes[0].contentWindow;
-              try{
+              try {
                 that.selfDocument = iframes[0].contentWindow.document;
                 iframes[0].contentWindow.iframeNumber = that.popupId;
                 iframes[0].contentWindow.popup = that;
                 iframeW = iframes.contents().width();
                 iframeH = iframes.contents().height();
               }
-              catch(err){
+              catch (err) {
                 iframeW = j.size.width;
                 iframeH = j.size.height;
               }
-              if(!j.size.full){
+              if (!j.size.full) {
                 iframes.css({
                   "width": (j.size.width === 'auto' ? iframeW : j.size.width) + "px",
                   "height": (j.size.height === 'auto' ? iframeW : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0))) + "px"
                 });
-              }else{
+              } else {
                 iframes.css({
                   width: '100%',
-                  height: that.popup.height() -  (j.head ? that.popup.find('.popup-head').outerHeight()+5 : 0) + 'px'
+                  height: that.popup.height() - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0) + 'px'
                 });
               }
-              (function(){
+              (function () {
                 var w = j.size.width,
                   h = j.size.height;
                 w = (w === 'auto' ? that.popup.width() : w);
@@ -3985,14 +3985,14 @@ and dependencies (minified).
           }());
           break;
         default:
-          (function(){
+          (function () {
             var w = j.size.width,
               h = j.size.height;
-            if(j.size.width !== 'auto'){
+            if (j.size.width !== 'auto') {
               w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
               that.popup.css('width', w + 'px');
             }
-            if(h !== 'auto'){
+            if (h !== 'auto') {
               h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
               that.popup.css('height', h + 'px');
             }
@@ -4022,35 +4022,35 @@ and dependencies (minified).
     // 还原弹窗
     popupOrig: function () {
       var that = this,
-          j = that.j;
+        j = that.j;
       that.popup.removeClass('popup-size-max popup-size-min').attr({'style': that.originStyle});
       that.popupShade && that.popupShade.show();
-      if(j.size.full && j.opBtn && j.opBtn.max){
+      if (j.size.full && j.opBtn && j.opBtn.max) {
         that.popupOffset();
       }
     },
-    popupHide: function(){
+    popupHide: function () {
       var that = this,
         j = that.j;
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]||'').addClass(j.animate[1]||'');
-      setTimeout(function(){
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[0] || '').addClass(j.animate[1] || '');
+      setTimeout(function () {
         that.popup.hide();
         that.popupShade && that.popupShade.hide();
       }, j.animate[1] ? 210 : 0);
     },
-    popupShow: function(){
+    popupShow: function () {
       var that = this,
         j = that.j;
       that.popup.show();
       that.popupShade && that.popupShade.show();
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[1]||'').addClass(j.animate[0]||'');
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[1] || '').addClass(j.animate[0] || '');
     },
     // 关闭弹窗
     popupClose: function () {
       var that = this,
         j = that.j;
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[0]||'').addClass(j.animate[1]||'');
-      setTimeout(function(){
+      j.animate && j.animate.length && that.popup.removeClass(j.animate[0] || '').addClass(j.animate[1] || '');
+      setTimeout(function () {
         typeof(j.closeCallBack) === 'function' && j.closeCallBack();
         that.popup.remove();
         that.popupShade && that.popupShade.remove();
@@ -4060,31 +4060,31 @@ and dependencies (minified).
         that = null;
       }, j.animate[1] ? 210 : 0);
     },
-    popupCloseAll: function(){
+    popupCloseAll: function () {
       var that = this;
-      if(that.allPopupList){
-        $.each(that.allPopupList, function(i, v){
+      if (that.allPopupList) {
+        $.each(that.allPopupList, function (i, v) {
           v && v.popupClose();
         });
       }
     },
-    popupCloseWinAll: function(){
+    popupCloseWinAll: function () {
       var that = this;
-      if(that.topWindow.evPopup){
-        $.each(that.topWindow.evPopup, function(i, v){
+      if (that.topWindow.evPopup) {
+        $.each(that.topWindow.evPopup, function (i, v) {
           v && v.popupClose();
         });
       }
     },
-    popupDrag: function(){
+    popupDrag: function () {
       var that = this,
-          j = that.j;
-      if(j.head && $.fn.drag){
+        j = that.j;
+      if (j.head && $.fn.drag) {
         that.popup.drag({
           // parent:'parent', //定义拖动不能超出的外框,拖动范围
-          randomPosition:false, //初始化随机位置
-          direction:'all', //方向
-          handler:'.popup-head' //拖动进行中 x,y为当前坐标
+          randomPosition: false, //初始化随机位置
+          direction: 'all', //方向
+          handler: '.popup-head' //拖动进行中 x,y为当前坐标
         });
       }
     }
@@ -4093,34 +4093,35 @@ and dependencies (minified).
     return new Popup(j);
   };
   //alert
-  $.evPopupAlert = function(j){
+  $.evPopupAlert = function (j) {
     var j_ = {
       type: 1,
       position: {pos: 'm-c'},
-      shade:{close:0},
+      shade: {close: 0},
       opBtn: {close: 1, min: 0, max: 0},
       size: {width: 300},
       con: {
         html: "提示信息",
         icon: 3,
-        btn:{'btn0':{text:'确定', className:'btn-primary'}}
+        btn: {'btn0': {text: '确定', className: 'btn-primary'}}
       }
     };
+    j.className !== undefined && (j_.className = j.className);
     j.head !== undefined && (j_.head = j.head);
     j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
     j.icon && (j_.con.icon = j.icon);
     j.win && (j_.win = j.win);
     j.position && (j_.position.pos = j.position);
-    if(j.shade != undefined){
-      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
+    if (j.shade != undefined) {
+      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
     }
-    if(j.btn){
-      if($.isArray(j.btn)){
-        $.each(j.btn, function(i, v){
-          j_.con.btn['btn' + i] = $.extend(true,{}, j_.con.btn['btn' + i], v);
+    if (j.btn) {
+      if ($.isArray(j.btn)) {
+        $.each(j.btn, function (i, v) {
+          j_.con.btn['btn' + i] = $.extend(true, {}, j_.con.btn['btn' + i], v);
         });
-      }else{
-        j_.con.btn.btn0 = $.extend(true,{}, j_.con.btn.btn0, j.btn);
+      } else {
+        j_.con.btn.btn0 = $.extend(true, {}, j_.con.btn.btn0, j.btn);
       }
     }
     j.animate && (j_.animate = j.animate);
@@ -4129,13 +4130,13 @@ and dependencies (minified).
     return new Popup(j_);
   };
   //Point
-  $.evPopupPoint = function(j){
+  $.evPopupPoint = function (j) {
     var className = false,
       j_ = {
         type: 1,
         head: false,
         className: '',
-        shade:{close:0},
+        shade: {close: 0},
         position: {pos: 'm-c'},
         opBtn: false,
         con: {
@@ -4147,11 +4148,11 @@ and dependencies (minified).
       };
     j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
     j.icon !== undefined && (j_.con.icon = j.icon);
-    if(j.shade !== undefined){
-      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
+    if (j.shade !== undefined) {
+      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
     }
     j.position && (j_.position.pos = j.position);
-    switch(j.style){
+    switch (j.style) {
       case 'block':
         className = ' block';
         j_.animate = ['fadeInDown', 'fadeOutUp'];
@@ -4168,46 +4169,48 @@ and dependencies (minified).
     return new Popup(j_);
   };
   //confirm
-  $.evPopupConfirm = function(j){
-    var btn = [{text:'确定', className:'btn-primary'},{text:'取消', className:'btn-outline-danger'}];
-    if(j.btn && $.isArray(j.btn)){
-      $.each(btn, function(i, v) {
+  $.evPopupConfirm = function (j) {
+    var btn = [{text: '确定', className: 'btn-primary'}, {text: '取消', className: 'btn-outline-danger'}];
+    if (j.btn && $.isArray(j.btn)) {
+      $.each(btn, function (i, v) {
         j.btn[i] = $.extend({}, v, j.btn[i]);
       });
     }
     $.evPopupAlert(j);
   };
   // Prompt
-  $.evPopupPrompt = function(j){};
+  $.evPopupPrompt = function (j) {
+  };
   // Html代码形式
-  $.evPopupHtml = function(j){
+  $.evPopupHtml = function (j) {
     var j_ = {
       type: 2,
       head: "HTML层",
       position: {pos: 'm-c'},
       opBtn: {close: 1, min: 0, max: 0},
-      size:{width: 'auto', height: 'auto'},
+      size: {width: 'auto', height: 'auto'},
       win: window,
       con: {
         html: '<p>这是html代码</p>'
       }
     };
-    var getHtml = function(str){
-        if(str instanceof jQuery){
-          str = str.html()
-        }else if(typeof(str) === 'string' && $.inArray(str.substr(0, 1), ['.', '#']) != -1 && $(str).length) {
-          str = $(str).html();
-        }
-        return str;
-      };
+    var getHtml = function (str) {
+      if (str instanceof jQuery) {
+        str = str.html()
+      } else if (typeof(str) === 'string' && $.inArray(str.substr(0, 1), ['.', '#']) != -1 && $(str).length) {
+        str = $(str).html();
+      }
+      return str;
+    };
+    j.className !== undefined && (j_.className = j.className);
     j.head !== undefined && (j_.head = j.head);
     j.html && (j_.con.html = getHtml(j.html));
     j.width && (j_.size.width = j.width);
     j.full && (j_.size.full = j.full);
     j.win && (j_.win = j.win);
     j.height && (j_.size.height = j.height);
-    if(j.shade != undefined){
-      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
+    if (j.shade != undefined) {
+      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
     }
     j.styleCss && (j_.styleCss = j.styleCss);
     j.animate && (j_.animate = j.animate);
@@ -4226,33 +4229,35 @@ and dependencies (minified).
         icon: 1
       }
     };
+    j.className !== undefined && (j_.className = j.className);
     j.icon && (j_.con.icon = j.icon);
     j.closeTime && (j_.autoClose = j.closeTime);
-    if(j.shade != undefined){
-      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
+    if (j.shade != undefined) {
+      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
     }
     j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
     return new Popup($.extend(true, {}, j_, j));
   };
   //Iframe
-  $.evPopupIframe = function(j){
+  $.evPopupIframe = function (j) {
     var j_ = {
       type: 3,
       position: {pos: 'm-c'},
-      size:{},
+      size: {},
       opBtn: {close: 1, max: 0, min: 0},
       con: {
         src: 'http://www.evyun.cn'
       }
     };
+    j.className !== undefined && (j_.className = j.className);
     j.head !== undefined && (j_.head = j.head);
     j.width && (j_.size.width = j.width);
     j.height && (j_.size.height = j.height);
     j.full && (j_.size.full = j.full);
     j.win && (j_.win = j.win);
     j.src && (j_.con.src = j.src);
-    if(j.shade != undefined){
-      j_.shade = j.shade ? $.extend(true,{}, j_.shade, j.shade) : j.shade;
+    if (j.shade != undefined) {
+      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
     }
     j.styleCss && (j_.styleCss = j.styleCss);
     j.animate && (j_.animate = j.animate);
@@ -4260,13 +4265,13 @@ and dependencies (minified).
     return new Popup(j_);
   };
   // 关闭当前iframe中的弹窗
-  $.evPopupCloseAll = function(){
+  $.evPopupCloseAll = function () {
     var popup = new Popup();
     popup.popupCloseAll();
     popup = null;
   };
   // 关闭所有的弹窗
-  $.evPopupCloseWinAll = function(){
+  $.evPopupCloseWinAll = function () {
     var popup = new Popup();
     popup.popupCloseWinAll();
     popup = null;
@@ -4275,11 +4280,11 @@ and dependencies (minified).
 (function () {
   $(document).on('click.evPopup', '[data-toggle="popup"]', function (ev) {
     var $this = $(this),
-        domDate = $this.data();
-    switch(domDate.popupType){
+      domDate = $this.data();
+    switch (domDate.popupType) {
       case 'alert':
         $.evPopupAlert({
-          head:domDate.popupHead,
+          head: domDate.popupHead,
           hint: domDate.popupHint
         });
         break;
@@ -4292,9 +4297,9 @@ and dependencies (minified).
         break;
       case 'html':
         $.evPopupHtml({
-          head:domDate.popupHead,
+          head: domDate.popupHead,
           html: domDate.popupTarget,
-          width:domDate.popupWidth,
+          width: domDate.popupWidth,
           height: domDate.popupHeight
         });
         break;
@@ -4306,7 +4311,7 @@ and dependencies (minified).
         break;
       case 'iframe':
         $.evPopupIframe({
-          head:domDate.popupHead,
+          head: domDate.popupHead,
           src: domDate.popupSrc,
           width: domDate.popupWidth,
           height: domDate.popupHeight

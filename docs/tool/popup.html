@@ -43,12 +43,12 @@
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
       <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="alert" data-popup-head="这是我的弹窗标题" data-popup-hint="这是我的提示内容">
-        属性方式弹出提示框
+        <span>属性方式弹出提示框</span>
       </button>
     </p>
     <pre class="html" name="pre">
 <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="alert" data-popup-head="这是我的弹窗标题" data-popup-hint="这是我的提示内容">
-  属性方式弹出提示框
+  <span>属性方式弹出提示框</span>
 </button>
     </pre>
     <dl class="arr-explain-list">
@@ -59,7 +59,7 @@
     </dl>
     <h4><srrong>方法调用方式打开：</srrong></h4>
     <button type="button" id="fun_alert_1" class="btn btn-primary">
-      默认提示框
+      <span>默认提示框</span>
     </button>
     <script type="text/javascript">
       $('#fun_alert_1').on('click', function () {
@@ -69,7 +69,7 @@
             shade: false,
             icon: 2,
             btn: {
-              text: '确定1', className: 'btn-primary btn-lg', callBack: function () {
+              text: '确定', className: 'btn-outline-primary', callBack: function () {
                 $.evPopupPoint({hint: '单击了确定回调'})
               }
             },
@@ -82,7 +82,7 @@
     <pre class="js" name="pre">
 //html代码
 &lt;button type="button" id="fun_alert_1" class="btn btn-primary"&gt;
-  调用方法弹出提示框
+  <span>调用方法弹出提示框</span>
 &lt;/button&gt;
 //js代码
 $('#fun_alert_1').on('click', function(){
@@ -91,7 +91,7 @@ $('#fun_alert_1').on('click', function(){
     hint: '弹窗提示框',
     icon: 2,
     btn: {
-      text: '确定1', className: 'btn-primary btn-lg', callBack: function () {
+      text: '确定', className: 'btn-primary btn-lg', callBack: function () {
         $.evPopupPoint({hint: '单击了确定回调'})
       }
     },
@@ -105,65 +105,65 @@ $('#fun_alert_1').on('click', function(){
     <div id="fun_alert_object">
       <h5>调用本iframe方法，创建到iframe中窗口</h5>
       <button type="button" data-pos="t-l" class="btn">
-          上左
+        <span>上左</span>
       </button>
       <button type="button" data-pos="t-c" class="btn btn-success">
-          上中
+        <span>上中</span>
       </button>
       <button type="button" data-pos="t-r" class="btn btn-danger">
-          上右
+        <span>上右</span>
       </button>
       <button type="button" data-pos="m-l" class="btn btn-warning">
-          中左
+        <span>中左</span>
       </button>
       <button type="button" data-pos="m-c" class="btn btn-info">
-          中间
+        <span>中间</span>
       </button>
       <button type="button" data-pos="m-r" class="btn btn-primary">
-          中右
+        <span>中右</span>
       </button>
       <button type="button" data-pos="b-l" class="btn btn-outline-primary">
-          下左
+        <span>下左</span>
       </button>
       <button type="button" data-pos="b-c" class="btn btn-outline-success">
-          下中
+        <span>下中</span>
       </button>
       <button type="button" data-pos="b-r" class="btn btn-outline-info">
-          下右
+        <span>下右</span>
       </button>
       <h5>调用父级window方法，创建到父级窗口</h5>
       <a type="button" data-pos="t-l" class="btn">
-          上左
+        <span>上左</span>
       </a>
       <a type="button" data-pos="t-c" class="btn btn-success">
-          上中
+        <span>上中</span>
       </a>
       <a type="button" data-pos="t-r" class="btn btn-danger">
-          上右
+        <span>上右</span>
       </a>
       <a type="button" data-pos="m-l" class="btn btn-warning">
-          中左
+        <span>中左</span>
       </a>
       <a type="button" data-pos="m-c" class="btn btn-info">
-          中间
+        <span>中间</span>
       </a>
       <a type="button" data-pos="m-r" class="btn btn-primary">
-          中右
+        <span>中右</span>
       </a>
       <a type="button" data-pos="b-l" class="btn btn-outline-primary">
-          下左
+        <span>下左</span>
       </a>
       <a type="button" data-pos="b-c" class="btn btn-outline-success">
-          下中
+        <span>下中</span>
       </a>
       <a type="button" data-pos="b-r" class="btn btn-outline-info">
-          下右
+        <span>下右</span>
       </a>
       <a type="button" id="close_all" class="btn btn-outline-danger">
-          关闭iframe下全部弹窗
+        <span>关闭iframe下全部弹窗</span>
       </a>
       <a type="button" id="close_win_all" class="btn btn-outline-danger">
-          关闭所有弹窗
+        <span>关闭所有弹窗</span>
       </a>
     </div>
     <script type="text/javascript">
@@ -202,7 +202,7 @@ $('#fun_alert_1').on('click', function(){
     <pre class="js" name="pre">
 //html代码 调用iframe打开
 &lt;button type="button" id="fun_alert_object_2" class="btn btn-primary"&gt;
-  调用iframe打开
+  <span>调用iframe打开</span>
 &lt;/button&gt;
 //js代码
 $('#fun_alert_object_2').on('click', function(){
@@ -214,7 +214,7 @@ $('#fun_alert_object_2').on('click', function(){
 });
 //html代码 调用window父级打开
 &lt;button type="button" id="fun_alert_object_3" class="btn btn-primary"&gt;
-  调用window父级打开
+  <span>调用window父级打开</span>
 &lt;/button&gt;
 //js代码
 $('#fun_alert_object_3').on('click', function(){
@@ -227,14 +227,14 @@ $('#fun_alert_object_3').on('click', function(){
 });
 // html代码
 &lt;a type="button" id="close_all" class="btn btn-outline-danger"&gt;
-    关闭iframe下全部弹窗
+    <span>关闭iframe下全部弹窗</span>
 &lt;/a&gt;
 // js代码
 $('#close_all').on('click', function(){
   $.evPopupCloseAll();
 });
 &lt;a type="button" id="close_win_all" class="btn btn-outline-danger"&gt;
-    关闭所有弹窗
+    <span>关闭所有弹窗</span>
 &lt;/a&gt;
 // js代码
 $('#close_win_all').on('click', function(){
@@ -268,7 +268,7 @@ $('#close_win_all').on('click', function(){
     <h4 class="page-header">打开一个带<b>确定</b>，<b>取消</b>按钮的提示框，没有扩展属性方式，只有方法调用方式</h4>
     <p>
       <button type="button" id="fun_confirm_1" class="btn btn-primary">
-        调用方法弹出确定取消框
+        <span>调用方法弹出确定取消框</span>
       </button>
     </p>
     <script type="text/javascript">
@@ -278,11 +278,13 @@ $('#close_win_all').on('click', function(){
           hint: '弹窗提示框',
           icon: 3,
           btn: [{
+            className: 'btn-outline-primary',
             callBack: function () {
-              $.evPopupPoint({ hint: '单击了确定回调'});
+              $.evPopupPoint({hint: '单击了确定回调'});
             }
-          }, {callBack: function () {
-              $.evPopupPoint({ hint: '单击了取消回调', icon: 3});
+          }, {
+            className: 'btn-outline-danger', callBack: function () {
+              $.evPopupPoint({hint: '单击了取消回调', icon: 3});
             }
           }],
           closeCallBack: function () {
@@ -294,7 +296,7 @@ $('#close_win_all').on('click', function(){
     <pre class="js" name="pre">
 // html部分
 &lt;button type="button" id="fun_confirm_1" class="btn btn-primary"&gt;
-  调用方法弹出确定取消框
+  <span>调用方法弹出确定取消框</span>
 &lt;/button&gt;
 $('#fun_confirm_1').on('click', function(){
   var popup_obj = $.evPopupConfirm({
@@ -328,29 +330,29 @@ $('#fun_confirm_1').on('click', function(){
     <h4 class="page-header">打开一个提示消息框</h4>
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetime="1">
-      正确
+      <span>正确</span>
     </button>
     <button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetime="1">
-      错误
+      <span>错误</span>
     </button>
     <button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetime="1">
-      警告
+      <span>警告</span>
     </button>
     <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetime="5">
-        等待
+      <span>等待</span>
       </button>
     <pre class="html" name="pre">
 <button type="button" class="btn btn-success" data-toggle="popup" data-popup-type="point" data-popup-hint="正确提示" data-popup-icontype="1" data-popup-closetime="1">
-  正确
+  <span>正确</span>
 </button>
 <button type="button" class="btn btn-danger" data-toggle="popup" data-popup-type="point" data-popup-hint="错误提示" data-popup-icontype="2" data-popup-closetime="1">
-  错误
+  <span>错误</span>
 </button>
 <button type="button" class="btn btn-warning" data-toggle="popup" data-popup-type="point" data-popup-hint="警告提示" data-popup-icontype="3" data-popup-closetime="1">
-  警告
+  <span>警告</span>
 </button>
 <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="point" data-popup-hint="加载中..." data-popup-icontype="4" data-popup-closetime="1">
-  等待
+  <span>等待</span>
 </button>
 
     </pre>
@@ -364,80 +366,80 @@ $('#fun_confirm_1').on('click', function(){
     <h4><srrong>调用方法方式打开，支持关闭回调函数：</srrong></h4>
     <p id="fun_point_1">
       <button type="button" class="btn btn-success">
-        正确
+        <span>正确</span>
       </button>
       <button type="button" class="btn btn-danger">
-        错误
+        <span>错误</span>
       </button>
       <button type="button" class="btn btn-warning">
-        警告
+        <span>警告</span>
       </button>
       <button type="button" class="btn btn-primary">
-        等待
+        <span>等待</span>
       </button>
     </p>
     <div id="fun_point_2">
       <h5>非整行，有颜色的</h5>
       <button type="button" data-skin="primary" class="btn btn-primary">
-        primary
+        <span>primary</span>
       </button>
       <button type="button" data-skin="success" class="btn btn-success">
-        success
+        <span>success</span>
       </button>
       <button type="button" data-skin="danger" class="btn btn-danger">
-        danger
+        <span>danger</span>
       </button>
       <button type="button" data-skin="warning" class="btn btn-warning">
-        warning
+        <span>warning</span>
       </button>
       <button type="button" data-skin="info" class="btn btn-info">
-        info
+        <span>info</span>
       </button>
       <button type="button" data-skin="light-primary" class="btn btn-outline-primary">
-        light-primary
+        <span>light-primary</span>
       </button>
       <button type="button" data-skin="light-success" class="btn btn-outline-success">
-        light-success
+        <span>light-success</span>
       </button>
       <button type="button" data-skin="light-danger" class="btn btn-outline-danger">
-        light-danger
+        <span>light-danger</span>
       </button>
       <button type="button" data-skin="light-warning" class="btn btn-outline-warning">
-        light-warning
+        <span>light-warning</span>
       </button>
       <button type="button" data-skin="light-info" class="btn btn-outline-info">
-        light-info
+        <span>light-info</span>
       </button>
       <h5>整行，有颜色的</h5>
       <button type="button" data-skin="primary" data-type="block" class="btn btn-primary">
-        正确
+        <span>正确</span>
       </button>
       <button type="button" data-skin="success" data-type="block" class="btn btn-success">
-        正确
+        <span>正确</span>
       </button>
       <button type="button" data-skin="danger" data-type="block" class="btn btn-danger">
-        错误
+        <span>错误</span>
       </button>
       <button type="button" data-skin="warning" data-type="block" class="btn btn-warning">
-        警告
+        <span>警告</span>
       </button>
       <button type="button" data-skin="info" data-type="block" class="btn btn-info">
-        等待
+        <span>等待</span>
       </button>
       <button type="button" data-skin="light-primary" data-type="block" class="btn btn-info">
-        等待
+        <span>等待</span>
       </button>
       <button type="button" data-skin="light-success" data-type="block" class="btn btn-success">
-        正确
+        <span>正确</span>
       </button>
       <button type="button" data-skin="light-danger" data-type="block" class="btn btn-danger">
-        错误
+        <span>错误</span>
       </button>
       <button type="button" data-skin="light-warning" data-type="block" class="btn btn-warning">
-        警告
+        <span>警告</span>
       </button>
       <button type="button" data-skin="light-info" data-type="block" class="btn btn-primary">
-        等待
+        <span>等待</span>
       </button>
     </div>
     <script type="text/javascript">
@@ -468,7 +470,7 @@ $('#fun_confirm_1').on('click', function(){
     <pre class="js" name="pre">
 // html代码
 &lt;button type="button" id="fun_point_1" class="btn btn-primary"&gt;
-  调用方法弹出提示框
+  <span>调用方法弹出提示框</span>
 &lt;/button&gt;
 // js代码
 $('#fun_point_1').on('click', function(){
@@ -673,12 +675,12 @@ $('#fun_point_1').on('click', function(){
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
       <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="html" data-popup-head="这是我的弹窗标题" data-popup-target="#htmlDiv_1" data-popup-width="600" data-popup-height="500">
-        属性方式打开自定义代码框
+        <span>属性方式打开自定义代码框</span>
       </button>
     </p>
     <pre class="html" name="pre">
 <button type="button" class="btn btn-primary" data-toggle="popup" data-popup-type="html" data-popup-head="这是我的弹窗标题" data-popup-target="#abc" data-popup-width="1200" data-popup-height="700">
-  属性方式弹出提示框
+  <span>属性方式弹出提示框</span>
 </button>
     </pre>
     <dl class="arr-explain-list">
@@ -692,7 +694,7 @@ $('#fun_point_1').on('click', function(){
     <h4><srrong>方法调用方式打开：</srrong></h4>
     <h5>在iframe内打开，一个没有标题的弹窗</h5>
     <button type="button" id="fun_html_1" class="btn btn-rounded btn-outline-success">
-      方法调用方式打开自定义代码框
+      <span>方法调用方式打开自定义代码框</span>
     </button>
     <script type="text/javascript">
       $('#fun_html_1').on('click', function(){
@@ -710,7 +712,7 @@ $('#fun_point_1').on('click', function(){
     <pre class="js" name="pre">
 //html代码
 &lt;button type="button" id="fun_html_1" class="btn btn-rounded btn-outline-success"&gt;
-  调用方法弹出提示框
+  <span>调用方法弹出提示框</span>
 &lt;/button&gt;
 //js代码
 $('#fun_html_1').on('click', function(){
@@ -728,7 +730,7 @@ $('#fun_html_1').on('click', function(){
     <h5>在iframe父级窗口打开</h5>
     <p id="fun_alert_object">
       <button type="button" id="fun_html_object_1" class="btn btn-rounded btn-outline-info">
-          打开一个全屏弹窗
+        <span>打开一个全屏弹窗</span>
       </button>
     </p>
     <script type="text/javascript">
@@ -750,7 +752,7 @@ $('#fun_html_1').on('click', function(){
     <pre class="js" name="pre">
 //html代码
 &lt;button type="button" id="fun_html_object_1" class="btn btn-rounded btn-outline-info"&gt;
-  调用方法弹出提示框
+  <span>调用方法弹出提示框</span>
 &lt;/button&gt;
 //js代码
 $('#fun_html_object_1').on('click', function () {
@@ -782,12 +784,12 @@ $('#fun_html_object_1').on('click', function () {
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
       <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetime="2">
-        添加属性方式打开
+        <span>添加属性方式打开</span>
       </button>
     </p>
     <pre class="html" name="pre">
 <button type="button" class="btn btn-outline-primary" data-toggle="popup" data-popup-type="loading" data-popup-icontype="1" data-popup-closetime="1">
-  添加属性方式打开
+  <span>添加属性方式打开</span>
 </button>
     </pre>
     <dl class="arr-explain-list">
@@ -799,7 +801,7 @@ $('#fun_html_object_1').on('click', function () {
     <h4><srrong>调用方法方式打开：</srrong></h4>
     <p>
       <button type="button" id="fun_loading_1" class="btn btn-outline-primary">
-        调用方法打开加载等待层
+        <span>调用方法打开加载等待层</span>
       </button>
     </p>
     <script type="text/javascript">
@@ -816,7 +818,7 @@ $('#fun_html_object_1').on('click', function () {
     <pre class="js" name="pre">
 // html代码
 &lt;button type="button" id="fun_loading_1" class="btn btn-primary"&gt;
-  调用方法打开加载等待层
+  <span>调用方法打开加载等待层</span>
 &lt;/button&gt;
 // js代码
 $('#fun_loading_1').on('click', function(){
@@ -836,12 +838,12 @@ $('#fun_loading_1').on('click', function(){
     <h4><srrong>给元素添加属性方式打开：</srrong></h4>
     <p>
       <button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="../tool/big_popup_iframe.html" data-popup-width="2200" data-popup-height="1700">
-        添加属性方式打开
+        <span>添加属性方式打开</span>
       </button>
     </p>
     <pre class="html" name="pre">
 <button type="button" class="btn btn-outline-danger" data-toggle="popup" data-popup-type="iframe" data-popup-head="这是弹窗标题" data-popup-src="../tool/popup_iframe.html" data-popup-width="1200" data-popup-height="700">
-  窗口打开其他页面
+  <span>窗口打开其他页面</span>
 </button>
     </pre>
     <dl class="arr-explain-list">
@@ -855,7 +857,7 @@ $('#fun_loading_1').on('click', function(){
     <h4><srrong>调用方法打开：</srrong></h4>
     <h5 class="text-warning">在iframe下打开</h5>
     <button type="button" id="fun_iframe_1" class="btn btn-primary">
-      在iframe中打开窗口
+      <span>在iframe中打开窗口</span>
     </button>
     <script type="text/javascript">
       $('#fun_iframe_1').on('click', function(){
@@ -874,7 +876,7 @@ $('#fun_loading_1').on('click', function(){
     <pre class="js" name="pre">
 // html代码
 &lt;button type="button" id="fun_iframe_1" class="btn btn-primary"&gt;
-  在iframe中打开窗口
+  <span>在iframe中打开窗口</span>
 &lt;/button&gt;
 // js代码
 $('#fun_iframe_1').on('click', function(){
@@ -891,7 +893,7 @@ $('#fun_iframe_1').on('click', function(){
     </pre>
     <h5 class="text-warning">在iframe父级窗口下打开</h5>
     <button type="button" id="fun_iframe_2" class="btn btn-primary">
-      在父级窗口打开窗口
+      <span>在父级窗口打开窗口</span>
     </button>
     <script type="text/javascript">
       $('#fun_iframe_2').on('click', function(){
@@ -910,7 +912,7 @@ $('#fun_iframe_1').on('click', function(){
     <pre class="js" name="pre">
 // html代码
 &lt;button type="button" id="fun_iframe_2" class="btn btn-primary"&gt;
-  在父级窗口打开窗口
+  <span>在父级窗口打开窗口</span>
 &lt;/button&gt;
 // js代码
 $('#fun_iframe_2').on('click', function(){
@@ -947,16 +949,16 @@ $('#fun_iframe_2').on('click', function(){
     <h3 >模态框高级使用</h3>
     <p id="fun_object">
       <button type="button" data-type="alert" id="fun_object_1" class="btn">
-          打开带多个按钮的提示框
+        <span>打开带多个按钮的提示框</span>
       </button>
       <button type="button" data-type="layer" id="fun_object_2" class="btn btn-success">
-          打开一个自定义内容代码的层
+        <span>打开一个自定义内容代码的层</span>
       </button>
       <button type="button" data-type="iframe" id="fun_object_3" class="btn btn-danger">
-          打开一个iframe窗口
+        <span>打开一个iframe窗口</span>
       </button>
       <button type="button" data-type="loading" id="fun_object_4" class="btn btn-warning">
-          打开一个loading层
+        <span>打开一个loading层</span>
       </button>
     </p>
     <script>

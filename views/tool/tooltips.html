@@ -35,43 +35,53 @@
   <h4 class="page-header">默认：鼠标经过显示，离开隐藏</h4>
   <div id="abc">
     <button type="button" class="btn btn-primary" data-toggle="tooltip" data-container="#abc" data-delay="10"
-            data-placement="auto" title="自动检测">自动检测</button>
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="提示在上">提示在上</button>
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="提示在下">提示在下</button>
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="提示在左">提示在左</button>
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="提示再右">提示再右</button>
+            data-placement="auto" title="自动检测"><span>自动检测</span></button>
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="提示在上">
+      <span>提示在上</span></button>
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="提示在下">
+      <span>提示在下</span></button>
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="提示在左">
+      <span>提示在左</span></button>
+    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="提示再右">
+      <span>提示再右</span></button>
   </div>
   <pre class="html" name="pre">
 <!--第一个设置了插入的目标是id为abc的div里，并且延迟10毫秒显示-->
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-container="#abc" data-delay="10" data-placement="auto" title="自动检测">自动检测</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="提示在上">提示在上</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="提示在下">提示在下</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="提示在左">提示在左</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="提示再右">提示再右</button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-container="#abc" data-delay="10" data-placement="auto" title="自动检测"><span>自动检测</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="提示在上"><span>提示在上</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="提示在下"><span>提示在下</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="提示在左"><span>提示在左</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="提示再右"><span>提示再右</span></button>
     </pre>
   <h4 class="page-header">单机得到焦点显示，失去焦点消失</h4>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="top" title="提示在上">提示在上</button>
+  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="top" title="提示在上">
+    <span>提示在上</span></button>
   <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="bottom"
-          title="提示在下">提示在下</button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="left" title="提示在左">提示在左</button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="right" title="提示再右">提示再右</button>
+          title="提示在下"><span>提示在下</span></button>
+  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="left" title="提示在左">
+    <span>提示在左</span></button>
+  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="right" title="提示再右">
+    <span>提示再右</span></button>
   <pre class="html" name="pre">
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="top" title="提示在上">提示在上</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="bottom" title="提示在下">提示在下</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="left" title="提示在左">提示在左</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="right" title="提示再右">提示再右</button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="top" title="提示在上"><span>提示在上</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="bottom" title="提示在下"><span>提示在下</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="left" title="提示在左"><span>提示在左</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="right" title="提示再右"><span>提示再右</span></button>
     </pre>
   <h4 class="page-header">单机显示，再单击隐藏</h4>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="top" title="提示在上">提示在上</button>
+  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="top" title="提示在上">
+    <span>提示在上</span></button>
   <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="bottom"
-          title="提示在下">提示在下</button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="left" title="提示在左">提示在左</button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="right" title="提示再右">提示再右</button>
+          title="提示在下"><span>提示在下</span></button>
+  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="left" title="提示在左">
+    <span>提示在左</span></button>
+  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="right" title="提示再右">
+    <span>提示再右</span></button>
   <pre class="html" name="pre">
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="top" title="提示在上">提示在上</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="bottom" title="提示在下">提示在下</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="left" title="提示在左">提示在左</button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="right" title="提示再右">提示再右</button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="top" title="提示在上"><span>提示在上</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="bottom" title="提示在下"><span>提示在下</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="left" title="提示在左"><span>提示在左</span></button>
+<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="right" title="提示再右"><span>提示再右</span></button>
     </pre>
   <h4 class="page-header">在文章中使用</h4>
   <p>CSS（层叠样式表）是一门历史悠久的标记性语言，同 <a href="###" data-toggle="tooltip" data-placement="top" title="超文本标记语言">HTML</a>
