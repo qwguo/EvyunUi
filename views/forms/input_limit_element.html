@@ -1,0 +1,34 @@
+@@include('../include/head.html')
+
+<div class="show-forms-input">
+  <h3 class="page-header">字数限制输入框</h3>
+  <div class="input-show">
+    <h5 class="page-header">单行文本输入框</h5>
+    <div class="input-element suffix" data-toggle="numberLimit" data-max="30" data-min="0">
+      <span class="number-limit"><b>0</b><i>&#47;</i><b>30</b></span>
+      <input type="text" placeholder="输入文字">
+    </div>
+    <pre class="html" name="pre">
+<div class="input-element prefix" data-toggle="numberLimit" data-max="30" data-min="0">
+  <i class="number-limit"></i>
+  <input type="text" placeholder="输入文字">
+</div>
+    </pre>
+  </div>
+  <div class="input-show">
+    <h5 class="page-header">多行文本输入框</h5>
+    <div class="textarea-element" data-toggle="numberLimit" data-max="30" data-min="0">
+      <span class="number-limit"><b>0</b><i>&#47;</i><b>30</b></span>
+      <textarea placeholder="输入文字" cols="50" rows="5"></textarea>
+    </div>
+
+    <pre class="html" name="pre">
+<div class="textarea-element" data-toggle="numberLimit" data-max="30" data-min="0">
+  <span class="number-limit"><b>0</b><i>&#47;</i><b>30</b></span>
+  <textarea placeholder="输入文字" cols="50" rows="5"></textarea>
+</div>
+    </pre>
+  </div>
+</div>
+
+@@include('../include/foot.html')

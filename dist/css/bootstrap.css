@@ -8254,16 +8254,28 @@ a.thumbnail.active {
   border-color: #0090FF;
   z-index: 2;
 }
-.input-element > .evicon {
+.input-element > .evicon,
+.input-element > .number-limit {
   position: absolute;
   height: 100%;
   padding: 0 0.3em;
   z-index: 3;
 }
-.input-element.suffix > .evicon {
+.input-element > .number-limit {
+  color: #b3b3b3;
+}
+.input-element > .number-limit b {
+  font-weight: 400;
+}
+.input-element > .number-limit i {
+  padding: 0 2px;
+}
+.input-element.suffix > .evicon,
+.input-element.suffix > .number-limit {
   right: 0;
 }
-.input-element.prefix > .evicon {
+.input-element.prefix > .evicon,
+.input-element.prefix > .number-limit {
   left: 0;
 }
 .input-element.block {
@@ -8289,12 +8301,19 @@ a.thumbnail.active {
 .input-element.suffix > input {
   padding: 0 30px 0 15px;
 }
+.input-element.suffix > .number-limit + input {
+  padding: 0 45px 0 15px;
+}
 .input-element.prefix > input {
   padding: 0 15px 0 30px;
 }
 .input-element .evicon {
   line-height: 36px;
-  font-size: 16.8px;
+  font-size: 1.2em;
+}
+.input-element .number-limit {
+  line-height: 36px;
+  font-size: 0.8em;
 }
 .input-element.disabled > input {
   color: #999;
@@ -8335,12 +8354,19 @@ a.thumbnail.active {
 .input-element.lg.suffix > input {
   padding: 0 40px 0 20px;
 }
+.input-element.lg.suffix > .number-limit + input {
+  padding: 0 60px 0 20px;
+}
 .input-element.lg.prefix > input {
   padding: 0 20px 0 40px;
 }
 .input-element.lg .evicon {
   line-height: 46px;
-  font-size: 19.2px;
+  font-size: 1.2em;
+}
+.input-element.lg .number-limit {
+  line-height: 46px;
+  font-size: 0.8em;
 }
 .input-element.sm {
   font-size: 12px;
@@ -8354,12 +8380,19 @@ a.thumbnail.active {
 .input-element.sm.suffix > input {
   padding: 0 20px 0 10px;
 }
+.input-element.sm.suffix > .number-limit + input {
+  padding: 0 30px 0 10px;
+}
 .input-element.sm.prefix > input {
   padding: 0 10px 0 20px;
 }
 .input-element.sm .evicon {
   line-height: 26px;
-  font-size: 14.4px;
+  font-size: 1.2em;
+}
+.input-element.sm .number-limit {
+  line-height: 26px;
+  font-size: 0.8em;
 }
 .input-element.sm {
   font-size: 12px;
@@ -8373,12 +8406,19 @@ a.thumbnail.active {
 .input-element.sm.suffix > input {
   padding: 0 20px 0 10px;
 }
+.input-element.sm.suffix > .number-limit + input {
+  padding: 0 30px 0 10px;
+}
 .input-element.sm.prefix > input {
   padding: 0 10px 0 20px;
 }
 .input-element.sm .evicon {
   line-height: 26px;
-  font-size: 14.4px;
+  font-size: 1.2em;
+}
+.input-element.sm .number-limit {
+  line-height: 26px;
+  font-size: 0.8em;
 }
 .input-element.xs {
   font-size: 10px;
@@ -8392,12 +8432,19 @@ a.thumbnail.active {
 .input-element.xs.suffix > input {
   padding: 0 10px 0 5px;
 }
+.input-element.xs.suffix > .number-limit + input {
+  padding: 0 15px 0 5px;
+}
 .input-element.xs.prefix > input {
   padding: 0 5px 0 10px;
 }
 .input-element.xs .evicon {
   line-height: 16px;
-  font-size: 12px;
+  font-size: 1.2em;
+}
+.input-element.xs .number-limit {
+  line-height: 16px;
+  font-size: 0.8em;
 }
 .input-element[data-toggle="datePicker"] > input {
   cursor: pointer;
@@ -8610,6 +8657,23 @@ a.thumbnail.active {
   display: inline-block;
   position: relative;
   font-size: 14px;
+}
+.textarea-element > .number-limit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 0.8em;
+  color: #b3b3b3;
+  line-height: 10px;
+}
+.textarea-element > .number-limit b {
+  font-weight: 400;
+}
+.textarea-element > .number-limit i {
+  padding: 0 2px;
+}
+.textarea-element > .number-limit + textarea {
+  padding-bottom: 20px;
 }
 .textarea-element > textarea {
   background-color: #fff;

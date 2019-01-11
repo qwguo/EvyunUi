@@ -12,6 +12,7 @@ exports.src = function(){
     './src/js/moment.js',
     './src/js/datepicker.all.js',
     './src/js/allSelect.js',
+    './src/js/numberLimit.js',
     './src/js/zzev_init.js'
   ];
 };

@@ -9612,31 +9612,75 @@ and dependencies (minified).
  * data-target-name="hobby_1" 表示要选中或者取消选中的目标元素 input checkbox元素
  * */
 (function ($) {
-  $(function () {
-    $(document).on('click.allSelect', '[data-toggle="allSelect"]', function (ev) {
-      var $this = $(this),
-        clickTarget = $(ev.target);
-      if (clickTarget[0].tagName.toLowerCase() === 'input' && clickTarget.attr('type') === 'checkbox') {
-        var $thisDate = $this.data(),
-          allName = $thisDate.allName,
-          targetName = $thisDate.targetName,
-          curName = clickTarget.attr('name');
-        if (curName && (curName === targetName || curName === allName)) {
-          var flag = clickTarget.prop('checked'),
-            flag_ = true;
-          if (curName === allName) {
-            $this.find('input[type="checkbox"][name="' + targetName + '"]').prop('checked', flag)
-          } else {
-            $this.find('input[type="checkbox"][name="' + targetName + '"]').each(function (i, dom) {
-              !$(dom).prop('checked') && (flag_ = false);
-            });
-            $this.find('input[type="checkbox"][name="' + allName + '"]').prop('checked', flag_);
+  $(document).on('click.allSelect', '[data-toggle="allSelect"]', function (ev) {
+    var $this = $(this),
+      clickTarget = $(ev.target);
+    if (clickTarget[0].tagName.toLowerCase() === 'input' && clickTarget.attr('type') === 'checkbox') {
+      var $thisDate = $this.data(),
+        allName = $thisDate.allName,
+        targetName = $thisDate.targetName,
+        curName = clickTarget.attr('name');
+      if (curName && (curName === targetName || curName === allName)) {
+        var flag = clickTarget.prop('checked'),
+          flag_ = true;
+        if (curName === allName) {
+          $this.find('input[type="checkbox"][name="' + targetName + '"]').prop('checked', flag)
+        } else {
+          $this.find('input[type="checkbox"][name="' + targetName + '"]').each(function (i, dom) {
+            !$(dom).prop('checked') && (flag_ = false);
+          });
+          $this.find('input[type="checkbox"][name="' + allName + '"]').prop('checked', flag_);
 
-          }
         }
       }
-    });
+    }
   });
+})(jQuery);
+
+/**
+ @Name：EvyunUi.numberLimit 输入框字数限制组件
+ @Author：qwguo
+ @github：https://github.com/qwguo/
+ @Date: 2019/1/10
+ */
+
+/**
+ * user HTML Element add attribute
+ * data-toggle="numberLimit"    表示这个元素是全选元素，内部有要全选的对象
+ * data-max="30"      表示最大可输入个数
+ * data-min="0"       表示最小个数
+ * */
+(function ($) {
+  var curDom = null,
+    curDomData = null,
+    inputDom = null,
+    valLength = null,
+    changeFun = function(){
+      if (valLength <= curDomData.max * 1) {
+        curDom.find('.number-limit b').eq(0).text(valLength);
+      }
+    };
+  $(document).on({
+    'keydown.numberLimit': function (event) {
+      curDom = $(this);
+      curDomData = curDom.data();
+      inputDom = curDom.find('input').length ? curDom.find('input').eq(0) : curDom.find('textarea').eq(0);
+      valLength = inputDom.val().length;
+      changeFun();
+      if(!event.ctrlKey){
+        if (valLength >= curDomData.max * 1 && event.keyCode !== 8 && event.keyCode !== 116) {
+          return false;
+        }
+      }
+    },
+    'keyup.numberLimit': function () {
+      var upVal = inputDom.val(),
+        upValLength = upVal.length;
+        (upValLength >= curDomData.max) && inputDom.val(upVal.substring(0, curDomData.max));
+        valLength = inputDom.val().length;
+      changeFun();
+    }
+  }, '[data-toggle="numberLimit"]');
 })(jQuery);
 
 (function(){

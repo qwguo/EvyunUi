@@ -40,6 +40,23 @@
   display: inline-block;
   position: relative;
   font-size: @textarea-font-size;
+  > .number-limit{
+    position: absolute;
+    right: @textarea-padding;
+    bottom: @textarea-padding;
+    font-size: .8em;
+    color: @gray-dark;
+    line-height: @textarea-padding;
+    b{
+      font-weight: 400;
+    }
+    i{
+      padding: 0 2px;
+    }
+    + textarea{
+      padding-bottom: @textarea-padding * 2;
+    }
+  }
   > textarea {
     background-color: @textarea-bg;
     padding: @textarea-padding;

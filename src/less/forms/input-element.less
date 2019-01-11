@@ -80,6 +80,9 @@
     > input {
       padding: 0 @fix-width 0 @fix-width/2;
     }
+    > .number-limit + input{
+      padding: 0 @fix-width*1.5 0 @fix-width/2;
+    }
   }
   &.prefix {
     > input {
@@ -88,7 +91,11 @@
   }
   .evicon{
     line-height: @height;
-    font-size: @font-size * 1.2
+    font-size: 1.2em;
+  }
+  .number-limit{
+    line-height: @height;
+    font-size: .8em;
   }
 }
 
@@ -112,20 +119,31 @@
       z-index: 2;
     }
   }
-  > .evicon {
-    // font-size: 1.2em;
+  > .evicon,
+  > .number-limit {
     position: absolute;
     height: 100%;
     padding: 0 .3em;
     z-index: 3;
   }
+  > .number-limit{
+    color: @gray-dark;
+    b{
+      font-weight: 400;
+    }
+    i{
+      padding: 0 2px;
+    }
+  }
   &.suffix {
-    > .evicon {
+    > .evicon,
+    > .number-limit {
       right: 0;
     }
   }
   &.prefix {
-    > .evicon {
+    > .evicon,
+    > .number-limit {
       left: 0;
     }
   }
