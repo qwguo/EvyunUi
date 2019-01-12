@@ -21,7 +21,8 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.1",
+    "iconv-lite": "^0.4.24"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

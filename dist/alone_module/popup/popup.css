@@ -4647,6 +4647,7 @@ fieldset[disabled] .btn.btn-lighter-success.focus {
 }
 .popup.popup-alert.wrap-popup .popup-head + .popup-body .popup-hint-info {
   padding-top: 0;
+  text-align: center;
 }
 .popup.popup-alert.wrap-popup .popup-hint-info {
   text-align: center;
