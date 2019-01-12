@@ -4674,7 +4674,7 @@ fieldset[disabled] .btn.btn-lighter-success.focus {
   border-width: 0 1px 0 0;
   border-style: solid;
   border-color: #e6e6e6;
-  line-height: 0.6rem;
+  line-height: 0.8rem;
   font-size: 0.28rem;
 }
 .popup.popup-alert.wrap-popup .popup-but .btn:hover,
