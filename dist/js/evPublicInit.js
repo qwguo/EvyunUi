@@ -8175,7 +8175,7 @@ and dependencies (minified).
             }
             _this.current = 2;
             _this.picker.$inputBegin.val(existDate);
-            _this.picker.$inputEnd.val(inputVal);
+            _this.picker.$inputEnd.val(inputVal).trigger('change');
             _this.picker.datePickerObject.hide(_this.picker.$inputBegin, _this.picker.$inputEnd);
           } else {
             if (b.diff(a) < 0) {

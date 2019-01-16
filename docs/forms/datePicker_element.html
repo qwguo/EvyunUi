@@ -138,7 +138,7 @@ $('.input-element').on('change', 'input', function(){
   <div class="datePicker-show">
     <h4 class="page-header">范围期选择器</h4>
     <h5 class="page-header">年、月、日日期范围</h5>
-    <div class="input-element-joint" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
+    <div class="input-element-joint" id="dataJoint1" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
       <div class="input-element">
         <input size="10" type="text" readonly="readonly" placeholder="输入文字">
       </div>
@@ -147,6 +147,13 @@ $('.input-element').on('change', 'input', function(){
         <input size="10" type="text" readonly="readonly" placeholder="输入文字">
       </div>
     </div>
+    <script>
+        setTimeout(function(){
+          $('#dataJoint1').on('change', 'input', function(){
+            console.log(this.value);
+          });
+        }, 1000);
+      </script>
     <pre class="html" name="pre">
 <div class="input-element-joint" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
   <div class="input-element">
@@ -159,7 +166,7 @@ $('.input-element').on('change', 'input', function(){
 </div>
     </pre>
     <h5 class="page-header">年、月、日/时:分:秒日期范围</h5>
-    <div class="input-element-joint" data-toggle="datePicker" data-date-type="YYYY-MM-DD HH:mm:ss" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
+    <div class="input-element-joint" id="dataJoint2" data-toggle="datePicker" data-date-type="YYYY-MM-DD HH:mm:ss" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
       <div class="input-element prefix">
         <i class="evicon evicon-date-1"></i>
         <input size="10" type="text" readonly="readonly" placeholder="输入文字">
@@ -170,6 +177,13 @@ $('.input-element').on('change', 'input', function(){
         <input size="10" type="text" readonly="readonly" placeholder="输入文字">
       </div>
     </div>
+    <script>
+      setTimeout(function(){
+        $('#dataJoint2').on('change', 'input', function(){
+          console.log(this.value);
+        });
+      }, 1000);
+    </script>
     <pre class="html" name="pre">
 <div class="input-element-joint prefix" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="1">
   <div class="input-element">
