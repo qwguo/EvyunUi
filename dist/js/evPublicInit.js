@@ -9113,7 +9113,7 @@ and dependencies (minified).
       });
     },
     clear: function () {
-      this.$input.val('');
+      this.$input.val('').trigger('change');
       this.$container.find('td.available').removeClass('current');
     },
     show: function () {
@@ -9346,7 +9346,7 @@ and dependencies (minified).
     },
     clear: function () {
       this.$inputBegin.val('');
-      this.$inputEnd.val('');
+      this.$inputEnd.val('').trigger('change');
       this.$container.find('.c-datePicker__input-day,.c-datePicker__input-time').val('');
       this.$container.find('td.available').removeClass('current in-range');
     },
