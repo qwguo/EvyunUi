@@ -49,7 +49,7 @@ gulp.task('minifyCss', function () {
     .pipe(rename({suffix: ".min"}))
     .pipe(minifyCss({keepSpecialComments: 1, keepBreaks: false, removeEmpty: true, debug: true}))
     .pipe(gulp.dest('./dist/css/'));
-  utfToGbk(cssFlow, './dist/css/bootstrap.min.css', './use_version/css/bootstrap.min.css')
+  utfToGbk(cssFlow, './dist/css/bootstrap.min.css', './test_EvyunUi/css/bootstrap.min.css')
 });
 // # 定义一个监控css文件变化的任务
 gulp.task('miniCss', function () {
@@ -78,7 +78,7 @@ gulp.task('miniScript', function() {
     .pipe(minifyJs())
     // .pipe(rename({suffix: ".min"}))
     .pipe(gulp.dest('dist/js'));
-  utfToGbk(jsFlow, './dist/js/evPublicInit-min.js', './use_version/js/evPublicInit-min.js');
+  utfToGbk(jsFlow, './dist/js/evPublicInit-min.js', './test_EvyunUi/js/evPublicInit-min.js');
 });
 
 // # 定义一个监控js文件变化的任务
@@ -120,7 +120,7 @@ gulp.task('popup', function(){
     .pipe(uglify())
     .pipe(rename({suffix: ".min"}))
     .pipe(gulp.dest('./dist/alone_module/popup'));
-  utfToGbk(jsFlow, './dist/alone_module/popup/popup.min.js', './use_version/alone_module/popup/popup.min.js');
+  utfToGbk(jsFlow, './dist/alone_module/popup/popup.min.js', './test_EvyunUi/alone_module/popup/popup.min.js');
   // less - css
   gulp.src(['./src/less/alone_module/popup.less'])
     .pipe(less({
@@ -136,7 +136,7 @@ gulp.task('popup', function(){
     .pipe(rename({suffix: ".min"}))
     .pipe(minifyCss({keepSpecialComments: 1, keepBreaks: false, removeEmpty: true, debug: true}))
     .pipe(gulp.dest('./dist/alone_module/popup'));
-  utfToGbk(cssFlow, './dist/alone_module/popup/popup.min.css', './use_version/alone_module/popup/popup.min.css');
+  utfToGbk(cssFlow, './dist/alone_module/popup/popup.min.css', './test_EvyunUi/alone_module/popup/popup.min.css');
 });
 gulp.task('datePicker', function(){
   //js
@@ -145,7 +145,7 @@ gulp.task('datePicker', function(){
     .pipe(uglify())
     .pipe(rename({suffix: ".min"}))
     .pipe(gulp.dest('./dist/alone_module/datepicker'));
-  utfToGbk(jsFlow, './dist/alone_module/datepicker/datepicker.min.js', './use_version/alone_module/datepicker/datepicker.min.js');
+  utfToGbk(jsFlow, './dist/alone_module/datepicker/datepicker.min.js', './test_EvyunUi/alone_module/datepicker/datepicker.min.js');
   // less - css
   gulp.src(['./src/less/alone_module/datepicker.less'])
     .pipe(less({
@@ -161,7 +161,7 @@ gulp.task('datePicker', function(){
     .pipe(rename({suffix: ".min"}))
     .pipe(minifyCss({keepSpecialComments: 1, keepBreaks: false, removeEmpty: true, debug: true}))
     .pipe(gulp.dest('./dist/alone_module/datepicker'));
-  utfToGbk(cssFlow, './dist/alone_module/datepicker/datepicker.min.css', './use_version/alone_module/datepicker/datepicker.min.css');
+  utfToGbk(cssFlow, './dist/alone_module/datepicker/datepicker.min.css', './test_EvyunUi/alone_module/datepicker/datepicker.min.css');
 
 });
 
