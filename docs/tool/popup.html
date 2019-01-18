@@ -448,6 +448,7 @@ $('#fun_confirm_1').on('click', function(){
             hint: $(this).text() + '提示',
             icon: $(this).index() + 1,
             closeTime: 11,
+            shade: {close: 1},
             closeCallBack: function(){
               $.evPopupPoint({hint: '关闭的回调函数'});
             }
