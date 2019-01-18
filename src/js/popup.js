@@ -8,6 +8,7 @@
       var jd = {
         addTarget: $('body'),
         type: 1,
+        subType: 0,
         win: window,
         className: "",
         shade: {bgColor: '#000000', opacity: 0.5, close: false},
@@ -36,7 +37,7 @@
     constructor: Popup,
     popupId: 0,
     allPopupList: null,
-    alertType: ['alert', 'html', 'iframe', 'loading', 'taps', 'tab'],
+    alertType: [['alert', 'point'], 'html', 'iframe', 'loading', 'taps', 'tab'],
     alertIcon: ['<i class="evicon evicon-right-1 text-success"></i>', '<i class="evicon evicon-close-2 text-warning"></i>', '<i class="evicon evicon-point-2 text-info"></i>', '<i class="evicon load-wait-1"></i>'],
     //得到窗口的宽高，dom的宽高，elemnet的宽高
     winAttr: function () {
@@ -82,7 +83,6 @@
         popupHArray = [],
         popupOpArray = [],
         popupBArray = [];
-
       //这里创建来源对象
       that.originWindow = j.win;
       that.originDocument = j.win.document;
@@ -135,7 +135,7 @@
         //根据不同类型，判断内容区域
         switch (j.type) {
           case 1 :
-            popupBArray.push('<div class="popup-alert-con"><div class="popup-hint-info">');
+            popupBArray.push('<div class="popup-content"><div class="popup-hint-info">');
             j.con.icon && popupBArray.push(that.alertIcon[j.con.icon - 1] || that.alertIcon[0]);
             j.con.html && popupBArray.push(j.con.html);
             popupBArray.push('</div></div>');
@@ -148,34 +148,48 @@
             }
             break;
           case 2:
-            popupBArray.push('<div class="popup-layer-con">');
+            popupBArray.push('<div class="popup-content">');
             popupBArray.push(j.con.html ? ((j.con.html instanceof jQuery) ? j.con.html.html() : j.con.html) : '<p>html代码</p>');
             popupBArray.push('</div>');
             break;
           case 3:
-            popupBArray.push('<div class="popup-iframe-con"><div class="popup-loading-wait"></div>');
+            popupBArray.push('<div class="popup-content"><div class="popup-loading-wait"></div>');
             popupBArray.push('<iframe src="' + j.con.src + '" frameborder="0" allowTransparency="true" name="popup_' + that.popupId + '" id="popup_iframe_' + that.popupId + '"></iframe>');
             popupBArray.push('</div>');
             break;
           case 4:
-            popupBArray.push('<div class="popup-loading-con"><div class="loading-type-' + j.con.icon + '"></div></div>');
+            popupBArray.push('<div class="popup-content"><div class="loading-type-' + j.con.icon + '"></div></div>');
             break;
         }
         popupBArray.push('</div></div>');
       }());
       //构建弹窗
       (function () {
-        var style = ['z-index:' + (that.zIndex++)];
+        var style = ['z-index:' + (that.zIndex++)],
+            className = (function(){
+              var cname = [];
+              switch(j.type){
+                case 1:
+                  cname.push('popup-'+that.alertType[0][j.subType]);
+                break;
+                default:
+                  cname.push('popup-'+that.alertType[j.type - 1]);
+                break;
+              }
+              j.className && cname.push(j.className);
+              j.animate && j.animate.length && cname.push(j.animate[0]);
+              return cname;
+            }());
         !isNaN(j.size.width) && style.push(' width:' + j.size.width + 'px');
         !isNaN(j.size.height) && style.push(' height:' + j.size.height + 'px');
         j.styleCss && style.push(j.styleCss);
         that.popup = $("<div/>", {
-          "class": 'popup popup-' + that.alertType[j.type - 1] + (j.className ? (' ' + j.className) : '') + ((j.animate && j.animate.length) ? (' ' + j.animate[0]) : ''),
+          "class": 'popup '+ className.join(' '),
           "style": style.join(';'),
           "id": 'popup_' + that.popupId,
           html: popupOpArray.join('') + popupHArray.join('') + popupBArray.join('')
         });
-        j.animate && j.animate.length && that.popup.attr('data-animated', j.animate);
+        j.animate && j.animate.length && that.popup.attr('data-animated', j.animate.join());
         that.popup.appendTo(j.addTarget);
         that.popup.on({
           'click': function () {
@@ -406,6 +420,7 @@
   $.evPopupAlert = function (j) {
     var j_ = {
       type: 1,
+      subType: 0,
       position: {pos: 'm-c'},
       shade: {close: 0},
       opBtn: {close: 1, min: 0, max: 0},
@@ -416,6 +431,7 @@
         btn: {'btn0': {text: '确定', className: 'btn-primary'}}
       }
     };
+    j.subType !== undefined && (j_.subType = j.subType);
     j.className !== undefined && (j_.className = j.className);
     j.head !== undefined && (j_.head = j.head);
     j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
@@ -441,9 +457,9 @@
   };
   //Point
   $.evPopupPoint = function (j) {
-    var className = false,
-      j_ = {
+    var j_ = {
         type: 1,
+        subType: 1,
         head: false,
         className: '',
         shade: {close: 0},
@@ -471,8 +487,7 @@
         break;
     }
     j.animate && (j_.animate = j.animate);
-    j.className && (j_.className = j.className + ' point');
-    className && (j_.className = (j_.className + className));
+    j.className && (j_.className = j.className);
     (j.closeTime !== undefined) && (j_.autoClose = j.closeTime);
     j.styleCss && (j_.styleCss = j.styleCss);
     j.closeCallBack && (j_.closeCallBack = j.closeCallBack);

@@ -230,7 +230,6 @@
         + .popup-body{
           .popup-hint-info{
             padding-top: 0;
-            text-align: center;
           }
         }
       }
@@ -297,9 +296,12 @@
   &{
     .popupSkin(@popup-bg; @popup-border-color; @popup-head-bg; @popup-head-border-color; @popup-title-color; @popup-head-option-color; @popup-hint-text-color)
   }
-  &.point{
+  &.popup-point{
     margin: 30px;
     .box-shadow(none);
+    .popup-hint-info{
+      text-align: center;
+    }
     &.primary{
       .popupSkin(@popup-primary-bg; @popup-primary-border; @popup-primary-bg; @popup-primary-text; @popup-primary-text; @popup-primary-text; @popup-primary-text);
       .evicon{color:@popup-primary-text;}
