@@ -7685,14 +7685,8 @@ a.badge:focus {
 .alert.light-danger .alert-link {
   color: #0d0f10;
 }
-.alert.dismissable {
-  padding-right: 30px;
-}
-.alert.dismissable .close {
-  position: relative;
-  top: -2px;
-  right: -21px;
-  color: inherit;
+.alert.no-border {
+  border-width: 0;
 }
 .pagination {
   margin: 20px 0;

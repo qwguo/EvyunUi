@@ -143,14 +143,7 @@
   &.light-danger {
     .alert-variant(@alert-light-danger-bg; @alert-light-danger-border; @alert-light-danger-text);
   }
-  &.dismissable{
-    padding-right: (@alert-padding + 20);
-    // Adjust close link position
-    .close {
-      position: relative;
-      top: -2px;
-      right: -21px;
-      color: inherit;
-    }
+  &.no-border{
+    border-width:0;
   }
 }
