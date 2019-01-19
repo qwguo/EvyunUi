@@ -12,18 +12,23 @@
 
 .form-element {
   .form-item {
+    font-size:0;
     > .item-label {
       width: @form-label-width;
-      float: left;
+      // float: left;
+      display: inline-block;
       text-align: right;
       padding: @form-label-padding-v @form-label-padding-h;
       font-size: @form-label-font-size;
       color: @form-label-color;
+      vertical-align: top;
       + .item-con {
-        margin-left: @form-label-width;
+        // margin-left: @form-label-width;
+        display: inline-block;
+        vertical-align: top;
       }
       &.block{
-        display: block;
+        width:100%;
         float: none;
         text-align: left;
         padding: @form-label-padding-h 0;

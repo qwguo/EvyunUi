@@ -8521,19 +8521,24 @@ a.thumbnail.active {
 .breadcrumb.sm {
   font-size: 12px;
 }
+.form-element .form-item {
+  font-size: 0;
+}
 .form-element .form-item > .item-label {
   width: 140px;
-  float: left;
+  display: inline-block;
   text-align: right;
   padding: 7px 10px;
   font-size: 14px;
   color: #666666;
+  vertical-align: top;
 }
 .form-element .form-item > .item-label + .item-con {
-  margin-left: 140px;
+  display: inline-block;
+  vertical-align: top;
 }
 .form-element .form-item > .item-label.block {
-  display: block;
+  width: 100%;
   float: none;
   text-align: left;
   padding: 10px 0;
