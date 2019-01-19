@@ -8522,10 +8522,11 @@ a.thumbnail.active {
   font-size: 12px;
 }
 .form-element .form-item {
-  font-size: 0;
+  letter-spacing: -0.3em;
 }
 .form-element .form-item > .item-label {
   width: 140px;
+  letter-spacing: normal;
   display: inline-block;
   text-align: right;
   padding: 7px 10px;
@@ -8567,7 +8568,6 @@ a.thumbnail.active {
 }
 .form-element .form-item > .item-con {
   min-height: 34px;
-  font-size: 0;
   /*> .input-element,
       > .input-element-joint,
       > .input-element-brothers,
@@ -8585,6 +8585,7 @@ a.thumbnail.active {
   display: inline-block;
 }
 .form-element .form-item > .item-con > *:not(table):not(fieldset):not(.block) {
+  letter-spacing: normal;
   display: inline-block;
   margin: 0 10px 10px 0;
   vertical-align: middle;
@@ -8593,6 +8594,7 @@ a.thumbnail.active {
   margin-right: 0;
 }
 .form-element .form-item > .item-con > *.block {
+  letter-spacing: normal;
   margin: 0 0 10px 0;
 }
 .form-element .form-item > .item-con .item-tip {
@@ -8639,6 +8641,9 @@ a.thumbnail.active {
 }
 .form-element .form-item.form-item-inline > .item-con {
   display: inline-block;
+}
+.form-element > .form-item-group {
+  letter-spacing: -0.3em;
 }
 .form-element > .form-item-group .form-item {
   display: inline-block;
