@@ -8452,6 +8452,52 @@ a.thumbnail.active {
 .tab-panel.style-2 > .tab-panel-body > .tab-panel-item.no-spacing {
   padding: 0;
 }
+.tab-panel.style-3 {
+  background-color: transparent;
+}
+.tab-panel.style-3 > .tab-panel-heading {
+  height: 41px;
+  line-height: 41px;
+  border-bottom: 1px solid #ededed;
+}
+.tab-panel.style-3 > .tab-panel-heading > .tab-panel-title {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: inline-block;
+  height: 100%;
+  font-size: 14px;
+  border: 1px solid transparent;
+  padding: 0 2.3em;
+  cursor: pointer;
+  margin-right: 0.72em;
+}
+.tab-panel.style-3 > .tab-panel-heading > .tab-panel-title,
+.tab-panel.style-3 > .tab-panel-heading > .tab-panel-title a {
+  text-decoration: none;
+  color: #333333;
+}
+.tab-panel.style-3 > .tab-panel-heading > .tab-panel-title:hover,
+.tab-panel.style-3 > .tab-panel-heading > .tab-panel-title:hover a {
+  text-decoration: none;
+}
+.tab-panel.style-3 > .tab-panel-heading > .tab-panel-title.active {
+  background-color: #fff;
+  margin-bottom: -1px;
+  height: 42px;
+  border-color: #ededed #ededed transparent;
+}
+.tab-panel.style-3 > .tab-panel-heading > .tab-panel-title.active,
+.tab-panel.style-3 > .tab-panel-heading > .tab-panel-title.active a {
+  text-decoration: none;
+  color: #0090ff;
+}
+.tab-panel.style-3 > .tab-panel-body > .tab-panel-item {
+  padding: 10px;
+  background-color: #fff;
+}
+.tab-panel.style-3 > .tab-panel-body > .tab-panel-item.no-spacing {
+  padding: 0;
+}
 .tree-element .tree-item > .tree-body {
   display: none;
 }

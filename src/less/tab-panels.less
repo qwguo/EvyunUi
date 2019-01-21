@@ -35,7 +35,20 @@
 @tab-panel-style-2-title-radius: 5px;
 @tab-panel-style-2-body-bg-color: #fff;
 @tab-panel-style-2-body-padding: 10px;
-
+//style 3
+@tab-panel-style-3-bg: transparent;
+@tab-panel-style-3-radius: 0;
+@tab-panel-style-3-border-color: #f9f9f9;
+@tab-panel-style-3-heading-height: 41px;
+@tab-panel-style-3-heading-border-color: #ededed;
+@tab-panel-style-3-title-color: #333333;
+@tab-panel-style-3-title-border-color: #ededed;
+@tab-panel-style-3-title-hover-color: #0090ff;
+@tab-panel-style-3-title-font-size: 14px;
+@tab-panel-style-3-title-active-color: #0090ff;
+@tab-panel-style-3-title-radius: 5px;
+@tab-panel-style-3-body-bg-color: #fff;
+@tab-panel-style-3-body-padding: 10px;
 
 .tab-panel{
   margin-bottom: @tab-panel-bottom-margin;
@@ -146,6 +159,59 @@
         padding: @tab-panel-style-2-body-padding;
         background-color: @tab-panel-style-2-body-bg-color;
         &.no-spacing{
+          padding: 0;
+        }
+      }
+    }
+  }
+  &.style-3 {
+    background-color: @tab-panel-style-3-bg;
+    >.tab-panel-heading {
+      height: @tab-panel-style-3-heading-height;
+      line-height: @tab-panel-style-3-heading-height;
+      border-bottom: 1px solid @tab-panel-style-3-heading-border-color;
+
+      >.tab-panel-title {
+        .border-top-radius(@tab-panel-style-3-title-radius);
+        display: inline-block;
+        height: 100%;
+        font-size: @tab-panel-style-3-title-font-size;
+        border: 1px solid transparent;
+        &,
+        & a {
+          text-decoration: none;
+          color: @tab-panel-style-3-title-color;
+        }
+
+        padding: 0 2.3em;
+        cursor: pointer;
+        margin-right: .72em;
+        &:hover {
+          &,
+          & a {
+            text-decoration: none;
+          }
+        }
+
+        &.active {
+          background-color:#fff;
+          margin-bottom: -1px;
+          height: @tab-panel-style-3-heading-height + 1px;
+          border-color: @tab-panel-style-3-title-border-color @tab-panel-style-3-title-border-color transparent;
+          &,
+          & a {
+            text-decoration: none;
+            color: @tab-panel-style-3-title-active-color;
+          }
+        }
+      }
+    }
+
+    >.tab-panel-body {
+      >.tab-panel-item {
+        padding: @tab-panel-style-3-body-padding;
+        background-color: @tab-panel-style-3-body-bg-color;
+        &.no-spacing {
           padding: 0;
         }
       }
