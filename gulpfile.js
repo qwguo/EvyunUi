@@ -74,9 +74,11 @@ const scriptSrc = require('./src/js/scriptSrc'),
   scriptArray = scriptSrc.src();
 gulp.task('miniScript', function() {
   var jsFlow = gulp.src(scriptArray)
+    .pipe(sourcemaps.init())
     .pipe(concat('evPublicInit.js'))
     .pipe(minifyJs())
     // .pipe(rename({suffix: ".min"}))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('dist/js'));
   utfToGbk(jsFlow, './dist/js/evPublicInit-min.js', './test_EvyunUi/js/evPublicInit-min.js');
 });

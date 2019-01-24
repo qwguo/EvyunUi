@@ -25,7 +25,7 @@
     <h4 class="page-header">单日期选择器</h4>
     <div class="input-element prefix" id="abc" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="0">
       <i class="evicon evicon-date-1"></i>
-      <input type="text" size="20" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-5">
+      <input type="text" size="20" name="" readonly="readonly" placeholder="选择日期" value="2018-12-5">
     </div>
     <script>
       $(function(){
@@ -37,7 +37,8 @@
     <pre class="js" name="pre">
 //html部分
 &lt;div class="input-element" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-01-02" data-date-min="2018-01-09" data-date-isrange="0"&gt;
-  &lt;input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-05"&gt;
+  &lt;i class="evicon evicon-date-1"&gt;&lt;/i&gt;
+  &lt;input type="text" name="" readonly="readonly" placeholder="选择日期" value="2018-12-05"&gt;
 &lt;/div&gt;
 //js部分，不是必须的如果想要回调函数的话可以绑定
 $('.input-element').on('change', 'input', function(){
@@ -85,52 +86,52 @@ $('.input-element').on('change', 'input', function(){
     <h5 class="page-header">选择年</h5>
     <div class="input-element suffix" data-toggle="datePicker" data-date-type="YYYY" data-date-max="2019" data-date-min="2018">
       <i class="evicon evicon-date-1"></i>
-      <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年" value="">
+      <input type="text" name="" readonly="readonly" placeholder="选择年" value="">
     </div>
     <pre class="html" name="pre">
 <div class="input-element suffix" data-toggle="datePicker" data-date-type="YYYY" data-date-max="2019" data-date-min="2018">
   <i class="evicon evicon-date-1"></i>
-  <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年" value="">
+  <input type="text" name="" readonly="readonly" placeholder="选择年" value="">
 </div>
     </pre>
     <h5 class="page-header">选择年/月</h5>
     <div class="input-element" data-toggle="datePicker" data-date-type="YYYY-MM" data-date-max="2019-10" data-date-min="2018-05">
-      <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年/月" value="">
+      <input type="text" name="" readonly="readonly" placeholder="选择年/月" value="">
     </div>
     <pre class="html" name="pre">
 <div class="input-element" data-toggle="datePicker" data-date-type="YYYY-MM" data-date-max="2019-10" data-date-min="2018-05">
-  <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年/月" value="">
+  <input type="text" name="" readonly="readonly" placeholder="选择年/月" value="">
 </div>
     </pre>
     <h5 class="page-header">选择年/月/日</h5>
     <div class="input-element" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-10-10" data-date-min="2018-10-03">
-      <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年/月/日" value="">
+      <input type="text" name="" readonly="readonly" placeholder="选择年/月/日" value="">
     </div>
     <pre class="html" name="pre">
 <div class="input-element" data-toggle="datePicker" data-date-type="YYYY-MM-DD" data-date-max="2019-10-10" data-date-min="2018-10-03">
-      <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年/月/日" value="">
+      <input type="text" name="" readonly="readonly" placeholder="选择年/月/日" value="">
 </div>
     </pre>
     <h5 class="page-header">选择年/月/日 小时:分钟:秒</h5>
     <div class="input-element suffix" data-toggle="datePicker" data-date-type="YYYY-MM-DD HH:mm:ss" data-date-max="2019-10-10" data-date-min="2018-10-03">
       <i class="evicon evicon-date-2"></i>
-      <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年/月/日" value="">
+      <input type="text" name="" readonly="readonly" placeholder="选择年/月/日" value="">
     </div>
     <pre class="html" name="pre">
 <div class="input-element suffix" data-toggle="datePicker" data-date-type="YYYY-MM-DD HH:mm" data-date-max="2019-10-10" data-date-min="2018-10-03">
   <i class="evicon evicon-date-2"></i>
-  <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年/月/日" value="">
+  <input type="text" name="" readonly="readonly" placeholder="选择年/月/日" value="">
 </div>
     </pre>
     <h5 class="page-header">禁止选择</h5>
     <div class="input-element suffix disabled" data-toggle="datePicker" data-date-type="YYYY-MM-DD HH:mm:ss" data-date-max="2019-10-10" data-date-min="2018-10-03">
       <i class="evicon evicon-date-2"></i>
-      <input type="text" autocomplete="off" name="" disabled="disabled" readonly="readonly" placeholder="选择年/月/日" value="">
+      <input type="text" name="" disabled="disabled" readonly="readonly" placeholder="选择年/月/日" value="">
     </div>
     <pre class="html" name="pre">
 <div class="input-element suffix" data-toggle="datePicker" data-date-type="YYYY-MM-DD HH:mm" data-date-max="2019-10-10" data-date-min="2018-10-03">
   <i class="evicon evicon-date-2"></i>
-  <input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择年/月/日" value="">
+  <input type="text" name="" readonly="readonly" placeholder="选择年/月/日" value="">
 </div>
     </pre>
   </div>
@@ -203,7 +204,7 @@ $('.input-element').on('change', 'input', function(){
     <h4 class="page-header">我们也可以使用方法调用的形式来实现</h4>
       <div class="input-element prefix" id="dataDom">
         <i class="evicon evicon-date-1"></i>
-        <input type="text" size="20" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-5">
+        <input type="text" size="20" name="" readonly="readonly" placeholder="选择日期" value="2018-12-5">
       </div>
     <script>
       $(function(){
@@ -216,7 +217,7 @@ $('.input-element').on('change', 'input', function(){
 //            $.evPopupPoint({hint: '显示选择日期面板前'});
           },
           hide: function(obj){
-            $.evPopupPoint({hint: '选择的日期：'+ obj.val()});
+            obj && obj.length && $.evPopupPoint({hint: '选择的日期：'+ obj.val()});
           }
         });
       });
@@ -224,7 +225,8 @@ $('.input-element').on('change', 'input', function(){
   <pre class="js" name="pre">
 //html部分
 &lt;div class="input-element prefix" id="dataDom"&gt;
-  &lt;input type="text" autocomplete="off" name="" readonly="readonly" placeholder="选择日期" value="2018-12-05"&gt;
+  &lt;i class="evicon evicon-date-1"&gt;&lt;/i&gt;
+  &lt;input type="text" name="" readonly="readonly" placeholder="选择日期" value="2018-12-05"&gt;
 &lt;/div&gt;
 //js部分
 $('#dataDom').datePicker({
