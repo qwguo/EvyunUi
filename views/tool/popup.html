@@ -993,12 +993,12 @@ $('#fun_iframe_2').on('click', function(){
                           icon:3,
                           btn:[{
                             callBack: function(){
-                              $.evPopupPoint({hint:'点击了确定，窗口自动关闭', icon:2});
+                              window.parent.$.evPopupPoint({hint:'点击了确定，窗口自动关闭', icon:2});
                               p_alert.popupClose();
                             }
                           },{
                             callBack:function(){
-                              $.evPopupPoint({hint:'点击了取消，窗口不关闭', icon:2});
+                              window.parent.$.evPopupPoint({hint:'点击了取消，窗口不关闭', icon:2});
                             }
                           }]
                         })

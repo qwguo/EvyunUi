@@ -11,14 +11,29 @@
         subType: 0,
         win: window,
         className: "",
-        shade: {bgColor: '#000000', opacity: 0.5, close: false},
-        size: {full: 0, width: 'auto', height: 'auto'},
-        position: {fixed: 1, pos: 'm-c'},
+        shade: {
+          bgColor: '#000000',
+          opacity: 0.5,
+          close: false
+        },
+        size: {
+          full: 0,
+          width: 'auto',
+          height: 'auto'
+        },
+        position: {
+          fixed: 1,
+          pos: 'm-c'
+        },
         animate: ['zoomIn', 'zoomOut'],
         autoClose: false,
         move: 0,
         head: '默认标题',
-        opBtn: {close: 1, min: 1, max: 1},
+        opBtn: {
+          close: 1,
+          min: 1,
+          max: 1
+        },
         con: {
           html: "提示信息",
           icon: 1,
@@ -37,7 +52,9 @@
     constructor: Popup,
     popupId: 0,
     allPopupList: null,
-    alertType: [['alert', 'point'], 'html', 'iframe', 'loading', 'taps', 'tab'],
+    alertType: [
+      ['alert', 'point'], 'html', 'iframe', 'loading', 'taps', 'tab'
+    ],
     alertIcon: ['<i class="evicon evicon-right-1 text-success"></i>', '<i class="evicon evicon-close-2 text-warning"></i>', '<i class="evicon evicon-point-2 text-info"></i>', '<i class="evicon load-wait-1"></i>'],
     //得到窗口的宽高，dom的宽高，elemnet的宽高
     winAttr: function () {
@@ -58,7 +75,8 @@
     randomS: function (len) {
       var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
         maxPos = chars.length,
-        pwd = '', i;
+        pwd = '',
+        i;
       len = len || 5;
       for (i = 0; i < len; i++) {
         pwd += chars.charAt(Math.floor(Math.random() * maxPos));
@@ -72,7 +90,8 @@
       that.j.addTarget.children().each(function (i, dom) {
         dom = $(dom);
         var z = dom.css('z-index');
-        !isNaN(z) && arr.push(z * 1);
+        !isNaN(z) && (z < 200000000) && arr.push(z * 1);
+        // !isNaN(z) && arr.push(z * 1);
       });
       return Math.max(Math.max.apply(null, arr), 1000);
     },
@@ -105,7 +124,7 @@
         (function () {
           var style = ['z-index:' + (that.zIndex++)];
           !!j.shade.bgColor && style.push(' background-color:' + j.shade.bgColor);
-          !isNaN(j.shade.opacity) && (typeof(j.shade.opacity) === 'string' || typeof(j.shade.opacity) === 'number') && style.push(' opacity:' + j.shade.opacity);
+          !isNaN(j.shade.opacity) && (typeof (j.shade.opacity) === 'string' || typeof (j.shade.opacity) === 'number') && style.push(' opacity:' + j.shade.opacity);
           that.popupShade = $("<div/>", {
             "class": "popup-shade",
             "id": "popupShade_" + that.popupId,
@@ -134,7 +153,7 @@
         popupBArray.push('<div class="popup-body"><div class="popup-body-inside">');
         //根据不同类型，判断内容区域
         switch (j.type) {
-          case 1 :
+          case 1:
             popupBArray.push('<div class="popup-content"><div class="popup-hint-info">');
             j.con.icon && popupBArray.push(that.alertIcon[j.con.icon - 1] || that.alertIcon[0]);
             j.con.html && popupBArray.push(j.con.html);
@@ -142,7 +161,7 @@
             if (j.con.btn) {
               popupBArray.push('<div class="popup-but-area"><span class="popup-but">');
               $.each(j.con.btn, function (i, v) {
-                popupBArray.push('<a href="javascript:;" data-btn-index="' + i + '" data-action="btn" class="btn btn-sm ' + ( v.className || '' ) + '"><span>' + v.text + '</span></a>');
+                popupBArray.push('<a href="javascript:;" data-btn-index="' + i + '" data-action="btn" class="btn btn-sm ' + (v.className || '') + '"><span>' + v.text + '</span></a>');
               });
               popupBArray.push('</span></div>');
             }
@@ -166,25 +185,25 @@
       //构建弹窗
       (function () {
         var style = ['z-index:' + (that.zIndex++)],
-            className = (function(){
-              var cname = [];
-              switch(j.type){
-                case 1:
-                  cname.push('popup-'+that.alertType[0][j.subType]);
+          className = (function () {
+            var cname = [];
+            switch (j.type) {
+              case 1:
+                cname.push('popup-' + that.alertType[0][j.subType]);
                 break;
-                default:
-                  cname.push('popup-'+that.alertType[j.type - 1]);
+              default:
+                cname.push('popup-' + that.alertType[j.type - 1]);
                 break;
-              }
-              j.className && cname.push(j.className);
-              j.animate && j.animate.length && cname.push(j.animate[0]);
-              return cname;
-            }());
+            }
+            j.className && cname.push(j.className);
+            j.animate && j.animate.length && cname.push(j.animate[0]);
+            return cname;
+          }());
         !isNaN(j.size.width) && style.push(' width:' + j.size.width + 'px');
         !isNaN(j.size.height) && style.push(' height:' + j.size.height + 'px');
         j.styleCss && style.push(j.styleCss);
         that.popup = $("<div/>", {
-          "class": 'popup '+ className.join(' '),
+          "class": 'popup ' + className.join(' '),
           "style": style.join(';'),
           "id": 'popup_' + that.popupId,
           html: popupOpArray.join('') + popupHArray.join('') + popupBArray.join('')
@@ -225,7 +244,7 @@
           }
         });
       }());
-      if (!isNaN(j.autoClose) && (typeof(j.autoClose) === 'string' || typeof(j.autoClose) === 'number')) {
+      if (!isNaN(j.autoClose) && (typeof (j.autoClose) === 'string' || typeof (j.autoClose) === 'number')) {
         setTimeout(function () {
           that.popupClose();
         }, j.autoClose * 1000);
@@ -238,22 +257,52 @@
       var that = this,
         j = that.j,
         pos = {
-          't-l': {'left': 0, 'top': 0},
-          't-c': {'left': '50%', 'top': 0, 'margin-left': -that.popup.width() / 2 + 'px'},
-          't-r': {'right': 0, 'top': 0},
-          'm-l': {'left': 0, 'top': '50%', 'margin-top': -that.popup.height() / 2 + 'px'},
+          't-l': {
+            'left': 0,
+            'top': 0
+          },
+          't-c': {
+            'left': '50%',
+            'top': 0,
+            'margin-left': -that.popup.width() / 2 + 'px'
+          },
+          't-r': {
+            'right': 0,
+            'top': 0
+          },
+          'm-l': {
+            'left': 0,
+            'top': '50%',
+            'margin-top': -that.popup.height() / 2 + 'px'
+          },
           'm-c': {
             'left': '50%',
             'top': '50%',
             'margin-top': -that.popup.height() / 2 + 'px',
             'margin-left': -that.popup.width() / 2 + 'px'
           },
-          'm-r': {'right': 0, 'top': '50%', 'margin-top': -that.popup.height() / 2 + 'px'},
-          'b-l': {'left': 0, 'bottom': 0},
-          'b-c': {'left': '50%', 'bottom': 0, 'margin-left': -that.popup.width() / 2 + 'px'},
-          'b-r': {'right': 0, 'bottom': 0}
+          'm-r': {
+            'right': 0,
+            'top': '50%',
+            'margin-top': -that.popup.height() / 2 + 'px'
+          },
+          'b-l': {
+            'left': 0,
+            'bottom': 0
+          },
+          'b-c': {
+            'left': '50%',
+            'bottom': 0,
+            'margin-left': -that.popup.width() / 2 + 'px'
+          },
+          'b-r': {
+            'right': 0,
+            'bottom': 0
+          }
         };
-      j.position.fixed === false && that.popup.css({"position": "absolute"});
+      j.position.fixed === false && that.popup.css({
+        "position": "absolute"
+      });
       that.popup.css(pos[j.position.pos] || pos['m-c']);
     },
     // 计算弹窗宽高
@@ -265,7 +314,8 @@
         case 3:
           (function () {
             var iframes = that.popup.find('iframe'),
-              iframeW = null, iframeH = null;
+              iframeW = null,
+              iframeH = null;
             iframes.on('load.resize', function () {
               that.selfWindow = iframes[0].contentWindow;
               try {
@@ -274,8 +324,7 @@
                 iframes[0].contentWindow.popup = that;
                 iframeW = iframes.contents().width();
                 iframeH = iframes.contents().height();
-              }
-              catch (err) {
+              } catch (err) {
                 iframeW = j.size.width;
                 iframeH = j.size.height;
               }
@@ -297,7 +346,10 @@
                 h = (h === 'auto' ? that.popup.height() : h);
                 w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
                 h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
-                that.popup.css({width: w + 'px', height: h + 'px'});
+                that.popup.css({
+                  width: w + 'px',
+                  height: h + 'px'
+                });
                 iframes.css({
                   width: w + 'px',
                   height: (h - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0)) + 'px'
@@ -331,7 +383,9 @@
       !that.originStyle && (that.originStyle = that.popup.attr('style'));
       var zIndex = that.popup.css('z-index'),
         newStyle = 'bottom: 0; left:' + (j.addTarget.find('.popup-size-min').length * (200 + 10)) + 'px; margin: 0; z-index:' + zIndex + ';';
-      that.popup.addClass('popup-size-min').removeClass('popup-size-max').attr({'style': newStyle});
+      that.popup.addClass('popup-size-min').removeClass('popup-size-max').attr({
+        'style': newStyle
+      });
       that.popupShade && that.popupShade.hide();
     },
     // 最大化弹窗
@@ -340,14 +394,18 @@
       !that.originStyle && (that.originStyle = that.popup.attr('style'));
       var zIndex = that.popup.css('z-index'),
         newStyle = 'z-index:' + zIndex + ';';
-      that.popup.addClass('popup-size-max').removeClass('popup-size-min').attr({'style': newStyle});
+      that.popup.addClass('popup-size-max').removeClass('popup-size-min').attr({
+        'style': newStyle
+      });
       that.popupShade && that.popupShade.show();
     },
     // 还原弹窗
     popupOrig: function () {
       var that = this,
         j = that.j;
-      that.popup.removeClass('popup-size-max popup-size-min').attr({'style': that.originStyle});
+      that.popup.removeClass('popup-size-max popup-size-min').attr({
+        'style': that.originStyle
+      });
       that.popupShade && that.popupShade.show();
       if (j.size.full && j.opBtn && j.opBtn.max) {
         that.popupOffset();
@@ -375,7 +433,7 @@
         j = that.j;
       j.animate && j.animate.length && that.popup.removeClass(j.animate[0] || '').addClass(j.animate[1] || '');
       setTimeout(function () {
-        typeof(j.closeCallBack) === 'function' && j.closeCallBack();
+        typeof (j.closeCallBack) === 'function' && j.closeCallBack();
         that.popup.remove();
         that.popupShade && that.popupShade.remove();
         // that.popup = null;
@@ -421,14 +479,29 @@
     var j_ = {
       type: 1,
       subType: 0,
-      position: {pos: 'm-c'},
-      shade: {close: 0},
-      opBtn: {close: 1, min: 0, max: 0},
-      size: {width: 300},
+      position: {
+        pos: 'm-c'
+      },
+      shade: {
+        close: 0
+      },
+      opBtn: {
+        close: 1,
+        min: 0,
+        max: 0
+      },
+      size: {
+        width: 300
+      },
       con: {
         html: "提示信息",
         icon: 3,
-        btn: {'btn0': {text: '确定', className: 'btn-primary'}}
+        btn: {
+          'btn0': {
+            text: '确定',
+            className: 'btn-primary'
+          }
+        }
       }
     };
     j.subType !== undefined && (j_.subType = j.subType);
@@ -458,20 +531,24 @@
   //Point
   $.evPopupPoint = function (j) {
     var j_ = {
-        type: 1,
-        subType: 1,
-        head: false,
-        className: '',
-        shade: {close: 0},
-        position: {pos: 'm-c'},
-        opBtn: false,
-        con: {
-          html: '<span class="hint-text">提示信息</span>',
-          icon: 1,
-          btn: false
-        },
-        autoClose: 1
-      };
+      type: 1,
+      subType: 1,
+      head: false,
+      className: '',
+      shade: {
+        close: 0
+      },
+      position: {
+        pos: 'm-c'
+      },
+      opBtn: false,
+      con: {
+        html: '<span class="hint-text">提示信息</span>',
+        icon: 1,
+        btn: false
+      },
+      autoClose: 1
+    };
     j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
     j.icon !== undefined && (j_.con.icon = j.icon);
     if (j.shade !== undefined) {
@@ -495,7 +572,13 @@
   };
   //confirm
   $.evPopupConfirm = function (j) {
-    var btn = [{text: '确定', className: 'btn-primary'}, {text: '取消', className: 'btn-outline-danger'}];
+    var btn = [{
+      text: '确定',
+      className: 'btn-primary'
+    }, {
+      text: '取消',
+      className: 'btn-outline-danger'
+    }];
     if (j.btn && $.isArray(j.btn)) {
       $.each(btn, function (i, v) {
         j.btn[i] = $.extend({}, v, j.btn[i]);
@@ -504,16 +587,24 @@
     $.evPopupAlert(j);
   };
   // Prompt
-  $.evPopupPrompt = function (j) {
-  };
+  $.evPopupPrompt = function (j) {};
   // Html代码形式
   $.evPopupHtml = function (j) {
     var j_ = {
       type: 2,
       head: "HTML层",
-      position: {pos: 'm-c'},
-      opBtn: {close: 1, min: 0, max: 0},
-      size: {width: 'auto', height: 'auto'},
+      position: {
+        pos: 'm-c'
+      },
+      opBtn: {
+        close: 1,
+        min: 0,
+        max: 0
+      },
+      size: {
+        width: 'auto',
+        height: 'auto'
+      },
       win: window,
       con: {
         html: '<p>这是html代码</p>'
@@ -522,7 +613,7 @@
     var getHtml = function (str) {
       if (str instanceof jQuery) {
         str = str.html()
-      } else if (typeof(str) === 'string' && $.inArray(str.substr(0, 1), ['.', '#']) != -1 && $(str).length) {
+      } else if (typeof (str) === 'string' && $.inArray(str.substr(0, 1), ['.', '#']) != -1 && $(str).length) {
         str = $(str).html();
       }
       return str;
@@ -547,8 +638,12 @@
     var j_ = {
       type: 4,
       head: false,
-      shade: {close: 0},
-      position: {pos: 'm-c'},
+      shade: {
+        close: 0
+      },
+      position: {
+        pos: 'm-c'
+      },
       opBtn: false,
       con: {
         icon: 1
@@ -567,9 +662,15 @@
   $.evPopupIframe = function (j) {
     var j_ = {
       type: 3,
-      position: {pos: 'm-c'},
+      position: {
+        pos: 'm-c'
+      },
       size: {},
-      opBtn: {close: 1, max: 0, min: 0},
+      opBtn: {
+        close: 1,
+        max: 0,
+        min: 0
+      },
       con: {
         src: 'http://www.evyun.cn'
       }
