@@ -4198,7 +4198,7 @@ and dependencies (minified).
     j.className !== undefined && (j_.className = j.className);
     j.head !== undefined && (j_.head = j.head);
     j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
-    j.icon && (j_.con.icon = j.icon);
+    j.icon !== undefined && (j_.con.icon = j.icon);
     j.win && (j_.win = j.win);
     j.position && (j_.position.pos = j.position);
     if (j.shade != undefined) {
@@ -4247,7 +4247,7 @@ and dependencies (minified).
     j.position && (j_.position.pos = j.position);
     switch (j.style) {
       case 'block':
-        className = ' block';
+        j.className = j.className + ' block';
         j_.animate = ['fadeInDown', 'fadeOutUp'];
         j_.shade = false;
         j_.position.pos = j.position ? j.position : 't-c';

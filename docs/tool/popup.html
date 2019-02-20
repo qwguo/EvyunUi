@@ -276,7 +276,7 @@ $('#close_win_all').on('click', function(){
         $.evPopupConfirm({
           head: '弹窗标题',
           hint: '弹窗提示框',
-          icon: 3,
+          icon: false,
           btn: [{
             className: 'btn-outline-primary',
             callBack: function () {
@@ -426,19 +426,19 @@ $('#fun_confirm_1').on('click', function(){
       <button type="button" data-skin="info" data-type="block" class="btn btn-info">
         <span>等待</span>
       </button>
-      <button type="button" data-skin="light-primary" data-type="block" class="btn btn-info">
+      <button type="button" data-skin="light-primary" data-type="block" class="btn btn-lighter-primary">
         <span>等待</span>
       </button>
-      <button type="button" data-skin="light-success" data-type="block" class="btn btn-success">
+      <button type="button" data-skin="light-success" data-type="block" class="btn btn-lighter-success">
         <span>正确</span>
       </button>
-      <button type="button" data-skin="light-danger" data-type="block" class="btn btn-danger">
+      <button type="button" data-skin="light-danger" data-type="block" class="btn btn-gray">
         <span>错误</span>
       </button>
-      <button type="button" data-skin="light-warning" data-type="block" class="btn btn-warning">
+      <button type="button" data-skin="light-warning" data-type="block" class="btn btn-lighter-warning">
         <span>警告</span>
       </button>
-      <button type="button" data-skin="light-info" data-type="block" class="btn btn-primary">
+      <button type="button" data-skin="light-info" data-type="block" class="btn btn-lighter-info">
         <span>等待</span>
       </button>
     </div>
