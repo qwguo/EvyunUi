@@ -238,7 +238,7 @@
         setTimeout(function () {
           that.popupCountWH();
           that.popupOffset();
-          that.popupDrag();
+          // that.popupDrag();
           if (j.size.full) {
             that.popupMax();
           }
