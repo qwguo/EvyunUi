@@ -8639,6 +8639,9 @@ a.thumbnail.active {
 .form-element .form-item > .item-con > *.block {
   margin: 0 0 10px 0;
 }
+.form-element .form-item > .item-con .block {
+  display: block;
+}
 .form-element .form-item > .item-con .item-tip {
   display: inline-block;
   vertical-align: middle;
