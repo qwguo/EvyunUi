@@ -3596,12 +3596,12 @@ and dependencies (minified).
               ev.stopPropagation();
             }else{
               if($this.attr('data-multiple') * 1){
-                $this.find('input[type="hidden"]').val(curItem.attr('data-value'));
-                $this.find('input[type="text"]').val(cTargetDom.text());
+                $this.find('input[type="hidden"]').val(curItem.attr('data-value')).change();
+                $this.find('input[type="text"]').val(cTargetDom.text()).change();
               }else{
                 curItem.addClass('active').siblings('.active').removeClass('active');
-                $this.find('input[type="hidden"]').val(curItem.attr('data-value'));
-                $this.find('input[type="text"]').val(cTargetDom.text());
+                $this.find('input[type="hidden"]').val(curItem.attr('data-value')).change();
+                $this.find('input[type="text"]').val(cTargetDom.text()).change();
               }
             }
           }
