@@ -4133,8 +4133,8 @@ button.close {
 @font-face {
   font-family: 'evicon';
   /* project id 931572 */
-  src: url('//at.alicdn.com/t/font_931572_m63w6ud3y4.eot');
-  src: url('//at.alicdn.com/t/font_931572_m63w6ud3y4.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_m63w6ud3y4.woff') format('woff'), url('//at.alicdn.com/t/font_931572_m63w6ud3y4.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_m63w6ud3y4.svg#evicon') format('svg');
+  src: url('//at.alicdn.com/t/font_931572_q9fej8601x.eot');
+  src: url('//at.alicdn.com/t/font_931572_q9fej8601x.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_q9fej8601x.woff2') format('woff2'), url('//at.alicdn.com/t/font_931572_q9fej8601x.woff') format('woff'), url('//at.alicdn.com/t/font_931572_q9fej8601x.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_q9fej8601x.svg#evicon') format('svg');
 }
 .evicon {
   position: relative;
@@ -4145,6 +4145,12 @@ button.close {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.evicon-magnify-1:before {
+  content: "\e615";
+}
+.evicon-lessen-1:before {
+  content: "\e619";
 }
 .evicon-resize-lg-1:before {
   content: "\e609";
