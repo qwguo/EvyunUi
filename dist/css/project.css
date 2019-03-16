@@ -105,6 +105,7 @@ code {
 .arr-explain-list li,
 .arr-explain-list dd {
   padding: 5px 0;
+  line-height: 2;
 }
 /*gird*/
 .show-grid .row {
