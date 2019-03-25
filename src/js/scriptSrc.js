@@ -16,3 +16,4 @@ exports.src = function(){
     './src/js/zzev_init.js'
   ];
 };
+/* './src/js/pagination.js' */

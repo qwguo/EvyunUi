@@ -23,7 +23,7 @@
 <div class="show-page">
   <h3 class="page-header">页码样式</h3>
   <h4 class="page-header">默认页码</h4>
-  <div class="pagination" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
+  <div class="pagination" id="pagination" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
     <span class="page-number">
       <a class="disabled" href="###" data-page="1">上一页</a>
       <a href="###" data-page="1">1</a>
@@ -35,6 +35,19 @@
       <a href="###" data-page="3">下一页</a>
     </span>
   </div>
+  <script>
+     /*  console.log($.fn)
+      console.log($('#pagination'))
+      $(function(){
+          $('#pagination').pagination({
+            dataTotal: 100,//数据总数
+            pageDataNum: 4,//每页数据数
+            curPage: 1,//当前页
+            pageGroups: 4,//显示页码的个数
+            callBack: function(config){}
+          });
+      }) */
+  </script>
   <pre class="html" name="pre">
 <div class="pagination" data-page="1" data-total="13" data-pagedatanum="3" data-curpage="1" data-pagegroups="5">
   <span class="page-number">
