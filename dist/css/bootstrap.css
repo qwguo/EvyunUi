@@ -4132,8 +4132,9 @@ button.close {
 }
 @font-face {
   font-family: 'evicon';
-  src: url('//at.alicdn.com/t/font_931572_q9fej8601x.eot');
-  src: url('//at.alicdn.com/t/font_931572_q9fej8601x.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_q9fej8601x.woff2') format('woff2'), url('//at.alicdn.com/t/font_931572_q9fej8601x.woff') format('woff'), url('//at.alicdn.com/t/font_931572_q9fej8601x.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_q9fej8601x.svg#evicon') format('svg');
+  /* project id 931572 */
+  src: url('//at.alicdn.com/t/font_931572_siq3oydbr6f.eot');
+  src: url('//at.alicdn.com/t/font_931572_siq3oydbr6f.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_siq3oydbr6f.woff2') format('woff2'), url('//at.alicdn.com/t/font_931572_siq3oydbr6f.woff') format('woff'), url('//at.alicdn.com/t/font_931572_siq3oydbr6f.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_siq3oydbr6f.svg#evicon') format('svg');
 }
 .evicon {
   position: relative;
@@ -4144,6 +4145,12 @@ button.close {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.evicon-right-3:before {
+  content: "\e69e";
+}
+.evicon-point-3:before {
+  content: "\e660";
 }
 .evicon-magnify-1:before {
   content: "\e615";
