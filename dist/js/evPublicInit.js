@@ -1,187 +1,208 @@
-;(function ($, window, document, undefined) {
-  //定义的构造函数
-  var Drag = function (ele, opt) {
-      this.$ele = ele;
-      this.x = 0;
-      this.y = 0;
-      this.defaults = {
-        parent: 'parent',
-        randomPosition: true,
-        direction: 'all',
-        handler: false,
-        dragStart: function (x, y) {
-        },
-        dragEnd: function (x, y) {
-        },
-        dragMove: function (x, y) {
-        }
-      };
-      this.options = $.extend({}, this.defaults, opt);
-  };
-  //定义方法
-  Drag.prototype = {
-    run: function () {
-      var $this = this;
-      var element = this.$ele;
-      var randomPosition = this.options.randomPosition; //位置
-      var direction = this.options.direction; //方向
-      var handler = this.options.handler;
-      var parent = this.options.parent;
-      var isDown = false; //记录鼠标是否按下
-      var fun = this.options; //使用外部函数
-      var X = 0,
-        Y = 0,
-        moveX,
-        moveY;
-      // 阻止冒泡
-      element.find('*').not('img').mousedown(function (e) {
-        e.stopPropagation();
-      });
-      //初始化判断
-      if (parent == 'parent') {
-        parent = element.parent();
-      } else {
-        parent = element.parents(parent);
-      }
-      if (!handler) {
-        handler = element;
-      } else {
-        handler = element.find(handler);
-      }
-      //初始化
-      // parent.css({position: 'relative'});
-      // element.css({position: 'absolute'});
-      var boxWidth = 0, boxHeight = 0, sonWidth = 0, sonHeight = 0;
-      //盒子 和 元素大小初始化
-      initSize();
-      if (randomPosition) {
-        randomPlace();
-      }
-      /*$(window).resize(function () {
-        initSize();
-        if (randomPosition) {
-          randomPlace();
-        }
-      });*/
-
-      //盒子 和 元素大小初始化函数
-      function initSize() {
-        boxWidth = parent.outerWidth();
-        boxHeight = parent.outerHeight();
-        sonWidth = element.outerWidth();
-        sonHeight = element.outerHeight();
-      }
-
-      //位置随机函数
-      function randomPlace() {
-        if (randomPosition) {
-          var randX = parseInt(Math.random() * (boxWidth - sonWidth));
-          var randY = parseInt(Math.random() * (boxHeight - sonHeight));
-          if (direction.toLowerCase() === 'x') {
-            element.css({left: randX});
-          } else if (direction.toLowerCase() === 'y') {
-            element.css({top: randY});
-          } else {
-            element.css({left: randX, top: randY});
-          }
-        }
-      }
-
-      handler.css({cursor: 'move'}).mousedown(function (e) {
-        isDown = true;
-        X = e.pageX;
-        Y = e.pageY;
-        $this.x = element.position().left;
-        $this.y = element.position().top;
-        element.addClass('on');
-        fun.dragStart(parseInt(element.css('left')), parseInt(element.css('top')));
-        jqDocument =$(document);
-        jqDocument.on('mouseup.popupDrag', function (e) {
-          fun.dragEnd(parseInt(element.css('left')), parseInt(element.css('top')));
-          element.removeClass('on');
-          jqDocument.off('.popupDrag');
-          isDown = false;
-        });
-        jqDocument.on('mousemove.popupDrag', function (e) {
-          moveX = $this.x + e.pageX - X;
-          moveY = $this.y + e.pageY - Y;
-          function thisXMove() { //x轴移动
-            if (isDown) {
-              element.css({left: moveX});
+;
+(function ($, window, document, undefined) {
+    //定义的构造函数
+    var Drag = function (ele, opt) {
+        this.$ele = ele;
+        this.x = 0;
+        this.y = 0;
+        this.defaults = {
+            parent: 'parent',
+            randomPosition: true,
+            direction: 'all',
+            handler: false,
+            dragStart: function (x, y) {},
+            dragEnd: function (x, y) {},
+            dragMove: function (x, y) {}
+        };
+        this.options = $.extend({}, this.defaults, opt);
+    };
+    //定义方法
+    Drag.prototype = {
+        run: function () {
+            var $this = this;
+            var element = this.$ele;
+            var randomPosition = this.options.randomPosition; //位置
+            var direction = this.options.direction; //方向
+            var handler = this.options.handler;
+            var parent = this.options.parent;
+            var isDown = false; //记录鼠标是否按下
+            var fun = this.options; //使用外部函数
+            var X = 0,
+                Y = 0,
+                moveX,
+                moveY,
+                moveLayer = null;
+            // 阻止冒泡
+            element.find('*').not('img').mousedown(function (e) {
+                e.stopPropagation();
+            });
+            //初始化判断
+            if (parent == 'parent') {
+                parent = element.parent();
             } else {
-              return;
+                parent = element.parents(parent);
             }
-            if (moveX < 0) {
-              element.css({left: 0});
-            }
-            if (moveX > (boxWidth - sonWidth)) {
-              element.css({left: boxWidth - sonWidth});
-            }
-            return moveX;
-          }
-
-          function thisYMove() { //y轴移动
-            if (isDown) {
-              element.css({top: moveY});
+            if (!handler) {
+                handler = element;
             } else {
-              return;
+                handler = element.find(handler);
             }
-            if (moveY < 0) {
-              element.css({top: 0});
+            //初始化
+            // parent.css({position: 'relative'});
+            // element.css({position: 'absolute'});
+            var boxWidth = 0,
+                boxHeight = 0,
+                sonWidth = 0,
+                sonHeight = 0;
+            //盒子 和 元素大小初始化
+            initSize();
+            if (randomPosition) {
+                randomPlace();
             }
-            if (moveY > (boxHeight - sonHeight)) {
-              element.css({top: boxHeight - sonHeight});
-            }
-            return moveY;
-          }
+            /*$(window).resize(function () {
+              initSize();
+              if (randomPosition) {
+                randomPlace();
+              }
+            });*/
 
-          function thisAllMove() { //全部移动
-            if (isDown) {
-              element.css({left: moveX, top: moveY});
-            } else {
-              return;
+            //盒子 和 元素大小初始化函数
+            function initSize() {
+                boxWidth = parent.outerWidth();
+                boxHeight = parent.outerHeight();
+                sonWidth = element.outerWidth();
+                sonHeight = element.outerHeight();
             }
 
-            if (moveX < 0) {
-              element.css({left: 0});
+            //位置随机函数
+            function randomPlace() {
+                if (randomPosition) {
+                    var randX = parseInt(Math.random() * (boxWidth - sonWidth));
+                    var randY = parseInt(Math.random() * (boxHeight - sonHeight));
+                    if (direction.toLowerCase() === 'x') {
+                        element.css({
+                            left: randX
+                        });
+                    } else if (direction.toLowerCase() === 'y') {
+                        element.css({
+                            top: randY
+                        });
+                    } else {
+                        element.css({
+                            left: randX,
+                            top: randY
+                        });
+                    }
+                }
             }
-            if (moveX > (boxWidth - sonWidth)) {
-              element.css({left: boxWidth - sonWidth});
-            }
-            if (moveY < 0) {
-              element.css({top: 0});
-            }
-            if (moveY > (boxHeight - sonHeight)) {
-              element.css({top: boxHeight - sonHeight});
-            }
-          }
 
-          if (isDown) {
-            fun.dragMove(parseInt(element.css('left')), parseInt(element.css('top')));
-          } else {
-            return false;
-          }
-          if (direction.toLowerCase() === "x") {
-            thisXMove();
-          } else if (direction.toLowerCase() === "y") {
-            thisYMove();
-          } else {
-            thisAllMove();
-          }
-        });
-        return false;
-      });
+            handler.css({
+                cursor: 'move'
+            }).mousedown(function (e) {
+                isDown = true;
+                moveLayer = $('<div />', {class:'move-layer'});
+                element.after(moveLayer);
+
+                X = e.pageX;
+                Y = e.pageY;
+                $this.x = element.position().left;
+                $this.y = element.position().top;
+                $this.marginL = parseInt(element.css('margin-left'));
+                $this.marginT = parseInt(element.css('margin-top'));
+                $this.marginL = $this.marginL < 0 ? Math.abs($this.marginL) : 0;
+                $this.marginT = $this.marginT < 0 ? Math.abs($this.marginT) : 0;
+                element.addClass('on');
+                fun.dragStart(parseInt(element.css('left')), parseInt(element.css('top')));
+                jqDocument = $(document);
+                // console.log(jqDocument);
+                jqDocument.on('mouseup.popupDrag', function (e) {
+                    moveLayer && moveLayer.remove();
+                    fun.dragEnd(parseInt(element.css('left')), parseInt(element.css('top')));
+                    element.removeClass('on');
+                    jqDocument.off('.popupDrag');
+                    isDown = false;
+                });
+                jqDocument.on('mousemove.popupDrag', function (e) {
+                    moveX = $this.x + e.pageX - X;
+                    moveY = $this.y + e.pageY - Y;
+                    /* console.log(moveX);
+                    console.log(moveY);
+                    console.log($this.x);
+                    console.log($this.y);
+                    console.log(X);
+                    console.log(Y);
+                    console.log($this.marginL);
+                    console.log($this.marginT);
+                    console.log('---------------------'); */
+                    function thisXMove() { //x轴移动
+                        if (isDown) {
+                            element.css({
+                                left: moveX
+                            });
+                        } else {
+                            return;
+                        }
+                        if (moveX < (0 + $this.marginL)) {
+                            element.css({
+                                left: 0 + $this.marginL
+                            });
+                        }
+                        if (moveX > (boxWidth - sonWidth + $this.marginL)) {
+                            element.css({
+                                left: boxWidth - sonWidth + $this.marginL
+                            });
+                        }
+                        return moveX;
+                    }
+
+                    function thisYMove() { //y轴移动
+                        if (isDown) {
+                            element.css({
+                                top: moveY
+                            });
+                        } else {
+                            return;
+                        }
+                        if (moveY < 0 + $this.marginT) {
+                            element.css({
+                                top: 0 + $this.marginT
+                            });
+                        }
+                        if (moveY > (boxHeight - sonHeight + $this.marginT)) {
+                            element.css({
+                                top: boxHeight - sonHeight + $this.marginT
+                            });
+                        }
+                        return moveY;
+                    }
+
+                    if (isDown) {
+                        fun.dragMove(parseInt(element.css('left')), parseInt(element.css('top')));
+                    } else {
+                        return false;
+                    }
+                    if (direction.toLowerCase() === "x") {
+                        thisXMove();
+                    } else if (direction.toLowerCase() === "y") {
+                        thisYMove();
+                    } else {
+                        thisXMove();
+                        thisYMove();
+                    }
+                });
+                return false;
+            });
+        }
+    };
+
+    //插件
+    $.fn.drag = function (options) {
+        //创建实体
+        var drag = new Drag(this, options);
+        //调用方法
+        drag.run();
+        return this;
     }
-  };
-
-  //插件
-  $.fn.drag = function (options) {
-    //创建实体
-    var drag = new Drag(this, options);
-    //调用方法
-    drag.run();
-    return this;
-  }
 })(jQuery, window, document);
 
 /*!
@@ -3690,751 +3711,756 @@ and dependencies (minified).
 
 // Popup
 (function (window, $) {
-  var Popup = function (j_) {
-    var that = this;
-    that.topWindow = window.top;
-    that.topDocument = window.top.document;
-    if (j_) {
-      var jd = {
-        addTarget: $('body'),
-        type: 1,
-        subType: 0,
-        win: window,
-        className: "",
-        shade: {
-          bgColor: '#000000',
-          opacity: 0.5,
-          close: false
-        },
-        size: {
-          full: 0,
-          width: 'auto',
-          height: 'auto'
-        },
-        position: {
-          fixed: 1,
-          pos: 'm-c'
-        },
-        animate: ['zoomIn', 'zoomOut'],
-        autoClose: false,
-        move: 0,
-        head: '默认标题',
-        opBtn: {
-          close: 1,
-          min: 1,
-          max: 1
-        },
-        con: {
-          html: "提示信息",
-          icon: 1,
-          src: null,
-          btn: null
-        },
-        closeCallBack: null,
-        styleCss: null
-      };
-      j_.addTarget = j_.addTarget || $('body');
-      that.j = $.extend(true, {}, jd, j_);
-      that.createDom();
-    }
-  };
-  Popup.prototype = {
-    constructor: Popup,
-    popupId: 0,
-    allPopupList: null,
-    alertType: [
-      ['alert', 'point'], 'html', 'iframe', 'loading', 'taps', 'tab'
-    ],
-    alertIcon: ['<i class="evicon evicon-right-1 text-success"></i>', '<i class="evicon evicon-close-2 text-warning"></i>', '<i class="evicon evicon-point-2 text-info"></i>', '<i class="evicon load-wait-1"></i>'],
-    //得到窗口的宽高，dom的宽高，elemnet的宽高
-    winAttr: function () {
-      var that = this,
-        win = $(window),
-        doc = $(document);
-      return {
-        winW: win.width(),
-        winH: win.height(),
-        docW: doc.width(),
-        docH: doc.height(),
-        docST: doc.scrollTop(),
-        docSL: doc.scrollLeft(),
-        popupW: that.popup.width(),
-        popupH: that.popup.height()
-      };
-    },
-    randomS: function (len) {
-      var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
-        maxPos = chars.length,
-        pwd = '',
-        i;
-      len = len || 5;
-      for (i = 0; i < len; i++) {
-        pwd += chars.charAt(Math.floor(Math.random() * maxPos));
-      }
-      return pwd;
-    },
-    // 计算页面最大层
-    maxZindex: function () {
-      var that = this;
-      var arr = [];
-      that.j.addTarget.children().each(function (i, dom) {
-        dom = $(dom);
-        var z = dom.css('z-index');
-        !isNaN(z) && (z < 200000000) && arr.push(z * 1);
-        // !isNaN(z) && arr.push(z * 1);
-      });
-      return Math.max(Math.max.apply(null, arr), 1000);
-    },
-    // 创建弹窗dom元素
-    createDom: function () {
-      var that = this,
-        j = that.j,
-        popupHArray = [],
-        popupOpArray = [],
-        popupBArray = [];
-      //这里创建来源对象
-      that.originWindow = j.win;
-      that.originDocument = j.win.document;
-      that.popupId = that.randomS(5);
-      that.maxZindex();
-      that.zIndex = that.maxZindex() + 1;
-      var evPopup = that.topWindow.evPopup,
-        tag = true;
-      evPopup && evPopup['popup_' + that.popupId] && (that.popupId = that.randomS(5));
-      evPopup && $.each(evPopup, function (i, v) {
-        if (v) {
-          tag = null;
-          return false;
+    var Popup = function (j_) {
+        var that = this;
+        that.topWindow = window.top;
+        that.topDocument = window.top.document;
+        if (j_) {
+            var jd = {
+                addTarget: $('body'),
+                type: 1,
+                subType: 0,
+                win: window,
+                className: "",
+                shade: {
+                    bgColor: '#000000',
+                    opacity: 0.5,
+                    close: false
+                },
+                size: {
+                    full: 0,
+                    width: 'auto',
+                    height: 'auto'
+                },
+                position: {
+                    fixed: 1,
+                    pos: 'm-c'
+                },
+                animate: ['zoomIn', 'zoomOut'],
+                autoClose: false,
+                move: 0,
+                head: '默认标题',
+                opBtn: {
+                    close: 1,
+                    min: 1,
+                    max: 1
+                },
+                con: {
+                    html: "提示信息",
+                    icon: 1,
+                    src: null,
+                    btn: null
+                },
+                closeCallBack: null,
+                styleCss: null
+            };
+            j_.addTarget = j_.addTarget || $('body');
+            that.j = $.extend(true, {}, jd, j_);
+            that.createDom();
         }
-      });
-      tag && (evPopup = that.topWindow.evPopup = {});
-      evPopup['popup_' + that.popupId] = that;
-      //添加遮罩
-      if (j.shade) {
-        (function () {
-          var style = ['z-index:' + (that.zIndex++)];
-          !!j.shade.bgColor && style.push(' background-color:' + j.shade.bgColor);
-          !isNaN(j.shade.opacity) && (typeof (j.shade.opacity) === 'string' || typeof (j.shade.opacity) === 'number') && style.push(' opacity:' + j.shade.opacity);
-          that.popupShade = $("<div/>", {
-            "class": "popup-shade",
-            "id": "popupShade_" + that.popupId,
-            "style": style.join(';')
-          }).appendTo(j.addTarget);
-          if (j.shade.close) {
-            that.popupShade.on('click', function () {
-              that.popupClose();
+    };
+    Popup.prototype = {
+        constructor: Popup,
+        popupId: 0,
+        allPopupList: null,
+        alertType: [
+            ['alert', 'point'], 'html', 'iframe', 'loading', 'taps', 'tab'
+        ],
+        alertIcon: ['<i class="evicon evicon-right-1 text-success"></i>', '<i class="evicon evicon-close-2 text-warning"></i>', '<i class="evicon evicon-point-2 text-info"></i>', '<i class="evicon load-wait-1"></i>'],
+        //得到窗口的宽高，dom的宽高，elemnet的宽高
+        winAttr: function () {
+            var that = this,
+                win = $(window),
+                doc = $(document);
+            return {
+                winW: win.width(),
+                winH: win.height(),
+                docW: doc.width(),
+                docH: doc.height(),
+                docST: doc.scrollTop(),
+                docSL: doc.scrollLeft(),
+                popupW: that.popup.width(),
+                popupH: that.popup.height()
+            };
+        },
+        randomS: function (len) {
+            var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
+                maxPos = chars.length,
+                pwd = '',
+                i;
+            len = len || 5;
+            for (i = 0; i < len; i++) {
+                pwd += chars.charAt(Math.floor(Math.random() * maxPos));
+            }
+            return pwd;
+        },
+        // 计算页面最大层
+        maxZindex: function () {
+            var that = this;
+            var arr = [];
+            that.j.addTarget.children().each(function (i, dom) {
+                dom = $(dom);
+                var z = dom.css('z-index');
+                !isNaN(z) && (z < 200000000) && arr.push(z * 1);
+                // !isNaN(z) && arr.push(z * 1);
             });
-          }
-        }());
-      }
-      //添加标题和按钮
-      if (j.head) {
-        popupHArray.push('<div class="popup-head"><span class="popup-title">' + (j.head || '') + '</span></div>');
-      }
-      if (j.opBtn) {
-        popupOpArray.push('<div class="popup-option">');
-        !!j.opBtn.min && popupOpArray.push('<i class="evicon evicon-resize-xs-1" data-action="min" title="最小化"></i>');
-        !!j.opBtn.max && popupOpArray.push('<i class="evicon evicon-resize-lg-1" data-action="max" title="最大化"></i><i class="evicon evicon-resize-orig-1" data-action="orig" title="还原"></i>');
-        !!j.opBtn.close && popupOpArray.push('<i class="evicon evicon-close-1" data-action="close" title="关闭"></i>');
-        popupOpArray.push('</div>');
-      }
-      //构建弹窗内容
-      (function () {
-        popupBArray.push('<div class="popup-body"><div class="popup-body-inside">');
-        //根据不同类型，判断内容区域
-        switch (j.type) {
-          case 1:
-            popupBArray.push('<div class="popup-content"><div class="popup-hint-info">');
-            j.con.icon && popupBArray.push(that.alertIcon[j.con.icon - 1] || that.alertIcon[0]);
-            j.con.html && popupBArray.push(j.con.html);
-            popupBArray.push('</div></div>');
-            if (j.con.btn) {
-              popupBArray.push('<div class="popup-but-area"><span class="popup-but">');
-              $.each(j.con.btn, function (i, v) {
-                popupBArray.push('<a href="javascript:;" data-btn-index="' + i + '" data-action="btn" class="btn btn-sm ' + (v.className || '') + '"><span>' + v.text + '</span></a>');
-              });
-              popupBArray.push('</span></div>');
-            }
-            break;
-          case 2:
-            popupBArray.push('<div class="popup-content">');
-            popupBArray.push(j.con.html ? ((j.con.html instanceof jQuery) ? j.con.html.html() : j.con.html) : '<p>html代码</p>');
-            popupBArray.push('</div>');
-            break;
-          case 3:
-            popupBArray.push('<div class="popup-content"><div class="popup-loading-wait"></div>');
-            popupBArray.push('<iframe src="' + j.con.src + '" frameborder="0" allowTransparency="true" name="popup_' + that.popupId + '" id="popup_iframe_' + that.popupId + '"></iframe>');
-            popupBArray.push('</div>');
-            break;
-          case 4:
-            popupBArray.push('<div class="popup-content"><div class="loading-type-' + j.con.icon + '"></div></div>');
-            break;
-        }
-        popupBArray.push('</div></div>');
-      }());
-      //构建弹窗
-      (function () {
-        var style = ['z-index:' + (that.zIndex++)],
-          className = (function () {
-            var cname = [];
-            switch (j.type) {
-              case 1:
-                cname.push('popup-' + that.alertType[0][j.subType]);
-                break;
-              default:
-                cname.push('popup-' + that.alertType[j.type - 1]);
-                break;
-            }
-            j.className && cname.push(j.className);
-            j.animate && j.animate.length && cname.push(j.animate[0]);
-            return cname;
-          }());
-        !isNaN(j.size.width) && style.push(' width:' + j.size.width + 'px');
-        !isNaN(j.size.height) && style.push(' height:' + j.size.height + 'px');
-        j.styleCss && style.push(j.styleCss);
-        that.popup = $("<div/>", {
-          "class": 'popup ' + className.join(' '),
-          "style": style.join(';'),
-          "id": 'popup_' + that.popupId,
-          html: popupOpArray.join('') + popupHArray.join('') + popupBArray.join('')
-        });
-        j.animate && j.animate.length && that.popup.attr('data-animated', j.animate.join());
-        that.popup.appendTo(j.addTarget);
-        that.popup.on({
-          'click': function () {
-            var targetDom = $(this);
-            switch (targetDom.data('action')) {
-              case 'min':
-                that.popupMin();
-                break;
-              case 'max':
-                that.popupMax();
-                break;
-              case 'orig':
-                that.popupOrig();
-                break;
-              case 'close':
-                that.popupClose();
-                break;
-              case 'btn':
-                j.con.btn && j.con.btn[targetDom.data('btnIndex')]['callBack'] && j.con.btn[targetDom.data('btnIndex')]['callBack'](targetDom, that.popup);
-                if (!j.con.btn[targetDom.data('btnIndex')]['noClose']) {
-                  that.popupClose();
+            return Math.max(Math.max.apply(null, arr), 1000);
+        },
+        // 创建弹窗dom元素
+        createDom: function () {
+            var that = this,
+                j = that.j,
+                popupHArray = [],
+                popupOpArray = [],
+                popupBArray = [];
+            //这里创建来源对象
+            that.originWindow = j.win;
+            that.originDocument = j.win.document;
+            that.popupId = that.randomS(5);
+            that.maxZindex();
+            that.zIndex = that.maxZindex() + 1;
+            var evPopup = that.topWindow.evPopup,
+                tag = true;
+            evPopup && evPopup['popup_' + that.popupId] && (that.popupId = that.randomS(5));
+            evPopup && $.each(evPopup, function (i, v) {
+                if (v) {
+                    tag = null;
+                    return false;
                 }
-                break;
-            }
-          }
-        }, '.popup-option .evicon,.popup-but .btn');
-        setTimeout(function () {
-          that.popupCountWH();
-          that.popupOffset();
-          // that.popupDrag();
-          if (j.size.full) {
-            that.popupMax();
-          }
-        });
-      }());
-      if (!isNaN(j.autoClose) && (typeof (j.autoClose) === 'string' || typeof (j.autoClose) === 'number')) {
-        setTimeout(function () {
-          that.popupClose();
-        }, j.autoClose * 1000);
-      }
-      Popup.prototype.allPopupList = Popup.prototype.allPopupList || {};
-      Popup.prototype.allPopupList['popup_' + that.popupId] = that;
-    },
-    // 计算弹窗的位置
-    popupOffset: function () {
-      var that = this,
-        j = that.j,
-        pos = {
-          't-l': {
-            'left': 0,
-            'top': 0
-          },
-          't-c': {
-            'left': '50%',
-            'top': 0,
-            'margin-left': -that.popup.width() / 2 + 'px'
-          },
-          't-r': {
-            'right': 0,
-            'top': 0
-          },
-          'm-l': {
-            'left': 0,
-            'top': '50%',
-            'margin-top': -that.popup.height() / 2 + 'px'
-          },
-          'm-c': {
-            'left': '50%',
-            'top': '50%',
-            'margin-top': -that.popup.height() / 2 + 'px',
-            'margin-left': -that.popup.width() / 2 + 'px'
-          },
-          'm-r': {
-            'right': 0,
-            'top': '50%',
-            'margin-top': -that.popup.height() / 2 + 'px'
-          },
-          'b-l': {
-            'left': 0,
-            'bottom': 0
-          },
-          'b-c': {
-            'left': '50%',
-            'bottom': 0,
-            'margin-left': -that.popup.width() / 2 + 'px'
-          },
-          'b-r': {
-            'right': 0,
-            'bottom': 0
-          }
-        };
-      j.position.fixed === false && that.popup.css({
-        "position": "absolute"
-      });
-      that.popup.css(pos[j.position.pos] || pos['m-c']);
-    },
-    // 计算弹窗宽高
-    popupCountWH: function () {
-      var that = this,
-        j = that.j,
-        winAttr = that.winAttr();
-      switch (j.type) {
-        case 3:
-          (function () {
-            var iframes = that.popup.find('iframe'),
-              iframeW = null,
-              iframeH = null;
-            iframes.on('load.resize', function () {
-              that.selfWindow = iframes[0].contentWindow;
-              try {
-                that.selfDocument = iframes[0].contentWindow.document;
-                iframes[0].contentWindow.iframeNumber = that.popupId;
-                iframes[0].contentWindow.popup = that;
-                iframeW = iframes.contents().width();
-                iframeH = iframes.contents().height();
-              } catch (err) {
-                iframeW = j.size.width;
-                iframeH = j.size.height;
-              }
-              if (!j.size.full) {
-                iframes.css({
-                  "width": (j.size.width === 'auto' ? iframeW : j.size.width) + "px",
-                  "height": (j.size.height === 'auto' ? iframeW : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0))) + "px"
-                });
-              } else {
-                iframes.css({
-                  width: '100%',
-                  height: that.popup.height() - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0) + 'px'
-                });
-              }
-              (function () {
-                var w = j.size.width,
-                  h = j.size.height;
-                w = (w === 'auto' ? that.popup.width() : w);
-                h = (h === 'auto' ? that.popup.height() : h);
-                w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
-                h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
-                that.popup.css({
-                  width: w + 'px',
-                  height: h + 'px'
-                });
-                iframes.css({
-                  width: w + 'px',
-                  height: (h - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0)) + 'px'
-                });
-              }());
-              iframes.siblings('.popup-loading-wait').remove();
-              that.popupOffset();
             });
-          }());
-          break;
-        default:
-          (function () {
-            var w = j.size.width,
-              h = j.size.height;
-            if (j.size.width !== 'auto') {
-              w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
-              that.popup.css('width', w + 'px');
+            tag && (evPopup = that.topWindow.evPopup = {});
+            evPopup['popup_' + that.popupId] = that;
+            //添加遮罩
+            if (j.shade) {
+                (function () {
+                    var style = ['z-index:' + (that.zIndex++)];
+                    !!j.shade.bgColor && style.push(' background-color:' + j.shade.bgColor);
+                    !isNaN(j.shade.opacity) && (typeof (j.shade.opacity) === 'string' || typeof (j.shade.opacity) === 'number') && style.push(' opacity:' + j.shade.opacity);
+                    that.popupShade = $("<div/>", {
+                        "class": "popup-shade",
+                        "id": "popupShade_" + that.popupId,
+                        "style": style.join(';')
+                    }).appendTo(j.addTarget);
+                    if (j.shade.close) {
+                        that.popupShade.on('click', function () {
+                            that.popupClose();
+                        });
+                    }
+                }());
             }
-            if (h !== 'auto') {
-              h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
-              that.popup.css('height', h + 'px');
+            //添加标题和按钮
+            if (j.head) {
+                popupHArray.push('<div class="popup-head"><span class="popup-title">' + (j.head || '') + '</span></div>');
             }
-          }());
-          break;
-      }
-    },
-    // 最小化弹窗
-    popupMin: function () {
-      var that = this,
-        j = that.j;
-      !that.originStyle && (that.originStyle = that.popup.attr('style'));
-      var zIndex = that.popup.css('z-index'),
-        newStyle = 'bottom: 0; left:' + (j.addTarget.find('.popup-size-min').length * (200 + 10)) + 'px; margin: 0; z-index:' + zIndex + ';';
-      that.popup.addClass('popup-size-min').removeClass('popup-size-max').attr({
-        'style': newStyle
-      });
-      that.popupShade && that.popupShade.hide();
-    },
-    // 最大化弹窗
-    popupMax: function () {
-      var that = this;
-      !that.originStyle && (that.originStyle = that.popup.attr('style'));
-      var zIndex = that.popup.css('z-index'),
-        newStyle = 'z-index:' + zIndex + ';';
-      that.popup.addClass('popup-size-max').removeClass('popup-size-min').attr({
-        'style': newStyle
-      });
-      that.popupShade && that.popupShade.show();
-    },
-    // 还原弹窗
-    popupOrig: function () {
-      var that = this,
-        j = that.j;
-      that.popup.removeClass('popup-size-max popup-size-min').attr({
-        'style': that.originStyle
-      });
-      that.popupShade && that.popupShade.show();
-      if (j.size.full && j.opBtn && j.opBtn.max) {
-        that.popupOffset();
-      }
-    },
-    popupHide: function () {
-      var that = this,
-        j = that.j;
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[0] || '').addClass(j.animate[1] || '');
-      setTimeout(function () {
-        that.popup.hide();
-        that.popupShade && that.popupShade.hide();
-      }, j.animate[1] ? 210 : 0);
-    },
-    popupShow: function () {
-      var that = this,
-        j = that.j;
-      that.popup.show();
-      that.popupShade && that.popupShade.show();
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[1] || '').addClass(j.animate[0] || '');
-    },
-    // 关闭弹窗
-    popupClose: function () {
-      var that = this,
-        j = that.j;
-      j.animate && j.animate.length && that.popup.removeClass(j.animate[0] || '').addClass(j.animate[1] || '');
-      setTimeout(function () {
-        typeof (j.closeCallBack) === 'function' && j.closeCallBack();
-        that.popup.remove();
-        that.popupShade && that.popupShade.remove();
-        // that.popup = null;
-        that.allPopupList && (that.allPopupList['popup_' + that.popupId] = null);
-        that.topWindow.evPopup && (that.topWindow.evPopup['popup_' + that.popupId] = null);
-        that = null;
-      }, j.animate[1] ? 210 : 0);
-    },
-    popupCloseAll: function () {
-      var that = this;
-      if (that.allPopupList) {
-        $.each(that.allPopupList, function (i, v) {
-          v && v.popupClose();
-        });
-      }
-    },
-    popupCloseWinAll: function () {
-      var that = this;
-      if (that.topWindow.evPopup) {
-        $.each(that.topWindow.evPopup, function (i, v) {
-          v && v.popupClose();
-        });
-      }
-    },
-    popupDrag: function () {
-      var that = this,
-        j = that.j;
-      if (j.head && $.fn.drag) {
-        that.popup.drag({
-          // parent:'parent', //定义拖动不能超出的外框,拖动范围
-          randomPosition: false, //初始化随机位置
-          direction: 'all', //方向
-          handler: '.popup-head' //拖动进行中 x,y为当前坐标
-        });
-      }
-    }
-  };
-  $.evPopup = function (j) {
-    return new Popup(j);
-  };
-  //alert
-  $.evPopupAlert = function (j) {
-    var j_ = {
-      type: 1,
-      subType: 0,
-      position: {
-        pos: 'm-c'
-      },
-      shade: {
-        close: 0
-      },
-      opBtn: {
-        close: 1,
-        min: 0,
-        max: 0
-      },
-      size: {
-        width: 300
-      },
-      con: {
-        html: "提示信息",
-        icon: 3,
-        btn: {
-          'btn0': {
+            if (j.opBtn) {
+                popupOpArray.push('<div class="popup-option">');
+                !!j.opBtn.min && popupOpArray.push('<i class="evicon evicon-resize-xs-1" data-action="min" title="最小化"></i>');
+                !!j.opBtn.max && popupOpArray.push('<i class="evicon evicon-resize-lg-1" data-action="max" title="最大化"></i><i class="evicon evicon-resize-orig-1" data-action="orig" title="还原"></i>');
+                !!j.opBtn.close && popupOpArray.push('<i class="evicon evicon-close-1" data-action="close" title="关闭"></i>');
+                popupOpArray.push('</div>');
+            }
+            //构建弹窗内容
+            (function () {
+                popupBArray.push('<div class="popup-body"><div class="popup-body-inside">');
+                //根据不同类型，判断内容区域
+                switch (j.type) {
+                    case 1:
+                        popupBArray.push('<div class="popup-content"><div class="popup-hint-info">');
+                        j.con.icon && popupBArray.push(that.alertIcon[j.con.icon - 1] || that.alertIcon[0]);
+                        j.con.html && popupBArray.push(j.con.html);
+                        popupBArray.push('</div></div>');
+                        if (j.con.btn) {
+                            popupBArray.push('<div class="popup-but-area"><span class="popup-but">');
+                            $.each(j.con.btn, function (i, v) {
+                                popupBArray.push('<a href="javascript:;" data-btn-index="' + i + '" data-action="btn" class="btn btn-sm ' + (v.className || '') + '"><span>' + v.text + '</span></a>');
+                            });
+                            popupBArray.push('</span></div>');
+                        }
+                        break;
+                    case 2:
+                        popupBArray.push('<div class="popup-content">');
+                        popupBArray.push(j.con.html ? ((j.con.html instanceof jQuery) ? j.con.html.html() : j.con.html) : '<p>html代码</p>');
+                        popupBArray.push('</div>');
+                        break;
+                    case 3:
+                        popupBArray.push('<div class="popup-content"><div class="popup-loading-wait"></div>');
+                        popupBArray.push('<iframe src="' + j.con.src + '" frameborder="0" allowTransparency="true" name="popup_' + that.popupId + '" id="popup_iframe_' + that.popupId + '"></iframe>');
+                        popupBArray.push('</div>');
+                        break;
+                    case 4:
+                        popupBArray.push('<div class="popup-content"><div class="loading-type-' + j.con.icon + '"></div></div>');
+                        break;
+                }
+                popupBArray.push('</div></div>');
+            }());
+            //构建弹窗
+            (function () {
+                var style = ['z-index:' + (that.zIndex++)],
+                    className = (function () {
+                        var cname = [];
+                        switch (j.type) {
+                            case 1:
+                                cname.push('popup-' + that.alertType[0][j.subType]);
+                                break;
+                            default:
+                                cname.push('popup-' + that.alertType[j.type - 1]);
+                                break;
+                        }
+                        j.className && cname.push(j.className);
+                        j.animate && j.animate.length && cname.push(j.animate[0]);
+                        return cname;
+                    }());
+                !isNaN(j.size.width) && style.push(' width:' + j.size.width + 'px');
+                !isNaN(j.size.height) && style.push(' height:' + j.size.height + 'px');
+                j.styleCss && style.push(j.styleCss);
+                that.popup = $("<div/>", {
+                    "class": 'popup ' + className.join(' '),
+                    "style": style.join(';'),
+                    "id": 'popup_' + that.popupId,
+                    html: popupOpArray.join('') + popupHArray.join('') + popupBArray.join('')
+                });
+                j.animate && j.animate.length && that.popup.attr('data-animated', j.animate.join());
+                that.popup.appendTo(j.addTarget);
+                that.popup.on({
+                    'click': function () {
+                        var targetDom = $(this);
+                        switch (targetDom.data('action')) {
+                            case 'min':
+                                that.popupMin();
+                                break;
+                            case 'max':
+                                that.popupMax();
+                                break;
+                            case 'orig':
+                                that.popupOrig();
+                                break;
+                            case 'close':
+                                that.popupClose();
+                                break;
+                            case 'btn':
+                                j.con.btn && j.con.btn[targetDom.data('btnIndex')]['callBack'] && j.con.btn[targetDom.data('btnIndex')]['callBack'](targetDom, that.popup);
+                                if (!j.con.btn[targetDom.data('btnIndex')]['noClose']) {
+                                    that.popupClose();
+                                }
+                                break;
+                        }
+                    }
+                }, '.popup-option .evicon,.popup-but .btn');
+                setTimeout(function () {
+                    that.popupCountWH();
+                    that.popupOffset();
+                    // that.popupDrag();
+                    if (j.size.full) {
+                        that.popupMax();
+                    }
+                });
+            }());
+            if (!isNaN(j.autoClose) && (typeof (j.autoClose) === 'string' || typeof (j.autoClose) === 'number')) {
+                setTimeout(function () {
+                    that.popupClose();
+                }, j.autoClose * 1000);
+            }
+            Popup.prototype.allPopupList = Popup.prototype.allPopupList || {};
+            Popup.prototype.allPopupList['popup_' + that.popupId] = that;
+        },
+        // 计算弹窗的位置
+        popupOffset: function () {
+            var that = this,
+                j = that.j,
+                pos = {
+                    't-l': {
+                        'left': 0,
+                        'top': 0
+                    },
+                    't-c': {
+                        'left': '50%',
+                        'top': 0,
+                        'margin-left': -that.popup.width() / 2 + 'px'
+                    },
+                    't-r': {
+                        'right': 0,
+                        'top': 0
+                    },
+                    'm-l': {
+                        'left': 0,
+                        'top': '50%',
+                        'margin-top': -that.popup.height() / 2 + 'px'
+                    },
+                    'm-c': {
+                        'left': '50%',
+                        'top': '50%',
+                        'margin-top': -that.popup.height() / 2 + 'px',
+                        'margin-left': -that.popup.width() / 2 + 'px'
+                    },
+                    'm-r': {
+                        'right': 0,
+                        'top': '50%',
+                        'margin-top': -that.popup.height() / 2 + 'px'
+                    },
+                    'b-l': {
+                        'left': 0,
+                        'bottom': 0
+                    },
+                    'b-c': {
+                        'left': '50%',
+                        'bottom': 0,
+                        'margin-left': -that.popup.width() / 2 + 'px'
+                    },
+                    'b-r': {
+                        'right': 0,
+                        'bottom': 0
+                    }
+                };
+            j.position.fixed === false && that.popup.css({
+                "position": "absolute"
+            });
+            that.popup.css(pos[j.position.pos] || pos['m-c']);
+        },
+        // 计算弹窗宽高
+        popupCountWH: function () {
+            var that = this,
+                j = that.j,
+                winAttr = that.winAttr();
+            switch (j.type) {
+                case 3:
+                    (function () {
+                        var iframes = that.popup.find('iframe'),
+                            iframeW = null,
+                            iframeH = null;
+                        iframes.on('load.resize', function () {
+                            that.selfWindow = iframes[0].contentWindow;
+                            try {
+                                that.selfDocument = iframes[0].contentWindow.document;
+                                iframes[0].contentWindow.iframeNumber = that.popupId;
+                                iframes[0].contentWindow.popup = that;
+                                iframeW = iframes.contents().width();
+                                iframeH = iframes.contents().height();
+                            } catch (err) {
+                                iframeW = j.size.width;
+                                iframeH = j.size.height;
+                            }
+                            if (!j.size.full) {
+                                iframes.css({
+                                    "width": (j.size.width === 'auto' ? iframeW : j.size.width) + "px",
+                                    "height": (j.size.height === 'auto' ? iframeW : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0))) + "px"
+                                });
+                            } else {
+                                iframes.css({
+                                    width: '100%',
+                                    height: that.popup.height() - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0) + 'px'
+                                });
+                            }
+                            (function () {
+                                var w = j.size.width,
+                                    h = j.size.height;
+                                w = (w === 'auto' ? that.popup.width() : w);
+                                h = (h === 'auto' ? that.popup.height() : h);
+                                w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
+                                h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
+                                that.popup.css({
+                                    width: w + 'px',
+                                    height: h + 'px'
+                                });
+                                iframes.css({
+                                    width: w + 'px',
+                                    height: (h - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0)) + 'px'
+                                });
+                            }());
+                            iframes.siblings('.popup-loading-wait').remove();
+                            that.popupOffset();
+                        });
+                    }());
+                    break;
+                default:
+                    (function () {
+                        var w = j.size.width,
+                            h = j.size.height;
+                        if (j.size.width !== 'auto') {
+                            w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
+                            that.popup.css('width', w + 'px');
+                        }
+                        if (h !== 'auto') {
+                            h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
+                            that.popup.css('height', h + 'px');
+                        }
+                    }());
+                    break;
+            }
+        },
+        // 最小化弹窗
+        popupMin: function () {
+            var that = this,
+                j = that.j;
+            !that.originStyle && (that.originStyle = that.popup.attr('style'));
+            var zIndex = that.popup.css('z-index'),
+                newStyle = 'bottom: 0; left:' + (j.addTarget.find('.popup-size-min').length * (200 + 10)) + 'px; margin: 0; z-index:' + zIndex + ';';
+            that.popup.addClass('popup-size-min').removeClass('popup-size-max').attr({
+                'style': newStyle
+            });
+            that.popupShade && that.popupShade.hide();
+        },
+        // 最大化弹窗
+        popupMax: function () {
+            var that = this;
+            !that.originStyle && (that.originStyle = that.popup.attr('style'));
+            var zIndex = that.popup.css('z-index'),
+                newStyle = 'z-index:' + zIndex + ';';
+            that.popup.addClass('popup-size-max').removeClass('popup-size-min').attr({
+                'style': newStyle
+            });
+            that.popupShade && that.popupShade.show();
+        },
+        // 还原弹窗
+        popupOrig: function () {
+            var that = this,
+                j = that.j;
+            that.popup.removeClass('popup-size-max popup-size-min').attr({
+                'style': that.originStyle
+            });
+            that.popupShade && that.popupShade.show();
+            if (j.size.full && j.opBtn && j.opBtn.max) {
+                that.popupOffset();
+            }
+        },
+        // 隐藏弹窗
+        popupHide: function () {
+            var that = this,
+                j = that.j;
+            j.animate && j.animate.length && that.popup.removeClass(j.animate[0] || '').addClass(j.animate[1] || '');
+            setTimeout(function () {
+                that.popup.hide();
+                that.popupShade && that.popupShade.hide();
+            }, j.animate[1] ? 210 : 0);
+        },
+        // 显示弹窗
+        popupShow: function () {
+            var that = this,
+                j = that.j;
+            that.popup.show();
+            that.popupShade && that.popupShade.show();
+            j.animate && j.animate.length && that.popup.removeClass(j.animate[1] || '').addClass(j.animate[0] || '');
+        },
+        // 关闭弹窗
+        popupClose: function () {
+            var that = this,
+                j = that.j;
+            j.animate && j.animate.length && that.popup.removeClass(j.animate[0] || '').addClass(j.animate[1] || '');
+            setTimeout(function () {
+                typeof (j.closeCallBack) === 'function' && j.closeCallBack();
+                that.popup.remove();
+                that.popupShade && that.popupShade.remove();
+                // that.popup = null;
+                that.allPopupList && (that.allPopupList['popup_' + that.popupId] = null);
+                that.topWindow.evPopup && (that.topWindow.evPopup['popup_' + that.popupId] = null);
+                that = null;
+            }, j.animate[1] ? 210 : 0);
+        },
+        // 关闭当前窗口弹窗
+        popupCloseAll: function () {
+            var that = this;
+            if (that.allPopupList) {
+                $.each(that.allPopupList, function (i, v) {
+                    v && v.popupClose();
+                });
+            }
+        },
+        // 关闭全部
+        popupCloseWinAll: function () {
+            var that = this;
+            if (that.topWindow.evPopup) {
+                $.each(that.topWindow.evPopup, function (i, v) {
+                    v && v.popupClose();
+                });
+            }
+        },
+        // 拖动移动弹窗
+        popupDrag: function () {
+            var that = this,
+                j = that.j;
+            if (j.head && $.fn.drag) {
+                that.popup.drag({
+                    // parent:'parent', //定义拖动不能超出的外框,拖动范围
+                    randomPosition: false, //初始化随机位置
+                    direction: 'all', //方向
+                    handler: '.popup-head' //拖动进行中 x,y为当前坐标
+                });
+            }
+        }
+    };
+    $.evPopup = function (j) {
+        return new Popup(j);
+    };
+    //alert
+    $.evPopupAlert = function (j) {
+        var j_ = {
+            type: 1,
+            subType: 0,
+            position: {
+                pos: 'm-c'
+            },
+            shade: {
+                close: 0
+            },
+            opBtn: {
+                close: 1,
+                min: 0,
+                max: 0
+            },
+            size: {
+                width: 300
+            },
+            con: {
+                html: "提示信息",
+                icon: 3,
+                btn: {
+                    'btn0': {
+                        text: '确定',
+                        className: 'btn-primary'
+                    }
+                }
+            }
+        };
+        j.subType !== undefined && (j_.subType = j.subType);
+        j.className !== undefined && (j_.className = j.className);
+        j.head !== undefined && (j_.head = j.head);
+        j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
+        j.icon !== undefined && (j_.con.icon = j.icon);
+        j.win && (j_.win = j.win);
+        j.position && (j_.position.pos = j.position);
+        if (j.shade != undefined) {
+            j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
+        }
+        if (j.btn) {
+            if ($.isArray(j.btn)) {
+                $.each(j.btn, function (i, v) {
+                    j_.con.btn['btn' + i] = $.extend(true, {}, j_.con.btn['btn' + i], v);
+                });
+            } else {
+                j_.con.btn.btn0 = $.extend(true, {}, j_.con.btn.btn0, j.btn);
+            }
+        }
+        j.animate && (j_.animate = j.animate);
+        j.closeCallBack && (j_.closeCallBack = j_.closeCallBack);
+        j.styleCss && (j_.styleCss = j.styleCss);
+        return new Popup(j_);
+    };
+    //Point
+    $.evPopupPoint = function (j) {
+        var j_ = {
+            type: 1,
+            subType: 1,
+            head: false,
+            className: '',
+            shade: {
+                close: 0
+            },
+            position: {
+                pos: 'm-c'
+            },
+            opBtn: false,
+            con: {
+                html: '<span class="hint-text">提示信息</span>',
+                icon: 1,
+                btn: false
+            },
+            autoClose: 1
+        };
+        j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
+        j.icon !== undefined && (j_.con.icon = j.icon);
+        if (j.shade !== undefined) {
+            j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
+        }
+        j.position && (j_.position.pos = j.position);
+        switch (j.style) {
+            case 'block':
+                j.className = j.className + ' block';
+                j_.animate = ['fadeInDown', 'fadeOutUp'];
+                j_.shade = false;
+                j_.position.pos = j.position ? j.position : 't-c';
+                break;
+        }
+        j.animate && (j_.animate = j.animate);
+        j.className && (j_.className = j.className);
+        (j.closeTime !== undefined) && (j_.autoClose = j.closeTime);
+        j.styleCss && (j_.styleCss = j.styleCss);
+        j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
+        return new Popup(j_);
+    };
+    //confirm
+    $.evPopupConfirm = function (j) {
+        var btn = [{
             text: '确定',
             className: 'btn-primary'
-          }
+        }, {
+            text: '取消',
+            className: 'btn-outline-danger'
+        }];
+        if (j.btn && $.isArray(j.btn)) {
+            $.each(btn, function (i, v) {
+                j.btn[i] = $.extend({}, v, j.btn[i]);
+            });
         }
-      }
+        $.evPopupAlert(j);
     };
-    j.subType !== undefined && (j_.subType = j.subType);
-    j.className !== undefined && (j_.className = j.className);
-    j.head !== undefined && (j_.head = j.head);
-    j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
-    j.icon !== undefined && (j_.con.icon = j.icon);
-    j.win && (j_.win = j.win);
-    j.position && (j_.position.pos = j.position);
-    if (j.shade != undefined) {
-      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
-    }
-    if (j.btn) {
-      if ($.isArray(j.btn)) {
-        $.each(j.btn, function (i, v) {
-          j_.con.btn['btn' + i] = $.extend(true, {}, j_.con.btn['btn' + i], v);
-        });
-      } else {
-        j_.con.btn.btn0 = $.extend(true, {}, j_.con.btn.btn0, j.btn);
-      }
-    }
-    j.animate && (j_.animate = j.animate);
-    j.closeCallBack && (j_.closeCallBack = j_.closeCallBack);
-    j.styleCss && (j_.styleCss = j.styleCss);
-    return new Popup(j_);
-  };
-  //Point
-  $.evPopupPoint = function (j) {
-    var j_ = {
-      type: 1,
-      subType: 1,
-      head: false,
-      className: '',
-      shade: {
-        close: 0
-      },
-      position: {
-        pos: 'm-c'
-      },
-      opBtn: false,
-      con: {
-        html: '<span class="hint-text">提示信息</span>',
-        icon: 1,
-        btn: false
-      },
-      autoClose: 1
+    // Prompt
+    $.evPopupPrompt = function (j) {};
+    // Html代码形式
+    $.evPopupHtml = function (j) {
+        var j_ = {
+            type: 2,
+            head: "HTML层",
+            position: {
+                pos: 'm-c'
+            },
+            opBtn: {
+                close: 1,
+                min: 0,
+                max: 0
+            },
+            size: {
+                width: 'auto',
+                height: 'auto'
+            },
+            win: window,
+            con: {
+                html: '<p>这是html代码</p>'
+            }
+        };
+        var getHtml = function (str) {
+            if (str instanceof jQuery) {
+                str = str.html()
+            } else if (typeof (str) === 'string' && $.inArray(str.substr(0, 1), ['.', '#']) != -1 && $(str).length) {
+                str = $(str).html();
+            }
+            return str;
+        };
+        j.className !== undefined && (j_.className = j.className);
+        j.head !== undefined && (j_.head = j.head);
+        j.html && (j_.con.html = getHtml(j.html));
+        j.width && (j_.size.width = j.width);
+        j.full && (j_.size.full = j.full);
+        j.win && (j_.win = j.win);
+        j.height && (j_.size.height = j.height);
+        if (j.shade != undefined) {
+            j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
+        }
+        j.styleCss && (j_.styleCss = j.styleCss);
+        j.animate && (j_.animate = j.animate);
+        j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
+        return new Popup(j_);
     };
-    j.hint && (j_.con.html = (j.hint.indexOf('<') !== -1 ? j.hint : '<span class="hint-text">' + j.hint + '</span>'));
-    j.icon !== undefined && (j_.con.icon = j.icon);
-    if (j.shade !== undefined) {
-      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
-    }
-    j.position && (j_.position.pos = j.position);
-    switch (j.style) {
-      case 'block':
-        j.className = j.className + ' block';
-        j_.animate = ['fadeInDown', 'fadeOutUp'];
-        j_.shade = false;
-        j_.position.pos = j.position ? j.position : 't-c';
-        break;
-    }
-    j.animate && (j_.animate = j.animate);
-    j.className && (j_.className = j.className);
-    (j.closeTime !== undefined) && (j_.autoClose = j.closeTime);
-    j.styleCss && (j_.styleCss = j.styleCss);
-    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
-    return new Popup(j_);
-  };
-  //confirm
-  $.evPopupConfirm = function (j) {
-    var btn = [{
-      text: '确定',
-      className: 'btn-primary'
-    }, {
-      text: '取消',
-      className: 'btn-outline-danger'
-    }];
-    if (j.btn && $.isArray(j.btn)) {
-      $.each(btn, function (i, v) {
-        j.btn[i] = $.extend({}, v, j.btn[i]);
-      });
-    }
-    $.evPopupAlert(j);
-  };
-  // Prompt
-  $.evPopupPrompt = function (j) {};
-  // Html代码形式
-  $.evPopupHtml = function (j) {
-    var j_ = {
-      type: 2,
-      head: "HTML层",
-      position: {
-        pos: 'm-c'
-      },
-      opBtn: {
-        close: 1,
-        min: 0,
-        max: 0
-      },
-      size: {
-        width: 'auto',
-        height: 'auto'
-      },
-      win: window,
-      con: {
-        html: '<p>这是html代码</p>'
-      }
+    //Loading
+    $.evPopupLoading = function (j) {
+        var j_ = {
+            type: 4,
+            head: false,
+            shade: {
+                close: 0
+            },
+            position: {
+                pos: 'm-c'
+            },
+            opBtn: false,
+            con: {
+                icon: 1
+            }
+        };
+        j.className !== undefined && (j_.className = j.className);
+        j.icon && (j_.con.icon = j.icon);
+        j.closeTime && (j_.autoClose = j.closeTime);
+        if (j.shade != undefined) {
+            j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
+        }
+        j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
+        return new Popup($.extend(true, {}, j_, j));
     };
-    var getHtml = function (str) {
-      if (str instanceof jQuery) {
-        str = str.html()
-      } else if (typeof (str) === 'string' && $.inArray(str.substr(0, 1), ['.', '#']) != -1 && $(str).length) {
-        str = $(str).html();
-      }
-      return str;
+    //Iframe
+    $.evPopupIframe = function (j) {
+        var j_ = {
+            type: 3,
+            position: {
+                pos: 'm-c'
+            },
+            size: {},
+            opBtn: {
+                close: 1,
+                max: 0,
+                min: 0
+            },
+            con: {
+                src: 'http://www.evyun.cn'
+            }
+        };
+        j.className !== undefined && (j_.className = j.className);
+        j.head !== undefined && (j_.head = j.head);
+        j.width && (j_.size.width = j.width);
+        j.height && (j_.size.height = j.height);
+        j.full && (j_.size.full = j.full);
+        j.win && (j_.win = j.win);
+        j.src && (j_.con.src = j.src);
+        if (j.shade != undefined) {
+            j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
+        }
+        j.styleCss && (j_.styleCss = j.styleCss);
+        j.animate && (j_.animate = j.animate);
+        j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
+        return new Popup(j_);
     };
-    j.className !== undefined && (j_.className = j.className);
-    j.head !== undefined && (j_.head = j.head);
-    j.html && (j_.con.html = getHtml(j.html));
-    j.width && (j_.size.width = j.width);
-    j.full && (j_.size.full = j.full);
-    j.win && (j_.win = j.win);
-    j.height && (j_.size.height = j.height);
-    if (j.shade != undefined) {
-      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
-    }
-    j.styleCss && (j_.styleCss = j.styleCss);
-    j.animate && (j_.animate = j.animate);
-    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
-    return new Popup(j_);
-  };
-  //Loading
-  $.evPopupLoading = function (j) {
-    var j_ = {
-      type: 4,
-      head: false,
-      shade: {
-        close: 0
-      },
-      position: {
-        pos: 'm-c'
-      },
-      opBtn: false,
-      con: {
-        icon: 1
-      }
+    // 关闭当前iframe中的弹窗
+    $.evPopupCloseAll = function () {
+        var popup = new Popup();
+        popup.popupCloseAll();
+        popup = null;
     };
-    j.className !== undefined && (j_.className = j.className);
-    j.icon && (j_.con.icon = j.icon);
-    j.closeTime && (j_.autoClose = j.closeTime);
-    if (j.shade != undefined) {
-      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
-    }
-    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
-    return new Popup($.extend(true, {}, j_, j));
-  };
-  //Iframe
-  $.evPopupIframe = function (j) {
-    var j_ = {
-      type: 3,
-      position: {
-        pos: 'm-c'
-      },
-      size: {},
-      opBtn: {
-        close: 1,
-        max: 0,
-        min: 0
-      },
-      con: {
-        src: 'http://www.evyun.cn'
-      }
+    // 关闭所有的弹窗
+    $.evPopupCloseWinAll = function () {
+        var popup = new Popup();
+        popup.popupCloseWinAll();
+        popup = null;
     };
-    j.className !== undefined && (j_.className = j.className);
-    j.head !== undefined && (j_.head = j.head);
-    j.width && (j_.size.width = j.width);
-    j.height && (j_.size.height = j.height);
-    j.full && (j_.size.full = j.full);
-    j.win && (j_.win = j.win);
-    j.src && (j_.con.src = j.src);
-    if (j.shade != undefined) {
-      j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
-    }
-    j.styleCss && (j_.styleCss = j.styleCss);
-    j.animate && (j_.animate = j.animate);
-    j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
-    return new Popup(j_);
-  };
-  // 关闭当前iframe中的弹窗
-  $.evPopupCloseAll = function () {
-    var popup = new Popup();
-    popup.popupCloseAll();
-    popup = null;
-  };
-  // 关闭所有的弹窗
-  $.evPopupCloseWinAll = function () {
-    var popup = new Popup();
-    popup.popupCloseWinAll();
-    popup = null;
-  };
 })(window, jQuery);
 (function () {
-  $(document).on('click.evPopup', '[data-toggle="popup"]', function (ev) {
-    var $this = $(this),
-      domDate = $this.data();
-    switch (domDate.popupType) {
-      case 'alert':
-        $.evPopupAlert({
-          head: domDate.popupHead,
-          hint: domDate.popupHint
-        });
-        break;
-      case 'point':
-        $.evPopupPoint({
-          icon: domDate.popupIcontype,
-          hint: '<span class="hint-text">' + domDate.popupHint + '</span>',
-          closeTime: domDate.popupClosetime
-        });
-        break;
-      case 'html':
-        $.evPopupHtml({
-          head: domDate.popupHead,
-          html: domDate.popupTarget,
-          width: domDate.popupWidth,
-          height: domDate.popupHeight
-        });
-        break;
-      case 'loading':
-        $.evPopupLoading({
-          icon: domDate.popupIcontype,
-          closeTime: domDate.popupClosetime
-        });
-        break;
-      case 'iframe':
-        $.evPopupIframe({
-          head: domDate.popupHead,
-          src: domDate.popupSrc,
-          width: domDate.popupWidth,
-          height: domDate.popupHeight
-        });
-        break;
-    }
-  });
+    $(document).on('click.evPopup', '[data-toggle="popup"]', function (ev) {
+        var $this = $(this),
+            domDate = $this.data();
+        switch (domDate.popupType) {
+            case 'alert':
+                $.evPopupAlert({
+                    head: domDate.popupHead,
+                    hint: domDate.popupHint
+                });
+                break;
+            case 'point':
+                $.evPopupPoint({
+                    icon: domDate.popupIcontype,
+                    hint: '<span class="hint-text">' + domDate.popupHint + '</span>',
+                    closeTime: domDate.popupClosetime
+                });
+                break;
+            case 'html':
+                $.evPopupHtml({
+                    head: domDate.popupHead,
+                    html: domDate.popupTarget,
+                    width: domDate.popupWidth,
+                    height: domDate.popupHeight
+                });
+                break;
+            case 'loading':
+                $.evPopupLoading({
+                    icon: domDate.popupIcontype,
+                    closeTime: domDate.popupClosetime
+                });
+                break;
+            case 'iframe':
+                $.evPopupIframe({
+                    head: domDate.popupHead,
+                    src: domDate.popupSrc,
+                    width: domDate.popupWidth,
+                    height: domDate.popupHeight
+                });
+                break;
+        }
+    });
 }());
 
 //! moment.js
@@ -9906,170 +9932,5 @@ $(function(){
   });
 });
 
-
-/**
- @Name：EvyunUi.allSelect 全选组件
- @Author：qwguo
- @github：https://github.com/qwguo/
- @Date: 2018/12/18
- */
-
-/**
- *dataTotal: //总数据条数,
- *pageDataNum: 页码数显示个数-->数字类型,
- *curPage: 当前页码-->数字类型,
- *pagepageGroups: 页码分组-->数字类型,
- *skip: false：是否显示选择页码下拉组件-->Boolean,
-    //  *hash: false：是否显示哈希值,
- *callBack: null 回调函数 --> Function
- * */
-(function ($) {
-    function Page(options) {
-        this.config = {
-            dataTotal: 5,
-            pageDataNum: 5,
-            curPage: 1,
-            pagepageGroups: 1,
-            skip: false,
-            hash: false,
-            text: {
-                next: '下一页',
-                prev: '上一页',
-                sum: '共&页',
-                skip: '到底&页'
-            },
-            callBack: null
-        };
-        this.config = $.extend(this.config, options);
-        this.render(true);
-    }
-    //分页视图
-    Page.prototype.view = function () {
-        var that = this,
-            conf = that.config,
-            view = [],
-            dict = {},
-            hostNameHref,
-            hash = location.hash,
-            reg,
-            search = location.search;
-        if (search) {
-            if (search.indexOf('?p_m_page') === 0) {
-                reg = /\?p_m_page=(\d+)-(\d+)/g;
-            } else if (search.indexOf('&p_m_page') > 0) {
-                reg = /&p_m_page=(\d+)-(\d+)/g;
-            }
-            search = search.replace(reg, '');
-        }
-
-        hostNameHref = location.pathname + search + (search ? '&' : '?');
-
-        if (conf.pageSum <= 1) {
-            return '';
-        }
-        if (conf.pageGroups > conf.pageSum) {
-            conf.pageGroups = conf.pageSum;
-        }
-
-        //计算当前组
-        dict.index = Math.ceil((conf.curPage + ((conf.pageGroups > 1 && conf.pageGroups !== conf.pageSum) ? 1 : 0)) / (conf.pageGroups === 0 ? 1 : conf.pageGroups));
-        //当前页非首页，则输出上一页
-        view.push('<span class="page-number">');
-        if(conf.curPage > 1){
-            view.push('<a href="###" data-page="' + (conf.curPage - 1) + '">' + conf.text.prev + '</a>');
-        }else{
-            view.push('<a href="###" class="disabled">' + conf.text.prev + '</a>');
-        }
-        //当前组非首组，则输出首页
-        if (dict.index > 1 && conf.pageGroups !== 0) {
-            view.push('<a href="###" data-page="1">1</a><i>&#x2026;</i>');
-        }
-        //输出当前页组
-        dict.poor = Math.floor((conf.pageGroups - 1) / 2);
-        dict.start = dict.index > 1 ? conf.curPage - dict.poor : 1;
-        dict.end = dict.index > 1 ? (function () {
-            var max = conf.curPage + (conf.pageGroups - dict.poor - 1);
-            return max > conf.pageSum ? conf.pageSum : max;
-        }()) : conf.pageGroups;
-        if (dict.end - dict.start < conf.pageGroups - 1) { //最后一组状态
-            dict.start = dict.end - conf.pageGroups + 1;
-        }
-        for (; dict.start <= dict.end; dict.start++) {
-            if (dict.start === conf.curPage) {
-                view.push('<b>' + dict.start + '</b>');
-            } else {
-                view.push('<a href="###" data-page="' + dict.start + '">' + dict.start + '</a>');
-            }
-        }
-
-        //总页数大于连续分页数，且当前组最大页小于总页，输出尾页
-        if (conf.pageSum > conf.pageGroups && dict.end < conf.pageSum && conf.pageGroups !== 0) {
-            view.push('<i class="page-ellipsis">&#x2026;</i><a href="###"  data-page="' + conf.pageSum + '">' + conf.pageSum + '</a>');
-        }
-        //当前页不为尾页时，输出下一页
-        dict.flow = !conf.prev && conf.pageGroups === 0;
-        if (conf.curPage !== conf.pageSum || dict.flow) {
-            view.push((function () {
-                return (dict.flow && conf.curPage === conf.pageSum) ?
-                    '<a href="###" class="disabled">' + conf.text.next + '</a>' :
-                    '<a href="###" data-page="' + (conf.curPage + 1) + '">' + conf.text.next + '</a>';
-            }()));
-        } else {
-            view.push('<a class="disabled">' + conf.text.next + '</a>');
-        }
-        view.push('</span>');
-        view.unshift('<span class="page-sum">'+conf.text.sum.split('&')[0]+'<em>' + conf.pageSum + '</em>'+conf.text.sum.split('&')[1]+'</span>');
-        return view.join('');
-    };
-
-    //跳页
-    Page.prototype.callBack = function (elem) {
-        if (!elem) return;
-        var that = this,
-            conf = that.config;
-        !elem.data('bindevent') && elem.on({
-            click: function () {
-                var $this = $(this),
-                    curPage = null;
-                switch (true) {
-                    case (!$this.hasClass('disabled')):
-                        curPage = $this.attr('data-page') | 0;
-                        conf.curPage = curPage;
-                        that.render();
-                        break;
-                    case $this.hasClass('page-enter-btn'):
-                        curPage = elem.find('input.page-num-input').val().replace(/\s|\D/g, '') | 0;
-                        curPage > conf.pageSum && (curPage = conf.pageSum);
-                        if (curPage && curPage <= conf.pageSum) {
-                            conf.curPage = curPage;
-                            that.render();
-                        }
-                        break;
-                }
-                return false;
-            }
-        }, 'a,em').data('click', 1);
-    };
-    //渲染分页
-    Page.prototype.render = function (load) {
-        var that = this,
-            conf = that.config,
-            view = that.view();
-        conf.eleDom.html(view);
-        conf.eleDom.data('click') && conf.callBack && conf.callBack(conf, load);
-        !conf.eleDom.data('click') && that.callBack(conf.eleDom);
-        if (conf.hash && !load) {
-            location.hash = '!' + conf.hash + '=' + conf.curPage;
-        }
-    };
-    $.fn.extend({
-        pagination: function (options) {
-            options.eleDom = $(this);
-            options.pageSum = Math.ceil(options.dataTotal / options.pageDataNum);
-            options.curPage > options.pageSum && (options.curPage = options.pageSum);
-            var page = new Page(options);
-        }
-    });
-})(jQuery);
 
 //# sourceMappingURL=evPublicInit.js.map

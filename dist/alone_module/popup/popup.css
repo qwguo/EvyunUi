@@ -3679,8 +3679,8 @@ address {
 @font-face {
   font-family: 'evicon';
   /* project id 931572 */
-  src: url('//at.alicdn.com/t/font_931572_m63w6ud3y4.eot');
-  src: url('//at.alicdn.com/t/font_931572_m63w6ud3y4.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_m63w6ud3y4.woff') format('woff'), url('//at.alicdn.com/t/font_931572_m63w6ud3y4.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_m63w6ud3y4.svg#evicon') format('svg');
+  src: url('//at.alicdn.com/t/font_931572_siq3oydbr6f.eot');
+  src: url('//at.alicdn.com/t/font_931572_siq3oydbr6f.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_siq3oydbr6f.woff2') format('woff2'), url('//at.alicdn.com/t/font_931572_siq3oydbr6f.woff') format('woff'), url('//at.alicdn.com/t/font_931572_siq3oydbr6f.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_siq3oydbr6f.svg#evicon') format('svg');
 }
 .evicon {
   position: relative;
@@ -3691,6 +3691,18 @@ address {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.evicon-right-3:before {
+  content: "\e69e";
+}
+.evicon-point-3:before {
+  content: "\e660";
+}
+.evicon-magnify-1:before {
+  content: "\e615";
+}
+.evicon-lessen-1:before {
+  content: "\e619";
 }
 .evicon-resize-lg-1:before {
   content: "\e609";
@@ -5414,4 +5426,13 @@ fieldset[disabled] .btn.btn-lighter-success.focus {
 .popup.popup-point.block .popup-hint-info .evicon {
   margin-top: -0.2em;
   font-size: 1.5em;
+}
+.move-layer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  cursor: move;
+  z-index: 100000000000;
 }
