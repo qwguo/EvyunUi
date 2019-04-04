@@ -7963,30 +7963,30 @@ a.badge:focus {
 .list li > .list {
   padding-left: 1em;
 }
-.list.inline {
+.list.list-inline {
   margin: 0 -5px;
 }
-.list.inline:before,
-.list.inline:after {
+.list.list-inline:before,
+.list.list-inline:after {
   display: table;
   content: " ";
 }
-.list.inline:after {
+.list.list-inline:after {
   clear: both;
 }
-.list.inline:before,
-.list.inline:after {
+.list.list-inline:before,
+.list.list-inline:after {
   display: table;
   content: " ";
 }
-.list.inline:after {
+.list.list-inline:after {
   clear: both;
 }
-.list.inline > li {
+.list.list-inline > li {
   float: left;
   margin-right: 10px;
 }
-.list.inline > li:last-child {
+.list.list-inline > li:last-child {
   margin-right: 0;
 }
 .list.list-type-none {
