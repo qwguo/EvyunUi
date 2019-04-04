@@ -1,158 +1,161 @@
 @@include('../include/head.html')
 
 <div class="show-table">
-  <h3 class="page-header">表格嵌套</h3>
-  <p>我们可以在表格中嵌套表格</p>
-  <h4 class="page-header">我们同时也可以给单元格添加对齐方式类<small><code>.text-left</code>居左，<code>.text-center</code>居中，<code>.text-right</code>居右，<code>.vertical-top</code>上对齐（默认），<code>.vertical-middle</code>中对齐，<code>.vertical-bottom</code>底对齐</small></h4>
-  <div class="table-div">
-    <div class="table-responsive">
-      <table class="table">
-        <caption>表格标题</caption>
-        <colgroup>
-          <col width="100" span="2">
-          <col width="300">
-          <col width="auto">
-          <col width="50">
-        </colgroup>
-        <thead>
-          <tr>
-            <th>序号</th>
-            <th>名称</th>
-            <th>分类</th>
-            <th>说明</th>
-            <th>程度</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td class="vertical-top">CSS</td>
-            <td>
-              <table class="table table-spacing-lg">
-                <tr>
-                  <td>css2.0</td>
-                  <td>css3.0</td>
-                </tr>
-              </table>
-            </td>
-            <td>层叠样式表(英文全称：Cascading Style
-              Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
-            </td>
-            <td>熟练</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td class="vertical-middle">HTML</td>
-            <td>
-              <table class="table table-spacing-sm">
-                <tr>
-                  <td class="text-left">HTML4.0</td>
-                  <td class="text-center">XHTML</td>
-                  <td class="text-right">HTML5.0</td>
-                </tr>
-              </table>
-            </td>
+    <h3 class="page-header">表格嵌套</h3>
+    <p>我们可以在表格中嵌套表格</p>
+    <h4 class="page-header">
+        我们同时也可以给单元格添加对齐方式类<small><code>.text-left</code>居左，<code>.text-center</code>居中，<code>.text-right</code>居右，<code>.vertical-top</code>上对齐（默认），<code>.vertical-middle</code>中对齐，<code>.vertical-bottom</code>底对齐</small>
+    </h4>
+    <div class="table-div">
+        <div class="table-responsive">
+            <table class="table">
+                <caption>表格标题</caption>
+                <colgroup>
+                    <col width="100" span="2">
+                    <col width="300">
+                    <col width="auto">
+                    <col width="50">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>名称</th>
+                        <th>分类</th>
+                        <th>说明</th>
+                        <th>程度</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="vertical-top">CSS</td>
+                        <td>
+                            <table class="table table-spacing-lg">
+                                <tr>
+                                    <td>css2.0</td>
+                                    <td>css3.0</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>层叠样式表(英文全称：Cascading Style
+                            Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
+                        </td>
+                        <td>熟练</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="vertical-middle">HTML</td>
+                        <td>
+                            <table class="table table-spacing-sm">
+                                <tr>
+                                    <td class="text-left">HTML4.0</td>
+                                    <td class="text-center">XHTML</td>
+                                    <td class="text-right">HTML5.0</td>
+                                </tr>
+                            </table>
+                        </td>
 
-            <td>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</td>
-            <td>一般</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td class="vertical-bottom">JavaScript</td>
-            <td>
-              <table class="table">
-                <tr>
-                  <td>ECMAScript3</td>
-                  <td>ECMAScript4</td>
-                  <td>ECMAScript5</td>
-                  <td>ECMAScript5.5</td>
-                  <td>ECMAScript6</td>
-                  <td>ECMAScript7</td>
-                </tr>
-              </table>
-            </td>
+                        <td>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</td>
+                        <td>一般</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="vertical-bottom">JavaScript</td>
+                        <td>
+                            <table class="table">
+                                <tr>
+                                    <td>ECMAScript3</td>
+                                    <td>ECMAScript4</td>
+                                    <td>ECMAScript5</td>
+                                    <td>ECMAScript5.5</td>
+                                    <td>ECMAScript6</td>
+                                    <td>ECMAScript7</td>
+                                </tr>
+                            </table>
+                        </td>
 
-            <td>
-              JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
-            </td>
-            <td>不熟</td>
-          </tr>
-        </tbody>
-      </table>
+                        <td>
+                            JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+                        </td>
+                        <td>不熟</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
-  <pre name="pre" class="html">
+    <pre name="pre" class="html">
 <table class="table">
-<caption>表格标题</caption>
-<colgroup>
-  <col width="100" span="2">
-  <col width="300">
-  <col width="auto">
-  <col width="50">
-</colgroup>
-<thead>
-<tr>
-  <th>序号</th>
-  <th>名称</th>
-  <th>分类</th>
-  <th>说明</th>
-  <th>程度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-  <td>1</td>
-  <td>CSS</td>
-  <td>
-    <table class="table table-spacing-lg">
-      <tr>
-        <td>css2.0</td>
-        <td>css3.0</td>
-      </tr>
-    </table>
-  </td>
-  <td>层叠样式表(英文全称：Cascading Style
-    Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
-  </td>
-  <td>熟练</td>
-</tr>
-<tr>
-  <td>2</td>
-  <td>HTML</td>
-  <td>
-    <table class="table table-spacing-sm">
-      <tr>
-        <td>HTML4.0</td>
-        <td>XHTML</td>
-        <td>HTML5.0</td>
-      </tr>
-    </table>
-  </td>
-  <td>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</td>
-  <td>一般</td>
-</tr>
-<tr>
-  <td>3</td>
-  <td>JavaScript</td>
-  <td>
-    <table class="table">
-      <tr>
-        <td>ECMAScript3</td>
-        <td>ECMAScript4</td>
-        <td>ECMAScript5</td>
-        <td>ECMAScript5.5</td>
-        <td>ECMAScript6</td>
-        <td>ECMAScript7</td>
-      </tr>
-    </table>
-  </td>
+    <caption>表格标题</caption>
+    <colgroup>
+        <col width="100" span="2">
+        <col width="300">
+        <col width="auto">
+        <col width="50">
+    </colgroup>
+    <thead>
+        <tr>
+        <th>序号</th>
+        <th>名称</th>
+        <th>分类</th>
+        <th>说明</th>
+        <th>程度</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <td>1</td>
+        <td class="vertical-top">CSS</td>
+        <td>
+            <table class="table table-spacing-lg">
+            <tr>
+                <td>css2.0</td>
+                <td>css3.0</td>
+            </tr>
+            </table>
+        </td>
+        <td>层叠样式表(英文全称：Cascading Style
+            Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
+        </td>
+        <td>熟练</td>
+        </tr>
+        <tr>
+        <td>2</td>
+        <td class="vertical-middle">HTML</td>
+        <td>
+            <table class="table table-spacing-sm">
+            <tr>
+                <td class="text-left">HTML4.0</td>
+                <td class="text-center">XHTML</td>
+                <td class="text-right">HTML5.0</td>
+            </tr>
+            </table>
+        </td>
 
-  <td>
-    JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
-  </td>
-  <td>不熟</td>
-</tr>
-</tbody>
+        <td>超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</td>
+        <td>一般</td>
+        </tr>
+        <tr>
+        <td>3</td>
+        <td class="vertical-bottom">JavaScript</td>
+        <td>
+            <table class="table">
+            <tr>
+                <td>ECMAScript3</td>
+                <td>ECMAScript4</td>
+                <td>ECMAScript5</td>
+                <td>ECMAScript5.5</td>
+                <td>ECMAScript6</td>
+                <td>ECMAScript7</td>
+            </tr>
+            </table>
+        </td>
+
+        <td>
+            JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+        </td>
+        <td>不熟</td>
+        </tr>
+    </tbody>
 </table>
     </pre>
 </div>
