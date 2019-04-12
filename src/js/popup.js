@@ -331,7 +331,7 @@
                             if (!j.size.full) {
                                 iframes.css({
                                     "width": (j.size.width === 'auto' ? iframeW : j.size.width) + "px",
-                                    "height": (j.size.height === 'auto' ? iframeW : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0))) + "px"
+                                    "height": (j.size.height === 'auto' ? iframeW : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() : 0))) + "px"
                                 });
                             } else {
                                 iframes.css({
