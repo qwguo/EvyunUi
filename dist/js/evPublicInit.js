@@ -4063,7 +4063,7 @@ and dependencies (minified).
                                 });
                                 iframes.css({
                                     width: w + 'px',
-                                    height: (h - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0)) + 'px'
+                                    height: (h - (j.head ? that.popup.find('.popup-head').outerHeight() : 0)) + 'px'
                                 });
                             }());
                             iframes.siblings('.popup-loading-wait').remove();
