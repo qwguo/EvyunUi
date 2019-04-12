@@ -4047,7 +4047,7 @@ and dependencies (minified).
                             } else {
                                 iframes.css({
                                     width: '100%',
-                                    height: that.popup.height() - (j.head ? that.popup.find('.popup-head').outerHeight() + 5 : 0) + 'px'
+                                    height: that.popup.height() - (j.head ? that.popup.find('.popup-head').outerHeight() : 0) + 'px'
                                 });
                             }
                             (function () {
