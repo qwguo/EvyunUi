@@ -4087,6 +4087,71 @@ and dependencies (minified).
                     break;
             }
         },
+        popupResetWH: function(){
+            var that = this,
+                j = that.j,
+                winAttr = that.winAttr();
+            switch (j.type) {
+                case 3:
+                    (function () {
+                        var iframes = that.popup.find('iframe'),
+                            iframeW = null,
+                            iframeH = null;
+                        that.selfWindow = iframes[0].contentWindow;
+                        try {
+                            that.selfDocument = iframes[0].contentWindow.document;
+                            iframes[0].contentWindow.iframeNumber = that.popupId;
+                            iframes[0].contentWindow.popup = that;
+                            iframeW = iframes.contents().find('body :first-child').width();
+                            iframeH = iframes.contents().find('body :first-child').height();
+                        } catch (err) {
+                            iframeW = j.size.width;
+                            iframeH = j.size.height;
+                        }
+                        if (!j.size.full) {
+                            iframes.css({
+                                "width": (j.size.width === 'auto' ? iframeW : j.size.width) + "px",
+                                "height": (j.size.height === 'auto' ? iframeW : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() : 0))) + "px"
+                            });
+                        } else {
+                            iframes.css({
+                                width: '100%',
+                                height: that.popup.height() - (j.head ? that.popup.find('.popup-head').outerHeight() : 0) + 'px'
+                            });
+                        }
+                        (function () {
+                            var w = iframeW,
+                                h = iframeH + (j.head ? that.popup.find('.popup-head').outerHeight() : 0);
+                            w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
+                            h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
+                            that.popup.css({
+                                width: w + 'px',
+                                height: h + 'px'
+                            });
+                            iframes.css({
+                                width: w + 'px',
+                                height: (h - (j.head ? that.popup.find('.popup-head').outerHeight() : 0)) + 'px'
+                            });
+                        }());
+                        that.popupOffset();
+                    }());
+                    break;
+                default:
+                    (function () {
+                        var w = j.size.width,
+                            h = j.size.height;
+                        if (j.size.width !== 'auto') {
+                            w = (w > winAttr.winW) ? (winAttr.winW - 10) : w;
+                            that.popup.css('width', w + 'px');
+                        }
+                        if (h !== 'auto') {
+                            h = (h > winAttr.winH) ? (winAttr.winH - 10) : h;
+                            that.popup.css('height', h + 'px');
+                        }
+                    }());
+                    break;
+            }
+        },
         // 最小化弹窗
         popupMin: function () {
             var that = this,
