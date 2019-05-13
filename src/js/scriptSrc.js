@@ -13,6 +13,7 @@ exports.src = function(){
     './src/js/datepicker.all.js',
     './src/js/allSelect.js',
     './src/js/numberLimit.js',
+    './src/js/spectrum.js',
     './src/js/zzev_init.js'
   ];
 };

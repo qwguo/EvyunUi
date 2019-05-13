@@ -21,46 +21,49 @@
 
 
 <script>
-  $(function(){
-    $('#abc').on('click', function(){
-      var inputs = $(this).prev();
-      $.evPopupPoint({
-        closeTime: 3,
-        hint: '<span class="text-warning">当先显示的文字是：'+inputs.find('input[type="text"]').val()+'</span><span class="text-info">当先值是：'+inputs.find('input[type="hidden"]').val()+'</span>'
-      });
+    $(function () {
+        $('#abc').on('click', function () {
+            var inputs = $(this).prev();
+            $.evPopupPoint({
+                closeTime: 3,
+                hint: '<span class="text-warning">当先显示的文字是：' + inputs.find('input[type="text"]')
+                    .val() + '</span><span class="text-info">当先值是：' + inputs.find(
+                        'input[type="hidden"]').val() + '</span>'
+            });
+        });
     });
-  });
 </script>
 <div class="show-forms-sub">
-  <h3 class="page-header">下拉菜单</h3>
-  <p>我们在做表单下拉菜单的时候，给表单的<code>class="select-element"</code>元素添加<code>dropdown</code>类，并且给<code>class="input-element"</code>子类添加下列属性来实现js交互；</p>
-  <ol class="arr-explain-list">
-    <li><code>data-type="select"</code>：表示这个是一个表单下拉选择菜单，固定格式</li>
-    <li><code>data-toggle="dropdown"</code>：用来表示调用js事件，固定格式</li>
-    <li><code>data-multiple="0"</code>：用来表示是否支持多选：<code>0</code>表示否，<code>1</code>表示是</li>
-  </ol>
+    <h3 class="page-header">下拉菜单</h3>
+    <p>我们在做表单下拉菜单的时候，给表单的<code>class="select-element"</code>元素添加<code>dropdown</code>类，并且给<code>class="input-element"</code>子类添加下列属性来实现js交互；
+    </p>
+    <ol class="arr-explain-list">
+        <li><code>data-type="select"</code>：表示这个是一个表单下拉选择菜单，固定格式</li>
+        <li><code>data-toggle="dropdown"</code>：用来表示调用js事件，固定格式</li>
+        <li><code>data-multiple="0"</code>：用来表示是否支持多选：<code>0</code>表示否，<code>1</code>表示是</li>
+    </ol>
 
-  <div class="select-show">
-    <h5 class="page-header">普通下拉菜单</h5>
-    <div class="select-element dropdown">
-      <div class="input-element suffix" data-toggle="dropdown" data-type="select" data-multiple="0">
-        <input type="text" readonly="readonly" placeholder="单击选择">
-        <input type="hidden">
-        <i class="evicon evicon-arrow-up-2"></i>
-      </div>
-      <div class="option-list dropdown-menu">
-        <dl>
-          <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
-          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-          <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-        </dl>
-      </div>
-    </div>
-    <button id="abc" class="btn btn-primary">获取值</button>
-    <pre class="html" name="pre">
+    <div class="select-show">
+        <h5 class="page-header">普通下拉菜单</h5>
+        <div class="select-element dropdown">
+            <div class="input-element suffix" data-toggle="dropdown" data-type="select" data-multiple="0">
+                <input type="text" readonly="readonly" placeholder="单击选择">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu">
+                <dl>
+                    <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+                    <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                    <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <button id="abc" class="btn btn-primary">获取值</button>
+        <pre class="html" name="pre">
 <div class="select-element dropdown">
   <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
     <!--这个input输入框用来存储文字，也就是选择项的显示文字-->
@@ -81,79 +84,80 @@
   </div>
 </div>
     </pre>
-  </div>
+    </div>
 
-  <div class="select-show">
-    <h5 class="page-header">大小，给<code>input-element</code>元素添加<code>lg</code>、<code>sm</code>、<code>xs</code>等class类来实现</h5>
-    <div class="select-element dropdown">
-      <div class="input-element lg suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-        <input type="text" readonly="readonly" placeholder="超大">
-        <input type="hidden">
-        <i class="evicon evicon-arrow-up-2"></i>
-      </div>
-      <div class="option-list dropdown-menu">
-        <dl>
-          <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
-          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-          <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-        </dl>
-      </div>
-    </div>
-    <div class="select-element dropdown">
-      <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-        <input type="text" readonly="readonly" placeholder="默认">
-        <input type="hidden">
-        <i class="evicon evicon-arrow-up-2"></i>
-      </div>
-      <div class="option-list dropdown-menu">
-        <dl>
-          <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
-          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-          <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-        </dl>
-      </div>
-    </div>
-    <div class="select-element dropdown">
-      <div class="input-element sm suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-        <input type="text" readonly="readonly" placeholder="输入文字">
-        <input type="hidden">
-        <i class="evicon evicon-arrow-up-2"></i>
-      </div>
-      <div class="option-list dropdown-menu">
-        <dl>
-          <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
-          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-          <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-        </dl>
-      </div>
-    </div>
-    <div class="select-element dropdown">
-      <div class="input-element xs suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-        <input type="text" readonly="readonly" placeholder="输入文字">
-        <input type="hidden">
-        <i class="evicon evicon-arrow-up-2"></i>
-      </div>
-      <div class="option-list dropdown-menu">
-        <dl>
-          <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
-          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-          <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-        </dl>
-      </div>
-    </div>
-    <pre class="html" name="pre">
+    <div class="select-show">
+        <h5 class="page-header">
+            大小，给<code>input-element</code>元素添加<code>lg</code>、<code>sm</code>、<code>xs</code>等class类来实现</h5>
+        <div class="select-element dropdown">
+            <div class="input-element lg suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                <input type="text" readonly="readonly" placeholder="超大">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu">
+                <dl>
+                    <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+                    <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                    <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="select-element dropdown">
+            <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                <input type="text" readonly="readonly" placeholder="默认">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu">
+                <dl>
+                    <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+                    <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                    <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="select-element dropdown">
+            <div class="input-element sm suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                <input type="text" readonly="readonly" placeholder="输入文字">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu">
+                <dl>
+                    <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+                    <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                    <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="select-element dropdown">
+            <div class="input-element xs suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                <input type="text" readonly="readonly" placeholder="输入文字">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu">
+                <dl>
+                    <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+                    <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                    <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <pre class="html" name="pre">
 <div class="select-element dropdown">
   <div class="input-element lg suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
     <input type="text" readonly="readonly" placeholder="超大">
@@ -172,28 +176,28 @@
   </div>
 </div>
     </pre>
-  </div>
-
-  <div class="select-show">
-    <h5 class="page-header">单行下拉菜单</h5>
-    <div class="select-element block dropdown">
-      <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-        <input type="text" readonly="readonly" placeholder="输入文字">
-        <input type="hidden">
-        <i class="evicon evicon-arrow-up-2"></i>
-      </div>
-      <div class="option-list dropdown-menu">
-        <dl>
-          <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
-          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-          <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-        </dl>
-      </div>
     </div>
-    <pre class="html" name="pre">
+
+    <div class="select-show">
+        <h5 class="page-header">单行下拉菜单</h5>
+        <div class="select-element block dropdown">
+            <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                <input type="text" readonly="readonly" placeholder="输入文字">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu">
+                <dl>
+                    <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+                    <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                    <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <pre class="html" name="pre">
 <div class="select-element block dropdown">
   <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
     <input type="text" readonly="readonly" placeholder="输入文字">
@@ -212,64 +216,64 @@
   </div>
 </div>
     </pre>
-  </div>
-
-  <div class="select-show">
-    <h5 class="page-header">下拉菜单组</h5>
-    <div class="select-element-group">
-      <div class="select-element dropdown">
-        <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-          <input type="text" readonly="readonly" placeholder="输入文字">
-          <input type="hidden">
-          <i class="evicon evicon-arrow-up-2"></i>
-        </div>
-        <div class="option-list dropdown-menu">
-          <dl>
-            <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
-            <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-            <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-            <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-            <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-            <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-          </dl>
-        </div>
-      </div>
-      <div class="select-element dropdown">
-        <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-          <input type="text" readonly="readonly" placeholder="输入文字">
-          <input type="hidden">
-          <i class="evicon evicon-arrow-up-2"></i>
-        </div>
-        <div class="option-list dropdown-menu">
-          <dl>
-            <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
-            <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-            <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-            <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-            <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-            <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-          </dl>
-        </div>
-      </div>
-      <div class="select-element dropdown">
-        <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-          <input type="text" readonly="readonly" placeholder="输入文字">
-          <input type="hidden">
-          <i class="evicon evicon-arrow-up-2"></i>
-        </div>
-        <div class="option-list dropdown-menu">
-          <dl>
-            <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
-            <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-            <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-            <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-            <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-            <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-          </dl>
-        </div>
-      </div>
     </div>
-    <pre class="html" name="pre">
+
+    <div class="select-show">
+        <h5 class="page-header">下拉菜单组</h5>
+        <div class="select-element-group">
+            <div class="select-element dropdown">
+                <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                    <input type="text" readonly="readonly" placeholder="输入文字">
+                    <input type="hidden">
+                    <i class="evicon evicon-arrow-up-2"></i>
+                </div>
+                <div class="option-list dropdown-menu">
+                    <dl>
+                        <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+                        <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                        <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                        <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                        <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                        <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="select-element dropdown">
+                <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                    <input type="text" readonly="readonly" placeholder="输入文字">
+                    <input type="hidden">
+                    <i class="evicon evicon-arrow-up-2"></i>
+                </div>
+                <div class="option-list dropdown-menu">
+                    <dl>
+                        <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+                        <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                        <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                        <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                        <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                        <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="select-element dropdown">
+                <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                    <input type="text" readonly="readonly" placeholder="输入文字">
+                    <input type="hidden">
+                    <i class="evicon evicon-arrow-up-2"></i>
+                </div>
+                <div class="option-list dropdown-menu">
+                    <dl>
+                        <dd title="CSS系列教程" data-value="1"><a href="###"><span>CSS系列教程</span></a></dd>
+                        <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                        <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                        <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                        <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                        <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <pre class="html" name="pre">
 <div class="select-element-group">
   <div class="select-element dropdown">
     <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
@@ -324,28 +328,70 @@
   </div>
 </div>
     </pre>
-  </div>
-
-  <div class="select-show">
-    <h5>带禁止选项和选中状态项，禁止选项给列表中的<code>&lt;dd&gt;</code>标签添加<code>class="disabled"</code>类，当前选中给列表中的<code>&lt;dd&gt;</code>标签添加<code>class="active"</code>类</h5>
-    <div class="select-element dropdown">
-      <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-        <input type="text" readonly="readonly" placeholder="输入文字">
-        <input type="hidden">
-        <i class="evicon evicon-arrow-up-2"></i>
-      </div>
-      <div class="option-list dropdown-menu">
-        <dl>
-          <dd title="CSS系列教程" data-value="1" class="disabled"><a href="###"><span>CSS系列教程</span></a></dd>
-          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-          <dd title="jQuery系列教程" data-value="4" class="active"><a href="###"><span>jQuery系列教程</span></a></dd>
-          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-        </dl>
-      </div>
     </div>
-    <pre class="html" name="pre">
+
+    <div class="select-show">
+        <h5>禁止状态</h5>
+        <div class="select-element dropdown">
+            <div class="input-element suffix disabled" data-type="select" data-multiple="0" data-toggle="dropdown">
+                <input type="text" readonly="readonly" disabled="disabled" placeholder="输入文字">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu">
+                <dl>
+                    <dd title="CSS系列教程" data-value="1" class="disabled"><a href="###"><span>CSS系列教程</span></a></dd>
+                    <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3" class="active"><a
+                            href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                    <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <pre class="html" name="pre">
+<div class="select-element dropdown">
+  <div class="input-element suffix disabled" data-type="select" data-multiple="0" data-toggle="dropdown">
+    <input type="text" readonly="readonly" disabled="disabled" placeholder="输入文字">
+    <input type="hidden">
+    <i class="evicon evicon-arrow-up-2"></i>
+  </div>
+  <div class="option-list dropdown-menu">
+    <dl>
+      <dd title="CSS系列教程" data-value="1" class="disabled"><a href="###"><span>CSS系列教程</span></a></dd>
+      <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+      <dd title="JavaScript系列教程" data-value="3" class="active"><a href="###"><span>JavaScript系列教程</span></a></dd>
+      <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+      <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+      <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+    </dl>
+  </div>
+</div>
+    </pre>
+    </div>
+
+    <div class="select-show">
+        <h5>带禁止选项和选中状态项，禁止选项给列表中的<code>&lt;dd&gt;</code>标签添加<code>class="disabled"</code>类，当前选中给列表中的<code>&lt;dd&gt;</code>标签添加<code>class="active"</code>类
+        </h5>
+        <div class="select-element dropdown">
+            <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                <input type="text" readonly="readonly" placeholder="输入文字">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu">
+                <dl>
+                    <dd title="CSS系列教程" data-value="1" class="disabled"><a href="###"><span>CSS系列教程</span></a></dd>
+                    <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="jQuery系列教程" data-value="4" class="active"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                    <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <pre class="html" name="pre">
 <div class="select-element dropdown">
   <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
     <input type="text" readonly="readonly" placeholder="输入文字">
@@ -364,36 +410,39 @@
   </div>
 </div>
     </pre>
-  </div>
-
-  <div class="select-show">
-    <h5 class="page-header">带标题分组下拉列表</h5>
-    <div class="select-element dropdown">
-      <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown" aria-haspopup="false">
-        <input type="text" readonly="readonly" placeholder="输入文字">
-        <input type="hidden">
-        <i class="evicon evicon-arrow-up-2"></i>
-      </div>
-      <div class="option-list dropdown-menu" data-toggle="customScroll" data-axis="xy" data-position="inside" data-theme="dark-3" data-scrollbtn="1" data-height="300">
-        <dl>
-          <dt><span>CSS系列教程</span></dt>
-          <dd title="CSS2系列教程" data-value="1"><a href="###"><span>CSS2系列教程</span></a></dd>
-          <dd title="CSS3系列教程" data-value="1"><a href="###"><span>CSS3系列教程</span></a></dd>
-          <dt><span>HTML系列教程</span></dt>
-          <dd title="HTML4系列教程" data-value="2" class="disabled"><a href="###"><span>HTML4系列教程</span></a></dd>
-          <dd title="HTML4系列教程" data-value="2"><a href="###"><span>HTML4系列教程</span></a></dd>
-          <dd title="HTML5系列教程" data-value="2"><a href="###"><span>HTML5系列教程</span></a></dd>
-          <dt><span>ECMAScript系列教程</span></dt>
-          <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript3.0系列教程</span></a></dd>
-          <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript4.0系列教程</span></a></dd>
-          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-          <dd title="JScript系列教程" data-value="3" class="disabled"><a href="###"><span>JScript系列教程</span></a></dd>
-          <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
-          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-        </dl>
-      </div>
     </div>
-    <pre class="html" name="pre">
+
+    <div class="select-show">
+        <h5 class="page-header">带标题分组下拉列表</h5>
+        <div class="select-element dropdown">
+            <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown"
+                aria-haspopup="false">
+                <input type="text" readonly="readonly" placeholder="输入文字">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu" data-toggle="customScroll" data-axis="xy" data-position="inside"
+                data-theme="dark-3" data-scrollbtn="1" data-height="300">
+                <dl>
+                    <dt><span>CSS系列教程</span></dt>
+                    <dd title="CSS2系列教程" data-value="1"><a href="###"><span>CSS2系列教程</span></a></dd>
+                    <dd title="CSS3系列教程" data-value="1"><a href="###"><span>CSS3系列教程</span></a></dd>
+                    <dt><span>HTML系列教程</span></dt>
+                    <dd title="HTML4系列教程" data-value="2" class="disabled"><a href="###"><span>HTML4系列教程</span></a></dd>
+                    <dd title="HTML4系列教程" data-value="2"><a href="###"><span>HTML4系列教程</span></a></dd>
+                    <dd title="HTML5系列教程" data-value="2"><a href="###"><span>HTML5系列教程</span></a></dd>
+                    <dt><span>ECMAScript系列教程</span></dt>
+                    <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript3.0系列教程</span></a></dd>
+                    <dd title="0系列教程" data-value="3"><a href="###"><span>ECMAScript4.0系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="JScript系列教程" data-value="3" class="disabled"><a href="###"><span>JScript系列教程</span></a>
+                    </dd>
+                    <dd title="jQuery系列教程" data-value="4"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <pre class="html" name="pre">
 <div class="select-element dropdown">
   <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown" aria-haspopup="false">
     <input type="text" readonly="readonly" placeholder="输入文字">
@@ -420,34 +469,34 @@
   </div>
 </div>
     </pre>
-  </div>
-
-  <div class="select-show">
-    <h5>下拉列表带搜索</h5>
-    <div class="select-element dropdown">
-      <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
-        <input type="text" readonly="readonly" placeholder="输入文字">
-        <input type="hidden">
-        <i class="evicon evicon-arrow-up-2"></i>
-      </div>
-      <div class="option-list dropdown-menu">
-        <div class="option-list-search">
-          <div class="input-element suffix">
-            <input type="text" placeholder="输入关键字">
-            <i class="evicon evicon-search-1"></i>
-          </div>
-        </div>
-        <dl>
-          <dd title="CSS系列教程" data-value="1" class="disabled"><a href="###"><span>CSS系列教程</span></a></dd>
-          <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
-          <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
-          <dd title="jQuery系列教程" data-value="4" class="active"><a href="###"><span>jQuery系列教程</span></a></dd>
-          <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
-          <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
-        </dl>
-      </div>
     </div>
-    <pre class="html" name="pre">
+
+    <div class="select-show">
+        <h5>下拉列表带搜索</h5>
+        <div class="select-element dropdown">
+            <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
+                <input type="text" readonly="readonly" placeholder="输入文字">
+                <input type="hidden">
+                <i class="evicon evicon-arrow-up-2"></i>
+            </div>
+            <div class="option-list dropdown-menu">
+                <div class="option-list-search">
+                    <div class="input-element suffix">
+                        <input type="text" placeholder="输入关键字">
+                        <i class="evicon evicon-search-1"></i>
+                    </div>
+                </div>
+                <dl>
+                    <dd title="CSS系列教程" data-value="1" class="disabled"><a href="###"><span>CSS系列教程</span></a></dd>
+                    <dd title="HTML系列教程" data-value="2"><a href="###"><span>HTML系列教程</span></a></dd>
+                    <dd title="JavaScript系列教程" data-value="3"><a href="###"><span>JavaScript系列教程</span></a></dd>
+                    <dd title="jQuery系列教程" data-value="4" class="active"><a href="###"><span>jQuery系列教程</span></a></dd>
+                    <dd title="Ajax系列教程" data-value="5"><a href="###"><span>Ajax系列教程</span></a></dd>
+                    <dd title="这是选项" data-value="6"><a href="###"><span>这是选项</span></a></dd>
+                </dl>
+            </div>
+        </div>
+        <pre class="html" name="pre">
 <div class="select-element dropdown">
   <div class="input-element suffix" data-type="select" data-multiple="0" data-toggle="dropdown">
     <input type="text" readonly="readonly" placeholder="输入文字">
@@ -472,7 +521,7 @@
   </div>
 </div>
     </pre>
-  </div>
+    </div>
 
 </div>
 
@@ -483,6 +532,4 @@
   <script src="../js/public.js"></script>
 </body>
 </html>
-
-
 

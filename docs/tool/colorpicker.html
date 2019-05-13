@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="../../dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../dist/css/project.min.css">
+  <script src="../js/jquery-1.9.1.min.js"></script>
+  <link rel="stylesheet" href="../js/DlHighlight/h1.css">
+  <script src="../js/DlHighlight/highlight-all.js"></script>
+  <title>隐藏显示</title>
+</head>
+<body>
+<div class="main-wrap">
+  <div class="container-fluid">
+
+
+
+
+<div class="show-tips">
+    <h3 class="page-header">颜色选择器</h3>
+    <dl>
+        <dt>
+            <h4>我们可以给任何的标签元素添加<code>data-toggle="tooltip"</code>属性来实现静态提示框</h4>
+        </dt>
+        <dd>
+            <p>同时我们可以添加更过属性来实现不同效果，具体属性有以下：</p>
+            <ol>
+                <li>
+                    <p>
+                        <code>data-container="body"</code>：弹出框添加到哪个元素标签内，如果不设置，默认添加在body中；可以设置元素的id格式为<code>#id</code>形式
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <code>data-placement="left"</code>：方向，表示提示信息出现的位置，可以是：<code>top</code>，<code>bottom</code>，<code>left</code>，<code>right</code>，<code>auto</code>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <code>data-delay="100"</code>：延迟出现时间，毫秒数
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <code>data-trigger="hover"</code>：表示触发什么事件显示提示：<code>hover</code>鼠标经过（默认），<code>click</code>单击，<code>focus</code>得到焦点（只能应用在可以得到焦点的元素上，比如：<code>&lt;a&gt;</code>，<code>&lt;button&gt;</code>，<code>&lt;input&gt;</code>，<code>&lt;textarea&gt;</code>等），这里不建议修改
+                    </p>
+                </li>
+            </ol>
+        </dd>
+    </dl>
+    <h4 class="page-header">默认：鼠标经过显示，离开隐藏</h4>
+    <div id="abc">
+        <div><span data-toggle="colorPicker" data-val="#cc0">选择颜色</span>&nbsp;<span data-toggle="colorPicker" data-val="#cc0">选择颜色</span></div>
+        <script>
+            $(function () {
+                $('[data-toggle="colorPicker"]').spectrum({
+                    // Options
+                    color: $(this).data('val'), //初始化颜色
+                    flat: false, //全尺寸, 定位一个inline-block元素
+                    showInput: true, //显示输入
+                    allowEmpty: true, //允许为空,显示清楚颜色按钮
+                    showButtons: true, //隐藏选择取消按钮
+                    clickoutFiresChange: true, //单击选择器外部,如果颜色有改变则应用
+                    showInitial: true, //显示初始颜色,提供现在选择的颜色和初始颜色对比
+                    showPalette: true, //显示选择器面板
+                    showPaletteOnly: true, //只显示选择器面板
+                    hideAfterPaletteSelect: true, //选择颜色后自动隐藏面板
+                    togglePaletteOnly: true, //切换面板
+                    showSelectionPalette: true, //记住选择过的颜色
+                    localStorageKey: true, //把选择过的颜色存在浏览器上
+                    appendTo: "body", //选择选择器容器是附加到哪个元素
+                    maxSelectionSize: 7, //记住选择过的颜色的最大数量
+                    cancelText: "取消", //取消按钮,按钮文字
+                    chooseText: "确定", //选择按钮,按钮文字
+                    togglePaletteMoreText: "展开", //展开面板,按钮文字
+                    togglePaletteLessText: "收起", //收缩面板,按钮文字
+                    clearText: "清楚颜色", //清楚,按钮文字
+                    noColorSelectedText: "No Color Selected",
+                    preferredFormat: false, //输入框颜色格式,(hex十六进制,hex3十六进制可以的话只显示3位,hsl,rgb三原色,name英文名显示)
+                    className: "", // Deprecated - use containerClassName and replacerClassName instead.
+                    containerClassName: "", //引用类选择器,可以改变颜色选择器面板的样式
+                    replacerClassName: "", //引用类选择器,可以改变颜色选择器的样式
+                    showAlpha: true, //显示透明度选择
+                    theme: "sp-light",
+                    palette: [
+                        ['#ffffff', '#000000', '#eeece1', '#1f497d', '#4f81bd', '#c0504d', '#9bbb59', '#8064a2', '#4bacc6', '#f79646'],
+                        ['#f2f2f2', '#7f7f7f', '#ddd9c3', '#c6d9f0', '#dbe5f1', '#f2dcdb', '#ebf1dd', '#e5e0ec', '#dbeef3', '#fdeada'],
+                        ['#d8d8d8', '#595959', '#c4bd97', '#8db3e2', '#b8cce4', '#e5b9b7', '#d7e3bc', '#ccc1d9', '#b7dde8', '#fbd5b5'],
+                        ['#bfbfbf', '#3f3f3f', '#938953', '#548dd4', '#95b3d7', '#d99694', '#c3d69b', '#b2a2c7', '#92cddc', '#fac08f'],
+                        ['#a5a5a5', '#262626', '#494429', '#17365d', '#366092', '#953734', '#76923c', '#5f497a', '#31859b', '#e36c09'],
+                        ['#7f7f7f', '#0c0c0c', '#1d1b10', '#0f243e', '#244061', '#632423', '#4f6128', '#3f3151', '#205867', '#974806'],
+                    ], //选择器面板颜色设置
+                    selectionPalette: [],
+                    disabled: false, //禁用选择器
+                    offset: null,
+                    change: function(color){
+                        $(this).data('val',color).css('color',color);
+                        // $('.sp-container').remove();
+                    }
+                });
+
+                /* $('#custom').on('click', function(evt){
+                    var $this = $(this);
+                    $this.spectrum('destroy');
+                    $this.spectrum({
+                        flat: false,
+                        allowEmpty: true,
+                        color: $this.data('val'),
+                        showInput: true,
+                        togglePaletteOnly: false,
+                        containerClassName: "full-spectrum",
+                        showInitial: true,
+                        showPalette: true,
+                        showSelectionPalette: true,
+                        showAlpha: true,
+                        hideAfterPaletteSelect: false,
+                        localStorageKey: 'colorselector_history_colors',
+                        maxSelectionSize: 10,
+                        appendTo: $("body"),
+                        preferredFormat: "rgb",
+                        chooseText: "确定",
+                        cancelText: "取消",
+                        showButtons: true,
+                        move: function (color) {
+
+                        },
+                        change: function(color){
+                            $this.data('val',color.toHexString()).css('color',color.toHexString());
+                            $('.full-spectrum').remove();
+                        },
+                        show: function () {
+
+                        },
+                        beforeShow: function() {
+
+                        },
+                        palette: [
+                            ['#ffffff', '#000000', '#eeece1', '#1f497d', '#4f81bd', '#c0504d', '#9bbb59', '#8064a2', '#4bacc6', '#f79646'],
+                            ['#f2f2f2', '#7f7f7f', '#ddd9c3', '#c6d9f0', '#dbe5f1', '#f2dcdb', '#ebf1dd', '#e5e0ec', '#dbeef3', '#fdeada'],
+                            ['#d8d8d8', '#595959', '#c4bd97', '#8db3e2', '#b8cce4', '#e5b9b7', '#d7e3bc', '#ccc1d9', '#b7dde8', '#fbd5b5'],
+                            ['#bfbfbf', '#3f3f3f', '#938953', '#548dd4', '#95b3d7', '#d99694', '#c3d69b', '#b2a2c7', '#92cddc', '#fac08f'],
+                            ['#a5a5a5', '#262626', '#494429', '#17365d', '#366092', '#953734', '#76923c', '#5f497a', '#31859b', '#e36c09'],
+                            ['#7f7f7f', '#0c0c0c', '#1d1b10', '#0f243e', '#244061', '#632423', '#4f6128', '#3f3151', '#205867', '#974806'],
+                        ],
+                    });
+                    $this.spectrum('show');
+                    $this.off('click.spectrum');
+                    // $(document).off('click.destroy').on("click.destroy", function () {
+                    //     // $this.destroy();
+                    //     $('.full-spectrum').remove();
+                    // });
+                    evt.preventDefault && evt.preventDefault();
+                    evt.stopPropagation && evt.stopPropagation();
+                    console.log($this.spectrum);
+                }); */
+
+            });
+        </script>
+    </div>
+    <pre class="html" name="pre">
+    </pre>
+
+</div>
+
+
+  </div>
+  </div>
+  <script src="../../dist/js/evPublicInit-min.js"></script>
+  <script src="../js/public.js"></script>
+</body>
+</html>
+
