@@ -25,7 +25,8 @@
 
 @table-font-size: 12px;
 @table-text-color: #555555;
-@table-link-color: #2AB3FF;
+@table-link-color: #555555;
+@table-link-color-hover: #2AB3FF;
 
 // stylelint-disable selector-max-type, selector-max-compound-selectors, selector-no-qualifying-type
 
@@ -86,6 +87,7 @@ table {
         a {
           color: @table-link-color;
           &:hover {
+            color: @table-link-color-hover;
             text-decoration: underline;
           }
         }

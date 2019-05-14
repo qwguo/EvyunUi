@@ -1,102 +1,138 @@
 @@include('../include/head.html')
 
 <div class="show-tips">
-  <h3 class="page-header">提示信息</h3>
-  <dl>
-    <dt>
-      <h4>我们可以给任何的标签元素添加<code>data-toggle="tooltip"</code>属性来实现静态提示框</h4>
-    </dt>
-    <dd>
-      <p>同时我们可以添加更过属性来实现不同效果，具体属性有以下：</p>
-      <ol>
-        <li>
-          <p>
-            <code>data-container="body"</code>：弹出框添加到哪个元素标签内，如果不设置，默认添加在body中；可以设置元素的id格式为<code>#id</code>形式
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>data-placement="left"</code>：方向，表示提示信息出现的位置，可以是：<code>top</code>，<code>bottom</code>，<code>left</code>，<code>right</code>，<code>auto</code>
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>data-delay="100"</code>：延迟出现时间，毫秒数
-          </p>
-        </li>
-        <li>
-          <p>
-            <code>data-trigger="hover"</code>：表示触发什么事件显示提示：<code>hover</code>鼠标经过（默认），<code>click</code>单击，<code>focus</code>得到焦点（只能应用在可以得到焦点的元素上，比如：<code>&lt;a&gt;</code>，<code>&lt;button&gt;</code>，<code>&lt;input&gt;</code>，<code>&lt;textarea&gt;</code>等），这里不建议修改
-          </p>
-        </li>
-      </ol>
-    </dd>
-  </dl>
-  <h4 class="page-header">默认：鼠标经过显示，离开隐藏</h4>
-  <div id="abc">
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-container="#abc" data-delay="10"
-            data-placement="auto" title="自动检测"><span>自动检测</span></button>
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="提示在上">
-      <span>提示在上</span></button>
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="提示在下">
-      <span>提示在下</span></button>
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="提示在左">
-      <span>提示在左</span></button>
-    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="提示再右">
-      <span>提示再右</span></button>
-  </div>
-  <pre class="html" name="pre">
-<!--第一个设置了插入的目标是id为abc的div里，并且延迟10毫秒显示-->
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-container="#abc" data-delay="10" data-placement="auto" title="自动检测"><span>自动检测</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="提示在上"><span>提示在上</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="提示在下"><span>提示在下</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="提示在左"><span>提示在左</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="提示再右"><span>提示再右</span></button>
-    </pre>
-  <h4 class="page-header">单机得到焦点显示，失去焦点消失</h4>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="top" title="提示在上">
-    <span>提示在上</span></button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="bottom"
-          title="提示在下"><span>提示在下</span></button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="left" title="提示在左">
-    <span>提示在左</span></button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="right" title="提示再右">
-    <span>提示再右</span></button>
-  <pre class="html" name="pre">
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="top" title="提示在上"><span>提示在上</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="bottom" title="提示在下"><span>提示在下</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="left" title="提示在左"><span>提示在左</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="right" title="提示再右"><span>提示再右</span></button>
-    </pre>
-  <h4 class="page-header">单机显示，再单击隐藏</h4>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="top" title="提示在上">
-    <span>提示在上</span></button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="bottom"
-          title="提示在下"><span>提示在下</span></button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="left" title="提示在左">
-    <span>提示在左</span></button>
-  <button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="right" title="提示再右">
-    <span>提示再右</span></button>
-  <pre class="html" name="pre">
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="top" title="提示在上"><span>提示在上</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="bottom" title="提示在下"><span>提示在下</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="left" title="提示在左"><span>提示在左</span></button>
-<button type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="right" title="提示再右"><span>提示再右</span></button>
-    </pre>
-  <h4 class="page-header">在文章中使用</h4>
-  <p>CSS（层叠样式表）是一门历史悠久的标记性语言，同 <a href="###" data-toggle="tooltip" data-placement="top" title="超文本标记语言">HTML</a>
-    一道，被广泛应用于万维网
-    <a href="###" data-toggle="tooltip" data-placement="top" title="World Wide Web">WWW</a>中。HTML 主要负责文档结构的定义，CSS
-    负责文档表现形式或样式的定义。</p>
-  <p>作为一门标记性语言，<a href="###" data-toggle="tooltip" data-placement="top" title="Cascading Style Sheets">CSS</a>
-    的语法相对简单，对使用者的要求较低，但同时也带来一些问题：CSS 需要书写大量看似没有逻辑的代码，不方便维护及扩展，不利于复用，尤其对于非前端开发工程师来讲，往往会因为缺少 CSS 编写经验而很难写出组织良好且易于维护的 CSS
-    代码，造成这些困难的很大原因源于 CSS 是一门非程序式语言，没有变量、函数、SCOPE（作用域）等概念。LESS 为 Web 开发者带来了福音，它在 CSS
-    的语法基础之上，引入了变量，Mixin（混入），运算以及函数等功能，大大简化了 CSS 的编写，并且降低了 CSS 的维护成本，就像它的名称所说的那样，LESS 可以让我们用更少的代码做更多的事情。 [2] </p>
-  <pre class="html" name="pre">
-<p>CSS（层叠样式表）是一门历史悠久的标记性语言，同 <a href="###" data-toggle="tooltip" data-placement="top" title="超文本标记语言">HTML</a> 一道，被广泛应用于万维网
-<a href="###" data-toggle="tooltip" data-placement="top" title="World Wide Web">WWW</a>中。HTML 主要负责文档结构的定义，CSS 负责文档表现形式或样式的定义。</p>
-<p>作为一门标记性语言，<a href="###" data-toggle="tooltip" data-placement="top" title="Cascading Style Sheets">CSS</a> 的语法相对简单，对使用者的要求较低，但同时也带来一些问题：CSS 需要书写大量看似没有逻辑的代码，不方便维护及扩展，不利于复用，尤其对于非前端开发工程师来讲，往往会因为缺少 CSS 编写经验而很难写出组织良好且易于维护的 CSS 代码，造成这些困难的很大原因源于 CSS 是一门非程序式语言，没有变量、函数、SCOPE（作用域）等概念。LESS 为 Web 开发者带来了福音，它在 CSS 的语法基础之上，引入了变量，Mixin（混入），运算以及函数等功能，大大简化了 CSS 的编写，并且降低了 CSS 的维护成本，就像它的名称所说的那样，LESS 可以让我们用更少的代码做更多的事情。 [2]  </p>
-    </pre>
+    <h3 class="page-header">提示信息</h3>
+    <dl>
+        <dt>
+            <h4>我们可以给任何的标签元素添加<code>data-toggle="tooltip"</code>属性来实现静态提示框</h4>
+        </dt>
+        <dd>
+            <p>同时我们可以添加更过属性来实现不同效果，具体属性有以下：</p>
+            <ol>
+                <li>
+                    <p>
+                        <code>data-container="body"</code>：弹出框添加到哪个元素标签内，如果不设置，默认添加在body中；可以设置元素的id格式为<code>#id</code>形式
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <code>data-placement="left"</code>：方向，表示提示信息出现的位置，可以是：<code>top</code>，<code>bottom</code>，<code>left</code>，<code>right</code>，<code>auto</code>
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <code>data-delay="100"</code>：延迟出现时间，毫秒数
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <code>data-trigger="hover"</code>：表示触发什么事件显示提示：<code>hover</code>鼠标经过（默认），<code>click</code>单击，<code>focus</code>得到焦点（只能应用在可以得到焦点的元素上，比如：<code>&lt;a&gt;</code>，<code>&lt;button&gt;</code>，<code>&lt;input&gt;</code>，<code>&lt;textarea&gt;</code>等），这里不建议修改
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <code>data-skin="样式颜色"</code>：表示触发什么事件显示提示：<code>hover</code>鼠标经过（默认），<code>click</code>单击，<code>focus</code>得到焦点（只能应用在可以得到焦点的元素上，比如：<code>&lt;a&gt;</code>，<code>&lt;button&gt;</code>，<code>&lt;input&gt;</code>，<code>&lt;textarea&gt;</code>等），这里不建议修改
+                    </p>
+                </li>
+            </ol>
+        </dd>
+    </dl>
+    <div class="tips-item">
+        <h4 class="page-header">提示信息位置：</h4>
+        <div id="abc">
+            <input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="auto" title="自动检测" value="自动检测" />
+            <input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="提示在上" value="提示在上" />
+            <input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="提示在下" value="提示在下" />
+            <input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="提示在左" value="提示在左" />
+            <input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="提示在右" value="提示在右" />
+        </div>
+        <pre class="html" name="pre">
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="auto" title="自动检测" value="自动检测" />
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="提示在上" value="提示在上" />
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="提示在下" value="提示在下" />
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="提示在左" value="提示在左" />
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="提示在右" value="提示在右" />
+        </pre>
+    </div>
+
+    <div class="tips-item">
+        <h4 class="page-header">事件触发方式</h4>
+        <input type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="提示信息" value="鼠标经过触发默认" />
+        <input type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="bottom" title="提示信息" value="元素得到焦点触发" />
+        <input type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="left" title="提示信息" value="元素单机触发" />
+        <pre class="html" name="pre">
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="提示信息" value="鼠标经过触发默认" />
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="focus" data-placement="bottom" title="提示信息" value="元素得到焦点触发" />
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="click" data-placement="left" title="提示信息" value="元素单机触发" />
+        </pre>
+    </div>
+
+    <div class="tips-item">
+        <h4 class="page-header">提示消息大小</h4>
+        <input type="button" class="btn btn-primary" data-toggle="tooltip" data-size="lg" data-trigger="hover" data-placement="top" title="提示信息" value="大提示消息" />
+        <input type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="提示信息" value="默认提示消息" />
+        <input type="button" class="btn btn-primary" data-toggle="tooltip" data-size="sm" data-trigger="hover" data-placement="left" title="提示信息" value="小提示消息" />
+        <pre class="html" name="pre">
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-size="lg" data-trigger="hover" data-placement="top" title="提示信息" value="大提示消息" />
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-trigger="hover" data-placement="bottom" title="提示信息" value="默认提示消息" />
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-size="sm" data-trigger="hover" data-placement="left" title="提示信息" value="小提示消息" />
+        </pre>
+    </div>
+
+    <div class="tips-item">
+        <h4 class="page-header">提示消息样式</h4>
+        <input type="button" class="btn btn-primary" data-toggle="tooltip" data-skin="primary" data-trigger="hover" data-placement="top" title="提示信息" value="大提示消息" />
+        <input type="button" class="btn btn-success" data-toggle="tooltip" data-skin="success" data-trigger="hover" data-placement="top" title="提示信息" value="默认提示消息" />
+        <input type="button" class="btn btn-info" data-toggle="tooltip" data-skin="info" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+        <input type="button" class="btn btn-warning" data-toggle="tooltip" data-skin="warning" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+        <input type="button" class="btn btn-danger" data-toggle="tooltip" data-skin="danger" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+        <input type="button" class="btn btn-lighter-primary" data-toggle="tooltip" data-skin="light-primary" data-trigger="hover" data-placement="top" title="提示信息" value="大提示消息" />
+        <input type="button" class="btn btn-lighter-success" data-toggle="tooltip" data-skin="light-success" data-trigger="hover" data-placement="top" title="提示信息" value="默认提示消息" />
+        <input type="button" class="btn btn-lighter-info" data-toggle="tooltip" data-skin="light-info" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+        <input type="button" class="btn btn-lighter-warning" data-toggle="tooltip" data-skin="light-warning" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+        <input type="button" class="btn btn-lighter-danger" data-toggle="tooltip" data-skin="light-danger" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+        <pre class="html" name="pre">
+<input type="button" class="btn btn-primary" data-toggle="tooltip" data-skin="primary" data-trigger="hover" data-placement="top" title="提示信息" value="大提示消息" />
+<input type="button" class="btn btn-success" data-toggle="tooltip" data-skin="success" data-trigger="hover" data-placement="top" title="提示信息" value="默认提示消息" />
+<input type="button" class="btn btn-info" data-toggle="tooltip" data-skin="info" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+<input type="button" class="btn btn-warning" data-toggle="tooltip" data-skin="warning" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+<input type="button" class="btn btn-danger" data-toggle="tooltip" data-skin="danger" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+<input type="button" class="btn btn-lighter-primary" data-toggle="tooltip" data-skin="light-primary" data-trigger="hover" data-placement="top" title="提示信息" value="大提示消息" />
+<input type="button" class="btn btn-lighter-success" data-toggle="tooltip" data-skin="light-success" data-trigger="hover" data-placement="top" title="提示信息" value="默认提示消息" />
+<input type="button" class="btn btn-lighter-info" data-toggle="tooltip" data-skin="light-info" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+<input type="button" class="btn btn-lighter-warning" data-toggle="tooltip" data-skin="light-warning" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+<input type="button" class="btn btn-lighter-danger" data-toggle="tooltip" data-skin="light-danger" data-trigger="hover" data-placement="top" title="提示信息" value="小提示消息" />
+        </pre>
+    </div>
+    <div class="tips-item">
+        <h4 class="page-header">输入框使用</h4>
+        <div class="input-element">
+            <input type="text" placeholder="得到焦点提示"  data-toggle="tooltip" data-skin="warning" data-trigger="focus" data-placement="top" title="请输入正确的用户名">
+            <input type="text" placeholder="鼠标经过提示"  data-toggle="tooltip" data-skin="warning" data-trigger="hover" data-placement="top" title="请输入正确的用户名">
+        </div>
+        <pre class="html" name="pre">
+<input type="text" placeholder="得到焦点提示"  data-toggle="tooltip" data-skin="warning" data-trigger="focus" data-placement="top" title="请输入正确的用户名">
+<input type="text" placeholder="鼠标经过提示"  data-toggle="tooltip" data-skin="warning" data-trigger="hover" data-placement="top" title="请输入正确的用户名">
+        </pre>
+    </div>
+
+    <div class="tips-item">
+        <h4 class="page-header">在文章中使用</h4>
+        <p>CSS（层叠样式表）是一门历史悠久的标记性语言，同 <a href="###" data-toggle="tooltip" data-placement="top" title="超文本标记语言">HTML</a>
+            一道，被广泛应用于万维网
+            <a href="###" data-toggle="tooltip" data-placement="top" title="World Wide Web">WWW</a>中。HTML 主要负责文档结构的定义，CSS
+            负责文档表现形式或样式的定义。</p>
+        <p>作为一门标记性语言，<a href="###" data-toggle="tooltip" data-placement="top" title="Cascading Style Sheets">CSS</a>
+            的语法相对简单，对使用者的要求较低，但同时也带来一些问题：CSS 需要书写大量看似没有逻辑的代码，不方便维护及扩展，不利于复用，尤其对于非前端开发工程师来讲，往往会因为缺少 CSS 编写经验而很难写出组织良好且易于维护的
+            CSS
+            代码，造成这些困难的很大原因源于 CSS 是一门非程序式语言，没有变量、函数、SCOPE（作用域）等概念。LESS 为 Web 开发者带来了福音，它在 CSS
+            的语法基础之上，引入了变量，Mixin（混入），运算以及函数等功能，大大简化了 CSS 的编写，并且降低了 CSS 的维护成本，就像它的名称所说的那样，LESS 可以让我们用更少的代码做更多的事情。 [2] </p>
+        <pre class="html" name="pre">
+    <p>CSS（层叠样式表）是一门历史悠久的标记性语言，同 <a href="###" data-toggle="tooltip" data-placement="top" title="超文本标记语言">HTML</a> 一道，被广泛应用于万维网
+    <a href="###" data-toggle="tooltip" data-placement="top" title="World Wide Web">WWW</a>中。HTML 主要负责文档结构的定义，CSS 负责文档表现形式或样式的定义。</p>
+    <p>作为一门标记性语言，<a href="###" data-toggle="tooltip" data-placement="top" title="Cascading Style Sheets">CSS</a> 的语法相对简单，对使用者的要求较低，但同时也带来一些问题：CSS 需要书写大量看似没有逻辑的代码，不方便维护及扩展，不利于复用，尤其对于非前端开发工程师来讲，往往会因为缺少 CSS 编写经验而很难写出组织良好且易于维护的 CSS 代码，造成这些困难的很大原因源于 CSS 是一门非程序式语言，没有变量、函数、SCOPE（作用域）等概念。LESS 为 Web 开发者带来了福音，它在 CSS 的语法基础之上，引入了变量，Mixin（混入），运算以及函数等功能，大大简化了 CSS 的编写，并且降低了 CSS 的维护成本，就像它的名称所说的那样，LESS 可以让我们用更少的代码做更多的事情。 [2]  </p>
+        </pre>
+    </div>
 </div>
 
 

@@ -28,36 +28,43 @@
         hide: noop,
 
         // Options
-        color: false,
-        flat: false,
-        showInput: false,
-        allowEmpty: false,
-        showButtons: true,
-        clickoutFiresChange: true,
-        showInitial: false,
-        showPalette: false,
-        showPaletteOnly: false,
-        hideAfterPaletteSelect: false,
-        togglePaletteOnly: false,
-        showSelectionPalette: true,
-        localStorageKey: false,
-        appendTo: "body",
-        maxSelectionSize: 7,
-        cancelText: "cancel",
-        chooseText: "choose",
-        togglePaletteMoreText: "more",
-        togglePaletteLessText: "less",
-        clearText: "Clear Color Selection",
+        color: false, //初始化颜色
+        flat: false, //全尺寸, 定位一个inline-block元素
+        showInput: true, //显示输入
+        allowEmpty: false, //允许为空,显示清楚颜色按钮
+        showButtons: true, //隐藏选择取消按钮
+        clickoutFiresChange: true, //单击选择器外部,如果颜色有改变则应用
+        showInitial: true, //显示初始颜色,提供现在选择的颜色和初始颜色对比
+        showPalette: false, //显示选择器面板
+        showPaletteOnly: false, //只显示选择器面板
+        hideAfterPaletteSelect: true, //选择颜色后自动隐藏面板
+        togglePaletteOnly: false, //切换面板
+        showSelectionPalette: true, //记住选择过的颜色
+        localStorageKey: true, //把选择过的颜色存在浏览器上
+        appendTo: "body", //选择选择器容器是附加到哪个元素
+        maxSelectionSize: 7, //记住选择过的颜色的最大数量
+        cancelText: "cancel", //取消按钮,按钮文字
+        chooseText: "choose", //选择按钮,按钮文字
+        togglePaletteMoreText: "more", //展开面板,按钮文字
+        togglePaletteLessText: "less", //收缩面板,按钮文字
+        clearText: "Clear Color Selection", //清楚,按钮文字
         noColorSelectedText: "No Color Selected",
-        preferredFormat: false,
+        preferredFormat: false, //输入框颜色格式,(hex十六进制,hex3十六进制可以的话只显示3位,hsl,rgb三原色,name英文名显示)
         className: "", // Deprecated - use containerClassName and replacerClassName instead.
-        containerClassName: "",
-        replacerClassName: "",
-        showAlpha: false,
+        containerClassName: "", //引用类选择器,可以改变颜色选择器面板的样式
+        replacerClassName: "", //引用类选择器,可以改变颜色选择器的样式
+        showAlpha: true, //显示透明度选择
         theme: "sp-light",
-        palette: [["#ffffff", "#000000", "#ff0000", "#ff8000", "#ffff00", "#008000", "#0000ff", "#4b0082", "#9400d3"]],
+        palette: [
+            ['#ffffff', '#000000', '#eeece1', '#1f497d', '#4f81bd', '#c0504d', '#9bbb59', '#8064a2', '#4bacc6', '#f79646'],
+            ['#f2f2f2', '#7f7f7f', '#ddd9c3', '#c6d9f0', '#dbe5f1', '#f2dcdb', '#ebf1dd', '#e5e0ec', '#dbeef3', '#fdeada'],
+            ['#d8d8d8', '#595959', '#c4bd97', '#8db3e2', '#b8cce4', '#e5b9b7', '#d7e3bc', '#ccc1d9', '#b7dde8', '#fbd5b5'],
+            ['#bfbfbf', '#3f3f3f', '#938953', '#548dd4', '#95b3d7', '#d99694', '#c3d69b', '#b2a2c7', '#92cddc', '#fac08f'],
+            ['#a5a5a5', '#262626', '#494429', '#17365d', '#366092', '#953734', '#76923c', '#5f497a', '#31859b', '#e36c09'],
+            ['#7f7f7f', '#0c0c0c', '#1d1b10', '#0f243e', '#244061', '#632423', '#4f6128', '#3f3151', '#205867', '#974806'],
+        ],//选择器面板颜色设置
         selectionPalette: [],
-        disabled: false,
+        disabled: false,//禁用选择器
         offset: null
     },
     spectrums = [],
@@ -122,8 +129,8 @@
                     "</div>",
                     "<div class='sp-initial sp-thumb sp-cf'></div>",
                     "<div class='sp-button-container sp-cf'>",
-                        "<a class='sp-cancel' href='#'></a>",
-                        "<button type='button' class='sp-choose'></button>",
+                        "<button type='button' class='btn btn-gray btn-sm sp-cancel' href='#'></button>",
+                        "<button type='button' class='btn btn-primary btn-sm sp-choose'></button>",
                     "</div>",
                 "</div>",
             "</div>"
@@ -970,6 +977,7 @@
         };
 
         spect.id = spectrums.push(spect) - 1;
+        container.attr('id', 'spContainer' + spect.id);
 
         return spect;
     }

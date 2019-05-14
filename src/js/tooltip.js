@@ -40,6 +40,8 @@
     delay: 0,
     html: false,
     container: false,
+    skin: false,
+    size: false,
     viewport: {
       selector: 'body',
       padding: 0
@@ -271,9 +273,10 @@
           left: Math.round(props.left)
         })
       }
-    }, offset), 0)
-
-    $tip.addClass('in')
+    }, offset), 0);
+    this.options.skin && $tip.addClass(this.options.skin);
+    this.options.size && $tip.addClass(this.options.size);
+    $tip.addClass('in');
 
     // check to see if placing tip in new offset caused the tip to resize itself
     var actualWidth  = $tip[0].offsetWidth
