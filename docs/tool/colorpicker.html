@@ -47,12 +47,7 @@
                 </li>
                 <li>
                     <p>
-                        <code> data-val="#cc0"</code>：初始化颜色
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <code>&lt;input class="color-input" type="hidden" value="#cc0"&gt;</code>：用来记录当前选择的样式
+                        <code>&lt;input class="color-input" type="hidden" value="#cc0"&gt;</code>：用来记录当前选择的样式，初始化颜色值写在这个<code>value</code>里
                     </p>
                 </li>
             </ol>
@@ -64,21 +59,27 @@
         <h3 class="page-header">颜色选择器大小：</h3>
         <div class="colorpicker-box">
             <div>
-                小：
-                <span class="color-picker-element sm" data-toggle="colorPicker">
-                    <i class="color-i"></i>
-                    <input class="color-input" type="hidden" value="#cc0">
-                </span>
-                默认：
-                <span class="color-picker-element" data-toggle="colorPicker">
-                    <i class="color-i"></i>
-                    <input class="color-input" type="hidden" value="#ccc">
-                </span>
-                大：
-                <span class="color-picker-element lg" data-toggle="colorPicker">
-                    <i class="color-i"></i>
-                    <input class="color-input" type="hidden" value="#c0c">
-                </span>
+                <p>
+                    小：
+                    <span class="color-picker-element sm" data-toggle="colorPicker">
+                        <i class="color-i"></i>
+                        <input class="color-input" type="hidden" value="#cc0">
+                    </span>
+                </p>
+                <p>
+                    默认：
+                    <span class="color-picker-element" data-toggle="colorPicker">
+                        <i class="color-i"></i>
+                        <input class="color-input" type="hidden" value="#ccc">
+                    </span>
+                </p>
+                <p>
+                    大：
+                    <span class="color-picker-element lg" data-toggle="colorPicker">
+                        <i class="color-i"></i>
+                        <input class="color-input" type="hidden" value="#c0c">
+                    </span>
+                </p>
             </div>
         </div>
         <pre class="html" name="pre">
@@ -98,7 +99,18 @@
     <input class="color-input" type="hidden" value="#c0c">
 </span>
         </pre>
-
+        <dl>
+            <dd>
+                <p>可以通过给<code>span</code>元素添加不同class来改变大小：</p>
+                <ol>
+                    <li>
+                        <p>
+                            <code>sm</code>：小选择器，<code>lg</code>：大选择器
+                        </p>
+                    </li>
+                </ol>
+            </dd>
+        </dl>
     </div>
 
 
