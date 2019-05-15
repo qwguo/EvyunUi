@@ -12337,8 +12337,10 @@ $(function () {
                 break;
             case 'colorPicker':
                 (function(){
-                    if(dom.data('val')){
-                        dom.css('background-color', dom.data('val'));
+                    var inputDom = dom.find('input.color-input'),
+                        iDom = dom.find('i.color-i');
+                    if(inputDom.val()){
+                        iDom.css('background-color', inputDom.val());
                     }
                     dom.on('click', function(ev){
                         var $this = $(this),
@@ -12351,12 +12353,12 @@ $(function () {
                             $this.removeData('spectrum.id');
                         }
                         $this.spectrum({
-                            color: $this.data('val'),
+                            color: inputDom.val(),
                             cancelText: "取消",//取消按钮,按钮文字
                             chooseText: "确定",//选择按钮,按钮文字
                             change: function(color){
-                                $this.data('val',color).css('background-color',color.toRgbString());
-                                $this.find('input.clolr-input').val(color.toRgbString()).change();
+                                iDom.css('background-color',color.toRgbString());
+                                inputDom.val(color.toRgbString()).change();
                                 spContainer.length && spContainer.remove();
                             }
                         });
