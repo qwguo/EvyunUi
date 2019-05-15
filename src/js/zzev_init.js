@@ -86,6 +86,9 @@ $(function () {
                 break;
             case 'colorPicker':
                 (function(){
+                    if(dom.data('val')){
+                        dom.css('background-color', dom.data('val'));
+                    }
                     dom.on('click', function(ev){
                         var $this = $(this),
                             spContainer = null;

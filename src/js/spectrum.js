@@ -97,7 +97,7 @@
         }
 
         return [
-            "<div class='sp-container sp-hidden'>",
+            "<div class='sp-container sp-hidden animated'>",
                 "<div class='sp-palette-container'>",
                     "<div class='sp-palette sp-thumb sp-cf'></div>",
                     "<div class='sp-palette-button-container sp-cf'>",
@@ -124,10 +124,10 @@
                         "</div>",
                         "<div class='sp-alpha'><div class='sp-alpha-inner'><div class='sp-alpha-handle'></div></div></div>",
                     "</div>",
-                    "<div class='sp-input-container sp-cf'>",
+                    "<div class='sp-initial sp-thumb sp-cf'></div>",
+                    "<div class='sp-input-container sp-cf input-element'>",
                         "<input class='sp-input' type='text' spellcheck='false'  />",
                     "</div>",
-                    "<div class='sp-initial sp-thumb sp-cf'></div>",
                     "<div class='sp-button-container sp-cf'>",
                         "<button type='button' class='btn btn-gray btn-sm sp-cancel' href='#'></button>",
                         "<button type='button' class='btn btn-primary btn-sm sp-choose'></button>",
@@ -631,7 +631,7 @@
             $(doc).bind("click.spectrum", clickout);
             $(window).bind("resize.spectrum", resize);
             replacer.addClass("sp-active");
-            container.removeClass("sp-hidden");
+            container.removeClass("sp-hidden").addClass('fadeIn');
 
             reflow();
             updateUI();
@@ -678,7 +678,6 @@
 
             replacer.removeClass("sp-active");
             container.addClass("sp-hidden");
-
             callbacks.hide(get());
             boundElement.trigger('hide.spectrum', [ get() ]);
         }

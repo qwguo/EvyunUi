@@ -1,7 +1,7 @@
 @@include('../include/head.html')
 
 <div class="show-colorpicker">
-    <h3 class="page-header">颜色选择器</h3>
+    <h3 class="page-header">基本使用</h3>
     <div class="colorpicker-box">
         <div>
             <span class="color-picker-element" data-toggle="colorPicker" data-val="#cc0" style="background-color:#cc0;">
@@ -10,8 +10,32 @@
         </div>
     </div>
     <pre class="html" name="pre">
+<span class="color-picker-element" data-toggle="colorPicker" data-val="#cc0">
+    <input class="clolr-input" type="hidden" value="#cc0">
+</span>
     </pre>
-
+    <dl>
+        <dd>
+            <p>具体属性有以下：</p>
+            <ol>
+                <li>
+                    <p>
+                        <code>data-toggle="colorPicker"</code>：表示这个是一个颜色选择器组件
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <code> data-val="#cc0"</code>：初始化颜色
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        <code>&lt;input class="clolr-input" type="hidden" value="#cc0"&gt;</code>：用来记录当前选择的样式
+                    </p>
+                </li>
+            </ol>
+        </dd>
+    </dl>
 </div>
 
 <div class="show-colorpicker">
@@ -33,6 +57,18 @@
             </div>
         </div>
         <pre class="html" name="pre">
+<!-- 小： -->
+<span class="color-picker-element sm" data-toggle="colorPicker" data-val="#cc0" style="background-color:#cc0;">
+    <input class="clolr-input" type="hidden" value="#cc0">
+</span>
+<!-- 默认： -->
+<span class="color-picker-element" data-toggle="colorPicker" data-val="#cc0" style="background-color:#cc0;">
+    <input type="hidden" value="#ccc">
+</span>
+<!-- 大： -->
+<span class="color-picker-element lg" data-toggle="colorPicker" data-val="#c0c" style="background-color:#c0c;">
+    <input type="hidden" value="#c0c">
+</span>
         </pre>
 
     </div>
