@@ -489,43 +489,43 @@ mark,
   background-color: #ffd4d4;
 }
 .text-left {
-  text-align: left;
+  text-align: left!important;
 }
 .text-right {
-  text-align: right;
+  text-align: right!important;
 }
 .text-center {
-  text-align: center;
+  text-align: center!important;
 }
 .text-justify {
-  text-align: justify;
+  text-align: justify!important;
 }
 .text-nowrap {
-  white-space: nowrap;
+  white-space: nowrap!important;
 }
 .vertical-baseline {
-  vertical-align: baseline;
+  vertical-align: baseline!important;
 }
 .vertical-sub {
-  vertical-align: sub;
+  vertical-align: sub!important;
 }
 .vertical-super {
-  vertical-align: super;
+  vertical-align: super!important;
 }
 .vertical-top {
-  vertical-align: top;
+  vertical-align: top!important;
 }
 .vertical-text-top {
-  vertical-align: text-top;
+  vertical-align: text-top !important;
 }
 .vertical-middle {
-  vertical-align: middle;
+  vertical-align: middle!important;
 }
 .vertical-bottom {
-  vertical-align: bottom;
+  vertical-align: bottom!important;
 }
 .vertical-text-bottom {
-  vertical-align: text-bottom;
+  vertical-align: text-bottom !important;
 }
 .text-lowercase {
   text-transform: lowercase;
@@ -9343,15 +9343,15 @@ a.thumbnail.active {
   color: #ff5152;
 }
 .radio-element.lg > .dot {
-  width: 25px;
-  height: 25px;
+  width: 26px;
+  height: 26px;
 }
 .radio-element.lg > .radio-label {
   font-size: 14px;
 }
 .radio-element.sm > .dot {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
 }
 .radio-element.sm > .radio-label {
   font-size: 12px;
@@ -9484,9 +9484,9 @@ a.thumbnail.active {
   font-size: 14px;
 }
 .checkbox-element.sm > .dot {
-  width: 15px;
-  height: 15px;
-  line-height: 15px;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
   border-radius: 3px;
   font-size: 10px;
 }
@@ -10736,16 +10736,19 @@ a.thumbnail.active {
   padding: 10px 15px;
   border-radius: 8px;
   font-size: 14px;
+  line-height: 25.2px;
 }
 .tooltip .tooltip-inner {
   padding: 6px 10px;
   border-radius: 6px;
   font-size: 12px;
+  line-height: 21.6px;
 }
 .tooltip.sm .tooltip-inner {
   padding: 3px 8px;
   border-radius: 4px;
   font-size: 12px;
+  line-height: 21.6px;
 }
 .tooltip .tooltip-inner {
   background-color: #37495A;
