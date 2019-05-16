@@ -4142,8 +4142,8 @@ button.close {
 @font-face {
   font-family: 'evicon';
   /* project id 931572 */
-  src: url('//at.alicdn.com/t/font_931572_8mcke2ovogb.eot');
-  src: url('//at.alicdn.com/t/font_931572_8mcke2ovogb.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_8mcke2ovogb.woff2') format('woff2'), url('//at.alicdn.com/t/font_931572_8mcke2ovogb.woff') format('woff'), url('//at.alicdn.com/t/font_931572_8mcke2ovogb.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_8mcke2ovogb.svg#evicon') format('svg');
+  src: url('//at.alicdn.com/t/font_931572_qhq0juffdp.eot');
+  src: url('//at.alicdn.com/t/font_931572_qhq0juffdp.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_931572_qhq0juffdp.woff2') format('woff2'), url('//at.alicdn.com/t/font_931572_qhq0juffdp.woff') format('woff'), url('//at.alicdn.com/t/font_931572_qhq0juffdp.ttf') format('truetype'), url('//at.alicdn.com/t/font_931572_qhq0juffdp.svg#evicon') format('svg');
 }
 .evicon {
   position: relative;
@@ -4155,10 +4155,10 @@ button.close {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.close-eye-1:before {
+.evicon-close-eye-1:before {
   content: "\e61a";
 }
-.open-eye-1:before {
+.evicon-open-eye-1:before {
   content: "\e61b";
 }
 .evicon-refresh-1:before {
@@ -9150,6 +9150,7 @@ a.thumbnail.active {
 .input-element-select.block > .btn {
   display: table-cell;
 }
+/* color */
 /* input element */
 .textarea-element {
   display: inline-block;
@@ -9189,23 +9190,23 @@ a.thumbnail.active {
 }
 .textarea-element > textarea:focus {
   outline: 0;
-  border-color: #0099ff;
+  border-color: #0090FF;
 }
 .textarea-element.disabled > textarea {
-  color: #ddd;
-  background-color: #ddd;
-  border-color: #cccccc;
+  color: #999;
+  background-color: #E9ECEF;
+  border-color: #E9ECEF;
   cursor: not-allowed;
 }
 .textarea-element.warning > textarea {
-  color: #666;
+  color: #FF5151;
   background-color: #fff;
-  border-color: #f01a0b;
+  border-color: #FF5151;
 }
 .textarea-element.success > textarea {
-  color: #666;
+  color: #39CD8B;
   background-color: #fff;
-  border-color: green;
+  border-color: #39CD8B;
 }
 .textarea-element.no-resize textarea {
   resize: none;
