@@ -59,11 +59,13 @@
           });
         });
     </script>
-    <pre class="js" name="pre">
+    <pre class="html" name="pre">
 //html代码
-&lt;button type="button" id="fun_alert_1" class="btn btn-primary"&gt;
-  <span>调用方法弹出提示框</span>
-&lt;/button&gt;
+<button type="button" id="fun_alert_1" class="btn btn-primary">
+    <span>默认提示框</span>
+</button>
+    </pre>
+    <pre class="js" name="pre">
 //js代码
 $('#fun_alert_1').on('click', function(){
   $.evPopupAlert({

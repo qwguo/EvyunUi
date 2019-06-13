@@ -123,6 +123,21 @@ $(function () {
                     });
                 }());
             break;
+            case 'dropdown':
+                (function(){
+                    if(domDate.type == 'select'){
+                        var v = dom.find('input[type="hidden"]').val(),
+                            input = dom.find('input[type="text"]');
+                        v && dom.siblings('.option-list').find('dd').each(function(i_, d){
+                            d = $(d);
+                            if(d.data('value') == v){
+                                input.val(d.attr('title'));
+                                return false;
+                            }
+                        });
+                    }
+                }());
+                break;
         }
     });
 });
