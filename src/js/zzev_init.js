@@ -131,6 +131,7 @@ $(function () {
                         v && dom.siblings('.option-list').find('dd').each(function(i_, d){
                             d = $(d);
                             if(d.data('value') == v){
+                                d.addClass('active');
                                 input.val(d.attr('title'));
                                 return false;
                             }
