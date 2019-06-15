@@ -100,7 +100,9 @@
                 cursor: 'move'
             }).mousedown(function (e) {
                 isDown = true;
-                moveLayer = $('<div />', {class:'move-layer'});
+                moveLayer = $('<div />', {
+                    class: 'move-layer'
+                });
                 element.after(moveLayer);
 
                 X = e.pageX;
@@ -114,7 +116,6 @@
                 element.addClass('on');
                 fun.dragStart(parseInt(element.css('left')), parseInt(element.css('top')));
                 jqDocument = $(document);
-                // console.log(jqDocument);
                 jqDocument.on('mouseup.popupDrag', function (e) {
                     moveLayer && moveLayer.remove();
                     fun.dragEnd(parseInt(element.css('left')), parseInt(element.css('top')));
@@ -125,15 +126,6 @@
                 jqDocument.on('mousemove.popupDrag', function (e) {
                     moveX = $this.x + e.pageX - X;
                     moveY = $this.y + e.pageY - Y;
-                    /* console.log(moveX);
-                    console.log(moveY);
-                    console.log($this.x);
-                    console.log($this.y);
-                    console.log(X);
-                    console.log(Y);
-                    console.log($this.marginL);
-                    console.log($this.marginT);
-                    console.log('---------------------'); */
                     function thisXMove() { //x轴移动
                         if (isDown) {
                             element.css({

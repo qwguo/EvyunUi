@@ -238,7 +238,7 @@
                 setTimeout(function () {
                     that.popupCountWH();
                     that.popupOffset();
-                    // that.popupDrag();
+                    that.popupDrag();
 
                     if (j.size.full) {
                         that.popupMax();
@@ -595,7 +595,7 @@
             }
         }
         j.animate && (j_.animate = j.animate);
-        j.closeCallBack && (j_.closeCallBack = j_.closeCallBack);
+        j.closeCallBack && (j_.closeCallBack = j.closeCallBack);
         j.styleCss && (j_.styleCss = j.styleCss);
         return new Popup(j_);
     };
