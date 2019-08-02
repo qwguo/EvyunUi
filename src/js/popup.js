@@ -238,10 +238,10 @@
                 setTimeout(function () {
                     that.popupCountWH();
                     that.popupOffset();
-                    that.popupDrag();
-
                     if (j.size.full) {
                         that.popupMax();
+                    }else{
+                        that.popupDrag();
                     }
                 });
             }());
@@ -332,9 +332,10 @@
                             if (!j.size.full) {
                                 iframes.css({
                                     "width": (j.size.width === 'auto' ? iframeW : j.size.width) + "px",
-                                    "height": (j.size.height === 'auto' ? iframeW : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() : 0))) + "px"
+                                    "height": (j.size.height === 'auto' ? iframeH : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() : 0))) + "px"
                                 });
                             } else {
+                                console.log(222);
                                 iframes.css({
                                     width: '100%',
                                     height: that.popup.height() - (j.head ? that.popup.find('.popup-head').outerHeight() : 0) + 'px'

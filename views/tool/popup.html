@@ -883,14 +883,16 @@ $('#fun_iframe_1').on('click', function(){
         window.parent.$.evPopupIframe({
           head:'这是弹窗标题',
           src:'tool/popup_iframe.html',
-          width:800,
-          height: 500,
+          width:'auto',
+          height: 'auto',
+          full:1,
           win: window,
           closeCallBack: function(){
             $.evPopupPoint({hint:'关闭的回调函数', icon:3});
           }
         });
       });
+
     </script>
     <pre class="js" name="pre">
 // html代码
