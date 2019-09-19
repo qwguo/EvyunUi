@@ -335,7 +335,6 @@
                                     "height": (j.size.height === 'auto' ? iframeH : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() : 0))) + "px"
                                 });
                             } else {
-                                console.log(222);
                                 iframes.css({
                                     width: '100%',
                                     height: that.popup.height() - (j.head ? that.popup.find('.popup-head').outerHeight() : 0) + 'px'

@@ -4047,7 +4047,6 @@ and dependencies (minified).
                                     "height": (j.size.height === 'auto' ? iframeH : (j.size.height - (j.head ? that.popup.find('.popup-head').outerHeight() : 0))) + "px"
                                 });
                             } else {
-                                console.log(222);
                                 iframes.css({
                                     width: '100%',
                                     height: that.popup.height() - (j.head ? that.popup.find('.popup-head').outerHeight() : 0) + 'px'
@@ -12255,20 +12254,20 @@ and dependencies (minified).
         winName = window.name;
     if (winName === 'navigate_iframe') {
         var htmlDom = $('html'),
+            winPHeight = $(winP).height(),
             iframe = $('iframe[name="' + winName + '"]', winP.document);
         iframe.closest('.admin_main').addClass('new-admin-main');
         var realTime = function () {
             var h_ = htmlDom.height(),
                 h = htmlDom.data('h');
             if (h_ !== h) {
+                (h_ < winPHeight) && (h_ = winPHeight);
                 htmlDom.data('h', h_);
                 iframe.length && iframe.height(h_);
             }
             setTimeout(realTime, 100);
         };
         realTime();
-        /* if(iframe.attr('onload') !== 'SetWinHeight()'){
-        } */
     }
 }());
 $(function () {
