@@ -3621,7 +3621,16 @@ and dependencies (minified).
                             } else {
                                 curItem.addClass('active').siblings('.active').removeClass('active');
                                 $this.find('input[type="hidden"]').val(curItem.attr('data-value')).change();
-                                $this.find('input[type="text"]').val(cTargetDom.text()).change();
+                                $this.find('input[type="text"]').val(cTargetDom.text()).prop('value',cTargetDom.text()).attr('value',cTargetDom.text()).change();
+                                console.log($this.find('input[type="hidden"]'));
+                                console.log($this.find('input[type="text"]'));
+                                console.log($this.find('input[type="hidden"]').val());
+                                console.log($this.find('input[type="hidden"]').prop('value'));
+                                console.log($this.find('input[type="hidden"]').attr('value'));
+                                console.log($this.find('input[type="text"]').val());
+                                console.log($this.find('input[type="text"]').prop('value'));
+                                console.log($this.find('input[type="text"]').attr('value'));
+
                             }
                         }
                     }
