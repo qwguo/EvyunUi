@@ -3518,10 +3518,8 @@ and dependencies (minified).
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 + function ($) {
     'use strict';
-
     // DROPDOWN CLASS DEFINITION
     // =========================
 
