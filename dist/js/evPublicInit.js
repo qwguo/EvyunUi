@@ -3622,7 +3622,7 @@ and dependencies (minified).
                                 curItem.addClass('active').siblings('.active').removeClass('active');
                                 $this.find('input[type="hidden"]').val(curItem.attr('data-value')).change();
                                 textVal = cTargetDom.attr('title') || cTargetDom.text().trim();
-                                $this.find('input[type="text"]').val(textVal).prop('value',textVal).attr('value',textVal).change();
+                                $this.find('input[type="text"]').val(textVal).prop('value', textVal).attr('value', textVal).change();
                             }
                         }
                     }
