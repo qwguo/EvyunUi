@@ -96,18 +96,21 @@
                 $parent.data('selectClick', 1);
                 $parent.on('click.dropdown.select', function (ev) {
                     var cTargetDom = $(ev.target),
-                        curItem = cTargetDom.closest('dd');
+                        curItem = cTargetDom.closest('dd'),
+                        textVal = '';
                     if (curItem.length) {
                         if (curItem.hasClass('disabled')) {
                             ev.stopPropagation();
                         } else {
                             if ($this.attr('data-multiple') * 1) {
+                                textVal = cTargetDom.attr('title') || cTargetDom.text().trim();
                                 $this.find('input[type="hidden"]').val(curItem.attr('data-value')).change();
-                                $this.find('input[type="text"]').val(cTargetDom.text()).change();
+                                $this.find('input[type="text"]').val(textVal).change();
                             } else {
                                 curItem.addClass('active').siblings('.active').removeClass('active');
                                 $this.find('input[type="hidden"]').val(curItem.attr('data-value')).change();
-                                $this.find('input[type="text"]').val(cTargetDom.text()).prop('value',cTargetDom.text()).attr('value',cTargetDom.text()).change();
+                                textVal = cTargetDom.attr('title') || cTargetDom.text().trim();
+                                $this.find('input[type="text"]').val(textVal).prop('value',textVal).attr('value',textVal).change();
                             }
                         }
                     }
