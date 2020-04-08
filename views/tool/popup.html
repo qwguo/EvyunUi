@@ -1036,13 +1036,15 @@ $('#fun_iframe_2').on('click', function(){
                 opBtn: {
                     close: 1,
                     min: {
-                        callBack: function () {
+                        callBack: function (obj) {
+                            // obj 当前窗口对象
                             window.parent.$.evPopupPoint({
                                 hint: '窗口已最小化',
                                 icon: 1
                             });
                         },
-                        origCallBack: function(){
+                        origCallBack: function(obj){
+                            // obj 当前窗口对象
                             window.parent.$.evPopupPoint({
                                 hint: '窗口已还原',
                                 icon: 1
@@ -1099,18 +1101,22 @@ p_alert = window.parent.$.evPopup({
   opBtn: {
       close: 1,
       min: {
-            callBack: function(){
+            callBack: function(obj){
+                // obj 当前窗口对象
                 console.log('最小化后回调')
             },
-            origCallBack: function(){
+            origCallBack: function(obj){
+                // obj 当前窗口对象
                 console.log('最小化还原后回调')
             }
         },
       max: {
-            callBack: function(){
+            callBack: function(obj){
+                // obj 当前窗口对象
                 console.log('最大化后回调')
             },
-            origCallBack: function(){
+            origCallBack: function(obj){
+                // obj 当前窗口对象
                 console.log('最大化还原后回调')
             }
         }

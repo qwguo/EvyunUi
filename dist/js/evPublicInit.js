@@ -4169,7 +4169,7 @@ and dependencies (minified).
             });
             that.popupStatus = 'min';
             if(typeof j.opBtn.min === 'object'){
-                j.opBtn.min.callBack && j.opBtn.min.callBack();
+                j.opBtn.min.callBack && j.opBtn.min.callBack(that);
             }
             that.popupShade && that.popupShade.hide();
         },
@@ -4185,7 +4185,7 @@ and dependencies (minified).
             });
             that.popupStatus = 'max';
             if(typeof j.opBtn.max === 'object'){
-                j.opBtn.max.callBack && j.opBtn.max.callBack();
+                j.opBtn.max.callBack && j.opBtn.max.callBack(that);
             }
             that.popupShade && that.popupShade.show();
         },
@@ -4200,13 +4200,13 @@ and dependencies (minified).
                 case 'min':
                     that.popup.removeClass('popup-size-min');
                     if(typeof j.opBtn.min === 'object'){
-                        j.opBtn.min.origCallBack && j.opBtn.min.origCallBack();
+                        j.opBtn.min.origCallBack && j.opBtn.min.origCallBack(that);
                     }
                     break;
                 case 'max':
                     that.popup.removeClass('popup-size-max');
                     if(typeof j.opBtn.max === 'object'){
-                        j.opBtn.max.origCallBack && j.opBtn.max.origCallBack();
+                        j.opBtn.max.origCallBack && j.opBtn.max.origCallBack(that);
                     }
                     break;
             }
