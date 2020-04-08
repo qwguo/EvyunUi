@@ -3717,49 +3717,49 @@ and dependencies (minified).
         var that = this;
         that.topWindow = window.top;
         that.topDocument = window.top.document;
+        // 弹窗默认值
+        var jd = {
+            addTarget: $('body'),
+            type: 1,
+            subType: 0,
+            win: window,
+            className: "",
+            shade: {
+                bgColor: '#000000',
+                opacity: 0.5,
+                close: false
+            },
+            size: {
+                full: 0,
+                width: 'auto',
+                height: 'auto'
+            },
+            position: {
+                fixed: 1,
+                pos: 'm-c'
+            },
+            animate: ['zoomIn', 'zoomOut'],
+            autoClose: false,
+            move: 0,
+            head: '默认标题',
+            opBtn: {
+                close: 1,
+                min: 1,
+                max: 1
+            },
+            con: {
+                html: "提示信息",
+                icon: 1,
+                src: null,
+                btn: null
+            },
+            closeCallBack: null,
+            styleCss: null
+        };
         if (j_) {
-            var jd = {
-                addTarget: $('body'),
-                type: 1,
-                subType: 0,
-                win: window,
-                className: "",
-                shade: {
-                    bgColor: '#000000',
-                    opacity: 0.5,
-                    close: false
-                },
-                size: {
-                    full: 0,
-                    width: 'auto',
-                    height: 'auto'
-                },
-                position: {
-                    fixed: 1,
-                    pos: 'm-c'
-                },
-                animate: ['zoomIn', 'zoomOut'],
-                autoClose: false,
-                move: 0,
-                head: '默认标题',
-                opBtn: {
-                    close: 1,
-                    min: 1,
-                    max: 1
-                },
-                con: {
-                    html: "提示信息",
-                    icon: 1,
-                    src: null,
-                    btn: null
-                },
-                closeCallBack: null,
-                styleCss: null
-            };
-            j_.addTarget = j_.addTarget || $('body');
             that.j = $.extend(true, {}, jd, j_);
-            that.createDom();
         }
+        that.createDom();
     };
     Popup.prototype = {
         constructor: Popup,
@@ -3857,7 +3857,8 @@ and dependencies (minified).
             if (j.opBtn) {
                 popupOpArray.push('<div class="popup-option">');
                 !!j.opBtn.min && popupOpArray.push('<i class="evicon evicon-resize-xs-1" data-action="min" title="最小化"></i>');
-                !!j.opBtn.max && popupOpArray.push('<i class="evicon evicon-resize-lg-1" data-action="max" title="最大化"></i><i class="evicon evicon-resize-orig-1" data-action="orig" title="还原"></i>');
+                !!j.opBtn.max && popupOpArray.push('<i class="evicon evicon-resize-lg-1" data-action="max" title="最大化"></i>');
+                (!!j.opBtn.min || !!j.opBtn.max)  && popupOpArray.push('<i class="evicon evicon-resize-orig-1" data-action="orig" title="还原"></i>');
                 !!j.opBtn.close && popupOpArray.push('<i class="evicon evicon-close-1" data-action="close" title="关闭"></i>');
                 popupOpArray.push('</div>');
             }
@@ -3923,6 +3924,7 @@ and dependencies (minified).
                 });
                 j.animate && j.animate.length && that.popup.attr('data-animated', j.animate.join());
                 that.popup.appendTo(j.addTarget);
+                that.popupStatus = 'default';
                 that.popup.on({
                     'click': function () {
                         var targetDom = $(this);
@@ -3958,7 +3960,7 @@ and dependencies (minified).
                     }
                 });
             }());
-            if (!isNaN(j.autoClose) && (typeof (j.autoClose) === 'string' || typeof (j.autoClose) === 'number')) {
+            if (!isNaN(j.autoClose) && (typeof j.autoClose === 'string' || typeof j.autoClose === 'number')) {
                 setTimeout(function () {
                     that.popupClose();
                 }, j.autoClose * 1000);
@@ -4165,26 +4167,50 @@ and dependencies (minified).
             that.popup.addClass('popup-size-min').removeClass('popup-size-max').attr({
                 'style': newStyle
             });
+            that.popupStatus = 'min';
+            if(typeof j.opBtn.min === 'object'){
+                j.opBtn.min.callBack && j.opBtn.min.callBack();
+            }
             that.popupShade && that.popupShade.hide();
         },
         // 最大化弹窗
         popupMax: function () {
-            var that = this;
+            var that = this,
+                j = that.j;
             !that.originStyle && (that.originStyle = that.popup.attr('style'));
             var zIndex = that.popup.css('z-index'),
                 newStyle = 'z-index:' + zIndex + ';';
             that.popup.addClass('popup-size-max').removeClass('popup-size-min').attr({
                 'style': newStyle
             });
+            that.popupStatus = 'max';
+            if(typeof j.opBtn.max === 'object'){
+                j.opBtn.max.callBack && j.opBtn.max.callBack();
+            }
             that.popupShade && that.popupShade.show();
         },
         // 还原弹窗
         popupOrig: function () {
             var that = this,
                 j = that.j;
-            that.popup.removeClass('popup-size-max popup-size-min').attr({
+            that.popup.attr({
                 'style': that.originStyle
             });
+            switch(that.popupStatus){
+                case 'min':
+                    that.popup.removeClass('popup-size-min');
+                    if(typeof j.opBtn.min === 'object'){
+                        j.opBtn.min.origCallBack && j.opBtn.min.origCallBack();
+                    }
+                    break;
+                case 'max':
+                    that.popup.removeClass('popup-size-max');
+                    if(typeof j.opBtn.max === 'object'){
+                        j.opBtn.max.origCallBack && j.opBtn.max.origCallBack();
+                    }
+                    break;
+            }
+            that.popupStatus = 'default';
             that.popupShade && that.popupShade.show();
             if (j.size.full && j.opBtn && j.opBtn.max) {
                 that.popupOffset();
@@ -4468,6 +4494,9 @@ and dependencies (minified).
         j.src && (j_.con.src = j.src);
         if (j.shade != undefined) {
             j_.shade = j.shade ? $.extend(true, {}, j_.shade, j.shade) : j.shade;
+        }
+        if (j.opBtn != undefined) {
+            j_.opBtn = $.extend(true, {}, j_.opBtn, j.opBtn);
         }
         j.styleCss && (j_.styleCss = j.styleCss);
         j.animate && (j_.animate = j.animate);
