@@ -12385,6 +12385,7 @@ $(function () {
                             color: inputDom.val(),
                             cancelText: "取消",//取消按钮,按钮文字
                             chooseText: "确定",//选择按钮,按钮文字
+                            preferredFormat: "rgba",
                             change: function(color){
                                 iDom.css('background-color',color.toRgbString());
                                 inputDom.val(color.toRgbString()).change();
