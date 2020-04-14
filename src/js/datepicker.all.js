@@ -655,7 +655,7 @@
                             existDate = temp;
                         }
                         _this.current = 2;
-                        _this.picker.$inputBegin.val(existDate);
+                        _this.picker.$inputBegin.val(existDate).trigger('change');
                         _this.picker.$inputEnd.val(inputVal).trigger('change');
                         _this.picker.datePickerObject.hide(_this.picker.$inputBegin, _this.picker.$inputEnd);
                     } else {
@@ -1741,7 +1741,7 @@
                         end = end.split(' ')[0] + ' ' + times[1];
                     }
                 }
-                _this.$inputBegin.val(begin);
+                _this.$inputBegin.val(begin).trigger('change');
                 _this.$inputEnd.val(end).trigger('change');
                 _this.datePickerObject.hide();
             });
@@ -1759,7 +1759,7 @@
                     start += ' ' + $times.eq(0).val();
                     end += ' ' + $times.eq(1).val();
                 }
-                _this.$inputBegin.val(start);
+                _this.$inputBegin.val(start).trigger('change');
                 _this.$inputEnd.val(end).trigger('change');
                 _this.datePickerObject.hide();
             });
@@ -1826,7 +1826,7 @@
             this.$container.show();
         },
         clear: function () {
-            this.$inputBegin.val('');
+            this.$inputBegin.val('').trigger('change');
             this.$inputEnd.val('').trigger('change');
             this.$container.find('.c-datePicker__input-day,.c-datePicker__input-time').val('');
             this.$container.find('td.available').removeClass('current in-range');
