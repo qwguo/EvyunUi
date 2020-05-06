@@ -9272,6 +9272,9 @@ and dependencies (minified).
 
             this.$container.on('click', '.c-datepicker-picker__btn-now', function () {
                 var _this = API.getPicker($(this));
+                if(_this.config.min && moment(moment().format(_this.config.format)).isBefore(_this.config.min)){
+                    return
+                }
                 setValue(_this, moment().format(_this.config.format));
                 _this.datePickerObject.hide();
             });
